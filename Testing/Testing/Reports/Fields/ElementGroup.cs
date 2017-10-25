@@ -33,7 +33,7 @@ namespace Testing.Reports
         {
             get
             {
-                IReportField[] array = new IReportField[elements.Count];
+                IReportElement[] array = new IReportElement[elements.Count];
                 elements.Values.CopyTo(array, 0);
                 return array;
             }
@@ -123,7 +123,7 @@ namespace Testing.Reports
             sb.AppendLine("- - - - - - - - - - - - - - ");
             sb.AppendLine("fields:");
 
-            foreach (IReportField field in this.elementArray)
+            foreach (IReportElement field in this.elementArray)
                 sb.AppendLine(field.ToString());
 
             return sb.ToString();

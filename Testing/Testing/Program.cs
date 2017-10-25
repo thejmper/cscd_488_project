@@ -44,15 +44,17 @@ namespace Testing
         {
             ElementGroup testGroup = new ElementGroup("TestGroup");
 
-            IReportField bool1 = new FieldBoolean("bool1", false);
-            IReportField bool2 = new FieldBoolean("bool2", true);
-            IReportField bool3 = new FieldBoolean("bool3", false);
+            IReportElement bool1 = new FieldBoolean("bool1", false);
+            IReportElement bool2 = new FieldBoolean("bool2", true);
+            IReportElement bool3 = new FieldBoolean("bool3", false);
 
-            IReportField specialBool = new FieldBooleanDescription("specialBool", "bool tooltop!", false);
-            IReportField specialBool2 = new FieldBooleanDescription("specialBool2", "bool tooltop!", false);
+            IReportElement specialBool = new FieldBooleanDescription("specialBool", "bool tooltop!", false);
+            IReportElement specialBool2 = new FieldBooleanDescription("specialBool2", "bool tooltop!", false);
 
             IReportField textField = new FieldString("textField");
             textField.SetData("This is some text for the text field!");
+
+            IReportElement comment = new ElementComment("comment1", "This is a comment text block!");
 
             testGroup.AddElement(bool1);
             testGroup.AddElement(bool2);
@@ -62,6 +64,7 @@ namespace Testing
             testGroup.AddElement(specialBool2);
 
             testGroup.AddElement(textField);
+            testGroup.AddElement(comment);
 
             return testGroup;
         }
@@ -69,42 +72,4 @@ namespace Testing
 }
 
 
-/*
-//get a working directory to put testing files into.
-string workingDirectory = AppDomain.CurrentDomain.BaseDirectory;
-workingDirectory = Path.Combine(workingDirectory, "testXML");
 
-Console.WriteLine("Working directory: " + workingDirectory);
-Console.WriteLine("All .xml files will be read from and written to that directory.");
-
-Console.WriteLine("\n");
-IReportField boolField = new FieldBoolean("testField", false);
-IReportField specialBoolean = new FieldBooleanDescription("secondTest", "a boolean field with a summary for the user", false);
-
-//testing setter
-boolField.SetData(true);
-specialBoolean.SetData(true);
-//testing string setter
-boolField.SetData("true");
-
-Console.WriteLine("Initial Value: " + boolField.ToString());
-
-//now serialize!
-//you could also use typeof(FieldBoolean) but that wouldn't work for multiple fields
-XmlSerializer ser = new XmlSerializer(specialBoolean.GetType());
-using(TextWriter writer = new StreamWriter(workingDirectory + @"\test.xml"))
-{
-    ser.Serialize(writer, specialBoolean);
-}
-Console.WriteLine("\nFinished write! Check "+ workingDirectory + " for a file named test.xml");
-
-Console.WriteLine("\nNow it's time to read!");
-
-IReportField readField;
-using(TextReader reader = new StreamReader(workingDirectory + @"\test.xml"))
-{
-    readField = (FieldBooleanDescription)ser.Deserialize(reader);
-}
-
-Console.WriteLine("read in: " + readField.ToString());
-*/
