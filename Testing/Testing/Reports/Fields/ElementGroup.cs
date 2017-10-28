@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
-using Testing.Reports.Fields;
 
-namespace Testing.Reports
+namespace Testing.Reports.Fields
 {
     /// <summary>
     /// group or more than one element
@@ -18,7 +16,7 @@ namespace Testing.Reports
         /// <summary>
         /// name of this group of fields
         /// </summary>
-        public string name { get; private set; }
+        public string name { get; protected set; }
        
         public IReportElement[] elements { get; private set; }
 
@@ -42,7 +40,20 @@ namespace Testing.Reports
             this.name = "UNTITLED";
             this.elements = new IReportElement[0];
         }
+        public virtual IReportElement Clone(string name)
+        {
+            ElementGroup clone = new ElementGroup(name);
+            for(int i = 0; i < this.elements.Length; i++)
+            {
+                clone.AddElementInternal(this.elements[i].Clone());
+            }
 
+            return clone;
+        }
+        public virtual IReportElement Clone()
+        {
+            return this.Clone(this.name);
+        }
         //--setters--//
         /// <summary>
         /// adds a field to this report, if its ID isn't already in use.
@@ -80,6 +91,7 @@ namespace Testing.Reports
 
                 this.AddElementInternal(element);
             }
+
             reader.ReadEndElement();
             //now we're done with the fields.
         }

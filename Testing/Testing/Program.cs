@@ -10,8 +10,45 @@ namespace Testing
     {
         static void Main(string[] args)
         {
-            TestGroup();
+            TestForm();
         }
+        private static void TestForm()
+        {
+            CaseFile caseFile = new CaseFile("case00001", "Steve's assisted living", 00004);
+            Report report = caseFile.AddReport("kenny00001", "kenny");
+            Form form = report.AddForm(new Form("formA"));
+
+
+            Console.WriteLine("> :" + form);
+
+            return;
+            /*
+            string dir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "testXML");
+
+            XmlSerializer ser = new XmlSerializer(testForm.GetType());
+            using (TextWriter writer = new StreamWriter(dir + @"\groupTest.xml"))
+            {
+                ser.Serialize(writer, testForm);
+            }
+
+            Console.WriteLine("\n    >done!");
+            Console.WriteLine("    >Now reading from file!");
+
+            IReportElement readField;
+            using (TextReader reader = new StreamReader(dir + @"\groupTest.xml"))
+            {
+                readField = (IReportElement)ser.Deserialize(reader);
+            }
+
+            Console.WriteLine(readField);
+            */
+        }
+
+
+
+
+
+
         private void TestRadioField()
         {
             string[] radioOptions = { "op1", "op2", "op3", "op3" };
@@ -70,8 +107,11 @@ namespace Testing
 
             IReportElement comment = new ElementComment("comment1", "This is a comment text block!");
 
-            IReportField intField1 = new FieldInteger("intField1");
+            IReportField intField1 = new FieldIntegerDescription("intField1", "int field description");
             intField1.SetData(5);
+
+            IReportElement specialString = new FieldStringDescription("specialString", "field Description");
+
 
             IReportField intField2 = new FieldInteger("intField2");
             intField2.SetData("41");
@@ -80,9 +120,13 @@ namespace Testing
             FieldRadio radioTest = new FieldRadio("radioTest", radioOptions);
             radioTest.SetData("op3");
 
-            testGroup.AddElement(bool1);
-            testGroup.AddElement(bool2);
-            testGroup.AddElement(bool3);
+            string[] listOptions = { "li1", "li2", "li3", "li4" };
+            FieldList listTest = new FieldList("listTest", listOptions);
+            listTest.SetData("li2");
+
+
+
+
 
             testGroup.AddElement(specialBool);
             testGroup.AddElement(specialBool2);
@@ -93,7 +137,15 @@ namespace Testing
             testGroup.AddElement(intField1);
             testGroup.AddElement(intField2);
 
+            testGroup.AddElement(specialString);
+
             testGroup.AddElement(radioTest);
+
+            testGroup.AddElement(listTest);
+
+            testGroup.AddElement(bool1);
+            testGroup.AddElement(bool2);
+            testGroup.AddElement(bool3);
 
             return testGroup;
         }

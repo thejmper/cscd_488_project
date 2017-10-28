@@ -7,6 +7,7 @@ namespace Testing.Reports.Fields
     public class FieldRadio: ElementGroup, IReportField
     {
         //--member fields--//
+        public bool isReadOnly { get; set; }
         /// <summary>
         /// public delegate for event stuff
         /// </summary>
@@ -39,6 +40,19 @@ namespace Testing.Reports.Fields
         {
             this.options = new string[0];
             this.selected = -1;
+        }
+
+        public override IReportElement Clone(string name)
+        {
+            FieldRadio clone = new FieldRadio(name, this.options);
+            clone.selected = this.selected;
+
+            return clone;
+
+        }
+        public override IReportElement Clone()
+        {
+            return this.Clone(this.name);
         }
 
         //--data management--//
@@ -89,6 +103,9 @@ namespace Testing.Reports.Fields
         public override void WriteXml(XmlWriter writer)
         {
             base.WriteXml(writer);
+            string readOnlyString = isReadOnly ? Boolean.TrueString : Boolean.FalseString;
+            writer.WriteElementString("isReadOnly", readOnlyString);
+
             writer.WriteElementString("selected", this.selected.ToString());
 
             writer.WriteStartElement("options");
@@ -97,10 +114,12 @@ namespace Testing.Reports.Fields
                     writer.WriteElementString("option", option);
                 }
             writer.WriteEndElement();
+            
         }
         public override void ReadXml(XmlReader reader)
         {
             base.ReadXml(reader);
+            this.isReadOnly = Boolean.Parse(reader.ReadElementContentAsString());
             this.selected = Int32.Parse(reader.ReadElementContentAsString());
 
             //now read the option strings
@@ -112,6 +131,7 @@ namespace Testing.Reports.Fields
                 optionList.Add(reader.ReadElementContentAsString());                
             }
             this.options = optionList.ToArray();
+            reader.ReadEndElement();
             reader.ReadEndElement();
         }
     }

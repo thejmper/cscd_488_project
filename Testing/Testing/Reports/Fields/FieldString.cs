@@ -7,11 +7,12 @@ namespace Testing.Reports.Fields
     public class FieldString : IReportField
     {
         //--member fields--//
+        public bool isReadOnly { get; set; }
         public DataChangedDelegate onDataChanged { get; set; }
         /// <summary>
         /// name of this field
         /// </summary>
-        public string name { get; private set; }
+        public string name { get; protected set; }
 
         /// <summary>
         /// internal string data of this field!
@@ -23,11 +24,21 @@ namespace Testing.Reports.Fields
         {
             this.name = name;
         }
-        private FieldString()
+        protected FieldString()
         {
             this.name = "UNNAMED";
         }
+        public virtual IReportElement Clone(string name)
+        {
+            FieldString clone = new FieldString(this.name);
+            clone.SetData(this.data);
 
+            return clone;
+        }
+        public virtual IReportElement Clone()
+        {
+            return this.Clone(this.name);
+        }
         //--getters/setters--//
         public object GetData()
         {
@@ -55,20 +66,25 @@ namespace Testing.Reports.Fields
         }
         
         //--save/load--//
-        public void ReadXml(XmlReader reader)
+        public virtual void ReadXml(XmlReader reader)
         {
             reader.ReadStartElement();
 
             this.name = reader.ReadElementContentAsString();
+            this.isReadOnly = Boolean.Parse(reader.ReadElementContentAsString());
             this.data = reader.ReadElementContentAsString();
 
             reader.ReadEndElement();
         }
 
-        public void WriteXml(XmlWriter writer)
+        public virtual void WriteXml(XmlWriter writer)
         {
             writer.WriteAttributeString("type", this.GetType().FullName);
             writer.WriteElementString("name", this.name);
+
+            string readOnlyString = isReadOnly ? Boolean.TrueString : Boolean.FalseString;
+            writer.WriteElementString("isReadOnly", readOnlyString);
+
             writer.WriteElementString("data", this.data);
         }
 

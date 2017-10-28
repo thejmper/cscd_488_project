@@ -4,7 +4,7 @@ using System.Xml.Schema;
 
 namespace Testing.Reports.Fields
 {
-    public class FieldBoolean : IReportField
+    public class FieldDateTime : IReportField
     {
         //--member fields--//
         public bool isReadOnly { get; set; }
@@ -14,10 +14,13 @@ namespace Testing.Reports.Fields
         /// </summary>
         public string name { get; protected set; }
 
+        public string desctription { get; private set; }
+
         /// <summary>
         /// data contained in this field
         /// </summary>
-        protected bool data;
+        protected DateTime data;
+
 
 
         //--construction--//
@@ -26,23 +29,24 @@ namespace Testing.Reports.Fields
         /// </summary>
         /// <param name="name"></param>
         /// <param name="initialValue"></param>
-        public FieldBoolean(string name, bool initialValue)
+        public FieldDateTime(string name, DateTime initialValue, string description="")
         {
             this.name = name;
             this.data = initialValue;
+            this.desctription = desctription;
         }
         /// <summary>
         /// private constructor used for serialization
         /// </summary>
-        protected FieldBoolean()
+        protected FieldDateTime()
         {
             this.name = "PLACEHOLDER NAME";
-            this.data = false;
+            this.data = new DateTime();
         }
-        
+
         public virtual IReportElement Clone(string name)
         {
-            FieldBoolean clone = new FieldBoolean(name, false);
+            FieldDateTime clone = new FieldDateTime(name, new DateTime());
             clone.SetData(this.data);
 
             return clone;
@@ -51,32 +55,32 @@ namespace Testing.Reports.Fields
         {
             return this.Clone(this.name);
         }
-        
+
         //--getters and setters--//
         public void SetData(object data)
         {
             try
             {
-                this.data = (bool)data;
+                this.data = (DateTime)data;
                 if (this.onDataChanged != null)
                     this.onDataChanged.Invoke(this, this.data);
             }
             catch (Exception)
             {
-                throw new ArgumentException("Cannot parse " + data + " to boolean!");
+                throw new ArgumentException("Cannot cast " + data + " to date time!");
             }
         }
         public void SetData(string data)
         {
             try
             {
-                this.data = Convert.ToBoolean(data);
+                this.data = DateTime.Parse(data);
                 if (this.onDataChanged != null)
                     this.onDataChanged.Invoke(this, this.data);
             }
             catch (FormatException)
             {
-                throw new ArgumentException("Cannot parse input " + data + " to boolean!");
+                throw new ArgumentException("Cannot parse input " + data + " to DateTime!");
             }
         }
         public object GetData()
@@ -96,8 +100,8 @@ namespace Testing.Reports.Fields
             this.name = reader.ReadElementContentAsString();
             this.isReadOnly = Boolean.Parse(reader.ReadElementContentAsString());
 
-            this.data = Boolean.Parse(reader.ReadElementContentAsString());
-
+            this.data = DateTime.Parse(reader.ReadElementContentAsString());
+            this.desctription = reader.ReadElementContentAsString();
             reader.ReadEndElement();
         }
         /// <summary>
@@ -114,10 +118,10 @@ namespace Testing.Reports.Fields
 
 
             //bools are picky about how you set their string form, so I did it here.
-            string dataString = data ? Boolean.TrueString : Boolean.FalseString;
-            writer.WriteElementString("data", dataString);
+            writer.WriteElementString("data", data.ToString());
+            writer.WriteElementString("description", this.desctription);
         }
-        
+
         /// <summary>
         /// get schema. By convention, this always retuns null. Don't ask me why.
         /// </summary>
@@ -129,7 +133,7 @@ namespace Testing.Reports.Fields
 
         public override string ToString()
         {
-            return this.name + " :" + this.data;
+            return this.name + ": " + this.data;
         }
     }
 }

@@ -39,6 +39,15 @@ namespace Testing.Reports.Fields
             this.name = "UNNAMED";
             this.text = "PLACEHOLDER_TEXT";
         }
+        public IReportElement Clone(string name)
+        {
+            ElementComment clone = new ElementComment(name, this.text);
+            return clone;
+        }
+        public IReportElement Clone()
+        {
+            return this.Clone(this.name);
+        }
 
         public void ReadXml(XmlReader reader)
         {

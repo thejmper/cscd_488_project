@@ -8,6 +8,7 @@ namespace Testing.Reports.Fields
     public class FieldInteger : IReportField
     {
         //--member fields--//
+        public bool isReadOnly { get; set; }
         /// <summary>
         /// onfieldchanged event for this field
         /// </summary>
@@ -15,9 +16,9 @@ namespace Testing.Reports.Fields
         /// <summary>
         /// unique (within scope) name for this field
         /// </summary>
-        public string name { get; private set; }
+        public string name { get; protected set; }
 
-        private int data;
+        protected int data;
 
         //--construction--//
         /// <summary>
@@ -28,7 +29,7 @@ namespace Testing.Reports.Fields
         {
             this.name = name;
         }
-        private FieldInteger()
+        protected FieldInteger()
         {
             this.name = "UNDEFINED";
         }
@@ -36,6 +37,18 @@ namespace Testing.Reports.Fields
         {
             return this.data;
         }
+
+        public virtual IReportElement Clone(string name)
+        {
+            FieldInteger clone = new FieldInteger(name);
+            clone.SetData(this.data);
+            return clone;
+        }
+        public virtual IReportElement Clone()
+        {
+            return this.Clone(name);
+        }
+
         /// <summary>
         /// set data directly!
         /// </summary>
@@ -70,21 +83,25 @@ namespace Testing.Reports.Fields
             }
         }
 
-        public void ReadXml(XmlReader reader)
+        public virtual void ReadXml(XmlReader reader)
         {
             reader.ReadStartElement();  //skip over the <FieldBoolean> tag because there's nothing in it for us
 
             this.name = reader.ReadElementContentAsString();
+            this.isReadOnly = Boolean.Parse(reader.ReadElementContentAsString());
             this.data = Int32.Parse(reader.ReadElementContentAsString());
 
             reader.ReadEndElement();
         }
-        public void WriteXml(XmlWriter writer)
+        public virtual void WriteXml(XmlWriter writer)
         {
             writer.WriteAttributeString("type", this.GetType().FullName);
             writer.WriteElementString("name", this.name);
 
-            //bools are picky about how you set their string form, so I did it here.
+
+            string readOnlyString = isReadOnly ? Boolean.TrueString : Boolean.FalseString;
+            writer.WriteElementString("isReadOnly", readOnlyString);
+
             writer.WriteElementString("data", data.ToString());
 
         }

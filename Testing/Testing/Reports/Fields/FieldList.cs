@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Schema;
 
 namespace Testing.Reports.Fields
 {
-    public class FieldBoolean : IReportField
+    public class FieldList: IReportField
     {
         //--member fields--//
         public bool isReadOnly { get; set; }
@@ -15,10 +16,13 @@ namespace Testing.Reports.Fields
         public string name { get; protected set; }
 
         /// <summary>
-        /// data contained in this field
+        /// possible list toptions
         /// </summary>
-        protected bool data;
-
+        public string[] options { get; protected set; }
+        /// <summary>
+        /// the currently selected bit of data.
+        /// </summary>
+        private int selected;
 
         //--construction--//
         /// <summary>
@@ -26,24 +30,26 @@ namespace Testing.Reports.Fields
         /// </summary>
         /// <param name="name"></param>
         /// <param name="initialValue"></param>
-        public FieldBoolean(string name, bool initialValue)
+        public FieldList(string name, string[] options)
         {
             this.name = name;
-            this.data = initialValue;
+            this.options = options;
+            this.selected = 0;
         }
         /// <summary>
         /// private constructor used for serialization
         /// </summary>
-        protected FieldBoolean()
+        protected FieldList()
         {
             this.name = "PLACEHOLDER NAME";
-            this.data = false;
+            this.options = new string[0];
+            this.selected = 0;
         }
-        
+
         public virtual IReportElement Clone(string name)
         {
-            FieldBoolean clone = new FieldBoolean(name, false);
-            clone.SetData(this.data);
+            FieldList clone = new FieldList(name, this.options);
+            clone.selected = this.selected;
 
             return clone;
         }
@@ -51,37 +57,33 @@ namespace Testing.Reports.Fields
         {
             return this.Clone(this.name);
         }
-        
+
         //--getters and setters--//
         public void SetData(object data)
         {
             try
             {
-                this.data = (bool)data;
+                string dataString = (string)data;
+                this.SetData(dataString);
                 if (this.onDataChanged != null)
-                    this.onDataChanged.Invoke(this, this.data);
+                    this.onDataChanged.Invoke(this, this.GetData());
             }
             catch (Exception)
             {
-                throw new ArgumentException("Cannot parse " + data + " to boolean!");
+                throw new ArgumentException("Cannot parse " + data + " to string");
             }
         }
         public void SetData(string data)
         {
-            try
-            {
-                this.data = Convert.ToBoolean(data);
-                if (this.onDataChanged != null)
-                    this.onDataChanged.Invoke(this, this.data);
-            }
-            catch (FormatException)
-            {
-                throw new ArgumentException("Cannot parse input " + data + " to boolean!");
-            }
+            int index = Array.FindIndex(this.options, item => item.Equals(data));
+            if(index < 0)
+                throw new ArgumentException("Input \"" + data + "\" is not a valid list option!");
+
+            this.selected = index;
         }
         public object GetData()
         {
-            return data;
+            return options[selected];
         }
 
 
@@ -93,10 +95,22 @@ namespace Testing.Reports.Fields
         public virtual void ReadXml(XmlReader reader)
         {
             reader.ReadStartElement();  //skip over the <FieldBoolean> tag because there's nothing in it for us
+
             this.name = reader.ReadElementContentAsString();
             this.isReadOnly = Boolean.Parse(reader.ReadElementContentAsString());
+            this.selected = Int32.Parse(reader.ReadElementContentAsString());
 
-            this.data = Boolean.Parse(reader.ReadElementContentAsString());
+            //now read the option strings
+            List<string> optionList = new List<string>();
+            reader.ReadStartElement();
+            reader.MoveToContent();
+            while (reader.NodeType != XmlNodeType.EndElement)
+            {
+                optionList.Add(reader.ReadElementContentAsString());
+            }
+            this.options = optionList.ToArray();
+            reader.ReadEndElement();
+
 
             reader.ReadEndElement();
         }
@@ -112,12 +126,18 @@ namespace Testing.Reports.Fields
             string readOnlyString = isReadOnly ? Boolean.TrueString : Boolean.FalseString;
             writer.WriteElementString("isReadOnly", readOnlyString);
 
+            writer.WriteElementString("selected", this.selected.ToString());
 
-            //bools are picky about how you set their string form, so I did it here.
-            string dataString = data ? Boolean.TrueString : Boolean.FalseString;
-            writer.WriteElementString("data", dataString);
+
+            //write the option string array
+            writer.WriteStartElement("options");
+            foreach (string option in options)
+            {
+                writer.WriteElementString("option", option);
+            }
+            writer.WriteEndElement();
         }
-        
+
         /// <summary>
         /// get schema. By convention, this always retuns null. Don't ask me why.
         /// </summary>
@@ -129,7 +149,16 @@ namespace Testing.Reports.Fields
 
         public override string ToString()
         {
-            return this.name + " :" + this.data;
+            string s = this.name + ": ";
+            for (int i = 0; i < this.options.Length; i++)
+            {
+                if (i == this.selected)
+                    s += ">" + options[i] + "<, ";
+                else
+                    s += options[i] + ", ";
+            }
+
+            return s;
         }
     }
 }

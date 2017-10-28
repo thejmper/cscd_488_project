@@ -34,6 +34,8 @@ namespace Testing.Reports.Fields
             reader.ReadStartElement();  //skip over the <FieldBoolean> tag because there's nothing in it for us
 
             this.name = reader.ReadElementContentAsString();
+            this.isReadOnly = bool.Parse(reader.ReadElementContentAsString());
+
             this.data = System.Boolean.Parse(reader.ReadElementContentAsString());
             this.description = reader.ReadElementContentAsString();
 
