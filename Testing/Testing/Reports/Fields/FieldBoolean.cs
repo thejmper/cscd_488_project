@@ -7,6 +7,7 @@ namespace Testing.Reports.Fields
     public class FieldBoolean : IReportField
     {
         //--member fields--//
+        public DataChangedDelegate onDataChanged { get; set; }
         /// <summary>
         /// name of this field!
         /// </summary>
@@ -43,6 +44,8 @@ namespace Testing.Reports.Fields
             try
             {
                 this.data = (bool)data;
+                if (this.onDataChanged != null)
+                    this.onDataChanged.Invoke(this, this.data);
             }
             catch (Exception)
             {
@@ -54,6 +57,8 @@ namespace Testing.Reports.Fields
             try
             {
                 this.data = Convert.ToBoolean(data);
+                if (this.onDataChanged != null)
+                    this.onDataChanged.Invoke(this, this.data);
             }
             catch (FormatException)
             {

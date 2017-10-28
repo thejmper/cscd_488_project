@@ -45,12 +45,15 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\Fields\ElementComment.cs" />
+    <Compile Include="Reports\Fields\ElementGroup.cs" />
     <Compile Include="Reports\Fields\FieldBoolean.cs" />
     <Compile Include="Reports\Fields\FieldBooleanDescription.cs" />
+    <Compile Include="Reports\Fields\FieldInteger.cs" />
+    <Compile Include="Reports\Fields\FieldRadio.cs" />
     <Compile Include="Reports\Fields\FieldString.cs" />
     <Compile Include="Reports\Fields\IReportElement.cs" />
     <Compile Include="Reports\Fields\IReportField.cs" />
-    <Compile Include="Reports\Fields\ElementGroup.cs" />
+    <Compile Include="Reports\Fields\ElementGroupDynamic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

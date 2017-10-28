@@ -7,6 +7,7 @@ namespace Testing.Reports.Fields
     public class FieldString : IReportField
     {
         //--member fields--//
+        public DataChangedDelegate onDataChanged { get; set; }
         /// <summary>
         /// name of this field
         /// </summary>
@@ -38,8 +39,10 @@ namespace Testing.Reports.Fields
             try
             {
                 this.data = (string)data;
+                if (this.onDataChanged != null)
+                    this.onDataChanged.Invoke(this, this.data);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new ArgumentException("Unable to parse " + data + " to string!");
             }
@@ -47,6 +50,8 @@ namespace Testing.Reports.Fields
         public void SetData(string dataString)
         {
             this.data = dataString;
+            if (this.onDataChanged != null)
+                this.onDataChanged.Invoke(this, this.data);
         }
         
         //--save/load--//

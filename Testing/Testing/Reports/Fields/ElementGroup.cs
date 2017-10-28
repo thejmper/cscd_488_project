@@ -10,10 +10,7 @@ using Testing.Reports.Fields;
 namespace Testing.Reports
 {
     /// <summary>
-    /// class for ONE form. This is to be filled out by ONE author.
-    /// Some of the data could inheret from a larger report class, but right now
-    /// I just wanna test if my save/load code works, so we're gonna pretend this
-    /// is all there is.
+    /// group or more than one element
     /// </summary>
     public class ElementGroup : IXmlSerializable, IReportElement
     {
@@ -22,22 +19,8 @@ namespace Testing.Reports
         /// name of this group of fields
         /// </summary>
         public string name { get; private set; }
-        /// <summary>
-        /// all the fields that make up this form!
-        /// </summary>
-        public Dictionary<string, IReportElement> elements { get; private set; }
-        /// <summary>
-        /// array of all fields in this report.
-        /// </summary>
-        public IReportElement[] elementArray
-        {
-            get
-            {
-                IReportElement[] array = new IReportElement[elements.Count];
-                elements.Values.CopyTo(array, 0);
-                return array;
-            }
-        }
+       
+        public IReportElement[] elements { get; private set; }
 
         //--construction--//
         /// <summary>
@@ -49,15 +32,15 @@ namespace Testing.Reports
         {
             this.name = name;
 
-            this.elements = new Dictionary<string, IReportElement>();
+            this.elements = new IReportElement[0];
         }
         /// <summary>
         /// DVC for serializer use
         /// </summary>
-        private ElementGroup()
+        protected ElementGroup()
         {
             this.name = "UNTITLED";
-            this.elements = new Dictionary<string, IReportElement>();
+            this.elements = new IReportElement[0];
         }
 
         //--setters--//
@@ -65,15 +48,21 @@ namespace Testing.Reports
         /// adds a field to this report, if its ID isn't already in use.
         /// </summary>
         /// <param name="field"></param>
-        public void AddElement(IReportElement field)
+        protected virtual void AddElementInternal(IReportElement field)
         {
-            if (elements.ContainsKey(field.name))
+            if (Array.Exists(elements, item => item.name.Equals(field.name)))
                 throw new ArgumentException("Cannot add element " + field.name + " to form " + this.name + ". A element with that name already exists in the form!");
 
-            this.elements.Add(field.name, field);
+            IReportElement[] temp = new IReportElement[this.elements.Length + 1];
+            for (int i = 0; i < this.elements.Length; i++)
+                temp[i] = this.elements[i];
+
+            temp[this.elements.Length] = field;
+
+            this.elements = temp;
         }
         //--save/load--//
-        public void ReadXml(XmlReader reader)
+        public virtual void ReadXml(XmlReader reader)
         {
             reader.ReadStartElement();
             this.name = reader.ReadElementContentAsString();
@@ -81,7 +70,7 @@ namespace Testing.Reports
             //now we're into fields
             reader.ReadStartElement();
             reader.MoveToContent();
-            while(reader.NodeType != XmlNodeType.EndElement)
+            while (reader.NodeType != XmlNodeType.EndElement)
             {
                 Type type = Type.GetType(reader.GetAttribute("type"));
 
@@ -89,18 +78,19 @@ namespace Testing.Reports
                 IReportElement element = (IReportElement)ser.Deserialize(reader);
                 reader.MoveToContent();
 
-                this.AddElement(element);
+                this.AddElementInternal(element);
             }
             reader.ReadEndElement();
             //now we're done with the fields.
         }
-        public void WriteXml(XmlWriter writer)
+        public virtual void WriteXml(XmlWriter writer)
         {
+            writer.WriteAttributeString("type", this.GetType().FullName);
             writer.WriteElementString("name", this.name);
 
             writer.WriteStartElement("fields");
 
-            foreach (IReportElement element in this.elementArray)
+            foreach (IReportElement element in this.elements)
             {
                 writer.WriteComment(element.name);
                 writer.WriteStartElement(element.GetType().Name);
@@ -119,11 +109,10 @@ namespace Testing.Reports
         {
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
-            sb.AppendLine("Group: " + this.name);
-            sb.AppendLine("- - - - - - - - - - - - - - ");
+            sb.AppendLine(this.name);
             sb.AppendLine("fields:");
 
-            foreach (IReportElement field in this.elementArray)
+            foreach (IReportElement field in this.elements)
                 sb.AppendLine(field.ToString());
 
             return sb.ToString();
