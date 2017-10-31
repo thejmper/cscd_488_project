@@ -13,6 +13,10 @@ namespace Testing.Reports.Fields
         /// </summary>
         public DataChangedDelegate onDataChanged{ get; set; }
         /// <summary>
+        /// description of this field in human-readable terms
+        /// </summary>
+        public string description { get; private set; }
+        /// <summary>
         /// the radiobutton that's active!
         /// </summary>
         private int selected;
@@ -23,10 +27,10 @@ namespace Testing.Reports.Fields
         public string[] options { get; private set; }
 
         //--construction--//
-        public FieldRadio(string name, string[] options): base(name)
+        public FieldRadio(string name, string[] options, string description=""): base(name)
         {
             this.options = options;
-            
+            this.description = description;
 
             for(int i = 0; i < options.Length; i++)
             {
@@ -39,6 +43,7 @@ namespace Testing.Reports.Fields
         protected FieldRadio(): base()
         {
             this.options = new string[0];
+            this.description = "";
             this.selected = -1;
         }
 
@@ -105,6 +110,8 @@ namespace Testing.Reports.Fields
             base.WriteXml(writer);
             string readOnlyString = isReadOnly ? Boolean.TrueString : Boolean.FalseString;
             writer.WriteElementString("isReadOnly", readOnlyString);
+            writer.WriteElementString("description", this.description);
+
 
             writer.WriteElementString("selected", this.selected.ToString());
 
@@ -120,8 +127,14 @@ namespace Testing.Reports.Fields
         {
             base.ReadXml(reader);
             this.isReadOnly = Boolean.Parse(reader.ReadElementContentAsString());
-            this.selected = Int32.Parse(reader.ReadElementContentAsString());
+            try
+            {
+                this.description = reader.ReadElementContentAsString();
+            }
+            catch (Exception) { }
 
+
+            this.selected = Int32.Parse(reader.ReadElementContentAsString());
             //now read the option strings
             List<string> optionList = new List<string>();
             reader.ReadStartElement();
@@ -133,6 +146,11 @@ namespace Testing.Reports.Fields
             this.options = optionList.ToArray();
             reader.ReadEndElement();
             reader.ReadEndElement();
+        }
+
+        public override string ToString()
+        {
+            return name + "\n" + this.description + "\n" + base.ToString();
         }
     }
 }

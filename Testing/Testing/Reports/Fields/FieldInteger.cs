@@ -5,19 +5,16 @@ using System.Xml.Schema;
 
 namespace Testing.Reports.Fields
 {
-    public class FieldInteger : IReportField
+    public class FieldInteger : FieldGeneric
     {
         //--member fields--//
-        public bool isReadOnly { get; set; }
         /// <summary>
         /// onfieldchanged event for this field
         /// </summary>
-        public DataChangedDelegate onDataChanged { get; set; }
+        public override DataChangedDelegate onDataChanged { get; set; }
         /// <summary>
-        /// unique (within scope) name for this field
+        /// data of this field
         /// </summary>
-        public string name { get; protected set; }
-
         protected int data;
 
         //--construction--//
@@ -25,26 +22,26 @@ namespace Testing.Reports.Fields
         /// EVC for public use
         /// </summary>
         /// <param name="name"></param>
-        public FieldInteger(string name)
+        public FieldInteger(string name, string description=""): base(name, description)
         {
-            this.name = name;
+
         }
-        protected FieldInteger()
+        protected FieldInteger(): base("UNTITLED")
         {
-            this.name = "UNDEFINED";
+
         }
-        public object GetData()
+        public override object GetData()
         {
             return this.data;
         }
 
-        public virtual IReportElement Clone(string name)
+        public override IReportElement Clone(string name)
         {
             FieldInteger clone = new FieldInteger(name);
             clone.SetData(this.data);
             return clone;
         }
-        public virtual IReportElement Clone()
+        public override IReportElement Clone()
         {
             return this.Clone(name);
         }
@@ -53,7 +50,7 @@ namespace Testing.Reports.Fields
         /// set data directly!
         /// </summary>
         /// <param name="data"></param>
-        public void SetData(object data)
+        public override void SetData(object data)
         {
             try
             {
@@ -69,7 +66,7 @@ namespace Testing.Reports.Fields
         /// set data via integer!
         /// </summary>
         /// <param name="dataString"></param>
-        public void SetData(string dataString)
+        public override void SetData(string dataString)
         {
             try
             {
@@ -83,38 +80,19 @@ namespace Testing.Reports.Fields
             }
         }
 
-        public virtual void ReadXml(XmlReader reader)
+        protected override void ReadXmlInternal(XmlReader reader)
         {
-            reader.ReadStartElement();  //skip over the <FieldBoolean> tag because there's nothing in it for us
-
-            this.name = reader.ReadElementContentAsString();
-            this.isReadOnly = Boolean.Parse(reader.ReadElementContentAsString());
             this.data = Int32.Parse(reader.ReadElementContentAsString());
-
-            reader.ReadEndElement();
         }
-        public virtual void WriteXml(XmlWriter writer)
+        protected override void WriteXMLInternal(XmlWriter writer)
         {
-            writer.WriteAttributeString("type", this.GetType().FullName);
-            writer.WriteElementString("name", this.name);
-
-
-            string readOnlyString = isReadOnly ? Boolean.TrueString : Boolean.FalseString;
-            writer.WriteElementString("isReadOnly", readOnlyString);
-
             writer.WriteElementString("data", data.ToString());
-
-        }
-
-        public XmlSchema GetSchema()
-        {
-            return null;
         }
 
         //--debugging/testing--//
         public override string ToString()
         {
-            return name + ": " + data;
+            return this.name + " :" + this.data + " <" + this.description + ">";
         }
     }
 }

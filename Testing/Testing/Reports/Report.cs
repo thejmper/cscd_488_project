@@ -2,6 +2,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
+using System.Xml;
+using System.Xml.Schema;
 
 namespace Testing.Reports
 {
@@ -9,7 +12,7 @@ namespace Testing.Reports
     /// A report filled out by ONE person for ONE facility. 
     /// Can contain multiple reports done at different times, however.
     /// </summary>
-    class Report
+    public class Report : IXmlSerializable
     {
         //--member fields--//
         //stuff unique to this report!
@@ -20,7 +23,6 @@ namespace Testing.Reports
         /// <summary>
         /// UNIQUE id of this report WITHIN THE CASE FILE. the same report Id
         /// can be reused many times so long as each reuse is in a different case file.
-        /// 
         /// To avoid conflics, append a username or something on the front to make sure
         /// we never have any overlap within a case file.
         /// </summary>
@@ -29,11 +31,8 @@ namespace Testing.Reports
         /// name of the person doing the report
         /// </summary>
         public string licensorName { get; private set; }
-        /// <summary>
-        /// unique id of this report!
-        /// </summary>
-        public string reportName { get; private set; }
-        
+
+
         //stuff we get from the case file
         /// <summary>
         /// facility we're reporting on. Gotten from the caseFile.
@@ -62,6 +61,21 @@ namespace Testing.Reports
 
             this.forms = new List<Form>();
         }
+        private Report()
+        {
+            this.caseFile = null;
+            this.reportID = "UNNAMED";
+            this.licensorName = "NO_LICENSOR_ASSIGNED";
+
+            this.forms = new List<Form>();
+        }
+
+        internal void SetCaseFile(CaseFile caseFile)
+        {
+            this.caseFile = caseFile;
+            foreach (Form form in this.forms)
+                form.SetReport(this);
+        }
 
         /// <summary>
         /// generates the proper name for a form, links it up, and
@@ -74,7 +88,7 @@ namespace Testing.Reports
             string name = formTemplate.name;
             int suffix = 0;
 
-            
+
             //add the proper suffix!
             do
             {
@@ -85,8 +99,72 @@ namespace Testing.Reports
             newForm.SetReport(this);
             this.forms.Add(newForm);
 
-            return newForm;          
+            return newForm;
         }
 
+        //--save/load--//
+        public void ReadXml(XmlReader reader)
+        {
+            reader.ReadStartElement();
+            this.reportID = reader.ReadElementContentAsString();
+            this.licensorName = reader.ReadElementContentAsString();
+
+            
+            //now we're into fields
+            reader.ReadStartElement();
+            reader.MoveToContent();
+
+
+            while (reader.NodeType != XmlNodeType.EndElement)
+            {
+                Type type = Type.GetType(reader.GetAttribute("type"));
+
+                XmlSerializer ser = new XmlSerializer(type);
+                Form form = (Form)ser.Deserialize(reader);
+                reader.MoveToContent();
+
+                this.forms.Add(form);
+            }
+
+            reader.ReadEndElement();
+            //now we're done with the fields.
+        }
+
+        public void WriteXml(XmlWriter writer)
+        {
+            //write basic header
+            writer.WriteElementString("reportID", this.reportID);
+            writer.WriteElementString("licensorName", this.licensorName);
+
+            
+            //write all the forms contained within
+            writer.WriteStartElement("forms");
+            foreach (Form form in this.forms)
+            {
+                writer.WriteComment(form.name);
+                writer.WriteStartElement(form.GetType().Name);
+                form.WriteXml(writer);
+                writer.WriteEndElement();
+            }
+            writer.WriteEndElement();
+            
+        }
+
+        public XmlSchema GetSchema()
+        {
+            return null;
+        }
+
+        public override string ToString()
+        {
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            sb.AppendLine("id: " + this.reportID);
+            sb.AppendLine("licensor name: " + this.licensorName);
+
+            foreach (Form form in this.forms)
+                sb.AppendLine(form.ToString());
+
+            return sb.ToString();
+        }
     }
 }

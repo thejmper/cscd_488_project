@@ -19,29 +19,31 @@ namespace Testing
             Form form = report.AddForm(new Form("formA"));
 
 
-            Console.WriteLine("> :" + form);
+            Console.WriteLine(caseFile);
 
-            return;
-            /*
+           
             string dir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "testXML");
-
-            XmlSerializer ser = new XmlSerializer(testForm.GetType());
+            
+            XmlSerializer ser = new XmlSerializer(caseFile.GetType());
+            
             using (TextWriter writer = new StreamWriter(dir + @"\groupTest.xml"))
             {
-                ser.Serialize(writer, testForm);
+                ser.Serialize(writer, caseFile);
             }
+            
 
             Console.WriteLine("\n    >done!");
             Console.WriteLine("    >Now reading from file!");
 
-            IReportElement readField;
+
+            CaseFile readField;
             using (TextReader reader = new StreamReader(dir + @"\groupTest.xml"))
             {
-                readField = (IReportElement)ser.Deserialize(reader);
+                readField = (CaseFile)ser.Deserialize(reader);
             }
 
             Console.WriteLine(readField);
-            */
+            
         }
 
 
@@ -99,18 +101,18 @@ namespace Testing
             IReportElement bool2 = new FieldBoolean("bool2", true);
             IReportElement bool3 = new FieldBoolean("bool3", false);
 
-            IReportElement specialBool = new FieldBooleanDescription("specialBool", "bool tooltop!", false);
-            IReportElement specialBool2 = new FieldBooleanDescription("specialBool2", "bool tooltop!", false);
+            IReportElement specialBool = new FieldBoolean("specialBool", false, "tooltip!");
+            IReportElement specialBool2 = new FieldBoolean("specialBool2", false, "tooltip!");
 
             IReportField textField = new FieldString("textField");
             textField.SetData("This is some text for the text field!");
 
             IReportElement comment = new ElementComment("comment1", "This is a comment text block!");
 
-            IReportField intField1 = new FieldIntegerDescription("intField1", "int field description");
+            IReportField intField1 = new FieldInteger("intField1", "int field description");
             intField1.SetData(5);
 
-            IReportElement specialString = new FieldStringDescription("specialString", "field Description");
+            IReportElement specialString = new FieldString("specialString", "field Description");
 
 
             IReportField intField2 = new FieldInteger("intField2");

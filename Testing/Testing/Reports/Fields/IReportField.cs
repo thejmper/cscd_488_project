@@ -21,6 +21,10 @@ namespace Testing.Reports.Fields
         /// </summary>
         DataChangedDelegate onDataChanged { get; set; }
         /// <summary>
+        /// description of this field
+        /// </summary>
+        string description { get; }
+        /// <summary>
         /// marks if this field is read-only.
         /// </summary>
         bool isReadOnly { get; set; }

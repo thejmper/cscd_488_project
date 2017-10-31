@@ -48,14 +48,12 @@
     <Compile Include="Reports\Fields\ElementComment.cs" />
     <Compile Include="Reports\Fields\ElementGroup.cs" />
     <Compile Include="Reports\Fields\FieldBoolean.cs" />
-    <Compile Include="Reports\Fields\FieldBooleanDescription.cs" />
     <Compile Include="Reports\Fields\FieldDateTime.cs" />
+    <Compile Include="Reports\Fields\FieldGeneric.cs" />
     <Compile Include="Reports\Fields\FieldInteger.cs" />
-    <Compile Include="Reports\Fields\FieldIntegerDescription.cs" />
     <Compile Include="Reports\Fields\FieldList.cs" />
     <Compile Include="Reports\Fields\FieldRadio.cs" />
     <Compile Include="Reports\Fields\FieldString.cs" />
-    <Compile Include="Reports\Fields\FieldStringDescription.cs" />
     <Compile Include="Reports\Fields\IReportElement.cs" />
     <Compile Include="Reports\Fields\IReportField.cs" />
     <Compile Include="Reports\Fields\ElementGroupDynamic.cs" />

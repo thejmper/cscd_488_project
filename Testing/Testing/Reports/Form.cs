@@ -73,11 +73,11 @@ namespace Testing.Reports
         public Form(string name): base(name)
         {
             //pre-load form stuff!
-            this.header = new FormHeader();
+            this.header = FormHeader.GenerateNewHeader();
             this.AddElementInternal(this.header);
 
         }
-        private Form(): this("UNTITLED")
+        private Form(): base()
         {
 
         }
@@ -112,7 +112,6 @@ namespace Testing.Reports
         public override void WriteXml(XmlWriter writer)
         {
             base.WriteXml(writer);
-            writer.WriteElementString("lastModified", this.inspectionDate.ToString());
         }
 
         public override string ToString()

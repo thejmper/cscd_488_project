@@ -26,7 +26,7 @@ namespace Testing.Reports.Fields
         /// </summary>
         /// <param name="author"></param>
         /// <param name="lastModified"></param>
-        public ElementGroup(string name)
+        internal ElementGroup(string name)
         {
             this.name = name;
 

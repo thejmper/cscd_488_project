@@ -5,11 +5,11 @@ namespace Testing.Reports.Forms
     /// <summary>
     /// class for the generic header that goes at the top of every form!
     /// </summary>
-    class FormHeader : ElementGroup
+    public class FormHeader : ElementGroup
     {
         //--member fields--//
 
-            //--public stuff--//
+        //--public stuff--//
         public System.DateTime lastModified;
 
         //--private stuff--//
@@ -18,19 +18,28 @@ namespace Testing.Reports.Forms
         private FieldDateTime inspectionDateField;
         private FieldString licensorNameField;
 
-        public FormHeader() : base("header")
+        public static FormHeader GenerateNewHeader()
         {
-            //create the basic controls
-            this.facilityNamefield = new FieldStringDescription("facilityName", "Assisted Living Facility Name");
-            this.facilityLicenseNoField = new FieldIntegerDescription("faclityLicenseNo", "License Number");
-            this.inspectionDateField = new FieldDateTime("inspectionDateTime", System.DateTime.Now, "Inspection Date");
-            this.licensorNameField = new FieldStringDescription("licensorName", "Licensor Name");
+            FormHeader header = new FormHeader();
+            header.facilityNamefield = new FieldString("facilityName", "Assisted Living Facility Name");
+            header.facilityLicenseNoField = new FieldInteger("faclityLicenseNo", "License Number");
+            header.inspectionDateField = new FieldDateTime("inspectionDateTime", System.DateTime.Now, "Inspection Date");
+            header.licensorNameField = new FieldString("licensorName", "Licensor Name");
 
-            this.AddElementInternal(facilityNamefield);
-            this.AddElementInternal(facilityLicenseNoField);
-            this.AddElementInternal(inspectionDateField);
-            this.AddElementInternal(licensorNameField);
+            header.AddElementInternal(header.facilityNamefield);
+            header.AddElementInternal(header.facilityLicenseNoField);
+            header.AddElementInternal(header.inspectionDateField);
+            header.AddElementInternal(header.licensorNameField);
+
+            return header;
         }
+
+        protected FormHeader() : base("header")
+        {
+
+        }
+
+
 
         public void Update(Form form)
         {
