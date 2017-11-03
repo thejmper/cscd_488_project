@@ -53,6 +53,7 @@
     <Compile Include="Reports\Fields\FieldInteger.cs" />
     <Compile Include="Reports\Fields\FieldList.cs" />
     <Compile Include="Reports\Fields\FieldRadio.cs" />
+    <Compile Include="Reports\Fields\FieldRows.cs" />
     <Compile Include="Reports\Fields\FieldString.cs" />
     <Compile Include="Reports\Fields\IReportElement.cs" />
     <Compile Include="Reports\Fields\IReportField.cs" />

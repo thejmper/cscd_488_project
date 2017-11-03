@@ -18,6 +18,8 @@ namespace Testing.Reports.Fields
         /// </summary>
         public string name { get; protected set; }
        
+        public string description { get; protected set; }
+
         public IReportElement[] elements { get; private set; }
 
         //--construction--//
@@ -26,19 +28,17 @@ namespace Testing.Reports.Fields
         /// </summary>
         /// <param name="author"></param>
         /// <param name="lastModified"></param>
-        internal ElementGroup(string name)
+        internal ElementGroup(string name, string description ="")
         {
             this.name = name;
-
+            this.description = description;
             this.elements = new IReportElement[0];
         }
         /// <summary>
         /// DVC for serializer use
         /// </summary>
-        protected ElementGroup()
+        protected ElementGroup(): this("UNTITLED")
         {
-            this.name = "UNTITLED";
-            this.elements = new IReportElement[0];
         }
         public virtual IReportElement Clone(string name)
         {
@@ -78,6 +78,11 @@ namespace Testing.Reports.Fields
             reader.ReadStartElement();
             this.name = reader.ReadElementContentAsString();
 
+            try
+            {
+                this.description = reader.ReadElementContentAsString();
+            }
+            catch (Exception) { }
             //now we're into fields
             reader.ReadStartElement();
             reader.MoveToContent();
@@ -91,15 +96,17 @@ namespace Testing.Reports.Fields
 
                 this.AddElementInternal(element);
             }
+            
 
             reader.ReadEndElement();
             //now we're done with the fields.
+
         }
         public virtual void WriteXml(XmlWriter writer)
         {
             writer.WriteAttributeString("type", this.GetType().FullName);
             writer.WriteElementString("name", this.name);
-
+            writer.WriteElementString("description", this.description);
             writer.WriteStartElement("fields");
 
             foreach (IReportElement element in this.elements)

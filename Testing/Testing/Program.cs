@@ -10,7 +10,7 @@ namespace Testing
     {
         static void Main(string[] args)
         {
-            TestForm();
+            TestGroup();
         }
         private static void TestForm()
         {
@@ -81,6 +81,7 @@ namespace Testing
                 ser.Serialize(writer, testGroup);
             }
 
+
             Console.WriteLine("\n    >done!");
             Console.WriteLine("    >Now reading from file!");
 
@@ -114,6 +115,14 @@ namespace Testing
 
             IReportElement specialString = new FieldString("specialString", "field Description");
 
+            ElementGroupDynamic row = new ElementGroupDynamic("testRow");
+            row.AddElement(new FieldBoolean("boolField", false));
+            row.AddElement(new FieldInteger("intField"));
+
+            FieldRows fieldRow = new FieldRows("fieldRows", row);
+            fieldRow.AddRow();
+            fieldRow.AddRow();
+
 
             IReportField intField2 = new FieldInteger("intField2");
             intField2.SetData("41");
@@ -130,20 +139,22 @@ namespace Testing
 
 
 
-            testGroup.AddElement(specialBool);
-            testGroup.AddElement(specialBool2);
+            //testGroup.AddElement(specialBool);
+            //testGroup.AddElement(specialBool2);
              
-            testGroup.AddElement(textField);
-            testGroup.AddElement(comment);
+            //testGroup.AddElement(textField);
+            //testGroup.AddElement(comment);
 
-            testGroup.AddElement(intField1);
-            testGroup.AddElement(intField2);
+            //testGroup.AddElement(intField1);
+            //testGroup.AddElement(intField2);
 
-            testGroup.AddElement(specialString);
+            //testGroup.AddElement(specialString);
 
-            testGroup.AddElement(radioTest);
+            //testGroup.AddElement(radioTest);
 
-            testGroup.AddElement(listTest);
+            //testGroup.AddElement(listTest);
+
+            testGroup.AddElement(fieldRow);
 
             testGroup.AddElement(bool1);
             testGroup.AddElement(bool2);

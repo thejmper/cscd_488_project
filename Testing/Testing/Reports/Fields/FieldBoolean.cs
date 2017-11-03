@@ -21,7 +21,7 @@ namespace Testing.Reports.Fields
         /// </summary>
         /// <param name="name"></param>
         /// <param name="initialValue"></param>
-        public FieldBoolean(string name, bool initialValue, string description=""): base(name, description)
+        public FieldBoolean(string name, bool initialValue = false, string description=""): base(name, description)
         {
             this.data = initialValue;
         }

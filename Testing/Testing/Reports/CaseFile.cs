@@ -40,7 +40,6 @@ namespace Testing.Reports
 
             this.reports = new List<Report>();
         }
-
         private CaseFile()
         {
             this.caseID = "NONE_ASSIGNED";
@@ -48,6 +47,25 @@ namespace Testing.Reports
             this.facilityLicenseNo = -1;
 
             this.reports = new List<Report>();
+        }
+
+        //--merging--//
+        /// <summary>
+        /// merges a given report into this case file
+        /// </summary>
+        /// <param name="report"></param>
+        public void Merge(Report report)
+        {
+            //guard conditions
+            if (!report.caseFile.caseID.Equals(this.caseID))
+                throw new ArgumentException("Cannot merge report into casefile, it's attached to another case file!");
+
+            Report oldReport = reports.Find(item => item.reportID.Equals(report.reportID));
+            if (oldReport == null)
+                throw new ArgumentException("Cannot merge report into casefile, the case file has no reccord of that report!");
+
+            reports.Remove(oldReport);
+            reports.Add(report);
         }
 
         //--report manupulation--//
@@ -98,7 +116,6 @@ namespace Testing.Reports
             reader.ReadEndElement();
             //now we're done with the reports.
         }
-
         public void WriteXml(XmlWriter writer)
         {
             //header
@@ -117,7 +134,6 @@ namespace Testing.Reports
             }
             writer.WriteEndElement();
         }
-
         public XmlSchema GetSchema()
         {
             return null;
