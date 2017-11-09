@@ -17,7 +17,7 @@
                 <Grid Background="#FFE5E5E5" Name="gridd"/>
             </TabItem>
             <TabItem Header="other">
-                <Grid Background="#FFE5E5E5"/>
+                <Canvas Name="canvas"/>
             </TabItem>
             <Button x:Name="button" Content="Button" Height="100" Width="75"/>
         </TabControl>

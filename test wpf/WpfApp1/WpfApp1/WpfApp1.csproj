@@ -93,5 +93,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UIItems\UIItems.csproj">
+      <Project>{7693B20F-D4CC-46BD-9FEE-7B4FCAAFE49C}</Project>
+      <Name>UIItems</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
