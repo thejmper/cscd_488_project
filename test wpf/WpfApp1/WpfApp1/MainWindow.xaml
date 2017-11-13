@@ -5,21 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1000" Width="1800">
+        Title="MainWindow" Height="3000" Width="1510">
     <Grid>
         <Menu >
             <MenuItem Header="_File">
                 <MenuItem Header="new"/>
             </MenuItem>
         </Menu>
-        <TabControl Margin="0,21,0,0" >
-            <TabItem Header="General" Name="Tab">
-                <Grid Background="#FFE5E5E5" Name="gridd"/>
-            </TabItem>
+        <TabControl Margin="0,21,0,0" Name="main">
             <TabItem Header="other">
-                <Canvas Name="canvas"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="auto" Margin="0,0,0,0">
+                    <Canvas Name="canvas" Height="2000" Width="2000"/>
+                </ScrollViewer>
             </TabItem>
-            <Button x:Name="button" Content="Button" Height="100" Width="75"/>
         </TabControl>
         <Grid HorizontalAlignment="Left" Height="100" Margin="-449,634,0,0" VerticalAlignment="Top" Width="100"/>
 

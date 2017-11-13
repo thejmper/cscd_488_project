@@ -12,7 +12,7 @@ namespace UIItems
 
         protected UIItem()
         {
-
+            
         }
         public UIElement Element { get; set; }
 
