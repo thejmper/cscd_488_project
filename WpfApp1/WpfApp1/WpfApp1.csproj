@@ -54,14 +54,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="UIItems\FormItem.cs" />
-    <Compile Include="UIItems\Forms\FormA.cs" />
-    <Compile Include="UIItems\ItemClasses\CheckBoxUI.cs" />
-    <Compile Include="UIItems\ItemClasses\DatePickerUI.cs" />
-    <Compile Include="UIItems\ItemClasses\LabelUI.cs" />
-    <Compile Include="UIItems\ItemClasses\SplitterUI.cs" />
-    <Compile Include="UIItems\ItemClasses\TextBoxUI.cs" />
-    <Compile Include="UIItems\UIItem.cs" />
+    <Compile Include="FormItems\ControlText.cs" />
+    <Compile Include="FormItems\ElementGroup.cs" />
+    <Compile Include="FormItems\Form.cs" />
+    <Compile Include="FormItems\FormControl.cs" />
+    <Compile Include="FormItems\FormElement.cs" />
+    <Compile Include="FormItems\LayoutGrid.cs" />
+    <Compile Include="Utils\UIElementExtensions.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

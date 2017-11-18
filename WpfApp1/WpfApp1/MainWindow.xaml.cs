@@ -8,14 +8,10 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApp1.UIItems;
-using WpfApp1.UIItems.Forms;
-using WpfApp1.UIItems.ItemClasses;
-
+using WpfApp1.FormItems;
 namespace WpfApp1
 {
     /// <summary>
@@ -28,65 +24,55 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-
+            
             //create a scrollable stack panel!
             ScrollViewer scrollViewer = new ScrollViewer();
             scrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
             scrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
 
+            /*
             // Create a StackPanel and Add children
             StackPanel myStackPanel = new StackPanel();
 
-            //create the generic form header!
-            StackPanel facilityNamePanel = new StackPanel();
-                Label nameLabel = new Label();
-                nameLabel.Content = "Assisted Living Facility Name";
-            facilityNamePanel.Children.Add(nameLabel);
-                TextBox name = new TextBox();
-                facilityNamePanel.Children.Add(name);
-
-            Border facilityName = new Border();
-            facilityName.BorderBrush = Brushes.Black;
-            facilityName.BorderThickness = new Thickness(1);
-
-            facilityName.Child = facilityNamePanel;
+            //create internal controls!
+            FormControl faciltyName = new FormControl("Assisted Living Facility Name", new TextBox());
+            FormControl facilityNumber = new FormControl("License Number", new TextBox());
+            FormControl inspectionDate = new FormControl("Inspection Date", new DatePicker());
+            FormControl licensorName = new FormControl("Licensor Name", new TextBox());
 
 
+            LayoutGrid headerGrid = new LayoutGrid();
 
-            StackPanel facilityNoPanel = new StackPanel();
-                Label noLabel = new Label();
-                noLabel.Content = "License Number";
-            facilityNoPanel.Children.Add(noLabel);
-                TextBox no = new TextBox();
-                facilityNoPanel.Children.Add(no);
 
-            Grid headerGrid = new Grid();
+            headerGrid.AddElement(faciltyName.Bordered(), 0, 0, 9);
+            headerGrid.AddElement(facilityNumber.Bordered(), 9, 0, 3);
+            headerGrid.AddElement(inspectionDate.Bordered(), 0, 1, 3);
+            headerGrid.AddElement(licensorName.Bordered(), 3, 1, 9);
 
-            //create cols
-            for (int x = 0; x < 12; x++)
-            {
-                headerGrid.ColumnDefinitions.Add(new ColumnDefinition());
-            }
-
-            Grid.SetRow(facilityName, 0);
-            Grid.SetColumn(facilityName, 0);
-            Grid.SetColumnSpan(facilityName, 9);
-                headerGrid.Children.Add(facilityName);
-
-            Grid.SetRow(facilityNoPanel, 0);
-            Grid.SetColumn(facilityNoPanel, 9);
-            Grid.SetColumnSpan(facilityNoPanel, 3);
-                headerGrid.Children.Add(facilityNoPanel);
+            //Grid.SetRow(facilityNoPanel, 0);
+            //Grid.SetColumn(facilityNoPanel, 9);
+            //Grid.SetColumnSpan(facilityNoPanel, 4);
+            //    headerGrid.Children.Add(facilityNoPanel);
 
             myStackPanel.Children.Add(headerGrid);
+            */
+            //scrollViewer.Content = myStackPanel;
 
-            scrollViewer.Content = myStackPanel;
+            Form form = new Form("form");
+
+            LayoutGrid grid = new LayoutGrid("header");
+            grid.AddElement(new ControlText("name", "Assised living Facility Name"), 0, 0, 9, true);
+            grid.AddElement(new ControlText("number", "License Number"), 9, 0, 3, true);
+
+            form.AddElement(grid);
+
+            scrollViewer.Content = form.UIelement;
 
             TabItem tab = new TabItem();
             tab.Content = scrollViewer;
 
             main.Items.Add(tab);
-
+            
             
 
         }
