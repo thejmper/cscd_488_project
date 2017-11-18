@@ -10,14 +10,12 @@
         <Menu >
             <MenuItem Header="_File">
                 <MenuItem Header="new"/>
+                <MenuItem Header="save"/>
+                <MenuItem Header="load"/>
+                <MenuItem Header="Test" Click="MenuItem_Click"/>
             </MenuItem>
         </Menu>
         <TabControl Margin="0,21,0,0" Name="main">
-            <TabItem Header="other">
-                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="auto" Margin="0,0,0,0">
-                    <Canvas Name="canvas" Height="2000" Width="2000"/>
-                </ScrollViewer>
-            </TabItem>
         </TabControl>
         <Grid HorizontalAlignment="Left" Height="100" Margin="-449,634,0,0" VerticalAlignment="Top" Width="100"/>
 

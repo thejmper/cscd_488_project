@@ -14,12 +14,12 @@ namespace WpfApp1.FormItems
         /// </summary>
         protected List<FormElement> elementList;
 
-        protected ElementGroup(string name)
+        protected ElementGroup(string name): base(name)
         {
             this.elementList = new List<FormElement>();
         }
 
-        protected virtual void AddElement(FormElement element)
+        public virtual void AddElement(FormElement element)
         {
             if (elementList.Find(item => item.name.Equals(element.name)) != null)
                 throw new System.ArgumentException("Cannot add element " + element.name + ". to Form " + this.name + " that tag is already in use!");
@@ -34,6 +34,16 @@ namespace WpfApp1.FormItems
         protected override void WriteXMLInner(XmlWriter writer)
         {
             throw new NotImplementedException();
+        }
+
+        public override void ShowMessage()
+        {
+            MessageBox.Show(name + " contains:");
+
+            foreach (FormElement element in this.elementList)
+            {
+                element.ShowMessage();
+            }
         }
     }
 }

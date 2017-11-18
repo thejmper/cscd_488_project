@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Xml;
+using System.Windows.Data;
 
 namespace WpfApp1.FormItems
 {
@@ -18,6 +19,7 @@ namespace WpfApp1.FormItems
         /// </summary>
         protected T control;
 
+
         /// <summary>
         /// protected EVC
         /// </summary>
@@ -32,6 +34,7 @@ namespace WpfApp1.FormItems
 
             //set the control
             this.control = control;
+            this.BindControl();
 
             //add a header
             Label label = new Label();
@@ -41,6 +44,9 @@ namespace WpfApp1.FormItems
             this.stackPanel.Children.Add(control);
         }
 
+        protected abstract void BindControl();
+
+        //--save/load stuff--//
         protected override void ReadXMLInner(XmlReader reader)
         {
             throw new NotImplementedException();
@@ -49,5 +55,7 @@ namespace WpfApp1.FormItems
         {
             throw new NotImplementedException();
         }
+
+
     }
 }

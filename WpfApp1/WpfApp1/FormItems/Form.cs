@@ -9,7 +9,7 @@ namespace WpfApp1.FormItems
     /// <summary>
     /// class for a single form, 1-for-1 with the existing goverment stuff.
     /// </summary>
-    public class Form : FormElement
+    public class Form : ElementGroup
     {
         //--member fields--//
         /// <summary>
@@ -21,10 +21,6 @@ namespace WpfApp1.FormItems
         /// stack panel used to hold our visual elements
         /// </summary>
         private StackPanel stackPanel;
-        /// <summary>
-        /// elements contained within this form
-        /// </summary>
-        private List<FormElement> elementList;
 
         //--construction--/
         public Form(string name): base(name)
@@ -38,12 +34,10 @@ namespace WpfApp1.FormItems
         }
 
         //--manipulation--//
-        public void AddElement(FormElement element)
+        public override void AddElement(FormElement element)
         {
-            if (elementList.Find(item => item.name.Equals(element.name)) != null)
-                throw new System.ArgumentException("Cannot add element " + element.name + ". to Form " + this.name + " that tag is already in use!");
+            base.AddElement(element);
 
-            elementList.Add(element);
             stackPanel.Children.Add(element.UIelement);
         }
 
@@ -56,5 +50,7 @@ namespace WpfApp1.FormItems
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }

@@ -21,9 +21,12 @@ namespace WpfApp1
     {
         //int MAX_WIDTH = 1500;
 
+        private Form form;
+
         public MainWindow()
         {
             InitializeComponent();
+
             
             //create a scrollable stack panel!
             ScrollViewer scrollViewer = new ScrollViewer();
@@ -55,14 +58,15 @@ namespace WpfApp1
             //    headerGrid.Children.Add(facilityNoPanel);
 
             myStackPanel.Children.Add(headerGrid);
-            */
+            
             //scrollViewer.Content = myStackPanel;
-
-            Form form = new Form("form");
+            */
+            form = new Form("form");
 
             LayoutGrid grid = new LayoutGrid("header");
             grid.AddElement(new ControlText("name", "Assised living Facility Name"), 0, 0, 9, true);
-            grid.AddElement(new ControlText("number", "License Number"), 9, 0, 3, true);
+            grid.AddElement(new ControlInteger("number", "License Number"), 9, 0, 3, true);
+
 
             form.AddElement(grid);
 
@@ -72,9 +76,11 @@ namespace WpfApp1
             tab.Content = scrollViewer;
 
             main.Items.Add(tab);
-            
-            
+        }
 
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            form.ShowMessage();
         }
     }
 }
