@@ -9,7 +9,7 @@
     <Grid>
         <Menu >
             <MenuItem Header="_File">
-                <MenuItem Header="new"/>
+                <MenuItem Header="new" Click="Load_Click"/>
             </MenuItem>
         </Menu>
         <TabControl Margin="0,21,0,0" Name="main">

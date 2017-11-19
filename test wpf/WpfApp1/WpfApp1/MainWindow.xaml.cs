@@ -101,6 +101,12 @@ namespace WpfApp1
             }
             */
         }
+
+        private void Load_Click(object sender, RoutedEventArgs e)
+        {
+            FileExplorer fe = new FileExplorer();
+            fe.Show();
+        }
     }
 
     public class FormGrid : Grid
