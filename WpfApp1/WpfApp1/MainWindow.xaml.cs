@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Xml.Serialization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +12,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfApp1.FormItems;
 namespace WpfApp1
 {
@@ -22,14 +23,14 @@ namespace WpfApp1
         //int MAX_WIDTH = 1500;
 
         private Form form;
-
+        private ScrollViewer scrollViewer;
         public MainWindow()
         {
             InitializeComponent();
 
             
             //create a scrollable stack panel!
-            ScrollViewer scrollViewer = new ScrollViewer();
+            scrollViewer = new ScrollViewer();
             scrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
             scrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
 
@@ -61,26 +62,56 @@ namespace WpfApp1
             
             //scrollViewer.Content = myStackPanel;
             */
-            form = new Form("form");
+            main.Children.Add(scrollViewer);
+        }
 
-            LayoutGrid grid = new LayoutGrid("header");
-            grid.AddElement(new ControlText("name", "Assised living Facility Name"), 0, 0, 9, true);
-            grid.AddElement(new ControlInteger("number", "License Number"), 9, 0, 3, true);
+        //new!
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            this.form = null;
 
+            XmlSerializer ser = new XmlSerializer(typeof(Form));
 
-            form.AddElement(grid);
+            using (TextReader reader = new StreamReader(GetPath(@"\templateForm.xml")))
+            {
+                this.form = (Form)ser.Deserialize(reader);
+            }
 
             scrollViewer.Content = form.UIelement;
-
-            TabItem tab = new TabItem();
-            tab.Content = scrollViewer;
-
-            main.Items.Add(tab);
         }
 
+        //save!
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            XmlSerializer ser = new XmlSerializer(form.GetType());
+
+            using (TextWriter writer = new StreamWriter(GetPath(@"\savedForm.xml")))
+            {
+                ser.Serialize(writer, form);
+            }
+        }
+        //load!
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            form.ShowMessage();
+            this.form = null;
+
+            XmlSerializer ser = new XmlSerializer(typeof(Form));
+
+            using (TextReader reader = new StreamReader(GetPath(@"\savedForm.xml")))
+            {
+                this.form = (Form)ser.Deserialize(reader);
+            }
+
+            scrollViewer.Content = form.UIelement;
         }
+
+
+        private string GetPath(string fileName)
+        {
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "testXML");
+            return path + fileName;
+        }
+
+
     }
 }

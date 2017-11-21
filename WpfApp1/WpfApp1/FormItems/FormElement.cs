@@ -69,12 +69,8 @@ namespace WpfApp1.FormItems
             writer.WriteElementString("name", this.name);
 
             this.WriteXMLInner(writer);
-        }
 
-        //--debugging stuff--//
-        public virtual void ShowMessage()
-        {
-
+            writer.WriteEndElement();
         }
     }
 }

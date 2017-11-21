@@ -1,5 +1,7 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
 using System.Windows.Data;
+using System.Xml;
 
 namespace WpfApp1.FormItems
 {
@@ -13,14 +15,30 @@ namespace WpfApp1.FormItems
         {
 
         }
+        protected ControlText(): this("unnamedTextControl", "untitled text Control")
+        {
+
+        }
 
         protected override void BindControl()
         {
             this.dataHolder = new TextDataHolder();
 
-            Binding dataBinding = new Binding("text");
-            dataBinding.Source = this.dataHolder;
-            control.SetBinding(TextBox.TextProperty, dataBinding);
+            this.binding = new Binding("text");
+            binding.Source = this.dataHolder;
+            control.SetBinding(TextBox.TextProperty, binding);
+        }
+
+        protected override void ReadControl(XmlReader reader)
+        {
+            dataHolder.text = reader.ReadElementContentAsString();
+            (control).GetBindingExpression(TextBox.TextProperty).UpdateTarget();
+        }
+
+        protected override void WriteControl(XmlWriter writer)
+        {
+            (control).GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            writer.WriteElementString("text", this.dataHolder.text);
         }
 
         /// <summary>
@@ -30,11 +48,6 @@ namespace WpfApp1.FormItems
         private class TextDataHolder
         {
             public string text { get; set; }
-        }
-
-        public override void ShowMessage()
-        {
-            System.Windows.MessageBox.Show(name + ": " + dataHolder.text);
         }
     }
 

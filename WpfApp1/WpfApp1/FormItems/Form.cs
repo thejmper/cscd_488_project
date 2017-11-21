@@ -9,7 +9,7 @@ namespace WpfApp1.FormItems
     /// <summary>
     /// class for a single form, 1-for-1 with the existing goverment stuff.
     /// </summary>
-    public class Form : ElementGroup
+    public class Form : ElementGroup<FormElement>
     {
         //--member fields--//
         /// <summary>
@@ -30,26 +30,24 @@ namespace WpfApp1.FormItems
         }
         protected Form(): this("unnamedForm")
         {
-
+            
         }
 
         //--manipulation--//
-        public override void AddElement(FormElement element)
+        public void AddElement(FormElement element)
         {
-            base.AddElement(element);
+            this.AddElementInternal(element);
+        }
+
+        protected override void AddElementInternal(FormElement element)
+        {
+            base.AddElementInternal(element);
 
             stackPanel.Children.Add(element.UIelement);
         }
 
         //--save/load stuff--//
-        protected override void ReadXMLInner(XmlReader reader)
-        {
-            throw new NotImplementedException();
-        }
-        protected override void WriteXMLInner(XmlWriter writer)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         
     }

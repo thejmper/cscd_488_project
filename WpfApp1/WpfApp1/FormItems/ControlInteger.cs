@@ -2,6 +2,7 @@
 using System.Windows.Data;
 using System.Windows.Controls;
 using System.Windows;
+using System.Xml;
 
 namespace WpfApp1.FormItems
 {
@@ -14,14 +15,18 @@ namespace WpfApp1.FormItems
         public ControlInteger(string name, string engishTitle, Orientation orientation = Orientation.Vertical) : base(name, engishTitle, new TextBox(), orientation)
         {
         }
+        protected ControlInteger(): base("untitledControlInteger", "untitled integer control", new TextBox())
+        {
+
+        }
 
         protected override void BindControl()
         {
             this.dataHolder = new IntDataHolder();
 
-            Binding dataBinding = new Binding("value");
-            dataBinding.Source = dataHolder;
-            control.SetBinding(TextBox.TextProperty, dataBinding);
+            this.binding= new Binding("value");
+            binding.Source = dataHolder;
+            control.SetBinding(TextBox.TextProperty, binding);
         }
 
         /// <summary>
@@ -33,9 +38,16 @@ namespace WpfApp1.FormItems
             public int value { get; set; }
         }
 
-        public override void ShowMessage()
+        protected override void WriteControl(XmlWriter writer)
         {
-            MessageBox.Show(name + ": " + dataHolder.value);
+            (control).GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            writer.WriteElementString("value", this.dataHolder.value.ToString());
+        }
+
+        protected override void ReadControl(XmlReader reader)
+        {
+            dataHolder.value = Int32.Parse(reader.ReadElementContentAsString());
+            (control).GetBindingExpression(TextBox.TextProperty).UpdateTarget();
         }
     }
 }

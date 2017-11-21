@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Xml;
-
+using System.Xml.Serialization;
 using WpfApp1.Utils;
 
 namespace WpfApp1.FormItems
@@ -11,7 +11,7 @@ namespace WpfApp1.FormItems
     /// creates a bootstrap-like 12-wide grid for laying elements out on.
     /// (just like the existing forms use.)
     /// </summary>
-    public class LayoutGrid : ElementGroup
+    public class LayoutGrid : ElementGroup<GridElement>
     {
         //--member fields--//
         /// <summary>
@@ -46,46 +46,117 @@ namespace WpfApp1.FormItems
         /// <param name="col">colum to place the left-most edge at. Starts at 0</param>
         /// <param name="row">row to place the top-most edge at. Starts at 0</param>
         /// <param name="colSpan">colums this element should span. Must bet between 1 and 12</param>
-        public void AddElement(FormElement element, int col, int row, int colSpan, bool addBorder = false)
+        public void AddElement(FormElement element, int col, int row, int colSpan, int rowSpan = 1, bool isBordered = true)
         {
-            //check for errors
+            GridElement gridElement = new GridElement(element, row, col, colSpan, rowSpan, isBordered);
+
+            this.AddElementInternal(gridElement);
+        }
+
+        protected override void AddElementInternal(GridElement element)
+        {
+            base.AddElementInternal(element);
+
+            //add more rows if we need to.
+            while (element.row > (grid.RowDefinitions.Count - 1))
+                grid.RowDefinitions.Add(new RowDefinition());
+
+            //add border (if requested)
+            UIElement uiElement = element.UIelement;
+            if (element.isBordered)
+                uiElement = uiElement.Bordered();
+
+            //add the control
+            Grid.SetRow(uiElement, element.row);
+            Grid.SetColumn(uiElement, element.col);
+            Grid.SetColumnSpan(uiElement, element.colSpan);
+            grid.Children.Add(uiElement);
+        }
+    }
+
+    public class GridElement : FormElement
+    {
+        //--member fields--//
+        /// <summary>
+        /// form element stored in this slot in the grid
+        /// </summary>
+        public FormElement formElement;
+
+        //--grid location--//
+        public int row;
+        public int col;
+        public int rowSpan;
+        public int colSpan;
+
+        public bool isBordered;
+
+        /// <summary>
+        /// ui element drawing this grid element
+        /// </summary>
+        public override UIElement UIelement { get { return this.formElement.UIelement; } }
+
+        //--construction--//
+        public GridElement(FormElement element, int row = 0, int col = 0, int colSpan = 1, int rowSpan = 1, bool isBordered = true): base(element.name)
+        {
+            if (row < 0)
+                throw new System.ArgumentException("row must be 0 or greater");
+
+            if (col < 0 || col > 11)
+                throw new System.ArgumentException("col must be between 0 and 11");
+
             if (colSpan > 12)
                 throw new System.ArgumentException("colSpan cannot be greater than 12!");
             if (colSpan <= 0)
                 throw new System.ArgumentException("colSpan must be at least 1");
-            if (row < 0)
-                throw new System.ArgumentException("row must be 0 or greater");
-            if (col < 0 || col > 11)
-                throw new System.ArgumentException("col must be between 0 and 11");
 
-            base.AddElement(element);
+            if (rowSpan < 1)
+                throw new System.ArgumentException("rowSpan must be at least 1!)");
 
-            //okay, now we know we've got good data!
-            //add more rows if we need to.
-            while (row > (grid.RowDefinitions.Count - 1))
-                grid.RowDefinitions.Add(new RowDefinition());
+            this.formElement = element;
+            this.row = row;
+            this.col = col;
+            this.colSpan = colSpan;
+            this.rowSpan = rowSpan;
 
-            UIElement uiElement = element.UIelement;
+            this.isBordered = isBordered;
+        }
+        protected GridElement(): base("untitledGridElement")
+        {
 
-            //add border (if requested)
-            if (addBorder)
-                uiElement = uiElement.Bordered();
-
-            //add the control
-            Grid.SetRow(uiElement, row);
-            Grid.SetColumn(uiElement, col);
-            Grid.SetColumnSpan(uiElement, colSpan);
-            grid.Children.Add(uiElement);
         }
 
-        //--save/load stuff--//
         protected override void ReadXMLInner(XmlReader reader)
         {
-            throw new NotImplementedException();
+            this.row = Int32.Parse(reader.ReadElementContentAsString());
+            this.col = Int32.Parse(reader.ReadElementContentAsString());
+            this.rowSpan = Int32.Parse(reader.ReadElementContentAsString());
+            this.colSpan= Int32.Parse(reader.ReadElementContentAsString());
+
+            this.isBordered = reader.ReadElementContentAsString().ToLower().Equals("true");
+
+            reader.MoveToContent();
+            Type type = Type.GetType(reader.GetAttribute("type"));
+
+            XmlSerializer ser = new XmlSerializer(type);
+            FormElement element = (FormElement)ser.Deserialize(reader);
+
+            this.formElement = element;
+
+            reader.MoveToContent();
         }
+
         protected override void WriteXMLInner(XmlWriter writer)
         {
-            throw new NotImplementedException();
+            //write grid-specific variables
+            writer.WriteElementString("row", this.row.ToString());
+            writer.WriteElementString("col", this.col.ToString());
+            writer.WriteElementString("rowSpan", this.rowSpan.ToString());
+            writer.WriteElementString("colSpan", this.colSpan.ToString());
+            writer.WriteElementString("isBordered", this.isBordered.ToString());
+
+            //write the inner control!
+            writer.WriteStartElement(this.formElement.GetType().Name);
+            formElement.WriteXml(writer);
         }
     }
 }

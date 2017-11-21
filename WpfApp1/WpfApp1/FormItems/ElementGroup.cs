@@ -2,24 +2,30 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Xml;
+using System.Xml.Serialization;
 
 namespace WpfApp1.FormItems
 {
-    public abstract class ElementGroup: FormElement
+    public abstract class ElementGroup<T>: FormElement where T: FormElement
     {
 
         //--construction--//
         /// <summary>
         /// elements contained within this form
         /// </summary>
-        protected List<FormElement> elementList;
+        protected List<T> elementList;
 
+        //--constructors--//
         protected ElementGroup(string name): base(name)
         {
-            this.elementList = new List<FormElement>();
+            this.elementList = new List<T>();
+        }
+        protected ElementGroup(): this("untitledForm")
+        {
+
         }
 
-        public virtual void AddElement(FormElement element)
+        protected virtual void AddElementInternal(T element)
         {
             if (elementList.Find(item => item.name.Equals(element.name)) != null)
                 throw new System.ArgumentException("Cannot add element " + element.name + ". to Form " + this.name + " that tag is already in use!");
@@ -29,21 +35,33 @@ namespace WpfApp1.FormItems
 
         protected override void ReadXMLInner(XmlReader reader)
         {
-            throw new NotImplementedException();
+            reader.ReadStartElement();
+            reader.MoveToContent();
+
+            while(reader.NodeType != XmlNodeType.EndElement)
+            {
+                Type type = Type.GetType(reader.GetAttribute("type"));
+
+                XmlSerializer ser = new XmlSerializer(type);
+                T element = (T)ser.Deserialize(reader);
+
+                this.AddElementInternal(element);
+
+                reader.MoveToContent();
+            }
         }
         protected override void WriteXMLInner(XmlWriter writer)
         {
-            throw new NotImplementedException();
-        }
+            writer.WriteComment("Below is the list of items contained within this group");
+            writer.WriteStartElement("elementList");
 
-        public override void ShowMessage()
-        {
-            MessageBox.Show(name + " contains:");
-
-            foreach (FormElement element in this.elementList)
+            //write elements here
+            foreach (T element in this.elementList)
             {
-                element.ShowMessage();
+                writer.WriteStartElement(element.GetType().Name);
+                element.WriteXml(writer);
             }
+            //done
         }
     }
 }

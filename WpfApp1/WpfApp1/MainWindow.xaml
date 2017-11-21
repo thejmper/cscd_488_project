@@ -9,15 +9,12 @@
     <Grid>
         <Menu >
             <MenuItem Header="_File">
-                <MenuItem Header="new"/>
-                <MenuItem Header="save"/>
-                <MenuItem Header="load"/>
-                <MenuItem Header="Test" Click="MenuItem_Click"/>
+                <MenuItem Header="new" Click="MenuItem_Click_2"/>
+                <MenuItem Header="save" Click="MenuItem_Click_1"/>
+                <MenuItem Header="load" Click="MenuItem_Click"/>
             </MenuItem>
         </Menu>
-        <TabControl Margin="0,21,0,0" Name="main">
-        </TabControl>
-        <Grid HorizontalAlignment="Left" Height="100" Margin="-449,634,0,0" VerticalAlignment="Top" Width="100"/>
+        <Grid Margin="10,25,10,0" Name="main"/>
 
     </Grid>
 </Window>

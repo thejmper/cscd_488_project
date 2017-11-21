@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Xml;
 using System.Windows.Data;
@@ -19,6 +18,11 @@ namespace WpfApp1.FormItems
         /// </summary>
         protected T control;
 
+        protected Binding binding;
+
+        //--saveable stuff--//
+        private Label label;
+        private Orientation orientation { get { return stackPanel.Orientation; } }
 
         /// <summary>
         /// protected EVC
@@ -37,11 +41,16 @@ namespace WpfApp1.FormItems
             this.BindControl();
 
             //add a header
-            Label label = new Label();
+            this.label= new Label();
             label.Content = engishTitle;
 
             this.stackPanel.Children.Add(label);
             this.stackPanel.Children.Add(control);
+        }
+
+        protected FormControl(): this("unnamedControll", "Unnamed Control", null,Orientation.Vertical)
+        {
+            
         }
 
         protected abstract void BindControl();
@@ -49,13 +58,23 @@ namespace WpfApp1.FormItems
         //--save/load stuff--//
         protected override void ReadXMLInner(XmlReader reader)
         {
-            throw new NotImplementedException();
+            this.label.Content = reader.ReadElementContentAsString();
+
+            string orientationString = reader.ReadElementContentAsString();
+            stackPanel.Orientation = orientationString.Equals("Vertical") ? Orientation.Vertical : Orientation.Horizontal;
+
+            this.ReadControl(reader);
         }
         protected override void WriteXMLInner(XmlWriter writer)
         {
-            throw new NotImplementedException();
+            writer.WriteElementString("englishTitle", this.label.Content.ToString());
+            writer.WriteElementString("orientation", this.orientation.ToString());
+
+                
+            this.WriteControl(writer);
         }
 
-
+        protected abstract void WriteControl(XmlWriter writer);
+        protected abstract void ReadControl(XmlReader reader);
     }
 }
