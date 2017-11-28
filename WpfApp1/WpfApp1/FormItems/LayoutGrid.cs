@@ -38,6 +38,13 @@ namespace WpfApp1.FormItems
 
         }
 
+        //--cloning--//
+        protected override ElementGroup<GridElement> CloneInner()
+        {
+            LayoutGrid clone = new LayoutGrid(this.name);
+            return clone;
+        }
+
         //--grid manipulation--//
         /// <summary>
         /// adds an element to the grid in the given location
@@ -123,6 +130,15 @@ namespace WpfApp1.FormItems
         protected GridElement(): base("untitledGridElement")
         {
 
+        }
+
+        //--cloning--//
+        public override FormElement Clone()
+        {
+            FormElement inner = this.formElement.Clone();
+            GridElement clone = new GridElement(inner, this.row, this.col, this.colSpan, this.rowSpan, this.isBordered);
+
+            return clone;
         }
 
         protected override void ReadXMLInner(XmlReader reader)

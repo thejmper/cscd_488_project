@@ -29,6 +29,16 @@ namespace WpfApp1.FormItems
             control.SetBinding(TextBox.TextProperty, binding);
         }
 
+        //--cloning--//
+        public override FormElement Clone()
+        {
+            ControlInteger clone = new ControlInteger(this.name, this.englishTitle, this.orientation);
+            clone.dataHolder.value = this.dataHolder.value;
+            (clone.control).GetBindingExpression(TextBox.TextProperty).UpdateTarget();
+
+            return clone;
+        }
+
         /// <summary>
         /// we need a class to put our data, not just a reference, because otherwise
         /// the WPF doesn't update right and generally does silly things.

@@ -55,10 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Case\CaseFile.cs" />
+    <Compile Include="Case\Form.cs" />
+    <Compile Include="Case\Report.cs" />
     <Compile Include="FormItems\ControlInteger.cs" />
     <Compile Include="FormItems\ControlText.cs" />
     <Compile Include="FormItems\ElementGroup.cs" />
-    <Compile Include="FormItems\Form.cs" />
     <Compile Include="FormItems\FormControl.cs" />
     <Compile Include="FormItems\FormElement.cs" />
     <Compile Include="FormItems\LayoutGrid.cs" />

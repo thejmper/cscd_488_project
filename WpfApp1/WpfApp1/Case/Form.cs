@@ -4,7 +4,9 @@ using System.Windows.Controls;
 using System.Xml;
 using System.Collections.Generic;
 
-namespace WpfApp1.FormItems
+using WpfApp1.FormItems;
+
+namespace WpfApp1.Case
 {
     /// <summary>
     /// class for a single form, 1-for-1 with the existing goverment stuff.
@@ -33,6 +35,20 @@ namespace WpfApp1.FormItems
             
         }
 
+        //--cloning--//
+        protected override ElementGroup<FormElement> CloneInner()
+        {
+            Form clone = new Form(this.name);
+            return clone;
+        }
+        public Form Clone(string name)
+        {
+            Form clone = (Form)this.Clone();
+            clone.name = name;
+
+            return clone;
+        }
+
         //--manipulation--//
         public void AddElement(FormElement element)
         {
@@ -46,9 +62,10 @@ namespace WpfApp1.FormItems
             stackPanel.Children.Add(element.UIelement);
         }
 
-        //--save/load stuff--//
-        
 
-        
+        //--save/load stuff--//
+
+
+
     }
 }

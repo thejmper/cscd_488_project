@@ -1,7 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Xml;
 using System.Windows.Data;
+using System;
 
 namespace WpfApp1.FormItems
 {
@@ -22,7 +24,8 @@ namespace WpfApp1.FormItems
 
         //--saveable stuff--//
         private Label label;
-        private Orientation orientation { get { return stackPanel.Orientation; } }
+        protected Orientation orientation { get { return stackPanel.Orientation; } }
+        protected string englishTitle { get { return label.Content.ToString(); } }
 
         /// <summary>
         /// protected EVC
@@ -47,7 +50,6 @@ namespace WpfApp1.FormItems
             this.stackPanel.Children.Add(label);
             this.stackPanel.Children.Add(control);
         }
-
         protected FormControl(): this("unnamedControll", "Unnamed Control", null,Orientation.Vertical)
         {
             
@@ -67,7 +69,7 @@ namespace WpfApp1.FormItems
         }
         protected override void WriteXMLInner(XmlWriter writer)
         {
-            writer.WriteElementString("englishTitle", this.label.Content.ToString());
+            writer.WriteElementString("englishTitle", this.englishTitle);
             writer.WriteElementString("orientation", this.orientation.ToString());
 
                 

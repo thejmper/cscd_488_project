@@ -12,7 +12,9 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
+
 using WpfApp1.FormItems;
+using WpfApp1.Case;
 namespace WpfApp1
 {
     /// <summary>
@@ -20,63 +22,106 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        //int MAX_WIDTH = 1500;
+        private CaseFile caseFile;
+        private Report report;
 
-        private Form form;
-        private ScrollViewer scrollViewer;
+        private Form formTemplate;
+
         public MainWindow()
         {
             InitializeComponent();
 
-            
-            //create a scrollable stack panel!
-            scrollViewer = new ScrollViewer();
-            scrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
-            scrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
-
-            /*
-            // Create a StackPanel and Add children
-            StackPanel myStackPanel = new StackPanel();
-
-            //create internal controls!
-            FormControl faciltyName = new FormControl("Assisted Living Facility Name", new TextBox());
-            FormControl facilityNumber = new FormControl("License Number", new TextBox());
-            FormControl inspectionDate = new FormControl("Inspection Date", new DatePicker());
-            FormControl licensorName = new FormControl("Licensor Name", new TextBox());
-
-
-            LayoutGrid headerGrid = new LayoutGrid();
-
-
-            headerGrid.AddElement(faciltyName.Bordered(), 0, 0, 9);
-            headerGrid.AddElement(facilityNumber.Bordered(), 9, 0, 3);
-            headerGrid.AddElement(inspectionDate.Bordered(), 0, 1, 3);
-            headerGrid.AddElement(licensorName.Bordered(), 3, 1, 9);
-
-            //Grid.SetRow(facilityNoPanel, 0);
-            //Grid.SetColumn(facilityNoPanel, 9);
-            //Grid.SetColumnSpan(facilityNoPanel, 4);
-            //    headerGrid.Children.Add(facilityNoPanel);
-
-            myStackPanel.Children.Add(headerGrid);
-            
-            //scrollViewer.Content = myStackPanel;
-            */
-            main.Children.Add(scrollViewer);
-        }
-
-        //new!
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
-        {
-            this.form = null;
+           
 
             XmlSerializer ser = new XmlSerializer(typeof(Form));
 
             using (TextReader reader = new StreamReader(GetPath(@"\templateForm.xml")))
             {
-                this.form = (Form)ser.Deserialize(reader);
+                this.formTemplate = (Form)ser.Deserialize(reader);
             }
 
+            //create a scrollable stack panel!
+            //scrollViewer = new ScrollViewer();
+            //scrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+            //scrollViewer.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
+
+            //main.Children.Add(scrollViewer);
+        }
+
+        private void createCaseFile_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string name = caseFileName.Text;
+                string faciliyName = facilityName.Text;
+                int licenseNo = Int32.Parse(facilityNo.Text);
+
+
+                this.caseFile = new CaseFile(name, faciliyName, licenseNo);
+
+                this.caseDisplay.Children.Add(this.caseFile.UIelement);
+
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void createReport_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string userID = this.userID.Text;
+                string userFullName = this.userName.Text;
+
+                report = this.caseFile.AddReport(userID, userFullName);
+
+                this.caseDisplay.Children.Clear();
+                this.caseDisplay.Children.Add(this.caseFile.UIelement);
+                this.reportDisplay.Children.Add(this.report.UIelement);
+
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void createForm_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Form form = report.AddForm(this.formTemplate);
+
+                this.reportDisplay.Children.Clear();
+                this.reportDisplay.Children.Add(this.report.UIelement);
+
+                this.scrollViewer.Content = form.UIelement;
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+
+        private string GetPath(string fileName)
+        {
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "testXML");
+            return path + fileName;
+        }
+
+        /*
+        //new!
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            Form newForm;
+
+            XmlSerializer ser = new XmlSerializer(typeof(Form));
+
+            using (TextReader reader = new StreamReader(GetPath(@"\templateForm.xml")))
+            {
+                newForm = (Form)ser.Deserialize(reader);
+            }
+            this.form = (Form)newForm.Clone();
             scrollViewer.Content = form.UIelement;
         }
 
@@ -111,7 +156,7 @@ namespace WpfApp1
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "testXML");
             return path + fileName;
         }
-
+        */
 
     }
 }

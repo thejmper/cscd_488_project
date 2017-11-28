@@ -7,14 +7,40 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
     <Grid>
-        <Menu >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Menu Grid.ColumnSpan="2" >
             <MenuItem Header="_File">
-                <MenuItem Header="new" Click="MenuItem_Click_2"/>
-                <MenuItem Header="save" Click="MenuItem_Click_1"/>
-                <MenuItem Header="load" Click="MenuItem_Click"/>
+
             </MenuItem>
         </Menu>
-        <Grid Margin="10,25,10,0" Name="main"/>
+        <!-- main content page-->
+        <StackPanel Margin="10,25,10,0" Name="main" Grid.ColumnSpan="2">
+            <Label>case file name:</Label>
+            <TextBox Name="caseFileName"></TextBox>
+            <Label>facilty name:</Label>
+            <TextBox Name="facilityName"></TextBox>
+            <Label>facility License number</Label>
+            <TextBox Name="facilityNo"></TextBox>
 
+            <Button Name="createCaseFile" Click="createCaseFile_Click">Create new case file</Button>
+            <GridSplitter></GridSplitter>
+
+            <Grid Name="caseDisplay"></Grid>
+
+            <Label>userID</Label>
+            <TextBox Name="userID"></TextBox>
+            <Label>User full name</Label>
+            <TextBox Name="userName"></TextBox>
+            <Button Name="createReport" Click="createReport_Click">Create new report</Button>
+
+            <Grid Name="reportDisplay"></Grid>
+
+            <Button Name="createForm" Click="createForm_Click">Add Form from template</Button>
+            
+            <ScrollViewer Name="scrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"></ScrollViewer>
+        </StackPanel>
     </Grid>
 </Window>

@@ -29,6 +29,16 @@ namespace WpfApp1.FormItems
             control.SetBinding(TextBox.TextProperty, binding);
         }
 
+        //--cloning--//
+        public override FormElement Clone()
+        {
+            ControlText clone = new ControlText(this.name, this.englishTitle, this.orientation);
+            clone.dataHolder.text = this.dataHolder.text;
+            (clone.control).GetBindingExpression(TextBox.TextProperty).UpdateTarget();
+
+            return clone;
+        }
+
         protected override void ReadControl(XmlReader reader)
         {
             dataHolder.text = reader.ReadElementContentAsString();

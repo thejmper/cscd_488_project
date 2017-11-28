@@ -25,6 +25,22 @@ namespace WpfApp1.FormItems
 
         }
 
+        //--cloning--//
+        public override FormElement Clone()
+        {
+            ElementGroup<T> clone = this.CloneInner();
+            
+            foreach(T element in this.elementList)
+            {
+                clone.AddElementInternal((T)element.Clone());
+            }
+
+            return clone;
+        }
+        protected abstract ElementGroup<T> CloneInner();
+
+
+        //--element manipulation--//
         protected virtual void AddElementInternal(T element)
         {
             if (elementList.Find(item => item.name.Equals(element.name)) != null)
@@ -33,6 +49,7 @@ namespace WpfApp1.FormItems
             elementList.Add(element);
         }
 
+        //--save/load--//
         protected override void ReadXMLInner(XmlReader reader)
         {
             reader.ReadStartElement();

@@ -19,8 +19,9 @@ namespace WpfApp1.FormItems
         /// <summary>
         /// UNIQUE (within scope) name of this element.
         /// </summary>
-        public string name { get; private set; }
+        public string name { get; protected set; }
 
+        //--construction--//
         protected FormElement(string name)
         {
             this.name = name;
@@ -29,6 +30,9 @@ namespace WpfApp1.FormItems
         {
 
         }
+
+        //--cloning--//
+        public abstract FormElement Clone();
 
         //--save/load stuff--//
         //abstract methods
