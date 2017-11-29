@@ -13,11 +13,15 @@
         </Grid.ColumnDefinitions>
         <Menu Grid.ColumnSpan="2" >
             <MenuItem Header="_File">
-
+        
             </MenuItem>
         </Menu>
+
         <!-- main content page-->
         <StackPanel Margin="10,25,10,0" Name="main" Grid.ColumnSpan="2">
+            <Button Name="printBtn" Click="printBtn_Click">Print me!</Button>
+
+
             <Label>case file name:</Label>
             <TextBox Name="caseFileName"></TextBox>
             <Label>facilty name:</Label>

@@ -26,7 +26,7 @@ namespace WpfApp1
         private Report report;
 
         private Form formTemplate;
-
+        private Form form;
         public MainWindow()
         {
             InitializeComponent();
@@ -105,7 +105,7 @@ namespace WpfApp1
         {
             try
             {
-                Form form = report.AddForm(this.formTemplate);
+                this.form = report.AddForm(this.formTemplate);
 
                 this.reportDisplay.Children.Clear();
                 this.reportDisplay.Children.Add(this.report.UIelement);
@@ -123,6 +123,15 @@ namespace WpfApp1
             string baseDir = Directory.GetParent(Directory.GetCurrentDirectory() + @"..\..\..").FullName;
             string path = Path.Combine(baseDir, "testXML");
             return path + fileName;
+        }
+
+        private void printBtn_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog prindDialog = new PrintDialog();
+            if(prindDialog.ShowDialog() == true)
+            {
+                prindDialog.PrintVisual(this.form.UIelement, "my first print job!");
+            }
         }
 
         /*
