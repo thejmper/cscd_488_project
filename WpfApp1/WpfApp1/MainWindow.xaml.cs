@@ -39,6 +39,21 @@ namespace WpfApp1
             {
                 this.formTemplate = (Form)ser.Deserialize(reader);
             }
+            /*
+            Form form = new Form("formA");
+
+            LayoutGrid grid = new LayoutGrid("header");
+            grid.AddElement(new ControlText("facilityName", "Assisted Living Facility Name"), 0, 0, 9);
+            grid.AddElement(new ControlInteger("facilityNo", "License Number"), 9, 0, 3);
+
+            form.AddElement(grid);
+
+
+            using(TextWriter writer = new StreamWriter(GetPath(@"\templateForm.xml")))
+            {
+                //this.formTemplate = (Form)ser.Deserialize(reader);
+                ser.Serialize(writer, form);
+            }*/
 
             //create a scrollable stack panel!
             //scrollViewer = new ScrollViewer();
@@ -105,7 +120,8 @@ namespace WpfApp1
 
         private string GetPath(string fileName)
         {
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "testXML");
+            string baseDir = Directory.GetParent(Directory.GetCurrentDirectory() + @"..\..\..").FullName;
+            string path = Path.Combine(baseDir, "testXML");
             return path + fileName;
         }
 
