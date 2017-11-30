@@ -31,14 +31,10 @@ namespace WpfApp1
         {
             InitializeComponent();
 
-           
+
 
             XmlSerializer ser = new XmlSerializer(typeof(Form));
 
-            using (TextReader reader = new StreamReader(GetPath(@"\templateForm.xml")))
-            {
-                this.formTemplate = (Form)ser.Deserialize(reader);
-            }
             /*
             Form form = new Form("formA");
 
@@ -51,9 +47,13 @@ namespace WpfApp1
 
             using(TextWriter writer = new StreamWriter(GetPath(@"\templateForm.xml")))
             {
-                //this.formTemplate = (Form)ser.Deserialize(reader);
                 ser.Serialize(writer, form);
-            }*/
+            }
+            */
+            using (TextReader reader = new StreamReader(GetPath(@"\templateForm.xml")))
+            {
+                this.formTemplate = (Form)ser.Deserialize(reader);
+            }
 
             //create a scrollable stack panel!
             //scrollViewer = new ScrollViewer();
@@ -132,6 +132,28 @@ namespace WpfApp1
             {
                 prindDialog.PrintVisual(this.form.UIelement, "my first print job!");
             }
+        }
+
+        private void saveMenuitem_Click(object sender, RoutedEventArgs e)
+        {
+            XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
+
+            using (TextWriter writer = new StreamWriter(GetPath(@"\savedCaseFile.xml")))
+            {
+                ser.Serialize(writer, this.caseFile);
+            }
+        }
+
+        private void loadMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
+
+            using (TextReader reader = new StreamReader(GetPath(@"\savedCaseFile.xml")))
+            {
+                this.caseFile = (CaseFile)ser.Deserialize(reader);
+            }
+
+
         }
 
         /*

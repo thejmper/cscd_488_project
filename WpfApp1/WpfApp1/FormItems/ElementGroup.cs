@@ -39,6 +39,12 @@ namespace WpfApp1.FormItems
         }
         protected abstract ElementGroup<T> CloneInner();
 
+        //--readonly--//
+        protected override void SetReadOnlyInternal(bool isReadOnly)
+        {
+            foreach(FormElement element in this.elementList)
+                element.SetReadOnly(isReadOnly);
+        }
 
         //--element manipulation--//
         protected virtual void AddElementInternal(T element)

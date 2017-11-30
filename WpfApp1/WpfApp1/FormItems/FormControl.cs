@@ -7,7 +7,7 @@ using System;
 
 namespace WpfApp1.FormItems
 {
-    public abstract class FormControl<T>: FormElement where T: Control
+    public abstract class FormControl<controlType, dataType>: FormElement where controlType: Control
     {
         public override UIElement UIelement { get { return this.stackPanel; } }
 
@@ -18,7 +18,7 @@ namespace WpfApp1.FormItems
         /// <summary>
         /// the control this form control is built around
         /// </summary>
-        protected T control;
+        protected controlType control;
 
         protected Binding binding;
 
@@ -33,7 +33,7 @@ namespace WpfApp1.FormItems
         /// <param name="name"></param>
         /// <param name="engishTitle"></param>
         /// <param name="orientation"></param>
-        protected FormControl(string name, string engishTitle, T control, Orientation orientation = Orientation.Vertical): base(name)
+        protected FormControl(string name, string engishTitle, controlType control, Orientation orientation = Orientation.Vertical): base(name)
         {
             //setup stack panel
             this.stackPanel = new StackPanel();
@@ -56,6 +56,9 @@ namespace WpfApp1.FormItems
         }
 
         protected abstract void BindControl();
+
+        //--force set--//
+        public abstract void SetControl(dataType value);
 
         //--save/load stuff--//
         protected override void ReadXMLInner(XmlReader reader)

@@ -141,6 +141,13 @@ namespace WpfApp1.FormItems
             return clone;
         }
 
+        //--readonly--//
+        protected override void SetReadOnlyInternal(bool isReadOnly)
+        {
+            this.formElement.SetReadOnly(isReadOnly);
+        }
+
+        //--save/load--//
         protected override void ReadXMLInner(XmlReader reader)
         {
             this.row = Int32.Parse(reader.ReadElementContentAsString());

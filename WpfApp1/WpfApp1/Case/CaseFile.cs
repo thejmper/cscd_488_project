@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Xml;
 using WpfApp1.FormItems;
 
 namespace WpfApp1.Case
 {
-    class CaseFile: ElementGroup<Report>
+    public class CaseFile: ElementGroup<Report>
     {
         //--member fields--//
         /// <summary>
@@ -42,12 +43,33 @@ namespace WpfApp1.Case
         }
 
         //--list manipulation--//
-        public Report AddReport(string userID, string userFullName)
+        internal Report AddReport(string userID, string userFullName)
         {
             Report report = new Report(userID, userFullName, this);
             this.AddElementInternal(report);
 
             return report;
+        }
+        
+        //--cloning. Shouldn't be used!--//
+        protected override ElementGroup<Report> CloneInner()
+        {
+            throw new NotImplementedException("Don't clone case files.");
+        }
+
+        //--save/load--//
+        protected override void WriteXMLInner(XmlWriter writer)
+        {
+            writer.WriteElementString("facilityName", this.facilityName);
+            writer.WriteElementString("facilityLicenseNumber", this.facilitylicenseNumber.ToString());
+            base.WriteXMLInner(writer);
+        }
+
+        protected override void ReadXMLInner(XmlReader reader)
+        {
+            this.facilityName = reader.ReadElementContentAsString();
+            this.facilitylicenseNumber = Int32.Parse(reader.ReadElementContentAsString());
+            base.ReadXMLInner(reader);
         }
 
         //--debugging/testing--//
@@ -61,12 +83,6 @@ namespace WpfApp1.Case
             sb.AppendLine("Reports: " + this.elementList.Count);
 
             return sb.ToString();
-        }
-
-        //--cloning. Shouldn't be used!--//
-        protected override ElementGroup<Report> CloneInner()
-        {
-            throw new NotImplementedException();
         }
     }
 }

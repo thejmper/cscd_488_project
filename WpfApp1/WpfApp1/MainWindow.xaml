@@ -13,7 +13,8 @@
         </Grid.ColumnDefinitions>
         <Menu Grid.ColumnSpan="2" >
             <MenuItem Header="_File">
-        
+                <MenuItem Header="_Save" Name="saveMenuitem" Click="saveMenuitem_Click"/>
+                <MenuItem Header="_Load" Name="loadMenuItem" Click="loadMenuItem_Click"/>
             </MenuItem>
         </Menu>
 

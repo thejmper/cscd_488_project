@@ -21,6 +21,8 @@ namespace WpfApp1.FormItems
         /// </summary>
         public string name { get; protected set; }
 
+        public bool isReadOnly { get; private set; }
+
         //--construction--//
         protected FormElement(string name)
         {
@@ -33,6 +35,14 @@ namespace WpfApp1.FormItems
 
         //--cloning--//
         public abstract FormElement Clone();
+
+        //--mark read-only. really only needed for controls
+        protected abstract void SetReadOnlyInternal(bool isReadOnly);
+        public void SetReadOnly(bool isreadOnly)
+        {
+            this.isReadOnly = isreadOnly;
+            this.SetReadOnly(isreadOnly);
+        }
 
         //--save/load stuff--//
         //abstract methods
@@ -54,6 +64,10 @@ namespace WpfApp1.FormItems
             //read the start element so we can get to the contained data!
             reader.ReadStartElement();
             this.name = reader.ReadElementContentAsString();
+            reader.MoveToContent();
+            this.isReadOnly = reader.ReadElementContentAsString().ToLower().Equals("true") ? true : false;
+
+
             //delegate!
             this.ReadXMLInner(reader);
 
@@ -71,6 +85,9 @@ namespace WpfApp1.FormItems
             //when we load it back, that way we know which subclass's read-inner method to call!
             writer.WriteAttributeString("type", this.GetType().FullName);
             writer.WriteElementString("name", this.name);
+
+            string isReadOnlyString = isReadOnly ? "true" : "false";
+            writer.WriteElementString("isReadOnly", isReadOnlyString);
 
             this.WriteXMLInner(writer);
 

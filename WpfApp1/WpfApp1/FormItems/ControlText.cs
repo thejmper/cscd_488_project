@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace WpfApp1.FormItems
 {
-    public class ControlText : FormControl<TextBox>
+    public class ControlText : FormControl<TextBox, string>
     {
         //--member fields--//
         private TextDataHolder dataHolder;
@@ -39,10 +39,23 @@ namespace WpfApp1.FormItems
             return clone;
         }
 
+        //--readonly--//
+        protected override void SetReadOnlyInternal(bool isReadOnly)
+        {
+            this.control.IsReadOnly = isReadOnly;
+        }
+
+        //--setters--//
+        public override void SetControl(string value)
+        {
+            dataHolder.text = value;
+            (control).GetBindingExpression(TextBox.TextProperty).UpdateTarget();
+        }
+
         protected override void ReadControl(XmlReader reader)
         {
-            dataHolder.text = reader.ReadElementContentAsString();
-            (control).GetBindingExpression(TextBox.TextProperty).UpdateTarget();
+            this.SetReadOnlyInternal(isReadOnly);
+            this.SetControl(reader.ReadElementContentAsString());
         }
 
         protected override void WriteControl(XmlWriter writer)

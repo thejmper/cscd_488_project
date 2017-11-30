@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Xml;
 using WpfApp1.FormItems;
 
 namespace WpfApp1.Case
 {
-    class Report : ElementGroup<Form>
+    public class Report : ElementGroup<Form>
     {
         //--member fields--//
         public override UIElement UIelement
@@ -75,11 +76,22 @@ namespace WpfApp1.Case
             this.AddElementInternal(newForm);
             return newForm;
         }
-        
+
+        //--save/load--//
+        protected override void WriteXMLInner(XmlWriter writer)
+        {
+            writer.WriteElementString("licensorName", this.licensorName);
+            base.WriteXMLInner(writer);
+        }
+        protected override void ReadXMLInner(XmlReader reader)
+        {
+            this.licensorName = reader.ReadElementContentAsString();
+            base.ReadXMLInner(reader);
+        }
 
         protected override ElementGroup<Form> CloneInner()
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("Don't clone Reports");
         }
 
         public override string ToString()
