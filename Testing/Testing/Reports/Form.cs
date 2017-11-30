@@ -22,6 +22,8 @@ namespace Testing.Reports
         /// </summary>
         public DateTime inspectionDate { get { return this.header.lastModified; } }
 
+        public string formID { get; set; }
+
         //stuff we get from the report!
         /// <summary>
         /// name of the facility we're reporting on.
@@ -102,6 +104,11 @@ namespace Testing.Reports
         {
             this.report = report;
             this.header.Update(this);
+        }
+
+        public string getReportID()
+        {
+            return report.reportID;
         }
 
         //--save/load--//

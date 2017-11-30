@@ -26,12 +26,15 @@ namespace Testing.Reports
         /// To avoid conflics, append a username or something on the front to make sure
         /// we never have any overlap within a case file.
         /// </summary>
-        public string reportID { get; private set; }
+        public string reportID { get; set; }
         /// <summary>
         /// name of the person doing the report
         /// </summary>
         public string licensorName { get; private set; }
-
+        /// <summary>
+        /// last time the report was modified
+        /// </summary>
+        public DateTime lastModified { get; set; }
 
         //stuff we get from the case file
         /// <summary>
@@ -43,8 +46,9 @@ namespace Testing.Reports
         /// </summary>
         public int facilityLicenseNo { get { return this.caseFile.facilityLicenseNo; } }
 
+
         //stuff that lives in the report
-        private List<Form> forms;
+        public List<Form> forms { get; }
 
         /// <summary>
         /// creates a report. Internal only Should be called *only* from the case-file level, that way

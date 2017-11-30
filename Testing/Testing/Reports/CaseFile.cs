@@ -27,9 +27,13 @@ namespace Testing.Reports
         /// id number of the facility
         /// </summary>
         public int facilityLicenseNo { get; private set; }
+        /// <summary>
+        /// last time the case file data specifically (not reports within the case file) was modified
+        /// </summary>
+        public DateTime lastModified { get; set; }
 
         //--sub-reports--//
-        private List<Report> reports;
+        public List<Report> reports { get; private set; }
 
         //--creation--//
         public CaseFile(string caseID, string facilityName, int facilityLicenseNo)
@@ -37,6 +41,7 @@ namespace Testing.Reports
             this.caseID = caseID;
             this.facilityName = facilityName;
             this.facilityLicenseNo = facilityLicenseNo;
+            lastModified = DateTime.Now;
 
             this.reports = new List<Report>();
         }
@@ -45,6 +50,7 @@ namespace Testing.Reports
             this.caseID = "NONE_ASSIGNED";
             this.facilityName = "NONE_ASSIGNED";
             this.facilityLicenseNo = -1;
+            lastModified = DateTime.Now;
 
             this.reports = new List<Report>();
         }
@@ -87,6 +93,43 @@ namespace Testing.Reports
             this.reports.Add(report);
 
             return report;
+        }
+
+        public Report UpdateReport(string reportID, DateTime lastModified)
+        {
+            foreach (Report report in this.reports)
+            {
+                if (report.reportID == reportID)
+                {
+                    report.lastModified = lastModified;
+                    return report;
+                }
+            }
+            throw new System.ArgumentException("Report id: " + reportID + " does not exist in this case file!");
+        }
+
+        public Report GetReport(string reportID)
+        {
+            foreach (Report report in this.reports)
+            {
+                if (report.reportID == reportID)
+                {
+                    return report;
+                }
+            }
+            throw new System.ArgumentException("Report id: " + reportID + " does not exist in this case file!");
+        }
+
+        public Boolean HasReport(string reportID)
+        {
+            foreach (Report report in this.reports)
+            {
+                if (report.reportID == reportID)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         //--save/load--//
