@@ -58,6 +58,8 @@
     <Compile Include="Case\CaseFile.cs" />
     <Compile Include="Case\Form.cs" />
     <Compile Include="Case\Report.cs" />
+    <Compile Include="FormItems\ControlBoolean.cs" />
+    <Compile Include="FormItems\ControlDate.cs" />
     <Compile Include="FormItems\ControlInteger.cs" />
     <Compile Include="FormItems\ControlText.cs" />
     <Compile Include="FormItems\ElementGroup.cs" />
