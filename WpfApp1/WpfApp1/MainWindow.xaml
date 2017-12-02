@@ -7,45 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Menu Grid.ColumnSpan="2" >
-            <MenuItem Header="_File">
-                <MenuItem Header="_Save" Name="saveMenuitem" Click="saveMenuitem_Click"/>
-                <MenuItem Header="_Load" Name="loadMenuItem" Click="loadMenuItem_Click"/>
-            </MenuItem>
-        </Menu>
+        <TabControl>
+            <TabItem Header="Admin">
+                <Bold>ADMIN TAB</Bold>
+            </TabItem>
+            <TabItem Header="Hard-working Harold">
+                <Bold>Logged in as Harold</Bold>
+            </TabItem>
+            <TabItem Header="Slacker Steve">
+                <Bold>Logged in as Steve</Bold>
 
-        <!-- main content page-->
-        <StackPanel Margin="10,25,10,0" Name="main" Grid.ColumnSpan="2">
-            <Button Name="printBtn" Click="printBtn_Click">Print me!</Button>
-
-
-            <Label>case file name:</Label>
-            <TextBox Name="caseFileName"></TextBox>
-            <Label>facilty name:</Label>
-            <TextBox Name="facilityName"></TextBox>
-            <Label>facility License number</Label>
-            <TextBox Name="facilityNo"></TextBox>
-
-            <Button Name="createCaseFile" Click="createCaseFile_Click">Create new case file</Button>
-            <GridSplitter></GridSplitter>
-
-            <Grid Name="caseDisplay"></Grid>
-
-            <Label>userID</Label>
-            <TextBox Name="userID"></TextBox>
-            <Label>User full name</Label>
-            <TextBox Name="userName"></TextBox>
-            <Button Name="createReport" Click="createReport_Click">Create new report</Button>
-
-            <Grid Name="reportDisplay"></Grid>
-
-            <Button Name="createForm" Click="createForm_Click">Add Form from template</Button>
-            
-            <ScrollViewer Name="scrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"></ScrollViewer>
-        </StackPanel>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

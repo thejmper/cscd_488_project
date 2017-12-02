@@ -18,6 +18,10 @@ namespace WpfApp1.Case
             }
         }
 
+        //unique to this report
+        public string licensorName { get; private set; }
+        public string licensorID { get; private set; }
+
         //inhereted.
         public string facilityName
         {
@@ -40,23 +44,23 @@ namespace WpfApp1.Case
             }
         }
 
-        //unique to this report
-        public string licensorName { get; private set; }
+
 
         //label used to display this report
         private TextBlock label;
         private CaseFile caseFile;
         //--construction--//
-        internal Report(string name, string userFullName, CaseFile caseFile): base(name)
+        internal Report(string name, string userFullName, string userID, CaseFile caseFile): base(name)
         {
 
             this.caseFile = caseFile;
             this.licensorName = userFullName;
+            this.licensorID = userID;
 
             this.label = new TextBlock();
             this.label.Text = this.ToString();
         }
-        protected Report(): this("unnamed", "nameless", null)
+        protected Report(): this("unnamed", "nameless", "noID", null)
         {
 
         }
@@ -81,17 +85,19 @@ namespace WpfApp1.Case
         protected override void WriteXMLInner(XmlWriter writer)
         {
             writer.WriteElementString("licensorName", this.licensorName);
+            writer.WriteElementString("licensorID", this.licensorID);
             base.WriteXMLInner(writer);
         }
         protected override void ReadXMLInner(XmlReader reader)
         {
             this.licensorName = reader.ReadElementContentAsString();
+            this.licensorID = reader.ReadElementContentAsString();
             base.ReadXMLInner(reader);
         }
 
         protected override ElementGroup<Form> CloneInner()
         {
-            throw new NotImplementedException("Don't clone Reports");
+            throw new NotImplementedException("Don't clone Reports!");
         }
 
         public override string ToString()

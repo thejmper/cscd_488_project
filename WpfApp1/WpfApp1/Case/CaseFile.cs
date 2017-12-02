@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+
 using System.Windows;
 using System.Windows.Controls;
 using System.Xml;
+
 using WpfApp1.FormItems;
+using WpfApp1.Users;
 
 namespace WpfApp1.Case
 {
-    public class CaseFile: ElementGroup<Report>
+    public class CaseFile : ElementGroup<Report>
     {
         //--member fields--//
         /// <summary>
@@ -18,6 +22,12 @@ namespace WpfApp1.Case
         /// </summary>
         public int facilitylicenseNumber { get; private set; }
 
+        /// <summary>
+        /// user IDs of all users who're allowed to access and edit this report! 
+        /// </summary>
+        public List<String> assignedUserIDs { get; private set; }
+
+        //--UI stuff--//
         public override UIElement UIelement
         {
             get
@@ -26,10 +36,10 @@ namespace WpfApp1.Case
                 return textBlock;
             }
         }
-
         private TextBlock textBlock;
 
-        public CaseFile(string name, string facilityName, int facilitylicesnseNumber): base (name)
+        //--Construction--/
+        public CaseFile(string name, string facilityName, int facilitylicesnseNumber) : base(name)
         {
             this.facilityName = facilityName;
             this.facilitylicenseNumber = facilitylicesnseNumber;
@@ -37,20 +47,46 @@ namespace WpfApp1.Case
             this.textBlock = new TextBlock();
             this.textBlock.Text = this.ToString();
         }
-        protected CaseFile(): this("Unnamed", "unnamed", 0)
+        protected CaseFile() : this("Unnamed", "unnamed", 0)
         {
 
         }
 
-        //--list manipulation--//
-        internal Report AddReport(string userID, string userFullName)
+        //--opening--//
+        /// <summary>
+        /// opens this case file for viewing/editing.
+        /// If the user's assigned to this case file but is not a user, he can only edit his specific portion,
+        /// if he's an admin, he can view and edit the entire thing.
+        /// if he's neither, he can only view.
+        /// </summary>
+        /// <param name="user"></param>
+        public void OpenAsUser(User user)
         {
-            Report report = new Report(userID, userFullName, this);
+            this.SetReadOnly(true);
+            if (user.isAdmin)
+            {
+                this.SetReadOnly(false);
+            }
+            else if (assignedUserIDs.Contains(user.id))
+            {
+                Report report = this.elementList.Find(item => item.name.Equals(user.name));
+                report.SetReadOnly(false);
+            }
+        }
+        
+
+
+        //--list manipulation--//
+        internal Report AssignUser(User user)
+        {
+            if (assignedUserIDs.Contains(user.id))
+                throw new ArgumentException("ERROR: User'" + user.ToString() + "' already assigned to this case file!");
+
+            Report report = new Report(user.id, user.id, user.name, this);
             this.AddElementInternal(report);
 
             return report;
-        }
-        
+        }      
         //--cloning. Shouldn't be used!--//
         protected override ElementGroup<Report> CloneInner()
         {
@@ -64,13 +100,22 @@ namespace WpfApp1.Case
             writer.WriteElementString("facilityLicenseNumber", this.facilitylicenseNumber.ToString());
             base.WriteXMLInner(writer);
         }
-
         protected override void ReadXMLInner(XmlReader reader)
         {
             this.facilityName = reader.ReadElementContentAsString();
             this.facilitylicenseNumber = Int32.Parse(reader.ReadElementContentAsString());
             base.ReadXMLInner(reader);
         }
+        /// <summary>
+        /// overridable loader!
+        /// </summary>
+        /// <param name="reader"></param>
+        public override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+            this.SetReadOnly(true);
+        }
+
 
         //--debugging/testing--//
         public override string ToString()
