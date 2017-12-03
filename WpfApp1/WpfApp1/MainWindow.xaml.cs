@@ -25,6 +25,29 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+
+
+            TabItem formATab = new TabItem();
+            formATab.Header = "Form A";
+
+            
+            Form f = new Case.Form("FormA");
+            LayoutGrid g = new LayoutGrid("header");
+            ControlText facilityName = new ControlText("facilityName", "Facility Name");
+            g.AddElement(facilityName, 0, 0, 9);
+            f.AddElement(g);
+
+            formATab.Content = g;
+            //adding all the differnet fields
+            XmlSerializer ser = new XmlSerializer(typeof(Form));
+            using (TextWriter writer = new StreamWriter(GetPath(@"\templateForm1.xml")))
+            {
+                ser.Serialize(writer, f);
+            }
+
+
+            tabControl.Items.Add(formATab);
+            
         }
 
 

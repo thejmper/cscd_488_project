@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Form type="WpfApp1.Case.Form">
+  <name>FormA</name>
+  <isReadOnly>false</isReadOnly>
+  <!--Below is the list of items contained within this group-->
+  <elementList>
+    <LayoutGrid type="WpfApp1.FormItems.LayoutGrid">
+      <name>header</name>
+      <isReadOnly>false</isReadOnly>
+      <!--Below is the list of items contained within this group-->
+      <elementList>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>facilityName</name>
+          <isReadOnly>false</isReadOnly>
+          <row>0</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>9</colSpan>
+          <isBordered>True</isBordered>
+          <ControlText type="WpfApp1.FormItems.ControlText">
+            <name>facilityName</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle>Facility Name</englishTitle>
+            <orientation>Vertical</orientation>
+            <text />
+          </ControlText>
+        </GridElement>
+      </elementList>
+    </LayoutGrid>
+  </elementList>
