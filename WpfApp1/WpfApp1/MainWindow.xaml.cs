@@ -31,14 +31,26 @@ namespace WpfApp1
         {
             InitializeComponent();
 
-           
-
+            Form f = new Case.Form("FormA");
+            LayoutGrid g = new LayoutGrid("headrer");
+            ControlInteger ci = new ControlInteger("", "");
+            g.AddElement(ci, 0, 0, 2);
+            f.AddElement(g);
+            //adding all the differnet fields
             XmlSerializer ser = new XmlSerializer(typeof(Form));
-
-            using (TextReader reader = new StreamReader(GetPath(@"\templateForm.xml")))
+            using (TextWriter writer = new StreamWriter(GetPath(@"\templateForm.xml")))
             {
-                this.formTemplate = (Form)ser.Deserialize(reader);
+                ser.Serialize(writer, f);
             }
+
+
+            /*
+                        XmlSerializer ser = new XmlSerializer(typeof(Form));
+
+                        using (TextReader reader = new StreamReader(GetPath(@"\templateForm.xml")))
+                        {
+                            this.formTemplate = (Form)ser.Deserialize(reader);
+                        }*/
 
             //create a scrollable stack panel!
             //scrollViewer = new ScrollViewer();
@@ -105,7 +117,8 @@ namespace WpfApp1
 
         private string GetPath(string fileName)
         {
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "testXML");
+            string baseDir = Directory.GetParent(Directory.GetCurrentDirectory() + @"..\..\..").FullName;
+            string path = Path.Combine(baseDir, "testXML");
             return path + fileName;
         }
 
