@@ -34,5 +34,10 @@ namespace WpfApp1
             string path = Path.Combine(baseDir, "testXML");
             return path + fileName;
         }
+
+        private void tabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
