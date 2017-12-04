@@ -181,6 +181,16 @@ namespace WpfApp1
             }
         }
 
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog printDialog = new PrintDialog();
+            if(printDialog.ShowDialog() == true)
+            {
+                printDialog.PrintVisual(this.form.UIelement, "Print Form");
+            }
+        }
+
         private void loadForm_Click(object sender, RoutedEventArgs e)
         {
             this.form = null;
@@ -194,6 +204,8 @@ namespace WpfApp1
 
             this.scrollView.Content = this.form.UIelement;
         }
+
+
     }
 }
  
