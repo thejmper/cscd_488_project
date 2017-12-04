@@ -5,132 +5,122 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Xml;
+using System.Xml.Serialization;
+using WpfApp1.Utils;
 
 namespace WpfApp1.FormItems
 {
-    class LayoutStackPanel : ElementGroup<GridElement>
+    public class LayoutStackPanel : ElementGroup<PanelElement>
     {
         /// <summary>
         /// internal grid reference for laying out objects.
         /// </summary>
         private StackPanel panel;
 
-        
+
 
         public override UIElement UIelement { get { return this.panel; } }
 
-        public LayoutStackPanel(string name) : base(name)
+        public LayoutStackPanel(string name, Orientation orientation = Orientation.Horizontal) : base(name)
         {
-
+            panel = new StackPanel();
+            panel.Orientation = orientation;
         }
         protected LayoutStackPanel() : this("unnamedLayoutGrid")
         {
 
         }
 
-
-
-
-        public class PanelElement : FormElement
+        protected override ElementGroup<PanelElement> CloneInner()
         {
-            //--member fields--//
-            /// <summary>
-            /// form element stored in this slot in the grid
-            /// </summary>
-            public FormElement formElement;
+            return new LayoutStackPanel(this.name);
+        }
 
-            //--grid location--//
-            //public int row;
-            //public int col;
-            //public int rowSpan;
-            //public int colSpan;
+        public void AddElement(FormElement element, bool isBordered = true)
+        {
+            PanelElement panelElement = new PanelElement(element, isBordered);
+           // panelElement.name = element.name;
 
-            public bool isBordered;
+            this.AddElementInternal(panelElement);
+        }
 
-            /// <summary>
-            /// ui element drawing this grid element
-            /// </summary>
-            public override UIElement UIelement { get { return this.formElement.UIelement; } }
+        protected override void AddElementInternal(PanelElement element)
+        {
+            base.AddElementInternal(element);
 
-            //--construction--//
-            public PanelElement(FormElement element, int row = 0, int col = 0, int colSpan = 1, int rowSpan = 1, bool isBordered = true) : base(element.name)
-            {
-                if (row < 0)
-                    throw new System.ArgumentException("row must be 0 or greater");
 
-                if (col < 0 || col > 11)
-                    throw new System.ArgumentException("col must be between 0 and 11");
 
-                if (colSpan > 12)
-                    throw new System.ArgumentException("colSpan cannot be greater than 12!");
-                if (colSpan <= 0)
-                    throw new System.ArgumentException("colSpan must be at least 1");
+            //add border (if requested)
+            UIElement uiElement = element.UIelement;
+            if (element.isBordered)
+                uiElement = uiElement.Bordered();
 
-                if (rowSpan < 1)
-                    throw new System.ArgumentException("rowSpan must be at least 1!)");
+            //add the control
+            panel.Children.Add(uiElement);
+        }
+    }
 
-                this.formElement = element;
-                this.row = row;
-                this.col = col;
-                this.colSpan = colSpan;
-                this.rowSpan = rowSpan;
+    public class PanelElement : FormElement
+    {
+        public FormElement formElement;
 
-                this.isBordered = isBordered;
-            }
-            protected GridElement() : base("untitledGridElement")
-            {
+        public bool isBordered;
 
-            }
+        public PanelElement(FormElement element, bool hasBorder)
+        {
+            this.name = element.name;
+            this.formElement = element;
 
-            //--cloning--//
-            public override FormElement Clone()
-            {
-                FormElement inner = this.formElement.Clone();
-                GridElement clone = new GridElement(inner, this.row, this.col, this.colSpan, this.rowSpan, this.isBordered);
+            this.isBordered = hasBorder;
+        }
+        protected PanelElement() : base("untitledPanelElement")
+        {
 
-                return clone;
-            }
+        }
 
-            //--readonly--//
-            protected override void SetReadOnlyInternal(bool isReadOnly)
-            {
-                this.formElement.SetReadOnly(isReadOnly);
-            }
 
-            //--save/load--//
-            protected override void ReadXMLInner(XmlReader reader)
-            {
-                this.row = Int32.Parse(reader.ReadElementContentAsString());
-                this.col = Int32.Parse(reader.ReadElementContentAsString());
-                this.rowSpan = Int32.Parse(reader.ReadElementContentAsString());
-                this.colSpan = Int32.Parse(reader.ReadElementContentAsString());
 
-                this.isBordered = reader.ReadElementContentAsString().ToLower().Equals("true");
+        /// <summary>
+        /// ui element drawing this grid element
+        /// </summary>
+        public override UIElement UIelement { get { return this.formElement.UIelement; } }
 
-                reader.MoveToContent();
-                Type type = Type.GetType(reader.GetAttribute("type"));
+        public override FormElement Clone()
+        {
+            FormElement inner = this.formElement.Clone();
+            PanelElement clone = new PanelElement(this.formElement, isBordered);
+            return clone;
+        }
 
-                XmlSerializer ser = new XmlSerializer(type);
-                FormElement element = (FormElement)ser.Deserialize(reader);
+        protected override void ReadXMLInner(XmlReader reader)
+        {
+            this.isBordered = reader.ReadElementContentAsString().ToLower().Equals("true");
+            reader.MoveToContent();
+            Type type = Type.GetType(reader.GetAttribute("type"));
 
-                this.formElement = element;
+            XmlSerializer ser = new XmlSerializer(type);
+            FormElement element = (FormElement)ser.Deserialize(reader);
 
-                reader.MoveToContent();
-            }
+            this.formElement = element;
 
-            protected override void WriteXMLInner(XmlWriter writer)
-            {
-                //write grid-specific variables
-                writer.WriteElementString("row", this.row.ToString());
-                writer.WriteElementString("col", this.col.ToString());
-                writer.WriteElementString("rowSpan", this.rowSpan.ToString());
-                writer.WriteElementString("colSpan", this.colSpan.ToString());
-                writer.WriteElementString("isBordered", this.isBordered.ToString());
+            reader.MoveToContent();
+            //throw new NotImplementedException();
+        }
 
-                //write the inner control!
-                writer.WriteStartElement(this.formElement.GetType().Name);
-                formElement.WriteXml(writer);
-            }
+        protected override void SetReadOnlyInternal(bool isReadOnly)
+        {
+            this.formElement.SetReadOnly(isReadOnly);
+        }
+
+        protected override void WriteXMLInner(XmlWriter writer)
+        {
+            writer.WriteElementString("isBordered", this.isBordered.ToString());
+
+            //write the inner control!
+            writer.WriteStartElement(this.formElement.GetType().Name);
+            formElement.WriteXml(writer);
+            //throw new NotImplementedException();
         }
     }
 }
