@@ -23,7 +23,7 @@
             <englishTitle>Facility Name</englishTitle>
             <orientation>Vertical</orientation>
             <acceptsNewLine>false</acceptsNewLine>
-            <text />
+            <text>mike's</text>
           </ControlText>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">

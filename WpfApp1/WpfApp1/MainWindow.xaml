@@ -7,18 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
     <Grid>
-        <TabControl Name="tabControl">
-            <TabItem Header="Admin">
-                <Bold>ADMIN TAB</Bold>
-            </TabItem>
-            <TabItem Header="Hard-working Harold">
-                <Bold>Logged in as Harold</Bold>
-            </TabItem>
-            <TabItem Header="Slacker Steve">
-                <Bold>Logged in as Steve</Bold>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-            </TabItem>
-            <DatePicker Height="100" Width="100"/>
-        </TabControl>
+        <StackPanel Orientation="Horizontal" Height="50" Grid.Row="0">
+            <Button Name="newFormA" Click="newFormA_Click">New Form A</Button>
+            <Button Name="saveForm" Click="saveForm_Click">Save Form</Button>
+            <Button Name="loadForm" Click="loadForm_Click">LoadForm</Button>
+        </StackPanel>
+        
+        
+        <ScrollViewer Grid.Row="1" Name="scrollView"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+
+
+
+        </ScrollViewer>
     </Grid>
 </Window>
