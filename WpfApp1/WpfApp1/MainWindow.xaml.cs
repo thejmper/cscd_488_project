@@ -32,12 +32,24 @@ namespace WpfApp1
 
             
             Form f = new Case.Form("FormA");
+
             LayoutGrid g = new LayoutGrid("header");
             ControlText facilityName = new ControlText("facilityName", "Facility Name");
             g.AddElement(facilityName, 0, 0, 9);
+
+            ControlInteger licenceNumber = new ControlInteger("LicenserNumber", "LicenserNumber");
+            g.AddElement(licenceNumber, 9, 0, 3);
+
+            ControlDate inspectionDate = new ControlDate("inDate", "Inspection Date");
+            g.AddElement(inspectionDate, 0, 1, 3);
+
+            ControlText liName = new ControlText("LicensorName", "Licensor Name");
+            g.AddElement(liName, 3, 1, 9);
+
+            //add header
             f.AddElement(g);
 
-            formATab.Content = g;
+            formATab.Content = f.UIelement;
             //adding all the differnet fields
             XmlSerializer ser = new XmlSerializer(typeof(Form));
             using (TextWriter writer = new StreamWriter(GetPath(@"\templateForm1.xml")))
