@@ -37,15 +37,18 @@ namespace Testing
 
             CaseFileSyncer syncer = new CaseFileSyncer();
             Console.WriteLine("Testing inserting case file into database");
-            syncer.SyncCaseFile(caseFile, testUser);
+            //syncer.SyncCaseFile(caseFile, testUser);
+            caseFile.Sync(testUser);
             Console.WriteLine("Testing updating case file already in database");
             CaseFile caseFile2 = new CaseFile("case00001", "Bob's assisted living", 00004);
-            syncer.SyncCaseFile(caseFile2, testUser);
+            //syncer.SyncCaseFile(caseFile2, testUser);
+            caseFile2.Sync(testUser);
             CaseFile caseFile3 = new CaseFile(caseFile2.caseID, "Bob's existing living", 00004);
             syncer.UpdateCaseFile(caseFile3);
 
             CaseFile databaseCaseFile = new CaseFile("14", "invalid", -1);
-            databaseCaseFile = syncer.SyncCaseFile(databaseCaseFile, testUser);
+            //databaseCaseFile = syncer.SyncCaseFile(databaseCaseFile, testUser);
+            databaseCaseFile.Sync(testUser);
             Console.WriteLine(databaseCaseFile);
 
 

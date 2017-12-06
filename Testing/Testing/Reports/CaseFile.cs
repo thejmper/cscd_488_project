@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+using Testing.Reports.Syncers;
+using Testing.Users;
 
 namespace Testing.Reports
 {
@@ -198,6 +200,22 @@ namespace Testing.Reports
             }
 
             return sb.ToString();
+        }
+
+        public void Sync(User user)
+        {
+            CaseFileSyncer syncer = new CaseFileSyncer();
+            CaseFile tempCaseFile = syncer.SyncCaseFile(this, user);
+            caseID = tempCaseFile.caseID;
+            facilityName = tempCaseFile.facilityName;
+            facilityLicenseNo = tempCaseFile.facilityLicenseNo;
+            reports = tempCaseFile.reports;
+        }
+
+        public void AssignUser(User user)
+        {
+            CaseFileSyncer syncer = new CaseFileSyncer();
+            syncer.AssignUser(user, this);
         }
     }
 }

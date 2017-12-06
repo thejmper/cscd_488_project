@@ -3,6 +3,7 @@ using System.Xml;
 
 using Testing.Reports.Fields;
 using Testing.Reports.Forms;
+using Testing.Reports.Syncers;
 
 namespace Testing.Reports
 {

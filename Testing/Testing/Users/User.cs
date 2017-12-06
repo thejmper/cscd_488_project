@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Testing.Users
 {
-    class User
+    public class User
     {
         public string username { get; private set; }
         private string password;

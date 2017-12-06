@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Testing.Users
 {
-    class UserSyncer
+    public class UserSyncer
     {
         MySqlConnection conn;
 

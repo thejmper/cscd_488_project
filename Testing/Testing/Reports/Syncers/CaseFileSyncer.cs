@@ -8,7 +8,7 @@ using Testing.Users;
 
 namespace Testing.Reports.Syncers
 {
-    class CaseFileSyncer
+    public class CaseFileSyncer
     {
         MySqlConnection conn;
 
@@ -24,7 +24,19 @@ namespace Testing.Reports.Syncers
             {
                 if (IsAssignedCase(user, caseFile))
                 {
-                    return GetCaseFile(caseFile);
+                    if (IsLocalOlder(caseFile))
+                    {
+                        return GetCaseFile(caseFile);
+                    }
+                    else
+                    {
+                        ReportSyncer syncer = new ReportSyncer();
+                        foreach (Report report in caseFile.reports)
+                        {
+                            syncer.SyncReport(caseFile, report.reportID);
+                        }
+                        return caseFile;
+                    }
                 }
                 else
                 {
@@ -278,11 +290,9 @@ namespace Testing.Reports.Syncers
             {
                 conn.Open();
                 string sqlStatement = "UPDATE case_files " +
-                    "SET facility_name=@facilityName, facility_license=@facilityLicense " +
-                    "WHERE case_id=@caseID";
+                    "SET facility_name=@facilityName, facility_license=@facilityLicense";
                 MySqlCommand command = new MySqlCommand(sqlStatement, conn);
                 command.Prepare();
-                command.Parameters.AddWithValue("@caseID", caseFile.caseID);
                 command.Parameters.AddWithValue("@facilityName", caseFile.facilityName);
                 command.Parameters.AddWithValue("@facilityLicense", caseFile.facilityLicenseNo);
                 command.ExecuteNonQuery();

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.Xml;
 using System.Xml.Schema;
+using Testing.Reports.Syncers;
 
 namespace Testing.Reports
 {
