@@ -15,11 +15,8 @@ namespace Testing.Reports.Syncers
 
         public FormSyncer()
         {
-            conn = new MySqlConnection(
-                "server=5;" +
-                "user id=user;" +
-                "password=password;" +
-                "database=anthoqn6_480;");
+            string connectionString = System.IO.File.ReadAllText(@"conn.txt");
+            conn = new MySqlConnection(connectionString);
         }
 
         public Form SyncForm(Form form)
