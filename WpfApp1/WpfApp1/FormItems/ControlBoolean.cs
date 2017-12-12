@@ -43,7 +43,7 @@ namespace WpfApp1.FormItems
             return clone;
         }
 
-        public override void SetControl(bool value)
+        public override void SetValue(bool value)
         {
             dataHolder.value = value;
             (control).GetBindingExpression(CheckBox.IsCheckedProperty).UpdateTarget();
@@ -72,11 +72,11 @@ namespace WpfApp1.FormItems
             String valueString = reader.ReadElementContentAsString();
             if (valueString == "true")
             {
-                this.SetControl(true);
+                this.SetValue(true);
             }
             else
             {
-                this.SetControl(false);
+                this.SetValue(false);
             }
         }
 

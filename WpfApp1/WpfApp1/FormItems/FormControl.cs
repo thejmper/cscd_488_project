@@ -58,7 +58,7 @@ namespace WpfApp1.FormItems
         protected abstract void BindControl();
 
         //--force set--//
-        public abstract void SetControl(dataType value);
+        public abstract void SetValue(dataType value);
 
         //--save/load stuff--//
         protected override void ReadXMLInner(XmlReader reader)

@@ -58,10 +58,10 @@ namespace WpfApp1.FormItems
         protected override void ReadControl(XmlReader reader)
         {
             String valueString = reader.ReadElementContentAsString();
-            this.SetControl(valueString);
+            this.SetValue(valueString);
         }
 
-        public override void SetControl(string value)
+        public override void SetValue(string value)
         {
             this.dataHolder.text = value;
             (control).GetBindingExpression(Label.ContentProperty).UpdateTarget();

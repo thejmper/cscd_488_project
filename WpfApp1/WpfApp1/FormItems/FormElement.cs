@@ -41,7 +41,7 @@ namespace WpfApp1.FormItems
         public void SetReadOnly(bool isreadOnly)
         {
             this.isReadOnly = isreadOnly;
-            this.SetReadOnly(isreadOnly);
+            this.SetReadOnlyInternal(isreadOnly);
         }
 
         //--save/load stuff--//

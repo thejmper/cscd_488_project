@@ -50,7 +50,7 @@ namespace WpfApp1.FormItems
         }
 
         //--setters--//
-        public override void SetControl(string value)
+        public override void SetValue(string value)
         {
             dataHolder.text = value;
             (control).GetBindingExpression(TextBox.TextProperty).UpdateTarget();
@@ -67,7 +67,7 @@ namespace WpfApp1.FormItems
             this.control.AcceptsReturn = acceptsNewLine;
 
             this.SetReadOnlyInternal(isReadOnly);
-            this.SetControl(reader.ReadElementContentAsString());
+            this.SetValue(reader.ReadElementContentAsString());
 
 
         }
