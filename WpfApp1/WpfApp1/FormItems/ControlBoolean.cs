@@ -15,7 +15,7 @@ namespace WpfApp1.FormItems
         private BoolDataHolder dataHolder;
 
         //--construction--//
-        public ControlBoolean(string name, string engishTitle, Orientation orientation = Orientation.Horizontal) : base(name, engishTitle, new CheckBox(), orientation)
+        public ControlBoolean(string name, string engishTitle, Orientation orientation = Orientation.Vertical) : base(name, engishTitle, new CheckBox(), orientation)
         {
         }
 
@@ -38,7 +38,7 @@ namespace WpfApp1.FormItems
         {
             ControlBoolean clone = new ControlBoolean(this.name, this.englishTitle, this.orientation);
             clone.dataHolder.value = this.dataHolder.value;
-            (clone.control).GetBindingExpression(CheckBox.IsCheckedProperty).UpdateTarget();
+            (clone.control).GetBindingExpression(DatePicker.TextProperty).UpdateTarget();
 
             return clone;
         }

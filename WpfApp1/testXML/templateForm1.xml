@@ -62,7 +62,7 @@
           <name>LicensorName</name>
           <isReadOnly>false</isReadOnly>
           <row>1</row>
-          <col>3</col>
+          <col>4</col>
           <rowSpan>1</rowSpan>
           <colSpan>9</colSpan>
           <isBordered>True</isBordered>
@@ -75,6 +75,7 @@
             <text />
           </ControlText>
         </GridElement>
+<<<<<<< HEAD
         <GridElement type="WpfApp1.FormItems.GridElement">
           <name>headerChkBoxs</name>
           <isReadOnly>false</isReadOnly>
@@ -408,3 +409,8 @@
                       </elementList>
                     </LayoutGrid>
                   </elementList>
+=======
+      </elementList>
+    </LayoutGrid>
+  </elementList>
+>>>>>>> parent of 525148b... Created formA XML
