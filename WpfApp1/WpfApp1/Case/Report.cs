@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Xml;
@@ -7,14 +6,15 @@ using WpfApp1.FormItems;
 
 namespace WpfApp1.Case
 {
-    public class Report : TabbedGroup<Form>
+    public class Report : ElementGroup<Form>
     {
         //--member fields--//
-         public List<Form> forms
+        public override UIElement UIelement
         {
             get
             {
-                return this.elementList;
+                label.Text = this.ToString();
+                return this.label;
             }
         }
 
@@ -47,21 +47,8 @@ namespace WpfApp1.Case
 
 
         //label used to display this report
-        private CaseFile _caseFile;
-        internal CaseFile caseFile
-        {
-            get
-            {
-                return _caseFile;
-            }
-            set
-            {
-                this._caseFile = value;
-                foreach (Form form in this.elementList)
-                    form.report = this;
-            }
-        }
-
+        private TextBlock label;
+        private CaseFile caseFile;
         //--construction--//
         internal Report(string name, string userFullName, string userID, CaseFile caseFile): base(name)
         {
@@ -70,6 +57,8 @@ namespace WpfApp1.Case
             this.licensorName = userFullName;
             this.licensorID = userID;
 
+            this.label = new TextBlock();
+            this.label.Text = this.ToString();
         }
         protected Report(): this("unnamed", "nameless", "noID", null)
         {
@@ -89,15 +78,7 @@ namespace WpfApp1.Case
 
             Form newForm = (Form)formTemplate.Clone(name + suffix.ToString());
             this.AddElementInternal(newForm);
-            newForm.report = this;
-
             return newForm;
-        }
-
-        protected override void AddElementInternal(Form element)
-        {
-            element.report = this;
-            base.AddElementInternal(element);
         }
 
         //--save/load--//

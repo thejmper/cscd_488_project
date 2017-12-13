@@ -23,7 +23,7 @@
             <englishTitle>Facility Name</englishTitle>
             <orientation>Vertical</orientation>
             <acceptsNewLine>false</acceptsNewLine>
-            <text>bob's old folks</text>
+            <text>mike's</text>
           </ControlText>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
@@ -39,7 +39,7 @@
             <isReadOnly>false</isReadOnly>
             <englishTitle>Licenser Number</englishTitle>
             <orientation>Vertical</orientation>
-            <value>10</value>
+            <value>0</value>
           </ControlInteger>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
@@ -101,7 +101,7 @@
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>Full</englishTitle>
                 <orientation>Horizontal</orientation>
-                <value>true</value>
+                <value>false</value>
               </ControlBoolean>
             </elementList>
           </LayoutStackPanel>
@@ -336,7 +336,7 @@
                             <isReadOnly>false</isReadOnly>
                             <englishTitle>AL</englishTitle>
                             <orientation>Horizontal</orientation>
-                            <value>true</value>
+                            <value>false</value>
                           </ControlBoolean>
                           <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                             <name>EARCChkBox</name>
@@ -350,7 +350,7 @@
                             <isReadOnly>false</isReadOnly>
                             <englishTitle>ARC</englishTitle>
                             <orientation>Horizontal</orientation>
-                            <value>true</value>
+                            <value>false</value>
                           </ControlBoolean>
                           <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                             <name>DementiaChkBox</name>
@@ -371,7 +371,7 @@
                             <isReadOnly>false</isReadOnly>
                             <englishTitle>Adult Day Care</englishTitle>
                             <orientation>Horizontal</orientation>
-                            <value>true</value>
+                            <value>false</value>
                           </ControlBoolean>
                           <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                             <name>NoneChkBox</name>
@@ -402,11 +402,7 @@
                             <englishTitle>Notes:  Pre-Inspection Preparation</englishTitle>
                             <orientation>Vertical</orientation>
                             <acceptsNewLine>true</acceptsNewLine>
-                            <text>notes
-
-some more notes.
-
-yeah!</text>
+                            <text />
                           </ControlText>
                         </GridElement>
                       </elementList>

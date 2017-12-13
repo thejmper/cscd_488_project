@@ -39,7 +39,7 @@ namespace WpfApp1.FormItems
             return clone;
         }
 
-        public override void SetValue(int value)
+        public override void SetControl(int value)
         {
             dataHolder.value = value;
             (control).GetBindingExpression(TextBox.TextProperty).UpdateTarget();
@@ -67,7 +67,7 @@ namespace WpfApp1.FormItems
 
         protected override void ReadControl(XmlReader reader)
         {
-            this.SetValue(Int32.Parse(reader.ReadElementContentAsString()));
+            this.SetControl(Int32.Parse(reader.ReadElementContentAsString()));
         }
 
 

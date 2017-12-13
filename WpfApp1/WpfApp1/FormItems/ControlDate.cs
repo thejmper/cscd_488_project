@@ -43,7 +43,7 @@ namespace WpfApp1.FormItems
             return clone;
         }
 
-        public override void SetValue(DateTime value)
+        public override void SetControl(DateTime value)
         {
             dataHolder.date = value;
             (control).GetBindingExpression(DatePicker.TextProperty).UpdateTarget();
@@ -72,7 +72,7 @@ namespace WpfApp1.FormItems
             Int32.TryParse(parts[1], out day);
 
             DateTime date = new DateTime(year, month, day);
-            this.SetValue(date);
+            this.SetControl(date);
         }
 
         /// <summary>

@@ -10,7 +10,7 @@ using WpfApp1.Users;
 
 namespace WpfApp1.Case
 {
-    public class CaseFile : TabbedGroup<Report>
+    public class CaseFile : ElementGroup<Report>
     {
         //--member fields--//
         /// <summary>
@@ -27,15 +27,16 @@ namespace WpfApp1.Case
         /// </summary>
         public List<String> assignedUserIDs { get; private set; }
 
-        public List<Report> reports
+        //--UI stuff--//
+        public override UIElement UIelement
         {
             get
             {
-                return this.elementList;
+                textBlock.Text = this.ToString();
+                return textBlock;
             }
         }
-
-        //--UI stuff--//
+        private TextBlock textBlock;
 
         //--Construction--/
         public CaseFile(string name, string facilityName, int facilitylicesnseNumber) : base(name)
@@ -43,8 +44,8 @@ namespace WpfApp1.Case
             this.facilityName = facilityName;
             this.facilitylicenseNumber = facilitylicesnseNumber;
 
-
-            this.assignedUserIDs = new List<string>();
+            this.textBlock = new TextBlock();
+            this.textBlock.Text = this.ToString();
         }
         protected CaseFile() : this("Unnamed", "unnamed", 0)
         {
@@ -81,22 +82,11 @@ namespace WpfApp1.Case
             if (assignedUserIDs.Contains(user.id))
                 throw new ArgumentException("ERROR: User'" + user.ToString() + "' already assigned to this case file!");
 
-            assignedUserIDs.Add(user.id);
-
-            Report report = new Report(user.id +"_Report", user.name, user.id, this);
+            Report report = new Report(user.id, user.id, user.name, this);
             this.AddElementInternal(report);
 
-
-
             return report;
-        }
-
-        //--list manipulation--//
-        protected override void AddElementInternal(Report element)
-        {
-            element.caseFile = this;
-            base.AddElementInternal(element);
-        }
+        }      
         //--cloning. Shouldn't be used!--//
         protected override ElementGroup<Report> CloneInner()
         {
@@ -123,7 +113,7 @@ namespace WpfApp1.Case
         public override void ReadXml(XmlReader reader)
         {
             base.ReadXml(reader);
-            //this.SetReadOnly(true);
+            this.SetReadOnly(true);
         }
 
 

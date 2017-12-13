@@ -68,7 +68,6 @@
     <Compile Include="FormItems\LayoutGrid.cs" />
     <Content Include="FormItems\LayoutStackPanel.txt" />
     <Compile Include="FormItems\LayoutStackPanel.cs" />
-    <Compile Include="FormItems\TabbedGroup.cs" />
     <Compile Include="Users\PasswordHash.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Utils\UIElementExtensions.cs" />

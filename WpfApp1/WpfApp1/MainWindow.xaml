@@ -9,19 +9,40 @@
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
-        <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <Button Name="newCaseFile" Click="newCaseFile_Click">New Case file</Button>
-            <Button Name="saveCaseFile" Click="saveCaseFile_Click">Save Case File</Button>
-            <Button Name="loadCaseFile" Click="loadCaseFile_Click">Load Case File</Button>
-        </StackPanel>
         
-        <ScrollViewer Name="scrollView" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="1">
-            
-            
-        </ScrollViewer>
+        <Menu>
+            <MenuItem Header="_New" Click="newFormA_Click">New Form</MenuItem>
+            <MenuItem Header="_Save" Click="saveForm_Click">Save Form</MenuItem>
+            <MenuItem Header="_Load" Click="loadForm_Click">Load Form</MenuItem>
+            <MenuItem Header="_Print" Click="MenuItem_Click">Print form</MenuItem>
+        </Menu>
+
+        <TabControl Grid.Row="1">
+            <!--form entry tab-->
+            <TabItem>
+                <ScrollViewer Name="scrollView"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+
+
+
+                </ScrollViewer>
+            </TabItem>            
+        </TabControl>
+        <!--
+
+
+        <StackPanel Orientation="Horizontal" Height="50" Grid.Row="0">
+            <Button Name="newFormA" Click="newFormA_Click">New Form A</Button>
+            <Button Name="saveForm" Click="saveForm_Click">Save Form</Button>
+            <Button Name="loadForm" Click="loadForm_Click">LoadForm</Button>
+        </StackPanel>
+        -->
+
+
+
+        
+
     </Grid>
 </Window>
