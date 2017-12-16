@@ -46,7 +46,9 @@ namespace WpfApp1.FormItems
         public override void SetValue(DateTime value)
         {
             dataHolder.date = value;
-            (control).GetBindingExpression(DatePicker.TextProperty).UpdateTarget();
+
+            //changed DatePicker.SelectedDateProperty from DatePicker.TextProperty
+            control.GetBindingExpression(DatePicker.TextProperty).UpdateTarget();
         }
 
         protected override void SetReadOnlyInternal(bool isReadOnly)
@@ -71,7 +73,8 @@ namespace WpfApp1.FormItems
             int day;
             Int32.TryParse(parts[1], out day);
 
-            DateTime date = new DateTime(year, month, day);
+            //added line to test load previously entered date
+            DateTime date = new DateTime(2017, 12, 12);//new DateTime(year, month, day);
             this.SetValue(date);
         }
 

@@ -31,7 +31,7 @@
               <englishTitle>NOTES</englishTitle>
               <orientation>Vertical</orientation>
               <acceptsNewLine>true</acceptsNewLine>
-              <text>some notes</text>
+              <text />
             </ControlText>
           </elementList>
         </Form>
