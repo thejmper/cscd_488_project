@@ -42,7 +42,7 @@ namespace WpfApp1
         private void saveCaseFile_Click(object sender, RoutedEventArgs e)
         {
             XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
-            using (TextWriter writer = new StreamWriter(GetPath(@"caseFile.csfl")))
+            using (TextWriter writer = new StreamWriter(GetPath(@"\caseFile.xml")))
             {
                 ser.Serialize(writer, this.caseFile);
             }
@@ -72,7 +72,7 @@ namespace WpfApp1
         private void loadCaseFile_Click(object sender, RoutedEventArgs e)
         {
             XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
-            using (TextReader reader = new StreamReader(GetPath(@"caseFile.csfl")))
+            using (TextReader reader = new StreamReader(GetPath(@"\caseFile.xml")))
             {
                 this.caseFile = (CaseFile)ser.Deserialize(reader);
             }
