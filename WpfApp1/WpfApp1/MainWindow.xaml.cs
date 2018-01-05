@@ -56,13 +56,13 @@ namespace WpfApp1
             Form template = new Form("formTemplate");
             template.AddElement(new ControlText("notes", "NOTES", true));
 
-            //Form anotherForm = new Form("anotherForm");
+            Form anotherForm = new Form("anotherForm");
 
             report.AddForm(template);
-            //report.AddForm(anotherForm);
+            report.AddForm(anotherForm);
 
-            //Report anotherReport = caseFile.AssignUser(new Users.User("hhornblower", "theSea", "Horatio Hornblower"));
-            //anotherReport.AddForm(anotherForm);
+            Report anotherReport = caseFile.AssignUser(new Users.User("hhornblower", "theSea", "Horatio Hornblower"));
+            anotherReport.AddForm(anotherForm);
 
 
 
