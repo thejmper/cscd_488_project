@@ -6,23 +6,22 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
+    
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="65" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Height="50" Grid.Row="0">
-            <Button Name="newFormA" Click="newFormA_Click">New Form A</Button>
-            <Button Name="saveForm" Click="saveForm_Click">Save Form</Button>
-            <Button Name="loadForm" Click="loadForm_Click">LoadForm</Button>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Button Name="newCaseFile" Click="newCaseFile_Click">New Case file</Button>
+            <Button Name="saveCaseFile" Click="saveCaseFile_Click">Save Case File</Button>
+            <Button Name="loadCaseFile" Click="loadCaseFile_Click">Load Case File</Button>
         </StackPanel>
         
-        
-        <ScrollViewer Grid.Row="1" Name="scrollView"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-
-
-
+        <ScrollViewer Name="scrollView" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="1">
+            
+            
         </ScrollViewer>
     </Grid>
 </Window>

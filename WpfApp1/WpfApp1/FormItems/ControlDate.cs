@@ -28,9 +28,9 @@ namespace WpfApp1.FormItems
         {
             this.dataHolder = new DateDataHolder();
 
-            this.binding = new Binding("value");
+            this.binding = new Binding("SelectedDate");
             binding.Source = dataHolder;
-            control.SetBinding(DatePicker.TextProperty, binding);
+            control.SetBinding(DatePicker.SelectedDateProperty, binding);
         }
 
         //--cloning--//
@@ -38,15 +38,21 @@ namespace WpfApp1.FormItems
         {
             ControlDate clone = new ControlDate(this.name, this.englishTitle, this.orientation);
             clone.dataHolder.date = this.dataHolder.date;
-            (clone.control).GetBindingExpression(DatePicker.TextProperty).UpdateTarget();
+            (clone.control).GetBindingExpression(DatePicker.SelectedDateProperty).UpdateTarget();
 
             return clone;
         }
 
-        public override void SetControl(DateTime value)
+        public override void SetValue(DateTime value)
         {
             dataHolder.date = value;
-            (control).GetBindingExpression(DatePicker.TextProperty).UpdateTarget();
+
+            //changed DatePicker.TextProperty from DatePicker.TextProperty
+
+            ((DatePicker)control).SelectedDate = value;
+            var v = DatePicker.SelectedDateProperty;
+            var v2 = control.GetBindingExpression(v);
+            v2.UpdateTarget();
         }
 
         protected override void SetReadOnlyInternal(bool isReadOnly)
@@ -56,23 +62,18 @@ namespace WpfApp1.FormItems
 
         protected override void WriteControl(XmlWriter writer)
         {
-            (control).GetBindingExpression(DatePicker.TextProperty).UpdateSource();
-            writer.WriteElementString("text", this.dataHolder.date.ToShortDateString());
+            //(control).GetBindingExpression(DatePicker.TextProperty).UpdateSource();
+            writer.WriteElementString("SelectedDateProperty", ((DatePicker)control).SelectedDate.ToString());
         }
 
         protected override void ReadControl(XmlReader reader)
         {
             String dateString = reader.ReadElementContentAsString();
-            string [] parts = dateString.Split('/');
-            int year;
-            Int32.TryParse(parts[2], out year);
-            int month;
-            Int32.TryParse(parts[0], out month);
-            int day;
-            Int32.TryParse(parts[1], out day);
+            DateTime dt = Convert.ToDateTime(dateString);
 
-            DateTime date = new DateTime(year, month, day);
-            this.SetControl(date);
+            this.SetValue(dt);
+            ((DatePicker)control).SelectedDate = dt;
+
         }
 
         /// <summary>
