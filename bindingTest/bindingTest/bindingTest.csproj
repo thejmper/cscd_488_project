@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0D290A3B-CA45-460B-8CD0-6B6C327101A4}</ProjectGuid>
+    <ProjectGuid>{C0F096AE-B3DC-45F9-943E-B7514B3DE99D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WpfApp1</RootNamespace>
-    <AssemblyName>WpfApp1</AssemblyName>
+    <RootNamespace>bindingTest</RootNamespace>
+    <AssemblyName>bindingTest</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -36,7 +36,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,24 +54,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Case\CaseFile.cs" />
-    <Compile Include="Case\Form.cs" />
-    <Compile Include="Case\Report.cs" />
-    <Compile Include="FormItems\ControlBoolean.cs" />
-    <Compile Include="FormItems\ControlDate.cs" />
-    <Compile Include="FormItems\ControlInteger.cs" />
-    <Compile Include="FormItems\ControlLabel.cs" />
-    <Compile Include="FormItems\ControlText.cs" />
-    <Compile Include="FormItems\ElementGroup.cs" />
-    <Compile Include="FormItems\FormControl.cs" />
-    <Compile Include="FormItems\FormElement.cs" />
-    <Compile Include="FormItems\LayoutGrid.cs" />
-    <Content Include="FormItems\LayoutStackPanel.txt" />
-    <Compile Include="FormItems\LayoutStackPanel.cs" />
-    <Compile Include="FormItems\TabbedGroup.cs" />
-    <Compile Include="Users\PasswordHash.cs" />
-    <Compile Include="Users\User.cs" />
-    <Compile Include="Utils\UIElementExtensions.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace WpfApp1.FormItems
 {
-    public class ControlInteger : FormControl<TextBox>
+    public class ControlInteger : FormControl<TextBox, int>
     {
         //--member fields--//
         private IntDataHolder dataHolder;
@@ -39,6 +39,17 @@ namespace WpfApp1.FormItems
             return clone;
         }
 
+        public override void SetValue(int value)
+        {
+            dataHolder.value = value;
+            (control).GetBindingExpression(TextBox.TextProperty).UpdateTarget();
+        }
+
+        protected override void SetReadOnlyInternal(bool isReadOnly)
+        {
+            this.control.IsReadOnly = isReadOnly;
+        }
+
         /// <summary>
         /// we need a class to put our data, not just a reference, because otherwise
         /// the WPF doesn't update right and generally does silly things.
@@ -56,8 +67,9 @@ namespace WpfApp1.FormItems
 
         protected override void ReadControl(XmlReader reader)
         {
-            dataHolder.value = Int32.Parse(reader.ReadElementContentAsString());
-            (control).GetBindingExpression(TextBox.TextProperty).UpdateTarget();
+            this.SetValue(Int32.Parse(reader.ReadElementContentAsString()));
         }
+
+
     }
 }

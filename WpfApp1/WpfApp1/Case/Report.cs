@@ -1,21 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Xml;
 using WpfApp1.FormItems;
 
 namespace WpfApp1.Case
 {
-    class Report : ElementGroup<Form>
+    public class Report : TabbedGroup<Form>
     {
         //--member fields--//
-        public override UIElement UIelement
+         public List<Form> forms
         {
             get
             {
-                label.Text = this.ToString();
-                return this.label;
+                return this.elementList;
             }
         }
+
+        //unique to this report
+        public string licensorName { get; private set; }
+        public string licensorID { get; private set; }
 
         //inhereted.
         public string facilityName
@@ -39,23 +44,34 @@ namespace WpfApp1.Case
             }
         }
 
-        //unique to this report
-        public string licensorName { get; private set; }
+
 
         //label used to display this report
-        private TextBlock label;
-        private CaseFile caseFile;
+        private CaseFile _caseFile;
+        internal CaseFile caseFile
+        {
+            get
+            {
+                return _caseFile;
+            }
+            set
+            {
+                this._caseFile = value;
+                foreach (Form form in this.elementList)
+                    form.report = this;
+            }
+        }
+
         //--construction--//
-        internal Report(string name, string userFullName, CaseFile caseFile): base(name)
+        internal Report(string name, string userFullName, string userID, CaseFile caseFile): base(name)
         {
 
             this.caseFile = caseFile;
             this.licensorName = userFullName;
+            this.licensorID = userID;
 
-            this.label = new TextBlock();
-            this.label.Text = this.ToString();
         }
-        protected Report(): this("unnamed", "nameless", null)
+        protected Report(): this("unnamed", "nameless", "noID", null)
         {
 
         }
@@ -73,13 +89,34 @@ namespace WpfApp1.Case
 
             Form newForm = (Form)formTemplate.Clone(name + suffix.ToString());
             this.AddElementInternal(newForm);
+            newForm.report = this;
+
             return newForm;
         }
-        
+
+        protected override void AddElementInternal(Form element)
+        {
+            element.report = this;
+            base.AddElementInternal(element);
+        }
+
+        //--save/load--//
+        protected override void WriteXMLInner(XmlWriter writer)
+        {
+            writer.WriteElementString("licensorName", this.licensorName);
+            writer.WriteElementString("licensorID", this.licensorID);
+            base.WriteXMLInner(writer);
+        }
+        protected override void ReadXMLInner(XmlReader reader)
+        {
+            this.licensorName = reader.ReadElementContentAsString();
+            this.licensorID = reader.ReadElementContentAsString();
+            base.ReadXMLInner(reader);
+        }
 
         protected override ElementGroup<Form> CloneInner()
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("Don't clone Reports!");
         }
 
         public override string ToString()
