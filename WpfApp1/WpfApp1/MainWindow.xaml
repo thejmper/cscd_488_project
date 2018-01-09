@@ -13,12 +13,8 @@
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <Button Name="newCaseFile" Click="newCaseFile_Click">New Case file</Button>
-            <Button Name="saveCaseFile" Click="saveCaseFile_Click">Save Case File</Button>
-            <Button Name="loadCaseFile" Click="loadCaseFile_Click">Load Case File</Button>
-        </StackPanel>
-        
+        <StackPanel Orientation="Horizontal" Grid.Row="0"/>
+
         <ScrollViewer Name="scrollView" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="1">
             
             

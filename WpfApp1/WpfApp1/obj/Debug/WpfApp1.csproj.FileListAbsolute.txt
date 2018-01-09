@@ -44,3 +44,4 @@ C:\Users\NiCK\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\obj\Debug\WpfApp
 C:\Users\NiCK\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
 C:\Users\NiCK\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\obj\Debug\WpfApp1.exe
 C:\Users\NiCK\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\obj\Debug\WpfApp1.pdb
+D:\senior project\cscd_488_project\WpfApp1\WpfApp1\obj\Debug\WpfApp1_Content.g.cs
