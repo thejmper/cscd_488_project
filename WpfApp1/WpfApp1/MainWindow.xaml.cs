@@ -23,11 +23,13 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         private CaseFile caseFile;
+        public string CurrentUser;
         
         public MainWindow()
         {
             InitializeComponent();
-
+            Login loginWindow = new Login();
+            loginWindow.ShowDialog();
 
         }
 
@@ -41,6 +43,8 @@ namespace WpfApp1
 
         private void saveCaseFile_Click(object sender, RoutedEventArgs e)
         {
+            if (caseFile == null || CurrentUser == null)
+                return;
             XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
             using (TextWriter writer = new StreamWriter(GetPath(@"\caseFile.xml")))
             {
@@ -64,6 +68,8 @@ namespace WpfApp1
             Report anotherReport = caseFile.AssignUser(new Users.User("hhornblower", "theSea", "Horatio Hornblower"));
             anotherReport.AddForm(anotherForm);
 
+            saveCaseFile.IsEnabled = true;
+
 
 
             this.scrollView.Content = caseFile.UIelement;
@@ -72,12 +78,20 @@ namespace WpfApp1
         private void loadCaseFile_Click(object sender, RoutedEventArgs e)
         {
             XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
-            using (TextReader reader = new StreamReader(GetPath(@"\caseFile.xml")))
+            using (TextReader reader = new StreamReader(GetPath(@"\caseFile.csfl")))
             {
                 this.caseFile = (CaseFile)ser.Deserialize(reader);
             }
 
             this.scrollView.Content = caseFile.UIelement;
+            if(CurrentUser != null)
+                saveCaseFile.IsEnabled = true;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Login loginWindow = new Login();
+            loginWindow.ShowDialog();
         }
     }
 }
