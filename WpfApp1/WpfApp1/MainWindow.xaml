@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -14,10 +14,15 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" Grid.Row="0"/>
-
-        <ScrollViewer Name="scrollView" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="1">
-            
-            
-        </ScrollViewer>
+        <TabControl>
+            <TabItem Header="FormA" Name="FormA">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Hidden" />
+            </TabItem>
+            <TabItem Header="Form B" Name="FormB" Height="auto">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Auto" Name="FormBScroll">
+                    
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

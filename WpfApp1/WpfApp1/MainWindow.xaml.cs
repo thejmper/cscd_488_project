@@ -28,27 +28,19 @@ namespace WpfApp1
         {
             InitializeComponent();
 
-            TabControl control = new TabControl();
-            control.Name = "control";
+           
 
-            TabItem tabB = new TabItem();
-            tabB.Header = "Form B";
 
+
+            /*
             Form formB = new Case.Form("FormB");
             LayoutGrid headerB = new LayoutGrid("header");
 
+            LayoutStackPanel OmBusPanel = new LayoutStackPanel("omb");
+            ControlBoolean om = new ControlBoolean("om", "The field office has contacted the Ombuds. (Attachment A)");
+            OmBusPanel.AddElement(om);
+            formB.AddElement(OmBusPanel);
 
-            ControlText facilityName = new ControlText("FacilityName", "ASSISTED LIVING FACILITY NAME");
-            headerB.AddElement(facilityName, 0, 0, 9);
-            ControlInteger licenseNumber = new ControlInteger("licenseNumber", "LICENSE NUMBER");
-            headerB.AddElement(licenseNumber, 9, 0, 3);
-            ControlDate inspectionDate = new ControlDate("InpectionDate", "INSPECTION DATE");
-            headerB.AddElement(inspectionDate, 0, 1, 3);
-            ControlText name = new ControlText("LicensorName", "LICENSOR NAME");
-            headerB.AddElement(name, 3, 1, 9);
-
-            
-  
             LayoutStackPanel chkboxes = new LayoutStackPanel("boxes");
             ControlLabel lab = new ControlLabel("lab", "Inspection Type:");
             ControlBoolean intial = new ControlBoolean("initial", "Initial");
@@ -183,7 +175,7 @@ namespace WpfApp1
             grid.AddElement(met14, 11, 26, 1, 2);
 
             ControlLabel lb28 = new ControlLabel("lb28", "If an issue is identified that directly relates to a specific resident no longer in the ALF, if no current residents \nreside in the ALF, or if there is a concern regarding discharge or transfers:");
-            grid.AddElement(lb28, 0, 28, 8, 2);
+            grid.AddElement(lb28, 0, 28, 12, 2);
 
             ControlLabel reqDocs3 = new ControlLabel("reqDocs3", "Documentation required:");
 
@@ -194,29 +186,34 @@ namespace WpfApp1
 
             ControlLabel lb29 = new ControlLabel("lb29", "Resident Information:  \nList of residents discharged in last six months with forwarding address and reason for \ndischarge unless deceased, then just write deceased.");
             ControlBoolean met16 = new ControlBoolean("met16", "");
-            grid.AddElement(lb26, 0, 31, 8, 2);
-            grid.AddElement(lb27, 8, 31, 2, 2);
-            grid.AddElement(met14, 11, 31, 1, 2);
+            grid.AddElement(lb29, 0, 31, 8, 2);
+            grid.AddElement(met16, 11, 31, 8, 2);
 
             ControlLabel comm = new ControlLabel("comm", "Notes");
             grid.AddElement(comm, 0, 33, 12);
 
             ControlText notes = new ControlText("notes", "", true);
+            grid.AddElement(notes, 0, 34, 12, 2);
 
             formB.AddElement(headerB);
             formB.AddElement(grid);
 
 
-            
+
+            XmlSerializer ser = new XmlSerializer(typeof(Form));
+
+            using (TextWriter writer = new StreamWriter(GetPath(@"B.frm")))
+            {
+                ser.Serialize(writer, formB);
+            }
+            */
 
 
 
+            //FormB.Content = formB.UIelement;
+            //control.Items.Add(tabB);
 
-
-            tabB.Content = formB.UIelement;
-            control.Items.Add(tabB);
-
-            this.Content = control;
+            //this.Content = control;
 
 
 
@@ -257,7 +254,7 @@ namespace WpfApp1
 
 
 
-            this.scrollView.Content = caseFile.UIelement;
+           // this.scrollView.Content = caseFile.UIelement;
         }
 
         private void loadCaseFile_Click(object sender, RoutedEventArgs e)
@@ -268,7 +265,7 @@ namespace WpfApp1
                 this.caseFile = (CaseFile)ser.Deserialize(reader);
             }
 
-            this.scrollView.Content = caseFile.UIelement;
+            //this.scrollView.Content = caseFile.UIelement;
         }
     }
 }
