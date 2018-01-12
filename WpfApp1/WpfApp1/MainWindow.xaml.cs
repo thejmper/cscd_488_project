@@ -23,13 +23,17 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         private CaseFile caseFile;
-        public string CurrentUser;
+        public string CurrentUser = "";
         
         public MainWindow()
         {
             InitializeComponent();
             Login loginWindow = new Login();
             loginWindow.ShowDialog();
+            if (CurrentUser == "")
+            {
+                this.Close();
+            }
 
         }
 
@@ -68,7 +72,6 @@ namespace WpfApp1
             Report anotherReport = caseFile.AssignUser(new Users.User("hhornblower", "theSea", "Horatio Hornblower"));
             anotherReport.AddForm(anotherForm);
 
-            saveCaseFile.IsEnabled = true;
 
 
 
@@ -84,11 +87,9 @@ namespace WpfApp1
             }
 
             this.scrollView.Content = caseFile.UIelement;
-            if(CurrentUser != null)
-                saveCaseFile.IsEnabled = true;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Login_Click(object sender, RoutedEventArgs e)
         {
             Login loginWindow = new Login();
             loginWindow.ShowDialog();

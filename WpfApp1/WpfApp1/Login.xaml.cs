@@ -32,11 +32,8 @@ namespace WpfApp1
             if (Username.Text == testUsername && Password.Password == testPassword)
             {
                 MainWindow mainWindow = ((MainWindow)Application.Current.MainWindow);
-                //mainWindow.saveCaseFile.IsEnabled = true;
-                mainWindow.newCaseFile.IsEnabled = true;
-
                 mainWindow.CurrentUser = Username.Text;
-                this.Close();
+                
             }
         }
     }
