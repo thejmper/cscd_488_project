@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Xml.Serialization;
-using Testing.Reports;
-using Testing.Reports.Fields;
-using Testing.Reports.Syncers;
-using Testing.Users;
+using WpfApp1.Reports;
+using WpfApp1.Reports.Fields;
+using WpfApp1.Reports.Syncers;
+using WpfApp1.Users;
 
 namespace Testing
 {

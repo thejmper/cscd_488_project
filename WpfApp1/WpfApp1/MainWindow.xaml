@@ -6,14 +6,23 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
-
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem Header="Load" Click="loadCaseFile_Click" Name="LoadFile"/>
+                <MenuItem Header="Save" Click="saveCaseFile_Click" Name="SaveFile"/>
+                <MenuItem Header="New" Click="newCaseFile_Click" Name="NewFile"/>
+            </MenuItem>
+            <MenuItem Header="Login">
+                <MenuItem Header="Login" Click="Login_Click"/>
+            </MenuItem>
+        </Menu>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="0"/>
         <TabControl>
             <TabItem Header="FormA" Name="FormA">
                 <ScrollViewer HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Hidden" />

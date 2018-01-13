@@ -53,7 +53,7 @@ namespace WpfApp1.Users
             return null;
         }
 
-        private Boolean ValidLogin(string username, string password)
+        public Boolean ValidLogin(string username, string password)
         {
             try
             {

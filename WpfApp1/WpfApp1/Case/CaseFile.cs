@@ -26,6 +26,10 @@ namespace WpfApp1.Case
         /// user IDs of all users who're allowed to access and edit this report! 
         /// </summary>
         public List<String> assignedUserIDs { get; private set; }
+        /// <summary>
+        /// last time the case file data specifically (not reports within the case file) was modified
+        /// </summary>
+        public DateTime lastModified { get; set; }
 
         public List<Report> reports
         {
@@ -42,6 +46,7 @@ namespace WpfApp1.Case
         {
             this.facilityName = facilityName;
             this.facilitylicenseNumber = facilitylicesnseNumber;
+            lastModified = DateTime.Now;
 
 
             this.assignedUserIDs = new List<string>();
@@ -62,11 +67,11 @@ namespace WpfApp1.Case
         public void OpenAsUser(User user)
         {
             this.SetReadOnly(true);
-            if (user.isAdmin)
+            if (user.admin)
             {
                 this.SetReadOnly(false);
             }
-            else if (assignedUserIDs.Contains(user.id))
+            else if (assignedUserIDs.Contains(user.name))
             {
                 Report report = this.elementList.Find(item => item.name.Equals(user.name));
                 report.SetReadOnly(false);
@@ -78,12 +83,13 @@ namespace WpfApp1.Case
         //--list manipulation--//
         internal Report AssignUser(User user)
         {
-            if (assignedUserIDs.Contains(user.id))
-                throw new ArgumentException("ERROR: User'" + user.ToString() + "' already assigned to this case file!");
+            if (!assignedUserIDs.Contains(user.username))
+            {
+                assignedUserIDs.Add(user.username);
+                //throw new ArgumentException("ERROR: User'" + user.ToString() + "' already assigned to this case file!");
+            }
 
-            assignedUserIDs.Add(user.id);
-
-            Report report = new Report(user.id +"_Report", user.name, user.id, this);
+            Report report = new Report(user.username +"_Report", user.name, user.username, this);
             this.AddElementInternal(report);
 
 

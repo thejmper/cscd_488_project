@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Testing.Users
+namespace WpfApp1.Users
 {
     public class User
     {

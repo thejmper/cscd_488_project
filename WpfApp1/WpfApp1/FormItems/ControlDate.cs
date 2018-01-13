@@ -68,12 +68,7 @@ namespace WpfApp1.FormItems
 
         protected override void ReadControl(XmlReader reader)
         {
-            String dateString = reader.ReadElementContentAsString();
-            DateTime dt = Convert.ToDateTime(dateString);
-
-            this.SetValue(dt);
-            ((DatePicker)control).SelectedDate = dt;
-
+            this.SetValue(DateTime.Parse(reader.ReadElementContentAsString()));
         }
 
         /// <summary>
