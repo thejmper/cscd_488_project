@@ -62,7 +62,7 @@ namespace WpfApp1
             //report.AddForm(anotherForm);
 
             //Report anotherReport = caseFile.AssignUser(new Users.User("hhornblower", "theSea", "Horatio Hornblower"));
-            //anotherReport.AddForm(anotherForm);
+            //anotherReport.AddForm(template);
 
 
 

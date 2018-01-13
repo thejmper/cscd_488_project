@@ -17,6 +17,7 @@ namespace WpfApp1.FormItems
         //--construction--//
         public ControlDate(string name, string engishTitle, Orientation orientation = Orientation.Vertical) : base(name, engishTitle, new DatePicker(), orientation)
         {
+            //this.SetValue(DateTime.Now);
         }
 
         protected ControlDate(): base("untitledControlDate", "untitled date control", new DatePicker())
@@ -29,6 +30,7 @@ namespace WpfApp1.FormItems
             this.dataHolder = new DateDataHolder();
 
             this.binding = new Binding("SelectedDate");
+            this.binding.Mode = BindingMode.TwoWay;
             binding.Source = dataHolder;
             control.SetBinding(DatePicker.SelectedDateProperty, binding);
         }
@@ -37,7 +39,7 @@ namespace WpfApp1.FormItems
         public override FormElement Clone()
         {
             ControlDate clone = new ControlDate(this.name, this.englishTitle, this.orientation);
-            clone.dataHolder.date = this.dataHolder.date;
+            clone.dataHolder.SelectedDate = this.dataHolder.SelectedDate;
             (clone.control).GetBindingExpression(DatePicker.SelectedDateProperty).UpdateTarget();
 
             return clone;
@@ -45,14 +47,19 @@ namespace WpfApp1.FormItems
 
         public override void SetValue(DateTime value)
         {
-            dataHolder.date = value;
+            System.Windows.Forms.MessageBox.Show("setting date to: " + value);
 
+            dataHolder.SelectedDate = value;
             //changed DatePicker.TextProperty from DatePicker.TextProperty
 
-            ((DatePicker)control).SelectedDate = value;
-            var v = DatePicker.SelectedDateProperty;
-            var v2 = control.GetBindingExpression(v);
-            v2.UpdateTarget();
+            //((DatePicker)control).SelectedDate = value;
+            //var v = DatePicker.SelectedDateProperty;
+            //var v2 = control.GetBindingExpression(v);
+            //v2.UpdateTarget();
+
+            control.SelectedDate = new DateTime(1941, 12, 7);
+
+            //System.Windows.Forms.MessageBox.Show("Setting date to " + value + "/nNow set to: " + control.SelectedDate);
         }
 
         protected override void SetReadOnlyInternal(bool isReadOnly)
@@ -63,7 +70,8 @@ namespace WpfApp1.FormItems
         protected override void WriteControl(XmlWriter writer)
         {
             //(control).GetBindingExpression(DatePicker.TextProperty).UpdateSource();
-            writer.WriteElementString("SelectedDateProperty", ((DatePicker)control).SelectedDate.ToString());
+            //writer.WriteElementString("SelectedDateProperty", ((DatePicker)control).SelectedDate.ToString());
+            writer.WriteElementString("selectedDate", control.SelectedDate.ToString());
         }
 
         protected override void ReadControl(XmlReader reader)
@@ -72,8 +80,6 @@ namespace WpfApp1.FormItems
             DateTime dt = Convert.ToDateTime(dateString);
 
             this.SetValue(dt);
-            ((DatePicker)control).SelectedDate = dt;
-
         }
 
         /// <summary>
@@ -82,7 +88,7 @@ namespace WpfApp1.FormItems
         /// </summary>
         private class DateDataHolder
         {
-            public DateTime date { get; set; }
+            public DateTime SelectedDate { get; set; }
         }
     }
 }

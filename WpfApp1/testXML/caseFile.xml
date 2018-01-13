@@ -21,7 +21,7 @@
             <isReadOnly>false</isReadOnly>
             <englishTitle>INSPECTION DATE</englishTitle>
             <orientation>Vertical</orientation>
-            <selectedDate>12/7/1941 12:00:00 AM</selectedDate>
+            <date>1/13/2018</date>
           </ControlDate>
           <!--Below is the list of items contained within this group-->
           <elementList>
@@ -35,5 +35,34 @@
             </ControlText>
           </elementList>
         </Form>
-      </elementList>
-    </Report>
+        <Report type="WpfApp1.Case.Report">
+          <name>hhornblower_Report</name>
+          <isReadOnly>false</isReadOnly>
+          <licensorName>Horatio Hornblower</licensorName>
+          <licensorID>hhornblower</licensorID>
+          <!--Below is the list of items contained within this group-->
+          <elementList>
+            <Form type="WpfApp1.Case.Form">
+              <name>formTemplate1</name>
+              <isReadOnly>false</isReadOnly>
+              <ControlDate type="WpfApp1.FormItems.ControlDate">
+                <name>inspectionDate</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>INSPECTION DATE</englishTitle>
+                <orientation>Vertical</orientation>
+                <date>1/13/2018</date>
+              </ControlDate>
+              <!--Below is the list of items contained within this group-->
+              <elementList>
+                <ControlText type="WpfApp1.FormItems.ControlText">
+                  <name>notes</name>
+                  <isReadOnly>false</isReadOnly>
+                  <englishTitle>NOTES</englishTitle>
+                  <orientation>Vertical</orientation>
+                  <acceptsNewLine>true</acceptsNewLine>
+                  <text />
+                </ControlText>
+              </elementList>
+            </Form>
+          </elementList>
+        </Report>
