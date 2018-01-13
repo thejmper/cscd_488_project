@@ -1,0 +1,154 @@
+//some of these are common and shared between all reports
+//some of these aren't.
+
+Comment
+-no input, just text explaining how to do something
+
+Report ID:
+-facility name (string)
+-License Number (int)
+-Inspection Date (date)
+-Licensor name (string)
+-isFullInspection (boolean)
+
+Personnel Comment
+-Person making comment (string)
+-contact date (date)
+-comment/concern (string)
+
+Contracts Met
+-AL (boolean)
+-EARC (boolean)
+-ARC (boolean)
+-Dementia (boolean)
+-DDD (boolean)
+-Adult Day care(boolean)
+-None (boolean)
+
+Notes
+-Note (string)
+
+Expanded Report ID: (extends Report ID)
+-isInitialInspection (boolean)
+-isFollowupInspection (boolean)
+-isMonitoringInspection (boolean)
+-isComplaintInspection (boolean)
+-complaintNumber (only if isComplaint)
+
+HasContactedOmbudsman
+String explaining 
+-hasContacted (boolean)
+
+Documentation Required: (maybe split into two?)
+-String explaining documentation required.
+-string listing due-date (optional)
+-IsDueDateMet (boolean)
+
+ResidentList
+-RoomNumber (integer)
+-ResidentName (string)
+-Notes (string)
+
+TotalCensus
+-censusNumner (integer). //I'm not really sure what this is. On ATTACHMENT D 
+
+ResidentCharesterisic (From ATTACHMENT D. 
+There's a lot of checkmarks I don't understand. I'm thinking they're booleans,
+but I'd like to get that checked.
+This should also have a header or something.
+-room (integer)
+-admitDate (date)
+-id (integer)
+-name (string)
+-isNursingServices (boolean)
+-isFamily (boolean... I think?) (THIS NEEDS TO BE EXPLAINED MORE)
+-hasMobilityIssues (boolean)
+-hasSocialIssues (boolean)
+-hasCognitiveImparment (boolean)
+-isExitSeeking (boolean)
+-isSmoker (boolean)
+-hasMentalHealthProblems (boolean)
+-hasCommunicationIssue (boolean)
+-hasVisionIssue (boolean)
+-isDiabedic (boolean)
+-needsADL (boolean)
+-hasWoudns (boolean)
+-hasIncontinence (boolean)
+-hasDietNeeds(boolean)
+-hasWeightIssues (boolean)
+-hasMedicalDevice (boolean)
+-paySatus (list. Private or Sate)
+-hasRecentHospilization (boolean)
+-needsOxygen (boolean)
+-hasPrivateCaregiver (boolean)
+-other (uh..... string maybe?)
+
+ResidentGroupMeeting
+-date (date)
+-time (time)
+-numberPresent (integer)
+-isCouncil (boolean)
+-councilPresident (string)
+-isFoodCommittie (boolean)
+-then a bunch of string fields, some with descriptions.
+-notes (string)
+
+ResidentID
+-residentName (string)
+-residentNumber (integer)
+-roomNumber (int)
+
+ResidentInterview (extends ResidentID)
+-paySatus (list: private or state)
+-reviewOfNegotiatedAgreement (string)
+-InterviewType (radio: residentInterview or RepresnetiveInterview)
+
+RequiredQuestions:
+-checks for Yes, No, Decline.
+-Description
+
+-then a bunch of strings
+
+ContactInterview
+-dateofInterview (date)
+-contactName (string)
+-contactNumber (phoneNumber)
+-relationshipToResident (string)
+-notes (string)
+
+TempatureNote
+-waterTemp (float)
+-date  (date)
+-time  (time)
+-place (string)
+
+StaffReccord
+-name (string)
+-title (string)
+-HireDate (date)
+-birthDate (date)
+-hasSafteyOrientation (boolean)
+-BackgoundCheckDate (date)
+-FingerprintsDate (date)
+-isFirstAidQualified (boolean)
+-trainingExemptions (string)
+-hasTB (boolean)
+-hasFoodCard (boolean)
+-certEffective (string)
+-isNurseDelegation (boolean)
+-specality (list: DDA, MH, Dementia, Manager)
+-isAdminQual (boolean)
+-12hours (boolean)
+
+ExitPrep
+-issues (string)
+-idNumber (integer)
+-concerns (string)
+-consultation (string)
+
+MedicationPass
+-residentName (string)
+-residentID (integer)
+-persctiption (string)
+-observationOfAdministraion (string)
+-drugOrderWrittenAs (string)
