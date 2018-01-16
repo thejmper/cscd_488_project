@@ -32,8 +32,8 @@ namespace WpfApp1
             if (Username.Text == testUsername && Password.Password == testPassword)
             {
                 MainWindow mainWindow = ((MainWindow)Application.Current.MainWindow);
-                mainWindow.CurrentUser = Username.Text;
-                
+                mainWindow.CurrentUser = new Users.User(Username.Text, Password.Password, Username.Text);
+                this.Close();
             }
         }
     }

@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 
 using WpfApp1.FormItems;
 using WpfApp1.Case;
+using WpfApp1.Users;
 namespace WpfApp1
 {
     /// <summary>
@@ -23,14 +24,14 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         private CaseFile caseFile;
-        public string CurrentUser = "";
+        public User CurrentUser;
         
         public MainWindow()
         {
             InitializeComponent();
             Login loginWindow = new Login();
             loginWindow.ShowDialog();
-            if (CurrentUser == "")
+            if (CurrentUser == null)
             {
                 this.Close();
             }
