@@ -249,8 +249,13 @@ namespace WpfApp1
             report.AddForm(template);
             report.AddForm(anotherForm);
 
+<<<<<<< HEAD
             Report anotherReport = caseFile.AssignUser(new Users.User("hhornblower", "theSea", "Horatio Hornblower"));
             anotherReport.AddForm(anotherForm);
+=======
+            //Report anotherReport = caseFile.AssignUser(new Users.User("hhornblower", "theSea", "Horatio Hornblower"));
+            //anotherReport.AddForm(template);
+>>>>>>> dc852b9c0712397216f764efc2fbbcb9ec74fe4a
 
 
 

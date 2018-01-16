@@ -21,7 +21,11 @@
             <isReadOnly>false</isReadOnly>
             <englishTitle>INSPECTION DATE</englishTitle>
             <orientation>Vertical</orientation>
+<<<<<<< HEAD
             <SelectedDateProperty>1/16/2018 12:00:00 AM</SelectedDateProperty>
+=======
+            <date>1/13/2018</date>
+>>>>>>> dc852b9c0712397216f764efc2fbbcb9ec74fe4a
           </ControlDate>
           <!--Below is the list of items contained within this group-->
           <elementList>
@@ -31,6 +35,7 @@
               <englishTitle>NOTES</englishTitle>
               <orientation>Vertical</orientation>
               <acceptsNewLine>true</acceptsNewLine>
+<<<<<<< HEAD
               <text>I took some notes about the old folks.
 
 They were both old... and folks.
@@ -73,3 +78,40 @@ Who'd've thunk, eh?</text>
               </Form>
             </elementList>
           </Report>
+=======
+              <text />
+            </ControlText>
+          </elementList>
+        </Form>
+        <Report type="WpfApp1.Case.Report">
+          <name>hhornblower_Report</name>
+          <isReadOnly>false</isReadOnly>
+          <licensorName>Horatio Hornblower</licensorName>
+          <licensorID>hhornblower</licensorID>
+          <!--Below is the list of items contained within this group-->
+          <elementList>
+            <Form type="WpfApp1.Case.Form">
+              <name>formTemplate1</name>
+              <isReadOnly>false</isReadOnly>
+              <ControlDate type="WpfApp1.FormItems.ControlDate">
+                <name>inspectionDate</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>INSPECTION DATE</englishTitle>
+                <orientation>Vertical</orientation>
+                <date>1/13/2018</date>
+              </ControlDate>
+              <!--Below is the list of items contained within this group-->
+              <elementList>
+                <ControlText type="WpfApp1.FormItems.ControlText">
+                  <name>notes</name>
+                  <isReadOnly>false</isReadOnly>
+                  <englishTitle>NOTES</englishTitle>
+                  <orientation>Vertical</orientation>
+                  <acceptsNewLine>true</acceptsNewLine>
+                  <text />
+                </ControlText>
+              </elementList>
+            </Form>
+          </elementList>
+        </Report>
+>>>>>>> dc852b9c0712397216f764efc2fbbcb9ec74fe4a

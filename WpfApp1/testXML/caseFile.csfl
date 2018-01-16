@@ -21,7 +21,7 @@
             <isReadOnly>false</isReadOnly>
             <englishTitle>INSPECTION DATE</englishTitle>
             <orientation>Vertical</orientation>
-            <SelectedDateProperty>12/22/2017 12:00:00 AM</SelectedDateProperty>
+            <selectedDate>12/7/1941 12:00:00 AM</selectedDate>
           </ControlDate>
           <!--Below is the list of items contained within this group-->
           <elementList>
@@ -31,7 +31,7 @@
               <englishTitle>NOTES</englishTitle>
               <orientation>Vertical</orientation>
               <acceptsNewLine>true</acceptsNewLine>
-              <text>asddasd</text>
+              <text />
             </ControlText>
           </elementList>
         </Form>
