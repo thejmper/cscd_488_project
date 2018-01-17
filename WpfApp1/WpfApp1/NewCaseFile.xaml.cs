@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
-
+using System.Windows.Media;
 using WpfApp1.Case;
 using WpfApp1.Users;
 
@@ -24,7 +24,7 @@ namespace WpfApp1
         {
             InitializeComponent();
             this.assignedUsers = new ObservableCollection<User>();
-            this.assignedUsers.Add(new User("steve", "steve", "steve"));
+
             mainWin = ((MainWindow)Application.Current.MainWindow);
 
             this.userListView.ItemsSource = UserPrefs.users;
