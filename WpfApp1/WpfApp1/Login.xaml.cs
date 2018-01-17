@@ -29,6 +29,8 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //TODO: check the network to make sure we've got the right credentials. If there's no network connection
+            //check against a saved file that has hashed passwords or something.
             if (Username.Text.Equals(testUsername) && Password.Password.Equals(testPassword))
             {
                 UserPrefs.OnLoad();
