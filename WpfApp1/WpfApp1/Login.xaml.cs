@@ -29,11 +29,17 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (Username.Text == testUsername && Password.Password == testPassword)
+            if (Username.Text.Equals(testUsername) && Password.Password.Equals(testPassword))
             {
+                UserPrefs.OnLoad();
                 MainWindow mainWindow = ((MainWindow)Application.Current.MainWindow);
-                mainWindow.CurrentUser = new Users.User(Username.Text, Password.Password, Username.Text);
+                UserPrefs.SetUser(new Users.User(Username.Text, Password.Password, Username.Text), false);
+
                 this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Wrong username or password");
             }
         }
     }

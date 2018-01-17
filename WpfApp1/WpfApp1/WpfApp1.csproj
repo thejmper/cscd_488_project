@@ -76,6 +76,10 @@
     <Compile Include="NewCaseFile.xaml.cs">
       <DependentUpon>NewCaseFile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewUser.xaml.cs">
+      <DependentUpon>NewUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserPrefs.cs" />
     <Compile Include="Users\PasswordHash.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Utils\UIElementExtensions.cs" />
@@ -96,6 +100,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NewCaseFile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

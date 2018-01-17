@@ -9,7 +9,7 @@ using WpfApp1.FormItems;
 using WpfApp1.Users;
 
 namespace WpfApp1.Case
-{
+{   
     public class CaseFile : TabbedGroup<Report>
     {
         //--member fields--//

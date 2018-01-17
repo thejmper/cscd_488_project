@@ -5,13 +5,85 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="NewCaseFile" Height="300" Width="343.575">
-    <Grid>
-        <Label Content="Facility Name" HorizontalAlignment="Left" Margin="37,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.57,1.863"/>
-        <Label Content="Facility License Number" HorizontalAlignment="Left" Margin="37,112,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="176,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="FacilityName"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="176,112,-4,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="FacilityNum"/>
-        <Button Content="Create" HorizontalAlignment="Left" Margin="127,150,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        Title="NewCaseFile" Height="300" Width="600">
 
+
+    <Grid>
+        <!--grid row and col definitions-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+        <!--new casefile creation!-->
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Row="0" Grid.Column="0">
+            <StackPanel HorizontalAlignment="Left">
+                <Label Content="New Casefile" FontSize="24"/>
+                <Label Content="Facility Name:"/>
+                <TextBox Width="120" Margin="10,0,10,0" HorizontalAlignment="Left" Name="FacilityName"/>
+
+                <Label Content="Facility License Number:"/>
+                <TextBox Width="120" Margin="10,0,10,0" HorizontalAlignment="Left" Name="FacilityNum"/>
+
+                <Button Content="Create" Margin="10,10,10,10" HorizontalAlignment="Right" Width="75" Click="Button_Click"/>
+            </StackPanel>
+        </Border>
+
+        <!--assigned users-->
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Row="1" Grid.Column="0">
+            <ScrollViewer>
+                <ListView Name="assignedUsersList">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding name}"/>
+                            <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding id}"/>
+                        </GridView>
+                    </ListView.View>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <EventSetter Event="MouseDoubleClick" Handler="AssignedUserDoubleClick"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </ScrollViewer>            
+        </Border>
+
+        <!-- user display and list-->
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
+        <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!--buttons-->
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <Button Content="New User" Width="150" Margin="10,10,10,10" Name="btnNewUser" Click="btnNewUser_Click"></Button>
+                </StackPanel>
+
+                <!--user list-->
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" Name="userScrollViwer" Grid.Row="1">
+                    <ListView Name="userListView">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding name}"/>
+                                <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding id}"/>
+                            </GridView>
+                        </ListView.View>
+                        <!--this defines the clicked action-->
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <EventSetter Event="MouseDoubleClick" Handler="ListViewItem_MouseDoubleClick"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </ScrollViewer>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

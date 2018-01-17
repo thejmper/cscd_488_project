@@ -26,14 +26,6 @@ namespace WpfApp1.Users
             return id + " (" + name + ")";
         }
 
-        /*public static bool operator != (User person1, User person2)
-        {
-            return person1.name != person2.name;
-        }
-
-        public static bool operator == (User person1, User person2)
-        {
-            return person1.name == person2.name;
-        }*/
+        
     }
 }

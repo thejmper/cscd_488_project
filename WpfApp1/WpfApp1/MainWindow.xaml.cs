@@ -23,76 +23,60 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        public CaseFile caseFile;
-        public User CurrentUser;
-        
         public MainWindow()
         {
             InitializeComponent();
             Login loginWindow = new Login();
             loginWindow.ShowDialog();
-            if (CurrentUser == null)
+            if (UserPrefs.user == null)
             {
                 this.Close();
             }
 
         }
-
-
+        
+        //--helpers--//
         private string GetPath(string fileName)
         {
             string baseDir = Directory.GetParent(Directory.GetCurrentDirectory() + @"..\..\..").FullName;
             string path = Path.Combine(baseDir, "testXML");
             return path + fileName;
         }
+        public void SetCaseFile(CaseFile caseFile)
+        {
+            UserPrefs.caseFile = caseFile;
+            this.scrollView.Content = caseFile.UIelement;
+        }
 
+        //--button handlers--//
         private void saveCaseFile_Click(object sender, RoutedEventArgs e)
         {
-            if (caseFile == null || CurrentUser == null)
+            if(UserPrefs.caseFile == null)
+            {
+                MessageBox.Show("Nothing to save");
                 return;
+            }
+
             XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
             using (TextWriter writer = new StreamWriter(GetPath(@"\caseFile.csfl")))
             {
-                ser.Serialize(writer, this.caseFile);
+                ser.Serialize(writer, UserPrefs.caseFile);
             }
         }
-
         private void newCaseFile_Click(object sender, RoutedEventArgs e)
         {
-
-            /*
-            caseFile = new CaseFile("case001", "Bob's old folk's emporium", 1138);
-            Report report = caseFile.AssignUser(new Users.User("ksmith", "password", "Kenny Smith"));
-
-            Form template = new Form("formTemplate");
-            template.AddElement(new ControlText("notes", "NOTES", true));
-
-            Form anotherForm = new Form("anotherForm");
-
-            report.AddForm(template);
-            report.AddForm(anotherForm);
-
-            Report anotherReport = caseFile.AssignUser(new Users.User("hhornblower", "theSea", "Horatio Hornblower"));
-            anotherReport.AddForm(anotherForm);
-            */
-
             NewCaseFile n = new NewCaseFile();
             n.ShowDialog();
-
-            //this.scrollView.Content = caseFile.UIelement;
         }
-
         private void loadCaseFile_Click(object sender, RoutedEventArgs e)
         {
             XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
             using (TextReader reader = new StreamReader(GetPath(@"\caseFile.csfl")))
             {
-                this.caseFile = (CaseFile)ser.Deserialize(reader);
+                CaseFile caseFile = (CaseFile)ser.Deserialize(reader);
+                this.SetCaseFile(caseFile);
             }
-
-            this.scrollView.Content = caseFile.UIelement;
         }
-
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             Login loginWindow = new Login();
@@ -115,7 +99,7 @@ namespace WpfApp1
 
             if (UsersReport == null)
                 return;
-                */
+                
             Form A;
             XmlSerializer ser = new XmlSerializer(typeof(Form));
             using (TextReader reader = new StreamReader(GetPath(@"\A.frm")))
@@ -127,7 +111,7 @@ namespace WpfApp1
             caseFile.reports.ElementAt(0).AddForm(A);
             saveCaseFile_Click(null, null);
             loadCaseFile_Click(null, null);
-
+            */
         }
     }
 }
