@@ -16,6 +16,8 @@ namespace WpfApp1.Case
     public class Form : ElementGroup<FormElement>
     {
         //--member fields--//
+        public string formID { get; set; }
+
         /// <summary>
         /// get the UIelement used to represent this object!
         /// </summary>
@@ -160,6 +162,9 @@ namespace WpfApp1.Case
             base.ReadXMLInner(reader);
         }
 
-
+        public string getReportID()
+        {
+            return report.reportID;
+        }
     }
 }

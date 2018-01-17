@@ -24,7 +24,6 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private CaseFile caseFile;
         public User currentUser;
         public CaseFile caseFile;
         public User CurrentUser;

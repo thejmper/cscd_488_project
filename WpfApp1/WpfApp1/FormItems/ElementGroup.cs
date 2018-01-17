@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 
 namespace WpfApp1.FormItems
 {
+    [XmlRoot(ElementName = "elementList")]
     public abstract class ElementGroup<T>: FormElement where T: FormElement
     {
 

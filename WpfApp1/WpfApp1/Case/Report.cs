@@ -78,7 +78,6 @@ namespace WpfApp1.Case
             this.caseFile = caseFile;
             this.licensorName = userFullName;
             this.licensorID = userID;
-
         }
         protected Report(): this("unnamed", "nameless", "noID", null)
         {

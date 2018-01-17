@@ -84,7 +84,19 @@ namespace WpfApp1.Case
                 report.SetReadOnly(false);
             }
         }
-        
+
+        public Report AddReport(string reportID, string licensorName)
+        {
+            if (reports.Exists(item => item.reportID.Equals(reportID)))
+                throw new System.ArgumentException("Report id: " + reportID + " aready assigned to this report!");
+
+
+            Report report = new Report("unnamed", licensorName, "noID", this); // TODO: Correct this
+            this.reports.Add(report);
+
+            return report;
+        }
+
 
 
         //--list manipulation--//
@@ -199,7 +211,7 @@ namespace WpfApp1.Case
             caseID = tempCaseFile.caseID;
             facilityName = tempCaseFile.facilityName;
             facilitylicenseNumber = tempCaseFile.facilitylicenseNumber;
-            reports = tempCaseFile.reports;
+            //reports = tempCaseFile.reports;
         }
 
         public void DatabaseAssignUser(User user)

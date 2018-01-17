@@ -67,3 +67,5 @@ C:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\bin\Debug\MySql
 C:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\bin\Debug\MySql.Data.Entity.EF6.dll
 C:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\bin\Debug\MySql.Data.xml
 C:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\bin\Debug\MySql.Data.Entity.EF6.xml
+C:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\obj\Debug\NewCaseFile.g.cs
+C:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\obj\Debug\NewCaseFile.baml
