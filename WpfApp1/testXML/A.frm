@@ -42,7 +42,7 @@
             <value>0</value>
           </ControlInteger>
         </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
+        <!--<GridElement type="WpfApp1.FormItems.GridElement">
           <name>inDate</name>
           <isReadOnly>false</isReadOnly>
           <row>1</row>
@@ -57,7 +57,7 @@
             <orientation>Vertical</orientation>
             <text>1/1/0001</text>
           </ControlDate>
-        </GridElement>
+        </GridElement>-->
         <GridElement type="WpfApp1.FormItems.GridElement">
           <name>LicensorName</name>
           <isReadOnly>false</isReadOnly>

@@ -31,7 +31,6 @@ namespace WpfApp1
             if (userSyncer.ValidLogin(Username.Text, Password.Password))
             {
                 MainWindow mainWindow = ((MainWindow)Application.Current.MainWindow);
-                mainWindow.CurrentUser = Username.Text;
                 mainWindow.currentUser = userSyncer.Login(Username.Text, Password.Password);
                 this.Close();
             }

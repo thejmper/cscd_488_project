@@ -98,6 +98,9 @@
     <Compile Include="Reports\Syncers\CaseFileSyncer.cs" />
     <Compile Include="Reports\Syncers\FormSyncer.cs" />
     <Compile Include="Reports\Syncers\ReportSyncer.cs" />
+    <Compile Include="NewCaseFile.xaml.cs">
+      <DependentUpon>NewCaseFile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Users\PasswordHash.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\UserSyncer.cs" />
@@ -118,6 +121,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NewCaseFile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

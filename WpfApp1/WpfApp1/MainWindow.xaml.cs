@@ -26,7 +26,8 @@ namespace WpfApp1
     {
         private CaseFile caseFile;
         public User currentUser;
-        public string CurrentUser = "";
+        public CaseFile caseFile;
+        public User CurrentUser;
         
         public MainWindow()
         {
@@ -53,7 +54,7 @@ namespace WpfApp1
             if (caseFile == null || CurrentUser == null)
                 return;
             XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
-            using (TextWriter writer = new StreamWriter(GetPath(@"\caseFile.xml")))
+            using (TextWriter writer = new StreamWriter(GetPath(@"\caseFile.csfl")))
             {
                 ser.Serialize(writer, this.caseFile);
             }
@@ -61,6 +62,8 @@ namespace WpfApp1
 
         private void newCaseFile_Click(object sender, RoutedEventArgs e)
         {
+
+            /*
             caseFile = new CaseFile("case001", "Bob's old folk's emporium", 1138);
             Report report = caseFile.AssignUser(currentUser);
 
@@ -74,11 +77,12 @@ namespace WpfApp1
 
             Report anotherReport = caseFile.AssignUser(new Users.User("hhornblower", "theSea", "Horatio Hornblower"));
             anotherReport.AddForm(anotherForm);
+            */
 
+            NewCaseFile n = new NewCaseFile();
+            n.ShowDialog();
 
-
-
-            this.scrollView.Content = caseFile.UIelement;
+            //this.scrollView.Content = caseFile.UIelement;
         }
 
         private void loadCaseFile_Click(object sender, RoutedEventArgs e)
@@ -96,6 +100,37 @@ namespace WpfApp1
         {
             Login loginWindow = new Login();
             loginWindow.ShowDialog();
+        }
+
+        private void addA_Click(object sender, RoutedEventArgs e)
+        {
+            /*
+            Report UsersReport = null;
+            foreach (Report report in this.caseFile.reports)
+            {
+                if (report.licensorID == CurrentUser.id)
+                {
+                    UsersReport = report;
+                    break;
+                }
+            }
+
+
+            if (UsersReport == null)
+                return;
+                */
+            Form A;
+            XmlSerializer ser = new XmlSerializer(typeof(Form));
+            using (TextReader reader = new StreamReader(GetPath(@"\A.frm")))
+            {
+                A = (Form)ser.Deserialize(reader); ///the cast is important, as XmlSerializer just returns a generic object.
+            }
+
+            
+            caseFile.reports.ElementAt(0).AddForm(A);
+            saveCaseFile_Click(null, null);
+            loadCaseFile_Click(null, null);
+
         }
     }
 }

@@ -17,6 +17,7 @@ namespace WpfApp1.Case
         /// we never have any overlap within a case file.
         /// </summary>
         public string reportID { get; set; }
+        public DateTime lastModified { get; set; }
 
         public List<Form> forms
         {

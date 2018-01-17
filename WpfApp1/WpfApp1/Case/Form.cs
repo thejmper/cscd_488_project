@@ -153,7 +153,8 @@ namespace WpfApp1.Case
         {
             Type type = typeof(ControlDate);
             XmlSerializer ser = new XmlSerializer(type);
-            this.inspectionDateControl = (ControlDate)ser.Deserialize(reader);
+            ser.Deserialize(reader);
+            //this.inspectionDateControl = (ControlDate)ser.Deserialize(reader);
             reader.MoveToContent();
 
             base.ReadXMLInner(reader);

@@ -19,7 +19,7 @@ namespace WpfApp1.FormItems
         {
         }
 
-        protected ControlDate(): base("untitledControlDate", "untitled date control", new DatePicker())
+        protected ControlDate() : base("untitledControlDate", "untitled date control", new DatePicker())
         {
 
         }
@@ -68,7 +68,12 @@ namespace WpfApp1.FormItems
 
         protected override void ReadControl(XmlReader reader)
         {
-            this.SetValue(DateTime.Parse(reader.ReadElementContentAsString()));
+            String dateString = reader.ReadElementContentAsString();
+            DateTime dt = Convert.ToDateTime(dateString);
+
+            this.SetValue(dt);
+            ((DatePicker)control).SelectedDate = dt;
+
         }
 
         /// <summary>
