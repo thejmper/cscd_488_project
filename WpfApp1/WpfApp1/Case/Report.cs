@@ -10,7 +10,15 @@ namespace WpfApp1.Case
     public class Report : TabbedGroup<Form>
     {
         //--member fields--//
-         public List<Form> forms
+        /// <summary>
+        /// UNIQUE id of this report WITHIN THE CASE FILE. the same report Id
+        /// can be reused many times so long as each reuse is in a different case file.
+        /// To avoid conflics, append a username or something on the front to make sure
+        /// we never have any overlap within a case file.
+        /// </summary>
+        public string reportID { get; set; }
+
+        public List<Form> forms
         {
             get
             {

@@ -23,15 +23,9 @@
             </MenuItem>
         </Menu>
 
-        <TabControl>
-            <TabItem Header="FormA" Name="FormA">
-                <ScrollViewer HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Hidden" />
-            </TabItem>
-            <TabItem Header="Form B" Name="FormB" Height="auto">
-                <ScrollViewer HorizontalScrollBarVisibility="Auto"  VerticalScrollBarVisibility="Auto" Name="FormBScroll">
-                    
-                </ScrollViewer>
-            </TabItem>
-        </TabControl>
+        <ScrollViewer Name="scrollView" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="1">
+            
+            
+        </ScrollViewer>
     </Grid>
 </Window>

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp1.Case;
 
 namespace WpfApp1.Reports.Syncers
 {
@@ -17,7 +18,7 @@ namespace WpfApp1.Reports.Syncers
             conn = new MySqlConnection(connectionString);
         }
 
-        public Report SyncReport(CaseFile caseFile, String reportID)
+        public Report SyncReport(Case.CaseFile caseFile, String reportID)
         {
             Report report = caseFile.GetReport(reportID);
 
@@ -72,7 +73,7 @@ namespace WpfApp1.Reports.Syncers
             }
         }
 
-        public CaseFile GetAllReports(CaseFile caseFile)
+        public Case.CaseFile GetAllReports(Case.CaseFile caseFile)
         {
             try
             {
@@ -107,7 +108,7 @@ namespace WpfApp1.Reports.Syncers
             }
         }
 
-        private Report UpdateLocalReport(CaseFile caseFile, String reportID)
+        private Report UpdateLocalReport(Case.CaseFile caseFile, String reportID)
         {
             try
             {

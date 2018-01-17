@@ -81,7 +81,6 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Reports\CaseFile.cs" />
     <Compile Include="Reports\Fields\ElementComment.cs" />
     <Compile Include="Reports\Fields\ElementGroup.cs" />
     <Compile Include="Reports\Fields\ElementGroupDynamic.cs" />
@@ -95,9 +94,7 @@
     <Compile Include="Reports\Fields\FieldString.cs" />
     <Compile Include="Reports\Fields\IReportElement.cs" />
     <Compile Include="Reports\Fields\IReportField.cs" />
-    <Compile Include="Reports\Form.cs" />
     <Compile Include="Reports\Forms\FormHeader.cs" />
-    <Compile Include="Reports\Report.cs" />
     <Compile Include="Reports\Syncers\CaseFileSyncer.cs" />
     <Compile Include="Reports\Syncers\FormSyncer.cs" />
     <Compile Include="Reports\Syncers\ReportSyncer.cs" />

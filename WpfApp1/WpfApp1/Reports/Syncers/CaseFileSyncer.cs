@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp1.Case;
 using WpfApp1.Users;
 
 namespace WpfApp1.Reports.Syncers
@@ -18,7 +19,7 @@ namespace WpfApp1.Reports.Syncers
             conn = new MySqlConnection(connectionString);
         }
 
-        public CaseFile SyncCaseFile(CaseFile caseFile, User user)
+        public Case.CaseFile SyncCaseFile(Case.CaseFile caseFile, User user)
         {
             if (CaseExists(caseFile))
             {
@@ -51,7 +52,7 @@ namespace WpfApp1.Reports.Syncers
             }
         }
 
-        public Boolean AssignUser(User user, CaseFile caseFile)
+        public Boolean AssignUser(User user, Case.CaseFile caseFile)
         {
             try
             {
@@ -77,7 +78,7 @@ namespace WpfApp1.Reports.Syncers
             }
         }
 
-        private Boolean IsAssignedCase(User user, CaseFile caseFile)
+        private Boolean IsAssignedCase(User user, Case.CaseFile caseFile)
         {
             try
             {
@@ -108,7 +109,7 @@ namespace WpfApp1.Reports.Syncers
             }
         }
 
-        private Boolean IsLocalOlder(CaseFile caseFile)
+        private Boolean IsLocalOlder(Case.CaseFile caseFile)
         {
             try
             {
@@ -140,7 +141,7 @@ namespace WpfApp1.Reports.Syncers
             }
         }
 
-        public CaseFile GetCaseFile(CaseFile caseFile)
+        public Case.CaseFile GetCaseFile(Case.CaseFile caseFile)
         {
             try
             {
@@ -159,7 +160,7 @@ namespace WpfApp1.Reports.Syncers
                     String facilityName = reader["facility_name"].ToString();
                     int facilityLicense = reader.GetInt32("facility_license");
                     conn.Close();
-                    CaseFile tempCaseFile = new CaseFile(caseID, facilityName, facilityLicense);
+                    Case.CaseFile tempCaseFile = new Case.CaseFile(caseID, facilityName, facilityLicense);
                     ReportSyncer syncer = new ReportSyncer();
                     return syncer.GetAllReports(tempCaseFile);
                 }
@@ -174,7 +175,7 @@ namespace WpfApp1.Reports.Syncers
             }
         }
 
-        public CaseFile GetCaseFile(int caseFileID)
+        public Case.CaseFile GetCaseFile(int caseFileID)
         {
             try
             {
@@ -193,7 +194,7 @@ namespace WpfApp1.Reports.Syncers
                     String facilityName = reader["facility_name"].ToString();
                     int facilityLicense = reader.GetInt32("facility_license");
                     conn.Close();
-                    return new CaseFile(caseID, facilityName, facilityLicense);
+                    return new Case.CaseFile(caseID, facilityName, facilityLicense);
                 }
 
                 conn.Close();
@@ -206,7 +207,7 @@ namespace WpfApp1.Reports.Syncers
             }
         }
 
-        private Boolean InsertCaseFile(CaseFile caseFile)
+        private Boolean InsertCaseFile(Case.CaseFile caseFile)
         {
             try
             {
@@ -220,7 +221,7 @@ namespace WpfApp1.Reports.Syncers
                 MySqlCommand command = new MySqlCommand(insertStatement, conn);
                 command.Prepare();
                 command.Parameters.AddWithValue("@facilityName", caseFile.facilityName);
-                command.Parameters.AddWithValue("@facilityLicense", caseFile.facilityLicenseNo);
+                command.Parameters.AddWithValue("@facilityLicense", caseFile.facilitylicenseNumber);
 
                 command.ExecuteNonQuery();
                 string getIDStatement = "SELECT @@IDENTITY AS theID";
@@ -248,7 +249,7 @@ namespace WpfApp1.Reports.Syncers
             }
         }
 
-        private Boolean CaseExists(CaseFile caseFile)
+        private Boolean CaseExists(Case.CaseFile caseFile)
         {
             try
             {
@@ -279,7 +280,7 @@ namespace WpfApp1.Reports.Syncers
             }
         }
 
-        public Boolean UpdateCaseFile(CaseFile caseFile)
+        public Boolean UpdateCaseFile(Case.CaseFile caseFile)
         {
             if (!CaseExists(caseFile))
             {
@@ -294,7 +295,7 @@ namespace WpfApp1.Reports.Syncers
                 MySqlCommand command = new MySqlCommand(sqlStatement, conn);
                 command.Prepare();
                 command.Parameters.AddWithValue("@facilityName", caseFile.facilityName);
-                command.Parameters.AddWithValue("@facilityLicense", caseFile.facilityLicenseNo);
+                command.Parameters.AddWithValue("@facilityLicense", caseFile.facilitylicenseNumber);
                 command.ExecuteNonQuery();
 
                 conn.Close();

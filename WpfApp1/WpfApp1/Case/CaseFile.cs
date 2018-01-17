@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Xml;
 
 using WpfApp1.FormItems;
+using WpfApp1.Reports.Syncers;
 using WpfApp1.Users;
 
 namespace WpfApp1.Case
@@ -30,6 +31,12 @@ namespace WpfApp1.Case
         /// last time the case file data specifically (not reports within the case file) was modified
         /// </summary>
         public DateTime lastModified { get; set; }
+
+        /// <summary>
+        /// UNIQUE case ID. created when the case-file is created from the server-side
+        /// and asasigned to users.
+        /// </summary>
+        public string caseID;
 
         public List<Report> reports
         {
@@ -91,7 +98,7 @@ namespace WpfApp1.Case
 
             Report report = new Report(user.username +"_Report", user.name, user.username, this);
             this.AddElementInternal(report);
-
+            DatabaseAssignUser(user);
 
 
             return report;
@@ -144,6 +151,61 @@ namespace WpfApp1.Case
             sb.AppendLine("Reports: " + this.elementList.Count);
 
             return sb.ToString();
+        }
+
+        //--Database stuff--//
+
+        public Report UpdateReport(string reportID, DateTime lastModified)
+        {
+            foreach (Report report in this.reports)
+            {
+                if (report.reportID == reportID)
+                {
+                    report.lastModified = lastModified;
+                    return report;
+                }
+            }
+            throw new System.ArgumentException("Report id: " + reportID + " does not exist in this case file!");
+        }
+
+        public Report GetReport(string reportID)
+        {
+            foreach (Report report in this.reports)
+            {
+                if (report.reportID == reportID)
+                {
+                    return report;
+                }
+            }
+            throw new System.ArgumentException("Report id: " + reportID + " does not exist in this case file!");
+        }
+
+        public Boolean HasReport(string reportID)
+        {
+            foreach (Report report in this.reports)
+            {
+                if (report.reportID == reportID)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void Sync(User user)
+        {
+            CaseFileSyncer syncer = new CaseFileSyncer();
+            CaseFile tempCaseFile = syncer.SyncCaseFile(this, user);
+            caseID = tempCaseFile.caseID;
+            facilityName = tempCaseFile.facilityName;
+            facilitylicenseNumber = tempCaseFile.facilitylicenseNumber;
+            reports = tempCaseFile.reports;
+        }
+
+        public void DatabaseAssignUser(User user)
+        {
+            CaseFileSyncer syncer = new CaseFileSyncer();
+            syncer.AssignUser(user, this);
         }
     }
 }
