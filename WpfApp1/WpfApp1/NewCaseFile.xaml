@@ -30,7 +30,7 @@
                 <Label Content="Facility License Number:"/>
                 <TextBox Width="120" Margin="10,0,10,0" HorizontalAlignment="Left" Name="FacilityNum"/>
 
-                <Button Content="Create" Margin="10,10,10,10" HorizontalAlignment="Right" Width="75" Click="Button_Click"/>
+                <Button Content="Create" Margin="10,10,10,10" HorizontalAlignment="Right" Width="75" Click="CreateCaseFileClick"/>
             </StackPanel>
         </Border>
 
@@ -78,7 +78,7 @@
                         <!--this defines the clicked action-->
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
-                                <EventSetter Event="MouseDoubleClick" Handler="ListViewItem_MouseDoubleClick"/>
+                                <EventSetter Event="MouseDoubleClick" Handler="RemoveAssignedUser"/>
                             </Style>
                         </ListView.ItemContainerStyle>
                     </ListView>

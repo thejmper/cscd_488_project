@@ -53,6 +53,18 @@ namespace WpfApp1
         }
         public static void AddUser(User user)
         {
+
+            foreach (User registerdUser in users)
+            {
+                if (user.id == registerdUser.id)
+                {
+                    throw new System.ArgumentException("Cannot add" + user.id + "to system, a user with that ID already exists!");
+                }
+                else if(user.name == registerdUser.name)
+                {
+                    throw new System.ArgumentException("Cannot add" + user.name + "to system, a user with that name already exists!");
+                }
+            }
             //TODO: add error checking.
             //if (users.Exists(element => element.id.Equals(user.id)))
             //    throw new System.ArgumentException("Cannot add" + user.id + "to system, a user with that ID already exists!");

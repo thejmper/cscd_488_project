@@ -34,14 +34,18 @@ namespace WpfApp1
         //--helpers--//
 
         //--button handlers--//
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void CreateCaseFileClick(object sender, RoutedEventArgs e)
         {
             if (FacilityName.Text == "" || FacilityNum.Text == "")
                 return;
             int num;
             Int32.TryParse(FacilityNum.Text, out num);
             //TODO: get a casefile number from the database and load it here!
-            CaseFile caseFile = new CaseFile("adddd", FacilityName.Text, num);
+            CaseFile caseFile = new CaseFile("CaseFile", FacilityName.Text, num);
+            foreach (User user in this.assignedUsers)
+            {
+                caseFile.AssignUser(user);
+            }
 
             //TODO: save this facility to the database so we can reference it again easily
             //(assuming it doesn't already exist. If there's a matching facility number, inform the user
@@ -67,7 +71,7 @@ namespace WpfApp1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ListViewItem_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void RemoveAssignedUser(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             var item = sender as ListViewItem;
             if(item != null)

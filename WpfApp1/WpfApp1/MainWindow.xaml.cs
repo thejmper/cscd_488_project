@@ -85,33 +85,28 @@ namespace WpfApp1
 
         private void addA_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            Report UsersReport = null;
-            foreach (Report report in this.caseFile.reports)
+
+            User currentUser = UserPrefs.user;
+            CaseFile caseFile = UserPrefs.caseFile;
+            foreach (Report report in caseFile.reports)
             {
-                if (report.licensorID == CurrentUser.id)
+                //changed after testing works
+                if (report.licensorID == "sCarter")// currentUser.id)
                 {
-                    UsersReport = report;
-                    break;
+                    Form A;
+                    XmlSerializer ser = new XmlSerializer(typeof(Form));
+                    using (TextReader reader = new StreamReader(GetPath(@"\A.frm")))
+                    {
+                        A = (Form)ser.Deserialize(reader); ///the cast is important, as XmlSerializer just returns a generic object.
+                    }
+                    report.AddForm(A);
                 }
             }
 
-
-            if (UsersReport == null)
-                return;
-                
-            Form A;
-            XmlSerializer ser = new XmlSerializer(typeof(Form));
-            using (TextReader reader = new StreamReader(GetPath(@"\A.frm")))
-            {
-                A = (Form)ser.Deserialize(reader); ///the cast is important, as XmlSerializer just returns a generic object.
-            }
-
+            //TODO save the new UI and then load it to refresh the window
             
-            caseFile.reports.ElementAt(0).AddForm(A);
-            saveCaseFile_Click(null, null);
-            loadCaseFile_Click(null, null);
-            */
+
+
         }
     }
 }
