@@ -114,10 +114,17 @@ namespace WpfApp1.Case
             base.ReadXMLInner(reader);
         }
 
+        public override void WriteXml(XmlWriter writer)
+        {
+            base.WriteXml(writer);
+        }
+
         protected override ElementGroup<Form> CloneInner()
         {
             throw new NotImplementedException("Don't clone Reports!");
         }
+
+
 
         public override string ToString()
         {

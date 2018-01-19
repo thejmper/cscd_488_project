@@ -83,8 +83,10 @@ namespace WpfApp1.FormItems
             {
                 writer.WriteStartElement(element.GetType().Name);
                 element.WriteXml(writer);
+                writer.WriteEndElement();
             }
             //done
+            writer.WriteEndElement();
         }
     }
 }
