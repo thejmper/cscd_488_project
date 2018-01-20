@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -43,8 +44,10 @@ namespace WpfApp1.FormItems
         //--readonly--//
         protected override void SetReadOnlyInternal(bool isReadOnly)
         {
-            foreach(FormElement element in this.elementList)
+            foreach (FormElement element in this.elementList)
+            {
                 element.SetReadOnly(isReadOnly);
+            }
         }
 
         //--element manipulation--//
@@ -54,6 +57,14 @@ namespace WpfApp1.FormItems
                 throw new System.ArgumentException("Cannot add element " + element.name + ". to Form " + this.name + " that tag is already in use!");
 
             elementList.Add(element);
+        }
+        protected virtual void RemoveElementInternal(T element)
+        {
+            if (elementList.Find(item => item.name.Equals(element.name)) == null)
+                throw new ArgumentException("Cannot remove element " + element.name + " it does not exist in group " + this.name);
+
+            elementList.Remove(element);
+
         }
 
         //--save/load--//
@@ -73,6 +84,7 @@ namespace WpfApp1.FormItems
 
                 reader.MoveToContent();
             }
+            reader.ReadEndElement();
         }
         protected override void WriteXMLInner(XmlWriter writer)
         {
@@ -84,8 +96,10 @@ namespace WpfApp1.FormItems
             {
                 writer.WriteStartElement(element.GetType().Name);
                 element.WriteXml(writer);
+                writer.WriteEndElement();
             }
             //done
+            writer.WriteEndElement();
         }
     }
 }

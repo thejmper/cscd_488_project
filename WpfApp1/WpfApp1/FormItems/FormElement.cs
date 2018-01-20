@@ -91,7 +91,7 @@ namespace WpfApp1.FormItems
 
             this.WriteXMLInner(writer);
 
-            writer.WriteEndElement();
+            //writer.WriteEndElement();
         }
     }
 }

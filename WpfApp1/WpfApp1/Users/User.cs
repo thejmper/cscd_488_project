@@ -10,15 +10,12 @@ namespace WpfApp1.Users
         public string name { get; private set; }
         public Boolean admin { get; }
 
-        public User(string username, string password, string name)
+        public User(string id, string password, string name, bool isAdmin=false)
         {
             this.username = username;
             this.password = PasswordHash.Hash(password); // TODO: hash the password
             this.name = name;
-        }
-        public User(string username, string password, string name, Boolean admin) : this(username, password, name)
-        {
-            this.admin = admin;
+            this.isAdmin = isAdmin;
         }
 
         public override string ToString()
@@ -26,14 +23,6 @@ namespace WpfApp1.Users
             return username + " (" + name + ")";
         }
 
-        /*public static bool operator != (User person1, User person2)
-        {
-            return person1.name != person2.name;
-        }
-
-        public static bool operator == (User person1, User person2)
-        {
-            return person1.name == person2.name;
-        }*/
+        
     }
 }

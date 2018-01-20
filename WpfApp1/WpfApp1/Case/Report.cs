@@ -53,7 +53,8 @@ namespace WpfApp1.Case
             }
         }
 
-
+        //used for merging
+        internal DateTime lastModified;
 
         //label used to display this report
         private CaseFile _caseFile;
@@ -78,6 +79,7 @@ namespace WpfApp1.Case
             this.caseFile = caseFile;
             this.licensorName = userFullName;
             this.licensorID = userID;
+            this.lastModified = DateTime.Now;
         }
         protected Report(): this("unnamed", "nameless", "noID", null)
         {
@@ -108,18 +110,30 @@ namespace WpfApp1.Case
             base.AddElementInternal(element);
         }
 
+        protected override void SetReadOnlyInternal(bool isReadOnly)
+        {
+            base.SetReadOnlyInternal(isReadOnly);
+        }
+
         //--save/load--//
         protected override void WriteXMLInner(XmlWriter writer)
         {
             writer.WriteElementString("licensorName", this.licensorName);
             writer.WriteElementString("licensorID", this.licensorID);
+            writer.WriteElementString("lastModified", DateTime.Now.ToString());
             base.WriteXMLInner(writer);
         }
         protected override void ReadXMLInner(XmlReader reader)
         {
             this.licensorName = reader.ReadElementContentAsString();
             this.licensorID = reader.ReadElementContentAsString();
+            this.lastModified = DateTime.Parse(reader.ReadElementContentAsString());
             base.ReadXMLInner(reader);
+        }
+
+        public override void WriteXml(XmlWriter writer)
+        {
+            base.WriteXml(writer);
         }
 
         protected override ElementGroup<Form> CloneInner()

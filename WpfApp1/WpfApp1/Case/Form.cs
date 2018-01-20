@@ -142,13 +142,12 @@ namespace WpfApp1.Case
             stackPanel.Children.Add(element.UIelement);
         }
 
-
         //--save/load stuff--//
         protected override void WriteXMLInner(XmlWriter writer)
         {
             writer.WriteStartElement(inspectionDateControl.GetType().Name);
             inspectionDateControl.WriteXml(writer);
-
+            writer.WriteEndElement();
             base.WriteXMLInner(writer);
         }
         protected override void ReadXMLInner(XmlReader reader)

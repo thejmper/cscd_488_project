@@ -27,12 +27,20 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            UserSyncer userSyncer = new UserSyncer();
-            if (userSyncer.ValidLogin(Username.Text, Password.Password))
+            //UserSyncer userSyncer = new UserSyncer();
+            //if (userSyncer.ValidLogin(Username.Text, Password.Password))
+            //TODO: check the network to make sure we've got the right credentials. If there's no network connection
+            //check against a saved file that has hashed passwords or something.
+            if (Username.Text.Equals(testUsername) && Password.Password.Equals(testPassword))
             {
+                UserPrefs.OnLoad();
                 MainWindow mainWindow = ((MainWindow)Application.Current.MainWindow);
-                mainWindow.currentUser = userSyncer.Login(Username.Text, Password.Password);
+                UserPrefs.SetUser(new Users.User(Username.Text, Password.Password, Username.Text), false);
                 this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Wrong username or password");
             }
         }
     }
