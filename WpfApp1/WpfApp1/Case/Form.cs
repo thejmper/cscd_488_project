@@ -140,7 +140,6 @@ namespace WpfApp1.Case
             stackPanel.Children.Add(element.UIelement);
         }
 
-
         //--save/load stuff--//
         protected override void WriteXMLInner(XmlWriter writer)
         {

@@ -10,15 +10,12 @@ namespace WpfApp1.Users
         public string name { get; private set; }
         public bool isAdmin { get; }
 
-        public User(string id, string password, string name)
+        public User(string id, string password, string name, bool isAdmin=false)
         {
             this.id = id;
             this.password = PasswordHash.Hash(password); // TODO: hash the password
             this.name = name;
-        }
-        public User(string id, string password, string name, bool admin) : this(id, password, name)
-        {
-            this.isAdmin = admin;
+            this.isAdmin = isAdmin;
         }
 
         public override string ToString()

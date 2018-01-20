@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BoilerplateTestWindow.xaml.cs">
+      <DependentUpon>BoilerplateTestWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Case\CaseFile.cs" />
     <Compile Include="Case\Form.cs" />
     <Compile Include="Case\Report.cs" />
@@ -83,6 +86,10 @@
     <Compile Include="Users\PasswordHash.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Utils\UIElementExtensions.cs" />
+    <Page Include="BoilerplateTestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

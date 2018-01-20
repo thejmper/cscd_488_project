@@ -61,19 +61,35 @@ namespace WpfApp1.Case
         /// <param name="user"></param>
         public void OpenAsUser(User user)
         {
-            this.SetReadOnly(true);
             if (user.isAdmin)
             {
                 this.SetReadOnly(false);
             }
             else if (assignedUserIDs.Contains(user.id))
             {
-                Report report = this.elementList.Find(item => item.name.Equals(user.name));
+                Report report = this.elementList.Find(item => item.licensorID.Equals(user.id));
                 report.SetReadOnly(false);
             }
         }
         
+        //--merging--//
+        public void MergeIntoSelf(CaseFile other)
+        {
+            if (!this.name.Equals(other.name))
+                throw new ArgumentException("ERROR case file " + name + "does not match " + other.name + ". They cannot be merged.");
 
+            foreach (Report report in other.reports)
+            {
+                Report localCopy = this.elementList.Find(x => x.name.Equals(report.name));
+                if (localCopy == null)
+                    this.AddElementInternal(report);
+                else if(report.lastModified > localCopy.lastModified)
+                {
+                    this.RemoveElementInternal(localCopy);
+                    this.AddElementInternal(report);
+                }
+            }
+        }
 
         //--list manipulation--//
         internal Report AssignUser(User user)
@@ -97,6 +113,7 @@ namespace WpfApp1.Case
             element.caseFile = this;
             base.AddElementInternal(element);
         }
+
         //--cloning. Shouldn't be used!--//
         protected override ElementGroup<Report> CloneInner()
         {
@@ -108,12 +125,22 @@ namespace WpfApp1.Case
         {
             writer.WriteElementString("facilityName", this.facilityName);
             writer.WriteElementString("facilityLicenseNumber", this.facilitylicenseNumber.ToString());
+
+            writer.WriteElementString("numUsers", this.assignedUserIDs.Count.ToString());
+            foreach (string id in assignedUserIDs)
+                writer.WriteElementString("id", id);
+
+
             base.WriteXMLInner(writer);
         }
         protected override void ReadXMLInner(XmlReader reader)
         {
             this.facilityName = reader.ReadElementContentAsString();
             this.facilitylicenseNumber = Int32.Parse(reader.ReadElementContentAsString());
+
+            int idCount = Int32.Parse(reader.ReadElementContentAsString());
+            for (int i = 0; i < idCount; i++)
+                this.assignedUserIDs.Add(reader.ReadElementContentAsString());
             base.ReadXMLInner(reader);
         }
         /// <summary>
@@ -123,7 +150,7 @@ namespace WpfApp1.Case
         public override void ReadXml(XmlReader reader)
         {
             base.ReadXml(reader);
-            //this.SetReadOnly(true);
+            this.SetReadOnly(true);
         }
 
 
