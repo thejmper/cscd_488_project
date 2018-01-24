@@ -24,7 +24,7 @@
         <Label Content="Name" Grid.Row="0" Grid.Column="0"/>
         <Label Content="Username" Grid.Row="1" Grid.Column="0"/>
         <Label Content="Password" Grid.Row="2" Grid.Column="0"/>
-        <Label Content="Password" Grid.Row="3" Grid.Column="0"/>
+        <Label Content="Admin" Grid.Row="3" Grid.Column="0"/>
 
         <TextBox Name="nameBox" Grid.Row="0" Grid.Column="1"/>
         <TextBox Name="userNameBox" Grid.Row="1" Grid.Column="1"/>

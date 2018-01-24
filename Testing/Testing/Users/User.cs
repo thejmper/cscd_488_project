@@ -11,17 +11,20 @@ namespace WpfApp1.Users
         public string username { get; private set; }
         private string password;
         public string name { get; private set; }
-        public Boolean admin { get; }
+        public Boolean isAdmin { get; }
+        public string id { get; private set; }
 
-        public User(string username, string password, string name)
+        public User(string id, string password, string name, bool isAdmin = false)
         {
-            this.username = username;
+            this.id = id;
             this.password = PasswordHash.Hash(password); // TODO: hash the password
             this.name = name;
+            this.isAdmin = isAdmin;
         }
-        public User(string username, string password, string name, Boolean admin) : this(username, password, name)
+
+        public override string ToString()
         {
-            this.admin = admin;
+            return id + " (" + name + ")";
         }
     }
 }

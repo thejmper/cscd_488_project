@@ -28,9 +28,17 @@ namespace WpfApp1
             string name = this.nameBox.Text;
             bool isAdmin = (bool)this.isAdminCheck.IsChecked;
 
-            User user = new User(userName, password, name, isAdmin);
-            UserPrefs.AddUser(user);
-            this.Close();
+            UserSyncer userSyncer = new UserSyncer();
+            User user = userSyncer.WebCreateUser(userName, password, name, isAdmin);
+            if (user != null)
+            {
+                UserPrefs.AddUser(user);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("User already exists!");
+            }
         }
     }
 }

@@ -118,13 +118,13 @@ namespace WpfApp1.Case
         //--list manipulation--//
         internal Report AssignUser(User user)
         {
-            if (!assignedUserIDs.Contains(user.username))
+            if (!assignedUserIDs.Contains(user.id))
             {
-                assignedUserIDs.Add(user.username);
+                assignedUserIDs.Add(user.id);
                 //throw new ArgumentException("ERROR: User'" + user.ToString() + "' already assigned to this case file!");
             }
 
-            Report report = new Report(user.username +"_Report", user.name, user.username, this);
+            Report report = new Report(user.id +"_Report", user.name, user.id, this);
             this.AddElementInternal(report);
             DatabaseAssignUser(user);
 
@@ -233,18 +233,18 @@ namespace WpfApp1.Case
 
         public void Sync(User user)
         {
-            CaseFileSyncer syncer = new CaseFileSyncer();
-            CaseFile tempCaseFile = syncer.SyncCaseFile(this, user);
-            caseID = tempCaseFile.caseID;
-            facilityName = tempCaseFile.facilityName;
-            facilitylicenseNumber = tempCaseFile.facilitylicenseNumber;
+            //CaseFileSyncer syncer = new CaseFileSyncer();
+            //CaseFile tempCaseFile = syncer.SyncCaseFile(this, user);
+            //caseID = tempCaseFile.caseID;
+            //facilityName = tempCaseFile.facilityName;
+            //facilitylicenseNumber = tempCaseFile.facilitylicenseNumber;
             //reports = tempCaseFile.reports;
         }
 
         public void DatabaseAssignUser(User user)
         {
-            CaseFileSyncer syncer = new CaseFileSyncer();
-            syncer.AssignUser(user, this);
+            //CaseFileSyncer syncer = new CaseFileSyncer();
+            //syncer.AssignUser(user, this);
         }
     }
 }

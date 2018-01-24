@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.IO;
+using System.Net;
+using System.Text;
 using System.Xml.Serialization;
 using WpfApp1.Reports;
 using WpfApp1.Reports.Fields;
@@ -12,8 +15,21 @@ namespace Testing
     {
         static void Main(string[] args)
         {
-            TestGroup();
-            TestForm();
+            string urlAddress = "http://anthonyreinecker.com/test.php";
+            using (WebClient client = new WebClient())
+            {
+                NameValueCollection postData = new NameValueCollection()
+                {
+
+                };
+
+                string pagesource = Encoding.UTF8.GetString(client.UploadValues(urlAddress, postData));
+                Console.WriteLine(pagesource);
+                Console.WriteLine("Press enter to close...");
+                Console.ReadLine();
+            }
+            //TestGroup();
+            //TestForm();
         }
         private static void TestForm()
         {

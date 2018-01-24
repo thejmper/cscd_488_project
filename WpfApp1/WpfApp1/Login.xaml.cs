@@ -27,15 +27,20 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //UserSyncer userSyncer = new UserSyncer();
-            //if (userSyncer.ValidLogin(Username.Text, Password.Password))
+            String testUsername = "Username";
+            string testPassword = "password";
+            UserSyncer userSyncer = new UserSyncer();
+
             //TODO: check the network to make sure we've got the right credentials. If there's no network connection
             //check against a saved file that has hashed passwords or something.
-            if (Username.Text.Equals(testUsername) && Password.Password.Equals(testPassword))
+            //if (Username.Text.Equals(testUsername) && Password.Password.Equals(testPassword))
+            User tempUser = userSyncer.WebLogin(Username.Text, Password.Password);
+            if (tempUser != null)
             {
                 UserPrefs.OnLoad();
                 MainWindow mainWindow = ((MainWindow)Application.Current.MainWindow);
-                UserPrefs.SetUser(new Users.User(Username.Text, Password.Password, Username.Text), false);
+                //UserPrefs.SetUser(new Users.User(Username.Text, Password.Password, Username.Text), false);
+                UserPrefs.SetUser(tempUser, true);
                 this.Close();
             }
             else

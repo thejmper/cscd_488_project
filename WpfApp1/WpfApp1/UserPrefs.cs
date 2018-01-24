@@ -36,7 +36,11 @@ namespace WpfApp1
         public static void OnLoad()
         {
             users = new ObservableCollection<User>();
-
+            UserSyncer userSyncer = new UserSyncer();
+            foreach (User aUser in userSyncer.WebGetListOfUsers())
+            {
+                users.Add(aUser);
+            }
             //TODO: REMOVE THIS, just for testing. Instead. load this from the database.
             AddUser(new User("sCarter", "pass", "Samantha Carter"));
             AddUser(new User("jO'Niell", "pass", "Jack O'Niell"));
@@ -53,7 +57,6 @@ namespace WpfApp1
         }
         public static void AddUser(User user)
         {
-
             foreach (User registerdUser in users)
             {
                 if (user.id == registerdUser.id)

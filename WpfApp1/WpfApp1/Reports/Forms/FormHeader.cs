@@ -1,4 +1,5 @@
-﻿using WpfApp1.Reports.Fields;
+﻿using WpfApp1.Case;
+using WpfApp1.Reports.Fields;
 
 namespace WpfApp1.Reports.Forms
 {
@@ -43,9 +44,9 @@ namespace WpfApp1.Reports.Forms
 
         public void Update(Form form)
         {
-            this.facilityNamefield.SetData(form.facilityName);
-            this.facilityLicenseNoField.SetData(form.facilityLicenseNo);
-            this.licensorNameField.SetData(form.licensorName);
+            //this.facilityNamefield.SetData(form.facilityName);
+            //this.facilityLicenseNoField.SetData(form.facilityLicenseNo);
+            //this.licensorNameField.SetData(form.licensorName);
         }
     }
 }

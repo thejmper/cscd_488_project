@@ -27,16 +27,16 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            //Login loginWindow = new Login();
-            //loginWindow.ShowDialog();
-            //if (UserPrefs.user == null)
+            Login loginWindow = new Login();
+            loginWindow.ShowDialog();
+            if (UserPrefs.user == null)
             {
-            //    this.Close();
+                this.Close();
             }
 
-            BoilerplateTestWindow testWindow = new BoilerplateTestWindow();
-            testWindow.Show();
-            this.Close();
+            //BoilerplateTestWindow testWindow = new BoilerplateTestWindow();
+            //testWindow.Show();
+            //this.Close();
         }
         
         //--helpers--//
