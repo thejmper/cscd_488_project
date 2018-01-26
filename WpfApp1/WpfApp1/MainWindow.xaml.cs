@@ -26,6 +26,7 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+            UserPrefs.OnLoad();
             //Login loginWindow = new Login();
             //loginWindow.ShowDialog();
             //if (UserPrefs.user == null)
@@ -33,9 +34,9 @@ namespace WpfApp1
             //    this.Close();
             }
 
-            BoilerplateTestWindow testWindow = new BoilerplateTestWindow();
-            testWindow.Show();
-            this.Close();
+            //BoilerplateTestWindow testWindow = new BoilerplateTestWindow();
+            //testWindow.Show();
+            //this.Close();
         }
         
         //--helpers--//
@@ -107,6 +108,7 @@ namespace WpfApp1
             }
 
             //TODO save the new UI and then load it to refresh the window
+            this.SetCaseFile(caseFile);
             
 
 
