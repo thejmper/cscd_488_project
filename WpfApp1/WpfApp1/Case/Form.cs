@@ -137,6 +137,7 @@ namespace WpfApp1.Case
         {
             base.AddElementInternal(element);
 
+            
             stackPanel.Children.Add(element.UIelement);
         }
 

@@ -3,10 +3,14 @@ using System.Collections.Generic;
 
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Markup;
+using System.Windows.Media;
 using System.Xml;
 
 using WpfApp1.FormItems;
 using WpfApp1.Users;
+using WpfApp1.Utils;
 
 namespace WpfApp1.Case
 {   
@@ -153,6 +157,45 @@ namespace WpfApp1.Case
             this.SetReadOnly(true);
         }
 
+        //print!
+        public void Print()
+        {
+            PrintDialog pd = new PrintDialog();
+
+
+            Size pageSize = new Size(pd.PrintableAreaWidth, pd.PrintableAreaWidth);
+
+
+
+            FixedDocument doc = new FixedDocument();
+            doc.DocumentPaginator.PageSize = pageSize;
+
+            foreach(Report rep in this.elementList)
+            {
+                foreach(Form form in rep.GetForms())
+                {
+                    FixedPage page = new FixedPage();
+                    page.Width = pageSize.Width;
+                    page.Height = pageSize.Height;
+
+                    StackPanel stackPanel = (StackPanel)form.UIelement.CloneElement();
+                    stackPanel.Width = pageSize.Width;
+
+                    page.Children.Add(stackPanel);
+                    page.Measure(pageSize);
+                    page.Arrange(new Rect(new Point(), pageSize));
+                    page.UpdateLayout();
+
+                    PageContent content = new PageContent();
+                    ((IAddChild)content).AddChild(page);
+                    doc.Pages.Add(content);
+                }
+            }
+
+            
+
+            pd.PrintDocument(doc.DocumentPaginator, "myDocument");
+        }
 
         //--debugging/testing--//
         public override string ToString()

@@ -24,7 +24,19 @@ namespace WpfApp1
         /// <summary>
         /// the casefile we're looking at.
         /// </summary>
-        public static CaseFile caseFile;
+        public static CaseFile caseFile
+        {
+            get
+            {
+                return _caseFile;
+            }
+            set
+            {
+                _caseFile = value;
+                _caseFile.OpenAsUser(user);
+            }
+        }
+        private static CaseFile _caseFile;
 
         public static ObservableCollection<User> users;
 

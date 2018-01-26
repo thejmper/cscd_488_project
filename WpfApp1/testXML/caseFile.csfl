@@ -5,16 +5,16 @@
   <facilityName>Bob's</facilityName>
   <facilityLicenseNumber>1</facilityLicenseNumber>
   <numUsers>2</numUsers>
-  <id>sCarter</id>
+  <id>Username</id>
   <id>jO'niell</id>
   <!--Below is the list of items contained within this group-->
   <elementList>
     <Report type="WpfApp1.Case.Report">
-      <name>sCarter_Report</name>
-      <isReadOnly>true</isReadOnly>
-      <licensorName>Samantha Carter</licensorName>
-      <licensorID>sCarter</licensorID>
-      <lastModified>1/22/2018 10:16:40 AM</lastModified>
+      <name>Username_Report</name>
+      <isReadOnly>false</isReadOnly>
+      <licensorName>Test User</licensorName>
+      <licensorID>Username</licensorID>
+      <lastModified>1/25/2018 7:46:53 PM</lastModified>
       <!--Below is the list of items contained within this group-->
       <elementList>
         <Form type="WpfApp1.Case.Form">
@@ -35,7 +35,9 @@
               <englishTitle>Some Notes</englishTitle>
               <orientation>Vertical</orientation>
               <acceptsNewLine>true</acceptsNewLine>
-              <text />
+              <text>I can make notes here! there's lots of notes. noooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooootes.
+
+</text>
             </ControlText>
           </elementList>
         </Form>
@@ -46,7 +48,7 @@
       <isReadOnly>true</isReadOnly>
       <licensorName>Jack O'Niell</licensorName>
       <licensorID>jO'niell</licensorID>
-      <lastModified>1/22/2018 10:16:40 AM</lastModified>
+      <lastModified>1/25/2018 7:46:53 PM</lastModified>
       <!--Below is the list of items contained within this group-->
       <elementList>
         <Form type="WpfApp1.Case.Form">
