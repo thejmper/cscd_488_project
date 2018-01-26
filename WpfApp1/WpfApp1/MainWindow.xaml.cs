@@ -26,16 +26,13 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            //Login loginWindow = new Login();
-            //loginWindow.ShowDialog();
-            //if (UserPrefs.user == null)
+            Login loginWindow = new Login();
+            loginWindow.ShowDialog();
+            if (UserPrefs.user == null)
             {
-            //    this.Close();
+                this.Close();
             }
 
-            BoilerplateTestWindow testWindow = new BoilerplateTestWindow();
-            testWindow.Show();
-            this.Close();
         }
         
         //--helpers--//
@@ -49,6 +46,7 @@ namespace WpfApp1
         {
             UserPrefs.caseFile = caseFile;
             this.scrollView.Content = caseFile.UIelement;
+            //this.flowScroll.Document = caseFile.GetFlowDocument();
         }
 
         //--button handlers--//
@@ -110,6 +108,22 @@ namespace WpfApp1
             
 
 
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PrintFile_Click(object sender, RoutedEventArgs e)
+        {
+            if(UserPrefs.caseFile == null)
+            {
+                MessageBox.Show("No casefile loaded, cannot print!");
+                return;
+            }
+
+            UserPrefs.caseFile.Print();
         }
     }
 }

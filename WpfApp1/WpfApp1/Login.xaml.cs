@@ -37,7 +37,9 @@ namespace WpfApp1
                 MainWindow mainWindow = ((MainWindow)Application.Current.MainWindow);
                 UserPrefs.SetUser(new Users.User(Username.Text, Password.Password, Username.Text), false);
 
+                mainWindow.Show();
                 this.Close();
+
             }
             else
             {

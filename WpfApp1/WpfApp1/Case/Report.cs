@@ -107,6 +107,12 @@ namespace WpfApp1.Case
             base.SetReadOnlyInternal(isReadOnly);
         }
 
+        
+        internal Form[] GetForms()
+        {
+            return this.elementList.ToArray();
+        }
+
         //--save/load--//
         protected override void WriteXMLInner(XmlWriter writer)
         {
