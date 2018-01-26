@@ -26,26 +26,24 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-<<<<<<< HEAD
             UserPrefs.OnLoad();
-            //Login loginWindow = new Login();
-            //loginWindow.ShowDialog();
-            //if (UserPrefs.user == null)
-=======
+
             Login loginWindow = new Login();
             loginWindow.ShowDialog();
             if (UserPrefs.user == null)
->>>>>>> 576b890f831e28858cd89d6768f8f7545ba22713
             {
                 this.Close();
             }
+            /*CaseFile test = new CaseFile("datetest", "datetest", 3);
+            ControlDate date = new ControlDate("test", "enter date");
+            LayoutGrid g = new LayoutGrid("name");
+            g.AddElement(date, 0, 0, 4);
+            Form A = new Form("testform");
+            A.AddElement(g);
+            Report r = new Report("testreport", "Nick Huff","nhuff", test);
+            test.reports.Add(r);
+            this.SetCaseFile(test);*/
 
-<<<<<<< HEAD
-            //BoilerplateTestWindow testWindow = new BoilerplateTestWindow();
-            //testWindow.Show();
-            //this.Close();
-=======
->>>>>>> 576b890f831e28858cd89d6768f8f7545ba22713
         }
         
         //--helpers--//
@@ -57,6 +55,7 @@ namespace WpfApp1
         }
         public void SetCaseFile(CaseFile caseFile)
         {
+            
             UserPrefs.caseFile = caseFile;
             this.scrollView.Content = caseFile.UIelement;
             //this.flowScroll.Document = caseFile.GetFlowDocument();

@@ -59,6 +59,7 @@ namespace WpfApp1.Case
                 return report.licensorName;
             }
         }
+        
 
         //--report stuf--//
         private Report _report;
@@ -110,6 +111,7 @@ namespace WpfApp1.Case
             this.facilityNameField.SetValue(this.facilityName);
             this.facilityNoField.SetValue(this.facilitylicenseNumber);
             this.licensorNameField.SetValue(this.licensorName);
+            this.inspectionDateControl.SetValue(DateTime.Now);
         }
 
 

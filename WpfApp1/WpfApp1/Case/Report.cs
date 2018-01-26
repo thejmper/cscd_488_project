@@ -21,6 +21,8 @@ namespace WpfApp1.Case
         //unique to this report
         public string licensorName { get; private set; }
         public string licensorID { get; private set; }
+        
+   
 
         //inhereted.
         public string facilityName
@@ -70,7 +72,7 @@ namespace WpfApp1.Case
             this.caseFile = caseFile;
             this.licensorName = userFullName;
             this.licensorID = userID;
-            this.lastModified = DateTime.Now;
+            this.lastModified = new DateTime(1999,12,12);
 
         }
         protected Report(): this("unnamed", "nameless", "noID", null)
