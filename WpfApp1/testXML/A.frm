@@ -2,6 +2,13 @@
 <Form type="WpfApp1.Case.Form">
   <name>FormA</name>
   <isReadOnly>false</isReadOnly>
+  <ControlDate type="WpfApp1.FormItems.ControlDate">
+    <name>inspectionDate</name>
+    <isReadOnly>false</isReadOnly>
+    <englishTitle>INSPECTION DATE</englishTitle>
+    <orientation>Vertical</orientation>
+    <SelectedDateProperty />
+  </ControlDate>
   <!--Below is the list of items contained within this group-->
   <elementList>
     <LayoutGrid type="WpfApp1.FormItems.LayoutGrid">

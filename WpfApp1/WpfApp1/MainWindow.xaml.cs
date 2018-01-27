@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using WpfApp1.FormItems;
 using WpfApp1.Case;
 using WpfApp1.Users;
+using WpfApp1.Reports.Syncers;
 
 namespace WpfApp1
 {
@@ -87,6 +88,11 @@ namespace WpfApp1
             using (TextReader reader = new StreamReader(GetPath(@"\caseFile.csfl")))
             {
                 CaseFile caseFile = (CaseFile)ser.Deserialize(reader);
+                CaseFileSyncer caseFileSyncer = new CaseFileSyncer();
+                CaseFile tempCaseFile = caseFileSyncer.GetCaseFile("55");
+                caseFile.caseID = tempCaseFile.caseID;
+                caseFile.facilityName = tempCaseFile.facilityName;
+                caseFile.facilitylicenseNumber = tempCaseFile.facilitylicenseNumber;
                 this.SetCaseFile(caseFile);
             }
         }
@@ -104,7 +110,7 @@ namespace WpfApp1
             foreach (Report report in caseFile.reports)
             {
                 //changed after testing works
-                if (report.licensorID == "sCarter")// currentUser.id)
+                if (report.licensorID == UserPrefs.user.id)
                 {
                     Form A;
                     XmlSerializer ser = new XmlSerializer(typeof(Form));

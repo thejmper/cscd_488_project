@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -209,31 +210,31 @@ namespace WpfApp1.Reports.Syncers
 
         public CaseFile GetCaseFile(string caseFileID)
         {
-            using (WebClient client = new WebClient())
+            WebRequest request = WebRequest.Create(caseSyncAddress + "?case_id=" + caseFileID);
+            request.Method = "GET";
+            using (WebResponse response = request.GetResponse())
             {
-                NameValueCollection getData = new NameValueCollection()
+                using (StreamReader stream = new StreamReader(response.GetResponseStream()))
                 {
-                    {"case_id", caseFileID.ToString() }
-                };
-                string pagesource = Encoding.UTF8.GetString(client.UploadValues(caseSyncAddress, "GET", getData));
-                if (pagesource == "invalid")
-                {
-                    return null;
-                }
-                else
-                {
-                    string[] result = pagesource.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
-                    CaseFile temp = new CaseFile("null", result[0], int.Parse(result[1]));
-                    temp.caseID = caseFileID;
-                    if (int.Parse(result[3]) == 1)
+                    string pagesource = stream.ReadToEnd();
+                    Console.WriteLine(pagesource);
+                    if (pagesource == "invalid")
                     {
-                        temp.closed = true;
+                        return null;
                     }
-                    return temp;
+                    else
+                    {
+                        string[] result = pagesource.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                        CaseFile temp = new CaseFile("null", result[0], int.Parse(result[1]));
+                        temp.caseID = caseFileID;
+                        if (int.Parse(result[2]) == 1)
+                        {
+                            temp.closed = true;
+                        }
+                        return temp;
+                    }
                 }
             }
-
-            return null;
         }
 
         public CaseFile CreateCaseFile(string facilityName, int facilityLicenseNumber)

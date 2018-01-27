@@ -21,11 +21,11 @@ namespace WpfApp1.Case
         /// <summary>
         /// facility name for this case file
         /// </summary>
-        public string facilityName { get; private set; }
+        public string facilityName { get; set; }
         /// <summary>
         /// license number of the facility we're investigating
         /// </summary>
-        public int facilitylicenseNumber { get; private set; }
+        public int facilitylicenseNumber { get; set; }
 
         /// <summary>
         /// user IDs of all users who're allowed to access and edit this report! 
