@@ -246,10 +246,13 @@ namespace WpfApp1.Reports.Syncers
                     {"facility_license", facilityLicenseNumber.ToString() }
                 };
                 string pagesource = Encoding.UTF8.GetString(client.UploadValues(caseSyncAddress, postData));
+                if (pagesource == "already exists")
+                {
+                    return null;
+                }
                 int caseID = int.Parse(pagesource);
                 return new CaseFile("null", facilityName, facilityLicenseNumber);
             }
-            return null;
         }
 
         //private Boolean InsertCaseFile(Case.CaseFile caseFile)

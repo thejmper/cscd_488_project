@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using WpfApp1.Case;
+using WpfApp1.Reports.Syncers;
 using WpfApp1.Users;
 
 namespace WpfApp1
@@ -40,8 +41,10 @@ namespace WpfApp1
                 return;
             int num;
             Int32.TryParse(FacilityNum.Text, out num);
-            //TODO: get a casefile number from the database and load it here!
-            CaseFile caseFile = new CaseFile("CaseFile", FacilityName.Text, num);
+
+            CaseFileSyncer caseFileSyncer = new CaseFileSyncer();
+            CaseFile caseFile = caseFileSyncer.CreateCaseFile(FacilityName.Text, num);
+            //CaseFile caseFile = new CaseFile("CaseFile", FacilityName.Text, num);
             foreach (User user in this.assignedUsers)
             {
                 caseFile.AssignUser(user);
