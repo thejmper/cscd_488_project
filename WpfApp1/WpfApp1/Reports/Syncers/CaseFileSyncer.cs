@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using WpfApp1.Case;
@@ -10,13 +12,12 @@ namespace WpfApp1.Reports.Syncers
 {
     public class CaseFileSyncer
     {
-        //MySqlConnection conn;
+        string caseSyncAddress;
 
-        //public CaseFileSyncer()
-        //{
-        //    string connectionString = System.IO.File.ReadAllText(@"conn.txt");
-        //    conn = new MySqlConnection(connectionString);
-        //}
+        public CaseFileSyncer()
+        {
+            caseSyncAddress = "http://anthonyreinecker.com/seniorproject/casesync.php";
+        }
 
         //public Case.CaseFile SyncCaseFile(Case.CaseFile caseFile, User user)
         //{
@@ -205,6 +206,51 @@ namespace WpfApp1.Reports.Syncers
         //        return null;
         //    }
         //}
+
+        public CaseFile GetCaseFile(string caseFileID)
+        {
+            using (WebClient client = new WebClient())
+            {
+                NameValueCollection getData = new NameValueCollection()
+                {
+                    {"case_id", caseFileID.ToString() }
+                };
+                string pagesource = Encoding.UTF8.GetString(client.UploadValues(caseSyncAddress, "GET", getData));
+                if (pagesource == "invalid")
+                {
+                    return null;
+                }
+                else
+                {
+                    string[] result = pagesource.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                    CaseFile temp = new CaseFile("null", result[0], int.Parse(result[1]));
+                    temp.caseID = caseFileID;
+                    if (int.Parse(result[3]) == 1)
+                    {
+                        temp.closed = true;
+                    }
+                    return temp;
+                }
+            }
+
+            return null;
+        }
+
+        public CaseFile CreateCaseFile(string facilityName, int facilityLicenseNumber)
+        {
+            using (WebClient client = new WebClient())
+            {
+                NameValueCollection postData = new NameValueCollection()
+                {
+                    {"facility_name", facilityName },
+                    {"facility_license", facilityLicenseNumber.ToString() }
+                };
+                string pagesource = Encoding.UTF8.GetString(client.UploadValues(caseSyncAddress, postData));
+                int caseID = int.Parse(pagesource);
+                return new CaseFile("null", facilityName, facilityLicenseNumber);
+            }
+            return null;
+        }
 
         //private Boolean InsertCaseFile(Case.CaseFile caseFile)
         //{

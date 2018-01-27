@@ -33,6 +33,11 @@ namespace WpfApp1.Case
         public DateTime lastModified { get; set; }
 
         /// <summary>
+        /// whether the case is closed.
+        /// </summary>
+        public bool closed { get; set; }
+
+        /// <summary>
         /// UNIQUE case ID. created when the case-file is created from the server-side
         /// and asasigned to users.
         /// </summary>
