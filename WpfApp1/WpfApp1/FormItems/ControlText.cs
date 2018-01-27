@@ -16,7 +16,10 @@ namespace WpfApp1.FormItems
         public ControlText(string name, string engishTitle, bool acceptsNewLine = false, Orientation orientation = Orientation.Vertical) : base(name, engishTitle, new TextBox(), orientation)
         {
             this.acceptsNewLine = acceptsNewLine;
+
             this.control.AcceptsReturn = acceptsNewLine;
+            this.control.TextWrapping = System.Windows.TextWrapping.Wrap;
+
             
         }
         protected ControlText(): this("unnamedTextControl", "untitled text Control")

@@ -27,16 +27,23 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+            UserPrefs.OnLoad();
+
             Login loginWindow = new Login();
             loginWindow.ShowDialog();
             if (UserPrefs.user == null)
             {
                 this.Close();
             }
-
-            //BoilerplateTestWindow testWindow = new BoilerplateTestWindow();
-            //testWindow.Show();
-            //this.Close();
+            /*CaseFile test = new CaseFile("datetest", "datetest", 3);
+            ControlDate date = new ControlDate("test", "enter date");
+            LayoutGrid g = new LayoutGrid("name");
+            g.AddElement(date, 0, 0, 4);
+            Form A = new Form("testform");
+            A.AddElement(g);
+            Report r = new Report("testreport", "Nick Huff","nhuff", test);
+            test.reports.Add(r);
+            this.SetCaseFile(test);*/
         }
         
         //--helpers--//
@@ -48,8 +55,10 @@ namespace WpfApp1
         }
         public void SetCaseFile(CaseFile caseFile)
         {
+            
             UserPrefs.caseFile = caseFile;
             this.scrollView.Content = caseFile.UIelement;
+            //this.flowScroll.Document = caseFile.GetFlowDocument();
         }
 
         //--button handlers--//
@@ -108,9 +117,26 @@ namespace WpfApp1
             }
 
             //TODO save the new UI and then load it to refresh the window
+            this.SetCaseFile(caseFile);
             
 
 
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PrintFile_Click(object sender, RoutedEventArgs e)
+        {
+            if(UserPrefs.caseFile == null)
+            {
+                MessageBox.Show("No casefile loaded, cannot print!");
+                return;
+            }
+
+            UserPrefs.caseFile.Print();
         }
     }
 }

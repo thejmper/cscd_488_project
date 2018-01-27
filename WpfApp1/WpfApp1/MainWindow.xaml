@@ -16,11 +16,13 @@
             <MenuItem Header="File">
                 <MenuItem Header="Load" Click="loadCaseFile_Click" Name="LoadFile"/>
                 <MenuItem Header="Save" Click="saveCaseFile_Click" Name="SaveFile"/>
+                <MenuItem Header="Print" Name="PrintFile" Click="PrintFile_Click"/>
                 <MenuItem Header="Add Form">
                     <MenuItem Header="Form A" Name="addA" Click="addA_Click"/>
                     <MenuItem Header="Form B" Name="addB"/>
                 </MenuItem>
             </MenuItem>
+
             <MenuItem Header="Admin">
                 <MenuItem Header="New Case File" Click="newCaseFile_Click" Name="NewFile"/>
                 <MenuItem Header="Add Licencor"/>
@@ -29,10 +31,17 @@
                 <MenuItem Header="Login" Click="Login_Click"/>
             </MenuItem>
         </Menu>
+        
+        
+        <ScrollViewer Name="scrollView" HorizontalScrollBarVisibility="Disabled"  VerticalScrollBarVisibility="Auto" Grid.Row="1">
 
-        <ScrollViewer Name="scrollView" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="1">
-            
-            
         </ScrollViewer>
+        
+        <!--
+        <FlowDocumentScrollViewer Name="flowScroll" Grid.Row="1">
+            
+        </FlowDocumentScrollViewer>
+        -->
+        
     </Grid>
 </Window>

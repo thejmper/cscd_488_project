@@ -2,13 +2,6 @@
 <Form type="WpfApp1.Case.Form">
   <name>FormA</name>
   <isReadOnly>false</isReadOnly>
-  <ControlDate type="WpfApp1.FormItems.ControlDate">
-    <name>inspectionDate</name>
-    <isReadOnly>false</isReadOnly>
-    <englishTitle>INSPECTION DATE</englishTitle>
-    <orientation>Vertical</orientation>
-    <SelectedDateProperty>12/22/2017 12:00:00 AM</SelectedDateProperty>
-  </ControlDate>
   <!--Below is the list of items contained within this group-->
   <elementList>
     <LayoutGrid type="WpfApp1.FormItems.LayoutGrid">
@@ -49,7 +42,7 @@
             <value>0</value>
           </ControlInteger>
         </GridElement>
-        <!--<GridElement type="WpfApp1.FormItems.GridElement">
+        <GridElement type="WpfApp1.FormItems.GridElement">
           <name>inDate</name>
           <isReadOnly>false</isReadOnly>
           <row>1</row>
@@ -64,7 +57,7 @@
             <orientation>Vertical</orientation>
             <text>1/1/0001</text>
           </ControlDate>
-        </GridElement>-->
+        </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
           <name>LicensorName</name>
           <isReadOnly>false</isReadOnly>
