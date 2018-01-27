@@ -48,6 +48,7 @@ namespace WpfApp1
             foreach (User user in this.assignedUsers)
             {
                 caseFile.AssignUser(user);
+                caseFileSyncer.AssignUser(user.id, caseFile.caseID);
             }
 
             //TODO: save this facility to the database so we can reference it again easily

@@ -79,6 +79,23 @@ namespace WpfApp1.Reports.Syncers
         //    }
         //}
 
+        public Boolean AssignUser(string userID, string caseFileID)
+        {
+            using (WebClient client = new WebClient())
+            {
+                NameValueCollection postData = new NameValueCollection()
+                {
+                    {"username", userID },
+                    {"caseID", caseFileID }
+                };
+                string pagesource = Encoding.UTF8.GetString(client.UploadValues(caseSyncAddress, postData));
+                return true;
+                // TODO: Check if user is already added
+            }
+
+            return false;
+        }
+
         //private Boolean IsAssignedCase(User user, Case.CaseFile caseFile)
         //{
         //    try
@@ -251,8 +268,10 @@ namespace WpfApp1.Reports.Syncers
                 {
                     return null;
                 }
-                int caseID = int.Parse(pagesource);
-                return new CaseFile("null", facilityName, facilityLicenseNumber);
+                string caseID = pagesource;
+                CaseFile temp = new CaseFile("null", facilityName, facilityLicenseNumber);
+                temp.caseID = caseID;
+                return temp;
             }
         }
 

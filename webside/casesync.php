@@ -15,6 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	{
 		createCase($conn, $_POST["facility_name"], $_POST["facility_license"]);
 	}
+	else if (isset($_POST["caseID"]) && isset($_POST["username"]))
+	{
+		assignUser($conn, $_POST["caseID"], $_POST["username"]);
+	}
 }
 else if ($_SERVER['REQUEST_METHOD'] === 'GET')
 {
@@ -71,6 +75,15 @@ function getCase($conn, $caseID)
 		echo "invalid";
 	}
 
+	$statement->close();
+}
+
+function assignUser($conn, $caseID, $userID)
+{
+	$sql = "INSERT INTO assigned (username, case_id) VALUES " .
+	"('" . $userID . "','" . $caseID . "')";
+	$statement = $conn->prepare($sql);
+	$statement->execute();
 	$statement->close();
 }
 ?>
