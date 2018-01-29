@@ -21,7 +21,7 @@ namespace WpfApp1.FormItems
             DatePicker dp = new DatePicker();
             dp.SelectedDate = new DateTime(1999,1,1);
             dp.DisplayDate  = new DateTime(1999, 1, 1);
-            //dp.SelectedDateChanged += Dp_SelectedDateChanged;
+            dp.SelectedDateChanged += Dp_SelectedDateChanged;
             this.control = dp;
         }
 
