@@ -76,7 +76,7 @@ namespace WpfApp1.FormItems
 
         protected override void WriteControl(XmlWriter writer)
         {
-            (control).GetBindingExpression(DatePicker.SelectedDateProperty).UpdateSource();
+            //(control).GetBindingExpression(DatePicker.SelectedDateProperty).UpdateSource();
             String s = dataHolder.date.ToString();
             writer.WriteElementString("SelectedDateProperty", s);
         }

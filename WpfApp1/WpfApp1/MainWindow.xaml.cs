@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using WpfApp1.FormItems;
 using WpfApp1.Case;
 using WpfApp1.Users;
+
 namespace WpfApp1
 {
     /// <summary>
@@ -53,12 +54,14 @@ namespace WpfApp1
             string path = Path.Combine(baseDir, "testXML");
             return path + fileName;
         }
-        public void SetCaseFile(CaseFile caseFile)
+        public void SetCaseFile()
+        {            
+            this.scrollView.Content = UserPrefs.caseFile.UIelement;
+        }
+        public void SetCaseFile(CaseFile file)
         {
-            
-            UserPrefs.caseFile = caseFile;
-            this.scrollView.Content = caseFile.UIelement;
-            //this.flowScroll.Document = caseFile.GetFlowDocument();
+            UserPrefs.caseFile = file;
+            this.SetCaseFile();
         }
 
         //--button handlers--//
@@ -70,11 +73,24 @@ namespace WpfApp1
                 return;
             }
 
-            XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
-            using (TextWriter writer = new StreamWriter(GetPath(@"\caseFile.csfl")))
+            System.Windows.Forms.SaveFileDialog save = new System.Windows.Forms.SaveFileDialog();
+
+            save.InitialDirectory = UserPrefs.GetCasefileDirectory();
+            save.DefaultExt = UserPrefs.CASEFILE_EXTENSION;
+            save.AddExtension = true;
+            save.FileName = UserPrefs.caseFile.name;
+
+            if(save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                ser.Serialize(writer, UserPrefs.caseFile);
+                XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
+                using (TextWriter writer = new StreamWriter(save.FileName))
+                {
+                    ser.Serialize(writer, UserPrefs.caseFile);
+                }
             }
+            
+
+            
         }
         private void newCaseFile_Click(object sender, RoutedEventArgs e)
         {
@@ -83,12 +99,19 @@ namespace WpfApp1
         }
         private void loadCaseFile_Click(object sender, RoutedEventArgs e)
         {
+            LoadOpenCaseFile loadOpenDialog = new LoadOpenCaseFile();
+            loadOpenDialog.ShowDialog();
+
+            this.SetCaseFile();
+
+            /*
             XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
             using (TextReader reader = new StreamReader(GetPath(@"\caseFile.csfl")))
             {
                 CaseFile caseFile = (CaseFile)ser.Deserialize(reader);
                 this.SetCaseFile(caseFile);
             }
+            */
         }
         private void Login_Click(object sender, RoutedEventArgs e)
         {
@@ -117,15 +140,7 @@ namespace WpfApp1
             }
 
             //TODO save the new UI and then load it to refresh the window
-            this.SetCaseFile(caseFile);
-            
-
-
-        }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
+            //this.SetCaseFile();          
         }
 
         private void PrintFile_Click(object sender, RoutedEventArgs e)

@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfApp1.LoadOpenCaseFile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="LoadOpenCaseFile" Height="300" Width="600">
+    <DockPanel Margin="10">
+        <WrapPanel HorizontalAlignment="left" DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="10,0,0,10">
+            <Button Name="btnLoadFromLocal" Click="btnLoadFromLocal_Click" Margin="10">Load CaseFile from local</Button>
+            <Button Name="btnLoadFromWeb" Click="btnLoadFromWeb_Click" Margin="10">Load Casefile From Web</Button>
+        </WrapPanel>
+        <Grid DockPanel.Dock="Top">
+            <Label>Anthony, this is where you'd search through the database for a case file you want to open!</Label>
+        </Grid>
+    </DockPanel>
+</Window>
