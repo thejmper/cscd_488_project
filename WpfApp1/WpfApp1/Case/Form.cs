@@ -30,7 +30,6 @@ namespace WpfApp1.Case
         private ControlInteger facilityNoField;
         private ControlText licensorNameField;
         private ControlDate inspectionDateControl;
-
         //--cached header fields--//
         private string facilityName
         {
@@ -99,6 +98,31 @@ namespace WpfApp1.Case
             this.stackPanel.Children.Add(headerGrid.UIelement);
             this.SetHeaderValues();
         }
+
+        public void SetValueByName(string name, string value)
+        {
+            for (int i = 0; i < this.stackPanel.Children.Count; i++)
+            {
+                if (stackPanel.Children[i].GetType() == typeof(ControlText))
+                {
+                    var currElement = (TextBox)stackPanel.Children[i];
+                    if (currElement.Name == name)
+                    {
+                        currElement.Text = value;
+                    }
+                }
+                else if (stackPanel.Children[i].GetType() == typeof(ControlInteger))
+                {
+                    var currElement = (TextBox)stackPanel.Children[i];
+                    if (currElement.Name == name)
+                    {
+                        currElement.Text = value;
+                    }
+                }
+            }
+        }
+
+
         protected Form(): this("unnamedForm")
         {
             
