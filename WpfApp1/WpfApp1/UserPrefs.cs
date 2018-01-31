@@ -80,7 +80,7 @@ namespace WpfApp1
             AddUser(new User("gHammond", "pass", "George Hammond"));
 
 
-            LoadFormTemplates();
+            //LoadFormTemplates();
         }
 
 

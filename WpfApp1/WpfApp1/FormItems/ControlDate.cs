@@ -16,24 +16,39 @@ namespace WpfApp1.FormItems
         private DateDataHolder dataHolder;
 
         //--construction--//
-        public ControlDate(string name, string engishTitle, Orientation orientation = Orientation.Vertical) : base(name, engishTitle, new DatePicker(), orientation)
+        public ControlDate(string name, string engishTitle, DatePicker dp, Orientation orientation = Orientation.Vertical) : base(name, engishTitle, dp, orientation)
+        {
+        }
+
+        public ControlDate NewControlDate(string name, string engishTitle,DateTime dt,Orientation orientation = Orientation.Vertical)
         {
             DatePicker dp = new DatePicker();
-            dp.SelectedDate = new DateTime(1999,1,1);
-            dp.DisplayDate  = new DateTime(1999, 1, 1);
-            dp.SelectedDateChanged += Dp_SelectedDateChanged;
-            this.control = dp;
+            dp.SelectedDate = dt;
+            //dp.SelectedDateChanged += Dp_SelectedDateChanged;
+            //dp.SelectedDate = new DateTime(1999, 1, 1);
+            ControlDate controlDate = new ControlDate(name, engishTitle, dp, orientation);
+            controlDate.control.SelectedDate = dt;
+            //controlDate.control.SelectedDateChanged += Dp_SelectedDateChanged;
+            return controlDate;
         }
 
         private void Dp_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             DatePicker d = (DatePicker)sender;
+            if (d.SelectedDate == null)
+            {
+                return;
+            }
             DateTime t = (DateTime)d.SelectedDate;
+            DatePicker newDatepicker = new DatePicker();
+            newDatepicker.SelectedDate = t;
+            newDatepicker.SelectedDateChanged += Dp_SelectedDateChanged;
+            this.control = newDatepicker;
             SetValue(t);
             
         }
 
-        protected ControlDate() : base("untitledControlDate", "untitled date control", new DatePicker())
+        public ControlDate() : base("untitledControlDate", "untitled date control", new DatePicker())
         {
 
         }
@@ -50,7 +65,8 @@ namespace WpfApp1.FormItems
         //--cloning--//
         public override FormElement Clone()
         {
-            ControlDate clone = new ControlDate(this.name, this.englishTitle, this.orientation);
+            //ControlDate clone = new ControlDate(this.name, this.englishTitle, this.orientation);
+            ControlDate clone = NewControlDate(this.name, englishTitle,this.dataHolder.date, this.orientation);
             clone.dataHolder.date = this.dataHolder.date;
             (clone.control).GetBindingExpression(DatePicker.SelectedDateProperty).UpdateTarget();
 
@@ -77,6 +93,7 @@ namespace WpfApp1.FormItems
         protected override void WriteControl(XmlWriter writer)
         {
             //(control).GetBindingExpression(DatePicker.SelectedDateProperty).UpdateSource();
+            //DatePicker dp = (DatePicker)control;
             String s = dataHolder.date.ToString();
             writer.WriteElementString("SelectedDateProperty", s);
         }

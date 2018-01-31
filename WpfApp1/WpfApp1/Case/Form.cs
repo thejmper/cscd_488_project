@@ -87,7 +87,7 @@ namespace WpfApp1.Case
             this.licensorNameField = new ControlText("licensorName", "LICENSOR NAME");
             this.licensorNameField.SetReadOnly(true);
 
-            this.inspectionDateControl = new ControlDate("inspectionDate", "INSPECTION DATE");
+            this.inspectionDateControl = new ControlDate().NewControlDate("inspectionDate", "INSPECTION DATE", DateTime.Now);//new ControlDate("inspectionDate", "INSPECTION DATE");
 
             LayoutGrid headerGrid = new LayoutGrid("header");
             headerGrid.AddElement(this.facilityNameField, 0, 0, 9);
@@ -118,6 +118,10 @@ namespace WpfApp1.Case
                     {
                         currElement.Text = value;
                     }
+                }
+                else if (stackPanel.Children[i].GetType() == typeof(ControlDate)) ;
+                {
+                    DatePicker currElement = (DatePicker)stackPanel.Children[i];
                 }
             }
         }
