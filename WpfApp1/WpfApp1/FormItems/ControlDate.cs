@@ -7,44 +7,42 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Xml;
+using WpfApp1.Case;
 
 namespace WpfApp1.FormItems
 {
+    //TODO figure out how to set the orginal value after loading
     public class ControlDate : FormControl<DatePicker, DateTime>
     {
         //--member fields--//
         private DateDataHolder dataHolder;
+        private Form form;
 
         //--construction--//
         public ControlDate(string name, string engishTitle, DatePicker dp, Orientation orientation = Orientation.Vertical) : base(name, engishTitle, dp, orientation)
         {
         }
 
-        public ControlDate NewControlDate(string name, string engishTitle,DateTime dt,Orientation orientation = Orientation.Vertical)
+        public static ControlDate NewControlDate(string name, string engishTitle, Orientation orientation = Orientation.Vertical)
         {
             DatePicker dp = new DatePicker();
-            dp.SelectedDate = dt;
-            //dp.SelectedDateChanged += Dp_SelectedDateChanged;
-            //dp.SelectedDate = new DateTime(1999, 1, 1);
             ControlDate controlDate = new ControlDate(name, engishTitle, dp, orientation);
-            controlDate.control.SelectedDate = dt;
-            //controlDate.control.SelectedDateChanged += Dp_SelectedDateChanged;
+            controlDate.control.SelectedDateChanged += delegate(object sender, SelectionChangedEventArgs e) { Dp_SelectedDateChanged(sender, e, controlDate); };
             return controlDate;
         }
 
-        private void Dp_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        private static void Dp_SelectedDateChanged(object sender, SelectionChangedEventArgs e, ControlDate controlDate)
         {
+            
             DatePicker d = (DatePicker)sender;
             if (d.SelectedDate == null)
             {
                 return;
             }
             DateTime t = (DateTime)d.SelectedDate;
-            DatePicker newDatepicker = new DatePicker();
-            newDatepicker.SelectedDate = t;
-            newDatepicker.SelectedDateChanged += Dp_SelectedDateChanged;
-            this.control = newDatepicker;
-            SetValue(t);
+            controlDate.SetValue(t);
+            //controlDate.control.SelectedDate = t;
+            //controlDate.dataHolder.date = t;
             
         }
 
@@ -65,8 +63,9 @@ namespace WpfApp1.FormItems
         //--cloning--//
         public override FormElement Clone()
         {
+            //TODO fix this too add event to the date picker
             //ControlDate clone = new ControlDate(this.name, this.englishTitle, this.orientation);
-            ControlDate clone = NewControlDate(this.name, englishTitle,this.dataHolder.date, this.orientation);
+            ControlDate clone = NewControlDate(this.name, englishTitle, this.orientation);
             clone.dataHolder.date = this.dataHolder.date;
             (clone.control).GetBindingExpression(DatePicker.SelectedDateProperty).UpdateTarget();
 
@@ -76,13 +75,7 @@ namespace WpfApp1.FormItems
         public override void SetValue(DateTime value)
         {
             dataHolder.date = value;
-
-            //changed DatePicker.selectedDateProperty from DatePicker.TextProperty
-
-            //((DatePicker)control).SelectedDate = value;
-            //var v = DatePicker.SelectedDateProperty;
-            //var v2 = control.GetBindingExpression(v);
-            //v2.UpdateTarget();
+            ((DatePicker)control).SelectedDate = value;
         }
 
         protected override void SetReadOnlyInternal(bool isReadOnly)
@@ -92,8 +85,6 @@ namespace WpfApp1.FormItems
 
         protected override void WriteControl(XmlWriter writer)
         {
-            //(control).GetBindingExpression(DatePicker.SelectedDateProperty).UpdateSource();
-            //DatePicker dp = (DatePicker)control;
             String s = dataHolder.date.ToString();
             writer.WriteElementString("SelectedDateProperty", s);
         }
@@ -102,10 +93,12 @@ namespace WpfApp1.FormItems
         {
             //TODO: make this work.
             String dateString = reader.ReadElementContentAsString();
-            //DateTime dt = Convert.ToDateTime(dateString);
+            if (dateString != "")
+            {
+                DateTime dt = Convert.ToDateTime(dateString);
 
-            //this.SetValue(dt);
-            //((DatePicker)control).SelectedDate = dt;
+                this.SetValue(dt);
+            }
 
         }
 
