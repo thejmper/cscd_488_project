@@ -80,7 +80,7 @@ namespace WpfApp1
             AddUser(new User("gHammond", "pass", "George Hammond"));
 
 
-            //LoadFormTemplates();
+            LoadFormTemplates();
         }
 
 
@@ -126,10 +126,6 @@ namespace WpfApp1
                     throw new System.ArgumentException("Cannot add" + user.name + "to system, a user with that name already exists!");
                 }
             }
-            //TODO: add error checking.
-            //if (users.Exists(element => element.id.Equals(user.id)))
-            //    throw new System.ArgumentException("Cannot add" + user.id + "to system, a user with that ID already exists!");
-
             users.Add(user);
         }
 

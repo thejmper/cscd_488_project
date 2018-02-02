@@ -48,12 +48,6 @@ namespace WpfApp1
         }
         
         //--helpers--//
-        private string GetPath(string fileName)
-        {
-            string baseDir = Directory.GetParent(Directory.GetCurrentDirectory() + @"..\..\..").FullName;
-            string path = Path.Combine(baseDir, "testXML");
-            return path + fileName;
-        }
         public void SetCaseFile()
         {            
             this.scrollView.Content = UserPrefs.caseFile.UIelement;
@@ -119,30 +113,6 @@ namespace WpfApp1
             loginWindow.ShowDialog();
         }
 
-        private void addA_Click(object sender, RoutedEventArgs e)
-        {
-
-            User currentUser = UserPrefs.user;
-            CaseFile caseFile = UserPrefs.caseFile;
-            foreach (Report report in caseFile.reports)
-            {
-                //changed after testing works
-                if (report.licensorID == "sCarter")// currentUser.id)
-                {
-                    Form A;
-                    XmlSerializer ser = new XmlSerializer(typeof(Form));
-                    using (TextReader reader = new StreamReader(GetPath(@"\A.frm")))
-                    {
-                        A = (Form)ser.Deserialize(reader); ///the cast is important, as XmlSerializer just returns a generic object.
-                    }
-                    report.AddForm(A);
-                }
-            }
-
-            //TODO save the new UI and then load it to refresh the window
-            //this.SetCaseFile();          
-        }
-
         private void PrintFile_Click(object sender, RoutedEventArgs e)
         {
             if(UserPrefs.caseFile == null)
@@ -152,6 +122,18 @@ namespace WpfApp1
             }
 
             UserPrefs.caseFile.Print();
+        }
+
+        private void addForm_Click(object sender, RoutedEventArgs e)
+        {
+            if (UserPrefs.report.isReadOnly)
+            {
+                MessageBox.Show("Can't add a new form. The report is read-only");
+                return;
+            }
+
+            AddFormWindow addForm = new AddFormWindow();
+            addForm.ShowDialog();
         }
     }
 }

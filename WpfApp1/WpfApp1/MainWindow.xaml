@@ -17,12 +17,8 @@
                 <MenuItem Header="Load" Click="loadCaseFile_Click" Name="LoadFile"/>
                 <MenuItem Header="Save" Click="saveCaseFile_Click" Name="SaveFile"/>
                 <MenuItem Header="Print" Name="PrintFile" Click="PrintFile_Click"/>
-                <MenuItem Header="Add Form">
-                    <MenuItem Header="Form A" Name="addA" Click="addA_Click"/>
-                    <MenuItem Header="Form B" Name="addB"/>
-                </MenuItem>
             </MenuItem>
-
+            <MenuItem Header="AddForm" Name="addForm" Click="addForm_Click"/>
             <MenuItem Header="Admin">
                 <MenuItem Header="New Case File" Click="newCaseFile_Click" Name="NewFile"/>
                 <MenuItem Header="Add Licencor"/>

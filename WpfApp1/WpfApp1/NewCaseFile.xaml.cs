@@ -11,8 +11,6 @@ namespace WpfApp1
 {
     /// <summary>
     /// Interaction logic for NewCaseFile.xaml
-    /// TODO: make this actually work. Right now the new case file ignore almost all of this data I hand to it.
-    /// I (Jonathan) can fix that, but it's getting really late.
     /// </summary>
     public partial class NewCaseFile : Window
     {
