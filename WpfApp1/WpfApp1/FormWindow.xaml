@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="FormWindow" Height="300" Width="300">
     <Grid>
-        
+        <Label>This doesn't do anything. It just lets you save forms you created in code.</Label>
     </Grid>
 </Window>
