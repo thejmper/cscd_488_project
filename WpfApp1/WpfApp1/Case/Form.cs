@@ -87,7 +87,7 @@ namespace WpfApp1.Case
             this.licensorNameField = new ControlText("licensorName", "LICENSOR NAME");
             this.licensorNameField.SetReadOnly(true);
 
-            this.inspectionDateControl = ControlDate.NewControlDate("inspectionDate", "INSPECTION DATE");//new ControlDate("inspectionDate", "INSPECTION DATE");
+            this.inspectionDateControl = new ControlDate("inspectionDate", "INSPECTION DATE");
             //this.inspectionDateControl.SetValue(new DateTime(1999, 1, 1));
             LayoutGrid headerGrid = new LayoutGrid("header");
             headerGrid.AddElement(this.facilityNameField, 0, 0, 9);
@@ -182,8 +182,11 @@ namespace WpfApp1.Case
         {
             Type type = typeof(ControlDate);
             XmlSerializer ser = new XmlSerializer(type);
-            ser.Deserialize(reader);
-            //this.inspectionDateControl = (ControlDate)ser.Deserialize(reader);
+            ControlDate dummy = (ControlDate)ser.Deserialize(reader);
+
+
+            this.inspectionDateControl.SetValue(dummy.GetValue());
+
             reader.MoveToContent();
 
             base.ReadXMLInner(reader);
