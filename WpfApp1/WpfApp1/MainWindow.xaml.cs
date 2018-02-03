@@ -27,6 +27,11 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+
+            //FormWindow formWindow = new FormWindow();
+            //formWindow.Show();
+            //this.Close();
+
             UserPrefs.OnLoad();
 
             Login loginWindow = new Login();
@@ -126,6 +131,12 @@ namespace WpfApp1
 
         private void addForm_Click(object sender, RoutedEventArgs e)
         {
+            if(UserPrefs.report == null)
+            {
+                MessageBox.Show("Can't add a new form, there is no active report!");
+                return;
+            }
+
             if (UserPrefs.report.isReadOnly)
             {
                 MessageBox.Show("Can't add a new form. The report is read-only");

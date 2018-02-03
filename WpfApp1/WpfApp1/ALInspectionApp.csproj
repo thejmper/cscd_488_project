@@ -76,6 +76,9 @@
     <Content Include="FormItems\LayoutStackPanel.txt" />
     <Compile Include="FormItems\LayoutStackPanel.cs" />
     <Compile Include="FormItems\TabbedGroup.cs" />
+    <Compile Include="FormWindow.xaml.cs">
+      <DependentUpon>FormWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoadOpenCaseFile.xaml.cs">
       <DependentUpon>LoadOpenCaseFile.xaml</DependentUpon>
     </Compile>
@@ -97,6 +100,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BoilerplateTestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
