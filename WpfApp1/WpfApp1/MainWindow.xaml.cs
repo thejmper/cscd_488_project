@@ -147,6 +147,20 @@ namespace WpfApp1
             AddFormWindow addForm = new AddFormWindow();
             addForm.ShowDialog();
         }
+
+        private void MergeFile_Click(object sender, RoutedEventArgs e)
+        {
+            if(UserPrefs.caseFile == null)
+            {
+                MessageBox.Show("No open case file, cannot merge!");
+                return;
+            }
+
+            //TODO: Anthony, link this up.
+            //CaseFile master = get casefile from web matching UserPrefs.caseFile id;
+            //master.mergeIntoSelf(UserPrefs.casefile);
+
+        }
     }
 }
  

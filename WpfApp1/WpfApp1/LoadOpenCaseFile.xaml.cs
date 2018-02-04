@@ -25,6 +25,9 @@ namespace WpfApp1
         public LoadOpenCaseFile()
         {
             InitializeComponent();
+            //TODO: anthony, this is DB related so it's on you
+            //get list of casefiles from database
+            //this.listViewCaseFiles.ItemsSource = caseFileList / Array;
         }
 
         private void btnLoadFromLocal_Click(object sender, RoutedEventArgs e)

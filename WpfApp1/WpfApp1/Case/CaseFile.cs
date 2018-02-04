@@ -25,7 +25,6 @@ namespace WpfApp1.Case
         /// license number of the facility we're investigating
         /// </summary>
         public int facilitylicenseNumber { get; private set; }
-
         /// <summary>
         /// user IDs of all users who're allowed to access and edit this report! 
         /// </summary>
@@ -47,6 +46,7 @@ namespace WpfApp1.Case
             this.facilityName = facilityName;
             this.facilitylicenseNumber = facilitylicesnseNumber;
 
+            this.isOpen = true;
 
             this.assignedUserIDs = new List<string>();
         }
@@ -80,7 +80,6 @@ namespace WpfApp1.Case
             return null;
         }
         
-
         //--merging--//
         public void MergeIntoSelf(CaseFile other)
         {
@@ -99,6 +98,8 @@ namespace WpfApp1.Case
                 }
             }
         }
+
+        //--closing--//
 
         //--list manipulation--//
         internal Report AssignUser(User user)
