@@ -22,7 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 }
 else if ($_SERVER['REQUEST_METHOD'] === 'GET')
 {
-	if (isset($_GET["case_id"]))
+	if (isset($_GET["case_id"]) && isset($_GET["username"]))
+	{
+		isUserAssigned($conn, $_GET["case_id"], $_GET["username"]);
+	}
+	else if (isset($_GET["case_id"]))
 	{
 		getCase($conn, $_GET["case_id"]);
 	}
@@ -106,5 +110,26 @@ function assignUser($conn, $caseID, $userID)
 	$statement = $conn->prepare($sql);
 	$statement->execute();
 	$statement->close();
+}
+
+function isUserAssigned($conn, $caseID, $userID)
+{
+	$sql = "SELECT EXISTS (SELECT * FROM assigned WHERE case_id='" . $caseID . "' AND username='" . $userID . "') as isAssigned";
+	$statement = $conn->prepare($sql);
+	$statement->execute();
+	$statement->bind_result($isAssigned);
+
+	while ($statement->fetch())
+	{
+		$result = array("isAssigned"=>$isAssigned);
+	}
+	$statement->close();
+
+	echo $isAssigned; // Echoes/returns 1 if user is assigned, otherwise 0
+	if ($isAssigned === 1)
+	{
+		return true;
+	}
+	return false;
 }
 ?>

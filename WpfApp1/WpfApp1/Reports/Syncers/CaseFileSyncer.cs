@@ -96,6 +96,27 @@ namespace WpfApp1.Reports.Syncers
             return false;
         }
 
+        public Boolean IsUserAssigned(string userID, string caseFileID)
+        {
+            WebRequest request = WebRequest.Create(caseSyncAddress + "?case_id=" + caseFileID + "&username=" + userID);
+            request.Method = "GET";
+            using (WebResponse response = request.GetResponse())
+            {
+                using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+                {
+                    string pagesource = stream.ReadToEnd();
+                    if (pagesource == "1")
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
         //private Boolean IsAssignedCase(User user, Case.CaseFile caseFile)
         //{
         //    try

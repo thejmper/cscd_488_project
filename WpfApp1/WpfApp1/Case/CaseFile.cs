@@ -84,12 +84,13 @@ namespace WpfApp1.Case
         /// <param name="user"></param>
         public Report OpenAsUser(User user)
         {
+            CaseFileSyncer caseFileSyncer = new CaseFileSyncer();
             if (user.isAdmin)
             {
                 this.SetReadOnly(false);
                 return null;
             }
-            else if (assignedUserIDs.Contains(user.name))
+            else if (caseFileSyncer.IsUserAssigned(user.id, caseID))
             {
                 Report report = this.elementList.Find(item => item.licensorID.Equals(user.id));
                 report.SetReadOnly(false);

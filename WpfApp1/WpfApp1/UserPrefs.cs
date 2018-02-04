@@ -75,14 +75,6 @@ namespace WpfApp1
             {
                 users.Add(aUser);
             }
-            //TODO: REMOVE THIS, just for testing. Instead. load this from the database.
-            AddUser(new User("sCarter", "pass", "Samantha Carter"));
-            AddUser(new User("jO'Niell", "pass", "Jack O'Niell"));
-            AddUser(new User("dJackson", "pass", "Daniel Jackson"));
-            AddUser(new User("cMitchell", "pass", "Cameron Mitchell"));
-            AddUser(new User("vMalDoran", "pass", "Vala Mal Doran"));
-            AddUser(new User("gHammond", "pass", "George Hammond"));
-
 
             LoadFormTemplates();
         }
