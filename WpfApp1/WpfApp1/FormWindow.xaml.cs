@@ -18,8 +18,11 @@ namespace WpfApp1
             InitializeComponent();
 
             Form form = new Form("TestFormA");
-            form.AddElement(new ControlLabel("label01", "this is a label that has a small amount of text"));
-            form.AddElement(new ControlLabel("label02", "this is a label that has lots of text. \n It even has a second line. \n\n\n\n\n Look at all these lines!"));
+            LayoutStackPanel layoutStackPanel = new LayoutStackPanel("inspectionType");
+            layoutStackPanel.AddElement(new ControlBoolean("full", "Full"));
+            form.AddElement(layoutStackPanel);
+            //form.AddElement(new ControlLabel("label01", "this is a label that has a small amount of text"));
+            //form.AddElement(new ControlLabel("label02", "this is a label that has lots of text. \n It even has a second line. \n\n\n\n\n Look at all these lines!"));
 
             string fileName = Path.Combine(UserPrefs.GetFormDirectory(), form.name + UserPrefs.FORM_EXTENSION);
 
