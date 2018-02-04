@@ -26,7 +26,6 @@ namespace WpfApp1.Case
         /// license number of the facility we're investigating
         /// </summary>
         public int facilitylicenseNumber { get; set; }
-
         /// <summary>
         /// user IDs of all users who're allowed to access and edit this report! 
         /// </summary>
@@ -40,6 +39,8 @@ namespace WpfApp1.Case
         /// whether the case is closed.
         /// </summary>
         public bool closed { get; set; }
+
+        bool isOpen;
 
         /// <summary>
         /// UNIQUE case ID. created when the case-file is created from the server-side
@@ -64,6 +65,7 @@ namespace WpfApp1.Case
             this.facilitylicenseNumber = facilitylicesnseNumber;
             lastModified = DateTime.Now;
 
+            this.isOpen = true;
 
             this.assignedUserIDs = new List<string>();
         }
@@ -109,7 +111,6 @@ namespace WpfApp1.Case
             return report;
         }
         
-
         //--merging--//
         public void MergeIntoSelf(CaseFile other)
         {
@@ -128,6 +129,8 @@ namespace WpfApp1.Case
                 }
             }
         }
+
+        //--closing--//
 
         //--list manipulation--//
         internal Report AssignUser(User user)

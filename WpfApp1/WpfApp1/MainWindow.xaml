@@ -16,6 +16,7 @@
             <MenuItem Header="File">
                 <MenuItem Header="Load" Click="loadCaseFile_Click" Name="LoadFile"/>
                 <MenuItem Header="Save" Click="saveCaseFile_Click" Name="SaveFile"/>
+                <MenuItem Header="Merge" Name="MergeFile" Click="MergeFile_Click"/>
                 <MenuItem Header="Print" Name="PrintFile" Click="PrintFile_Click"/>
             </MenuItem>
             <MenuItem Header="AddForm" Name="addForm" Click="addForm_Click"/>

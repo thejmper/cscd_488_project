@@ -16,20 +16,14 @@ namespace WpfApp1.FormItems
     {
         //--member fields--//
         private DateDataHolder dataHolder;
-        private Form form;
 
         //--construction--//
-        public ControlDate(string name, string engishTitle, DatePicker dp, Orientation orientation = Orientation.Vertical) : base(name, engishTitle, dp, orientation)
+        public ControlDate(string name, string engishTitle, Orientation orientation = Orientation.Vertical) : base(name, engishTitle, new DatePicker(), orientation)
         {
+            this.control.SelectedDate = DateTime.Now;
+            //this.control.DisplayDate = DateTime.Now;
         }
 
-        public static ControlDate NewControlDate(string name, string engishTitle, Orientation orientation = Orientation.Vertical)
-        {
-            DatePicker dp = new DatePicker();
-            ControlDate controlDate = new ControlDate(name, engishTitle, dp, orientation);
-            controlDate.control.SelectedDateChanged += delegate(object sender, SelectionChangedEventArgs e) { Dp_SelectedDateChanged(sender, e, controlDate); };
-            return controlDate;
-        }
 
         private static void Dp_SelectedDateChanged(object sender, SelectionChangedEventArgs e, ControlDate controlDate)
         {
@@ -42,11 +36,12 @@ namespace WpfApp1.FormItems
             DateTime t = (DateTime)d.SelectedDate;
             controlDate.SetValue(t);
             //controlDate.control.SelectedDate = t;
-            //controlDate.dataHolder.date = t;
-            
+            //controlDate.dataHolder.date = t;    
+
+            d.DisplayDate = new DateTime(1, 2, 3);
         }
 
-        public ControlDate() : base("untitledControlDate", "untitled date control", new DatePicker())
+        public ControlDate() : this("untitledControlDate", "untitled date control")
         {
 
         }
@@ -64,8 +59,8 @@ namespace WpfApp1.FormItems
         public override FormElement Clone()
         {
             //TODO fix this too add event to the date picker
-            //ControlDate clone = new ControlDate(this.name, this.englishTitle, this.orientation);
-            ControlDate clone = NewControlDate(this.name, englishTitle, this.orientation);
+            ControlDate clone = new ControlDate(this.name, this.englishTitle, this.orientation);
+            //ControlDate clone = NewControlDate(this.name, englishTitle, this.orientation);
             clone.dataHolder.date = this.dataHolder.date;
             (clone.control).GetBindingExpression(DatePicker.SelectedDateProperty).UpdateTarget();
 
@@ -76,6 +71,10 @@ namespace WpfApp1.FormItems
         {
             dataHolder.date = value;
             ((DatePicker)control).SelectedDate = value;
+        }
+        public DateTime GetValue()
+        {
+            return dataHolder.date;
         }
 
         protected override void SetReadOnlyInternal(bool isReadOnly)
@@ -98,6 +97,7 @@ namespace WpfApp1.FormItems
                 DateTime dt = Convert.ToDateTime(dateString);
 
                 this.SetValue(dt);
+                ((DatePicker)control).DisplayDate = dt;
             }
 
         }

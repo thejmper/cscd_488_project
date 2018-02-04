@@ -26,7 +26,7 @@
         <Label Content="Password" Grid.Row="2" Grid.Column="0"/>
         <Label Content="Admin" Grid.Row="3" Grid.Column="0"/>
 
-        <TextBox Name="nameBox" Grid.Row="0" Grid.Column="1"/>
+            <TextBox Name="nameBox" Grid.Row="0" Grid.Column="1"/>
         <TextBox Name="userNameBox" Grid.Row="1" Grid.Column="1"/>
         <PasswordBox Name="passwordBox" Grid.Row="2" Grid.Column="1"/>
         <CheckBox Name="isAdminCheck" Grid.Row="3" Grid.Column="1"/>

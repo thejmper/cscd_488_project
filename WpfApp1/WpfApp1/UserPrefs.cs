@@ -147,7 +147,7 @@ namespace WpfApp1
         /// returns the path where our forms are stored.
         /// </summary>
         /// <returns></returns>
-        private static string GetFormDirectory()
+        public static string GetFormDirectory()
         {
             return GetPath(@"/FormTemplates");
         }

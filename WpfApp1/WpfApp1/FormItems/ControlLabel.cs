@@ -3,73 +3,52 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Xml;
 
 namespace WpfApp1.FormItems
 {
-    public class ControlLabel : FormControl<Label, String>
+    public class ControlLabel : FormElement
     {
         //--member fields--//
-        private LabelDataHolder dataHolder;
+        public override UIElement UIelement { get { return this.label; } }
+
+        //--private fields--//
+        private Label label;
 
         //--construction--//
-        public ControlLabel(string name, string engishTitle, Orientation orientation = Orientation.Vertical) : base(name, engishTitle, new Label(), orientation)
+        public ControlLabel(string name, string labelText) : base(name)
         {
+            this.label = new Label();
+            this.label.Content = labelText;
         }
-
-        protected ControlLabel() : base("untitledLabelDate", "untitled label control", new Label())
+        protected ControlLabel(): this("UntitledLabel", "NO LABEL TEXT")
         {
 
-        }
-
-        protected override void BindControl()
-        {
-            this.dataHolder = new LabelDataHolder();
-
-            this.binding = new Binding("text");
-            binding.Source = dataHolder;
-            control.SetBinding(Label.ContentProperty, binding);
         }
 
         public override FormElement Clone()
         {
-            ControlLabel clone = new ControlLabel(this.name, this.englishTitle, this.orientation);
-            clone.dataHolder.text = this.dataHolder.text;
-            (clone.control).GetBindingExpression(Label.ContentProperty).UpdateTarget();
-
+            ControlLabel clone = new ControlLabel(this.name, this.label.Content.ToString());
             return clone;
+        }
+
+        protected override void ReadXMLInner(XmlReader reader)
+        {
+            string content = reader.ReadElementContentAsString();
+            this.label.Content = content;
         }
 
         protected override void SetReadOnlyInternal(bool isReadOnly)
         {
-            this.control.IsEnabled = !isReadOnly;
+            //do nothing, there's nothing to set to read-only
         }
 
-        protected override void WriteControl(XmlWriter writer)
+        protected override void WriteXMLInner(XmlWriter writer)
         {
-            (control).GetBindingExpression(Label.ContentProperty).UpdateSource();
-            writer.WriteElementString("content", dataHolder.text);
-
-            
-        }
-
-        protected override void ReadControl(XmlReader reader)
-        {
-            String valueString = reader.ReadElementContentAsString();
-            this.SetValue(valueString);
-        }
-
-        public override void SetValue(string value)
-        {
-            this.dataHolder.text = value;
-            (control).GetBindingExpression(Label.ContentProperty).UpdateTarget();
-        }
-
-        private class LabelDataHolder
-        {
-            public string text { get; set; }
+            writer.WriteElementString("labelText",this.label.Content.ToString());
         }
     }
 }

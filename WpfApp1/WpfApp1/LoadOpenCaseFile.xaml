@@ -8,11 +8,19 @@
         Title="LoadOpenCaseFile" Height="300" Width="600">
     <DockPanel Margin="10">
         <WrapPanel HorizontalAlignment="left" DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="10,0,0,10">
-            <Button Name="btnLoadFromLocal" Click="btnLoadFromLocal_Click" Margin="10">Load CaseFile from local</Button>
-            <Button Name="btnLoadFromWeb" Click="btnLoadFromWeb_Click" Margin="10">Load Casefile From Web</Button>
+            <Button Name="btnLoadFromLocal" Click="btnLoadFromLocal_Click" Margin="10" Padding="20,0,20,0">Load CaseFile from local</Button>
+            <Button Name="btnLoadFromWeb" Click="btnLoadFromWeb_Click" Margin="10" Padding="20,0,20,0">Load Casefile From Web</Button>
         </WrapPanel>
         <Grid DockPanel.Dock="Top">
-            <Label>Anthony, this is where you'd search through the database for a case file you want to open!</Label>
+            <ListView Name="listViewCaseFiles">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="CaseID" DisplayMemberBinding="{Binding name}"/>
+                        <GridViewColumn Header="Facility Name" DisplayMemberBinding="{Binding facilityName}"/>
+                        <GridViewColumn Header="FacilityId" DisplayMemberBinding="{Binding facilitylicenseNumber}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </Grid>
     </DockPanel>
 </Window>

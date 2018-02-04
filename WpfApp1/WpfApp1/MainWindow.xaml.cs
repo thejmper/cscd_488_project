@@ -28,6 +28,12 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+
+            //FormWindow formWindow = new FormWindow();
+            //formWindow.Show();
+            //this.Close();
+
+            
             UserPrefs.OnLoad();
 
             Login loginWindow = new Login();
@@ -133,10 +139,11 @@ namespace WpfApp1
         {
             if (UserPrefs.report == null)
             {
-                MessageBox.Show("Can't add a new form. No report is open");
+                MessageBox.Show("Can't add a new form, there is no active report!");
                 return;
             }
-            else if (UserPrefs.report.isReadOnly)
+
+            if (UserPrefs.report.isReadOnly)
             {
                 MessageBox.Show("Can't add a new form. The report is read-only");
                 return;
@@ -144,6 +151,20 @@ namespace WpfApp1
 
             AddFormWindow addForm = new AddFormWindow();
             addForm.ShowDialog();
+        }
+
+        private void MergeFile_Click(object sender, RoutedEventArgs e)
+        {
+            if(UserPrefs.caseFile == null)
+            {
+                MessageBox.Show("No open case file, cannot merge!");
+                return;
+            }
+
+            //TODO: Anthony, link this up.
+            //CaseFile master = get casefile from web matching UserPrefs.caseFile id;
+            //master.mergeIntoSelf(UserPrefs.casefile);
+
         }
     }
 }
