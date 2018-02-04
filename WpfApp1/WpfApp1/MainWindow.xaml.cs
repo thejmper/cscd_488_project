@@ -164,9 +164,9 @@ namespace WpfApp1
                 return;
             }
 
-            //TODO: Anthony, link this up.
-            //CaseFile master = get casefile from web matching UserPrefs.caseFile id;
-            //master.mergeIntoSelf(UserPrefs.casefile);
+            CaseFileSyncer syncer = new CaseFileSyncer();
+            CaseFile master = syncer.GetCaseFile(UserPrefs.caseFile.caseID);
+            master.MergeIntoSelf(UserPrefs.caseFile);
 
         }
     }

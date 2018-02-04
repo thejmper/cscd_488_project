@@ -31,7 +31,7 @@ namespace WpfApp1
 
             CaseFileSyncer syncer = new CaseFileSyncer();
 
-            // Get list of casefiles from database.
+            // Get a list of casefiles from database.
             this.listViewCaseFiles.ItemsSource = syncer.GetAllCaseFiles();
         }
 
@@ -61,7 +61,7 @@ namespace WpfApp1
         }
 
         /// <summary>
-        ///  Allows you to load a casefile from the web. TODO: make this work
+        ///  Allows you to load a casefile from the web.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

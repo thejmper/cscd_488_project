@@ -42,7 +42,6 @@ namespace WpfApp1
 
             CaseFileSyncer caseFileSyncer = new CaseFileSyncer();
             CaseFile caseFile = caseFileSyncer.CreateCaseFile(FacilityName.Text, num);
-            //CaseFile caseFile = new CaseFile("CaseFile", FacilityName.Text, num);
             foreach (User user in this.assignedUsers)
             {
                 caseFile.AssignUser(user);
