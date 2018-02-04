@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="FormWindow" Height="300" Width="300">
+        Title="FormWindow" Height="800" Width="600">
     <Grid>
-        <Label>This doesn't do anything. It just lets you save forms you created in code.</Label>
+        <ScrollViewer Name="scrollView" HorizontalScrollBarVisibility="Disabled"  VerticalScrollBarVisibility="Auto" Grid.Row="1">
+
+        </ScrollViewer>
     </Grid>
 </Window>

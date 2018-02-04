@@ -25,6 +25,8 @@ namespace WpfApp1.Case
         /// license number of the facility we're investigating
         /// </summary>
         public int facilitylicenseNumber { get; private set; }
+        public bool isOpen { get; private set; }
+
         /// <summary>
         /// user IDs of all users who're allowed to access and edit this report! 
         /// </summary>
