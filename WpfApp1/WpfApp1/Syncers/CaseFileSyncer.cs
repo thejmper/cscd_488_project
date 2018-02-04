@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Cache;
 using System.Text;
 using System.Threading.Tasks;
 using WpfApp1.Case;
@@ -40,6 +41,7 @@ namespace WpfApp1.Reports.Syncers
         public Boolean IsUserAssigned(string userID, string caseFileID)
         {
             WebRequest request = WebRequest.Create(caseSyncAddress + "?case_id=" + caseFileID + "&username=" + userID);
+            request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
             request.Method = "GET";
             using (WebResponse response = request.GetResponse())
             {
@@ -61,6 +63,7 @@ namespace WpfApp1.Reports.Syncers
         public CaseFile GetCaseFile(string caseFileID)
         {
             WebRequest request = WebRequest.Create(caseSyncAddress + "?case_id=" + caseFileID);
+            request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
             request.Method = "GET";
             using (WebResponse response = request.GetResponse())
             {
@@ -92,6 +95,7 @@ namespace WpfApp1.Reports.Syncers
             List<CaseFile> caseFiles = new List<CaseFile>();
 
             WebRequest request = WebRequest.Create(caseSyncAddress);
+            request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
             request.Method = "GET";
             using (WebResponse response = request.GetResponse())
             {
@@ -134,6 +138,26 @@ namespace WpfApp1.Reports.Syncers
                 CaseFile temp = new CaseFile("null", facilityName, facilityLicenseNumber);
                 temp.caseID = caseID;
                 return temp;
+            }
+        }
+
+        public void InsertCaseFile(CaseFile file)
+        {
+            using (WebClient client = new WebClient())
+            {
+                NameValueCollection postData = new NameValueCollection()
+                {
+                    {"facility_name", file.facilityName },
+                    {"facility_license", file.facilitylicenseNumber.ToString() }
+                };
+                string pagesource = Encoding.UTF8.GetString(client.UploadValues(caseSyncAddress, postData));
+                file.caseID = pagesource;
+            }
+
+            ReportSyncer reportSyncer = new ReportSyncer();
+            foreach (Report report in file.reports)
+            {
+                reportSyncer.InsertReport(report);
             }
         }
     }

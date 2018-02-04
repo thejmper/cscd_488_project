@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -30,9 +31,10 @@ namespace WpfApp1
             InitializeComponent();
 
             CaseFileSyncer syncer = new CaseFileSyncer();
+            ObservableCollection<CaseFile> caseFiles = new ObservableCollection<CaseFile>(syncer.GetAllCaseFiles());
 
             // Get a list of casefiles from database.
-            this.listViewCaseFiles.ItemsSource = syncer.GetAllCaseFiles();
+            this.listViewCaseFiles.ItemsSource = caseFiles;
         }
 
         private void btnLoadFromLocal_Click(object sender, RoutedEventArgs e)

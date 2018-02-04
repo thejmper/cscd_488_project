@@ -1,5 +1,9 @@
 <?php
 header("Access-Control-Allow-Origin: *");
+// Disable cache
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 require_once('conn.php');
 
 $conn = new mysqli($servername, $username, $password, $db);
@@ -41,8 +45,9 @@ $conn->close();
 function createCase($conn, $name, $license)
 {
 	$sql = "INSERT INTO case_files (facility_name, facility_license) VALUES " .
-	"('" . $name . "','" . $license . "')";
+	"(?, ?)";
 	$statement = $conn->prepare($sql);
+	$statement->bind_param("si", $name, $license);
 	$statement->execute();
 	$statement->close();
 
@@ -61,8 +66,9 @@ function createCase($conn, $name, $license)
 
 function getCase($conn, $caseID)
 {
-	$sql = "SELECT * FROM case_files WHERE case_id=" . $caseID;
+	$sql = "SELECT * FROM case_files WHERE case_id=?";
 	$statement = $conn->prepare($sql);
+	$statement->bind_param("i", $caseID);
 	$statement->execute();
 	$statement->bind_result($caseID, $facilityName, $facilityLicense, $closed);
 
@@ -106,16 +112,18 @@ function getAllCases($conn)
 function assignUser($conn, $caseID, $userID)
 {
 	$sql = "INSERT INTO assigned (username, case_id) VALUES " .
-	"('" . $userID . "','" . $caseID . "')";
+	"(?, ?)";
 	$statement = $conn->prepare($sql);
+	$statement->bind_param("si", $userID, $caseID);
 	$statement->execute();
 	$statement->close();
 }
 
 function isUserAssigned($conn, $caseID, $userID)
 {
-	$sql = "SELECT EXISTS (SELECT * FROM assigned WHERE case_id='" . $caseID . "' AND username='" . $userID . "') as isAssigned";
+	$sql = "SELECT EXISTS (SELECT * FROM assigned WHERE case_id=? AND username=?) as isAssigned";
 	$statement = $conn->prepare($sql);
+	$statement->bind_param("is", $caseID, $userID);
 	$statement->execute();
 	$statement->bind_result($isAssigned);
 

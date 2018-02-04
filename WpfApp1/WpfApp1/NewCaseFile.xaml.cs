@@ -48,8 +48,7 @@ namespace WpfApp1
                 caseFileSyncer.AssignUser(user.id, caseFile.caseID);
             }
 
-            //TODO: save this facility to the database so we can reference it again easily
-            //(assuming it doesn't already exist. If there's a matching facility number, inform the user
+            //TODO: If there's a matching facility number, inform the user
             //and ask if they want to use the old facility instead!
             mainWin.SetCaseFile(caseFile);
             this.Close();

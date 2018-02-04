@@ -1,5 +1,9 @@
 <?php
 header("Access-Control-Allow-Origin: *");
+// Disable cache
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 require_once('conn.php');
 
 $conn = new mysqli($servername, $username, $password, $db);
@@ -46,9 +50,9 @@ $conn->close();
 
 function login($conn, $username, $password)
 {
-	$sql = "SELECT name, admin FROM users WHERE username='" . $username . "'" .
-	" AND password='" . $password . "'";
+	$sql = "SELECT name, admin FROM users WHERE username=? AND password=?";
 	$statement = $conn->prepare($sql);
+	$statement->bind_param("ss", $username, $password);
 	$statement->execute();
 	$statement->bind_result($name, $admin);
 
@@ -73,8 +77,9 @@ function login($conn, $username, $password)
 
 function userExists($conn, $username)
 {
-	$sql = "SELECT EXISTS (SELECT * FROM users WHERE username='" . $username . "') as alreadyExists";
+	$sql = "SELECT EXISTS (SELECT * FROM users WHERE username=?) as alreadyExists";
 	$statement = $conn->prepare($sql);
+	$statement->bind_param("s", $username);
 	$statement->execute();
 	$statement->bind_result($alreadyExists);
 
@@ -96,9 +101,9 @@ function createUser($conn, $username, $password, $name, $admin)
 {
 	if (!userExists($conn, $username))
 	{
-		$sql = "INSERT INTO users (username, password, name, admin) VALUES ('" .
-		$username . "','" . $password . "','" . $name . "'," . $admin . ")";
+		$sql = "INSERT INTO users (username, password, name, admin) VALUES (?,?,?,?)";
 		$statement = $conn->prepare($sql);
+		$statement->bind_param("sssi", $username, $password, $name, $admin);
 		$statement->execute();
 		$statement->close();
 	}

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using WpfApp1.Case;
@@ -9,13 +11,26 @@ namespace WpfApp1.Reports.Syncers
 {
     class ReportSyncer
     {
-        //MySqlConnection conn;
+        string reportSyncAddress;
 
-        //public ReportSyncer()
-        //{
-        //    string connectionString = System.IO.File.ReadAllText(@"conn.txt");
-        //    conn = new MySqlConnection(connectionString);
-        //}
+        public ReportSyncer()
+        {
+            reportSyncAddress = "http://anthonyreinecker.com/seniorproject/reportsync.php";
+        }
+
+        public void InsertReport(Report report)
+        {
+            using (WebClient client = new WebClient())
+            {
+                NameValueCollection postData = new NameValueCollection()
+                {
+                    {"author_id", report.licensorID },
+                    {"case_id", report.caseFile.caseID }
+                };
+                string pagesource = Encoding.UTF8.GetString(client.UploadValues(reportSyncAddress, postData));
+                report.reportID = pagesource;
+            }
+        }
 
         //public Report SyncReport(Case.CaseFile caseFile, String reportID)
         //{

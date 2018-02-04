@@ -88,10 +88,23 @@ namespace WpfApp1
                     ser.Serialize(writer, UserPrefs.caseFile);
                 }
             }
-            
-
-            
         }
+
+        // Syncs the casefile to the database.
+        private void syncCaseFile_Click(object sender, RoutedEventArgs e)
+        {
+            if (UserPrefs.caseFile == null)
+            {
+                MessageBox.Show("Nothing to sync");
+            }
+            else
+            {
+                CaseFileSyncer syncer = new CaseFileSyncer();
+                syncer.InsertCaseFile(UserPrefs.caseFile);
+                MessageBox.Show("Synced with database");
+            }
+        }
+
         private void newCaseFile_Click(object sender, RoutedEventArgs e)
         {
             NewCaseFile n = new NewCaseFile();

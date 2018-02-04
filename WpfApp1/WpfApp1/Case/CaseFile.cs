@@ -100,6 +100,16 @@ namespace WpfApp1.Case
             return null;
         }
 
+        public bool AddReport(Report report)
+        {
+            if (reports.Exists(item => item.reportID.Equals(report.reportID)))
+            {
+                return false;
+            }
+            this.reports.Add(report);
+            return true;
+        }
+
         public Report AddReport(string reportID, string licensorName)
         {
             if (reports.Exists(item => item.reportID.Equals(reportID)))
@@ -288,20 +298,14 @@ namespace WpfApp1.Case
             return false;
         }
 
-        public void Sync(User user)
+        public void Sync()
         {
-            //CaseFileSyncer syncer = new CaseFileSyncer();
-            //CaseFile tempCaseFile = syncer.SyncCaseFile(this, user);
-            //caseID = tempCaseFile.caseID;
-            //facilityName = tempCaseFile.facilityName;
-            //facilitylicenseNumber = tempCaseFile.facilitylicenseNumber;
-            //reports = tempCaseFile.reports;
+            
         }
 
         public void DatabaseAssignUser(User user)
         {
-            //CaseFileSyncer syncer = new CaseFileSyncer();
-            //syncer.AssignUser(user, this);
+            
         }
     }
 }
