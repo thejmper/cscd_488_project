@@ -102,7 +102,10 @@ namespace WpfApp1
             LoadOpenCaseFile loadOpenDialog = new LoadOpenCaseFile();
             loadOpenDialog.ShowDialog();
 
-            this.SetCaseFile();
+            if (UserPrefs.caseFile != null)
+            {
+                this.SetCaseFile();
+            }
 
             /*
             XmlSerializer ser = new XmlSerializer(typeof(CaseFile));

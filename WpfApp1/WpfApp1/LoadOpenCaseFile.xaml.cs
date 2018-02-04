@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Xml.Serialization;
 using WpfApp1.Case;
+using WpfApp1.Reports.Syncers;
 
 namespace WpfApp1
 {
@@ -22,12 +23,16 @@ namespace WpfApp1
     /// </summary>
     public partial class LoadOpenCaseFile : Window
     {
+        CaseFile selectedCaseFile;
+
         public LoadOpenCaseFile()
         {
             InitializeComponent();
-            //TODO: anthony, this is DB related so it's on you
-            //get list of casefiles from database
-            //this.listViewCaseFiles.ItemsSource = caseFileList / Array;
+
+            CaseFileSyncer syncer = new CaseFileSyncer();
+
+            // Get list of casefiles from database.
+            this.listViewCaseFiles.ItemsSource = syncer.GetAllCaseFiles();
         }
 
         private void btnLoadFromLocal_Click(object sender, RoutedEventArgs e)
@@ -62,9 +67,20 @@ namespace WpfApp1
         /// <param name="e"></param>
         private void btnLoadFromWeb_Click(object sender, RoutedEventArgs e)
         {
-            LoadOpenCaseFileDatabase caseFilesDatabaseDialog = new LoadOpenCaseFileDatabase();
-            caseFilesDatabaseDialog.ShowDialog();
+            if (selectedCaseFile != null)
+            {
+                UserPrefs.caseFile = selectedCaseFile;
+            }
             this.Close();
+        }
+
+        private void SelectCaseFile(object sender, EventArgs e)
+        {
+            var item = sender as System.Windows.Controls.ListViewItem;
+            if (item != null)
+            {
+                selectedCaseFile = item.DataContext as CaseFile;
+            }
         }
     }
 }

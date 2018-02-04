@@ -15,11 +15,17 @@
             <ListView Name="listViewCaseFiles">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="CaseID" DisplayMemberBinding="{Binding name}"/>
+                        <GridViewColumn Header="CaseID" DisplayMemberBinding="{Binding caseID}"/>
                         <GridViewColumn Header="Facility Name" DisplayMemberBinding="{Binding facilityName}"/>
                         <GridViewColumn Header="FacilityId" DisplayMemberBinding="{Binding facilitylicenseNumber}"/>
+                        <GridViewColumn Header="Closed" DisplayMemberBinding="{Binding closed}"/>
                     </GridView>
                 </ListView.View>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <EventSetter Event="Selected" Handler="SelectCaseFile" />
+                    </Style>
+                </ListView.ItemContainerStyle>
             </ListView>
         </Grid>
     </DockPanel>

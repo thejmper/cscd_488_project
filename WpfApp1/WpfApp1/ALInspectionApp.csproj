@@ -82,29 +82,12 @@
     <Compile Include="LoadOpenCaseFile.xaml.cs">
       <DependentUpon>LoadOpenCaseFile.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoadOpenCaseFileDatabase.xaml.cs">
-      <DependentUpon>LoadOpenCaseFileDatabase.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Reports\Fields\ElementComment.cs" />
-    <Compile Include="Reports\Fields\ElementGroup.cs" />
-    <Compile Include="Reports\Fields\ElementGroupDynamic.cs" />
-    <Compile Include="Reports\Fields\FieldBoolean.cs" />
-    <Compile Include="Reports\Fields\FieldDateTime.cs" />
-    <Compile Include="Reports\Fields\FieldGeneric.cs" />
-    <Compile Include="Reports\Fields\FieldInteger.cs" />
-    <Compile Include="Reports\Fields\FieldList.cs" />
-    <Compile Include="Reports\Fields\FieldRadio.cs" />
-    <Compile Include="Reports\Fields\FieldRows.cs" />
-    <Compile Include="Reports\Fields\FieldString.cs" />
-    <Compile Include="Reports\Fields\IReportElement.cs" />
-    <Compile Include="Reports\Fields\IReportField.cs" />
-    <Compile Include="Reports\Forms\FormHeader.cs" />
-    <Compile Include="Reports\Syncers\CaseFileSyncer.cs" />
-    <Compile Include="Reports\Syncers\FormSyncer.cs" />
-    <Compile Include="Reports\Syncers\ReportSyncer.cs" />
+    <Compile Include="Syncers\CaseFileSyncer.cs" />
+    <Compile Include="Syncers\FormSyncer.cs" />
+    <Compile Include="Syncers\ReportSyncer.cs" />
     <Compile Include="NewCaseFile.xaml.cs">
       <DependentUpon>NewCaseFile.xaml</DependentUpon>
     </Compile>
@@ -129,10 +112,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LoadOpenCaseFile.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="LoadOpenCaseFileDatabase.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
