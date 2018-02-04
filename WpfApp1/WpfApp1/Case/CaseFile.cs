@@ -45,7 +45,7 @@ namespace WpfApp1.Case
         /// UNIQUE case ID. created when the case-file is created from the server-side
         /// and asasigned to users.
         /// </summary>
-        public string caseID;
+        public string caseID { get; set; }
 
         public List<Report> reports
         {
@@ -74,23 +74,27 @@ namespace WpfApp1.Case
 
         //--opening--//
         /// <summary>
-        /// opens this case file for viewing/editing.
+        /// opens this case file for viewing/editing, and returns the report this user's working on.
         /// If the user's assigned to this case file but is not a user, he can only edit his specific portion,
         /// if he's an admin, he can view and edit the entire thing.
         /// if he's neither, he can only view.
         /// </summary>
         /// <param name="user"></param>
-        public void OpenAsUser(User user)
+        public Report OpenAsUser(User user)
         {
             if (user.isAdmin)
             {
                 this.SetReadOnly(false);
+                return null;
             }
             else if (assignedUserIDs.Contains(user.name))
             {
                 Report report = this.elementList.Find(item => item.licensorID.Equals(user.id));
                 report.SetReadOnly(false);
+                return report;
             }
+            this.SetReadOnly(true);
+            return null;
         }
 
         public Report AddReport(string reportID, string licensorName)
@@ -105,6 +109,7 @@ namespace WpfApp1.Case
             return report;
         }
         
+
         //--merging--//
         public void MergeIntoSelf(CaseFile other)
         {

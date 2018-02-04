@@ -26,6 +26,10 @@ else if ($_SERVER['REQUEST_METHOD'] === 'GET')
 	{
 		getCase($conn, $_GET["case_id"]);
 	}
+	else
+	{
+		getAllCases($conn);
+	}
 }
 
 $conn->close();
@@ -73,6 +77,23 @@ function getCase($conn, $caseID)
 	else
 	{
 		echo "invalid";
+	}
+
+	$statement->close();
+}
+
+function getAllCases($conn)
+{
+	$sql = "SELECT * FROM case_files";
+	$statement = $conn->prepare($sql);
+	$statement->execute();
+	$statement->bind_result($caseID, $facilityName, $facilityLicense, $closed);
+
+	while ($statement->fetch())
+	{
+		echo $caseID . "|" . $facilityName . "|" . $facilityLicense . "|" . $closed . "\n";
+		//$row = array("case_id"=>$caseID, "facility_name"=>$facilityName, "facility_license"=>$facilityLicense, "closed"=>$closed);
+		//$resultArray[] = $row;
 	}
 
 	$statement->close();

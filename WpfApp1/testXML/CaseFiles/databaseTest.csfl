@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CaseFile type="WpfApp1.Case.CaseFile">
+  <name>databasecase</name>
+  <isReadOnly>true</isReadOnly>
+  <facilityName>Testt</facilityName>
+  <facilityLicenseNumber>15</facilityLicenseNumber>
+  <numUsers>1</numUsers>
+  <id>Username</id>
+  <!--Below is the list of items contained within this group-->
+  <elementList>
+    <Report type="WpfApp1.Case.Report">
+      <name>Username_Report</name>
+      <isReadOnly>false</isReadOnly>
+      <licensorName>Tester License</licensorName>
+      <licensorID>Username</licensorID>
+      <lastModified>2/3/2018 6:42:12 PM</lastModified>
+      <!--Below is the list of items contained within this group-->
+      <elementList>
+
+      </elementList>
+    </Report>
+  </elementList>
+</CaseFile>

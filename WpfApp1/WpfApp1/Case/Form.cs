@@ -32,7 +32,6 @@ namespace WpfApp1.Case
         private ControlInteger facilityNoField;
         private ControlText licensorNameField;
         private ControlDate inspectionDateControl;
-
         //--cached header fields--//
         private string facilityName
         {
@@ -90,8 +89,8 @@ namespace WpfApp1.Case
             this.licensorNameField = new ControlText("licensorName", "LICENSOR NAME");
             this.licensorNameField.SetReadOnly(true);
 
-            this.inspectionDateControl = new ControlDate("inspectionDate", "INSPECTION DATE");
-
+            this.inspectionDateControl = ControlDate.NewControlDate("inspectionDate", "INSPECTION DATE");//new ControlDate("inspectionDate", "INSPECTION DATE");
+            //this.inspectionDateControl.SetValue(new DateTime(1999, 1, 1));
             LayoutGrid headerGrid = new LayoutGrid("header");
             headerGrid.AddElement(this.facilityNameField, 0, 0, 9);
             headerGrid.AddElement(this.facilityNoField, 9, 0, 3);
@@ -101,6 +100,35 @@ namespace WpfApp1.Case
             this.stackPanel.Children.Add(headerGrid.UIelement);
             this.SetHeaderValues();
         }
+
+        public void SetValueByName(string name, string value)
+        {
+            for (int i = 0; i < this.stackPanel.Children.Count; i++)
+            {
+                if (stackPanel.Children[i].GetType() == typeof(ControlText))
+                {
+                    var currElement = (TextBox)stackPanel.Children[i];
+                    if (currElement.Name == name)
+                    {
+                        currElement.Text = value;
+                    }
+                }
+                else if (stackPanel.Children[i].GetType() == typeof(ControlInteger))
+                {
+                    var currElement = (TextBox)stackPanel.Children[i];
+                    if (currElement.Name == name)
+                    {
+                        currElement.Text = value;
+                    }
+                }
+                else if (stackPanel.Children[i].GetType() == typeof(ControlDate)) 
+                {
+                    DatePicker currElement = (DatePicker)stackPanel.Children[i];
+                }
+            }
+        }
+
+
         protected Form(): this("unnamedForm")
         {
             
@@ -113,7 +141,6 @@ namespace WpfApp1.Case
             this.facilityNameField.SetValue(this.facilityName);
             this.facilityNoField.SetValue(this.facilitylicenseNumber);
             this.licensorNameField.SetValue(this.licensorName);
-            this.inspectionDateControl.SetValue(DateTime.Now);
         }
 
 

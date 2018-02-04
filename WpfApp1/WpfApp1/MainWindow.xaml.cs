@@ -48,18 +48,14 @@ namespace WpfApp1
         }
         
         //--helpers--//
-        private string GetPath(string fileName)
-        {
-            string baseDir = Directory.GetParent(Directory.GetCurrentDirectory() + @"..\..\..").FullName;
-            string path = Path.Combine(baseDir, "testXML");
-            return path + fileName;
+        public void SetCaseFile()
+        {            
+            this.scrollView.Content = UserPrefs.caseFile.UIelement;
         }
-        public void SetCaseFile(CaseFile caseFile)
+        public void SetCaseFile(CaseFile file)
         {
-            
-            UserPrefs.caseFile = caseFile;
-            this.scrollView.Content = caseFile.UIelement;
-            //this.flowScroll.Document = caseFile.GetFlowDocument();
+            UserPrefs.caseFile = file;
+            this.SetCaseFile();
         }
 
         //--button handlers--//
@@ -71,11 +67,24 @@ namespace WpfApp1
                 return;
             }
 
-            XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
-            using (TextWriter writer = new StreamWriter(GetPath(@"\caseFile.csfl")))
+            System.Windows.Forms.SaveFileDialog save = new System.Windows.Forms.SaveFileDialog();
+
+            save.InitialDirectory = UserPrefs.GetCasefileDirectory();
+            save.DefaultExt = UserPrefs.CASEFILE_EXTENSION;
+            save.AddExtension = true;
+            save.FileName = UserPrefs.caseFile.name;
+
+            if(save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                ser.Serialize(writer, UserPrefs.caseFile);
+                XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
+                using (TextWriter writer = new StreamWriter(save.FileName))
+                {
+                    ser.Serialize(writer, UserPrefs.caseFile);
+                }
             }
+            
+
+            
         }
         private void newCaseFile_Click(object sender, RoutedEventArgs e)
         {
@@ -84,6 +93,12 @@ namespace WpfApp1
         }
         private void loadCaseFile_Click(object sender, RoutedEventArgs e)
         {
+            LoadOpenCaseFile loadOpenDialog = new LoadOpenCaseFile();
+            loadOpenDialog.ShowDialog();
+
+            this.SetCaseFile();
+
+            /*
             XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
             using (TextReader reader = new StreamReader(GetPath(@"\caseFile.csfl")))
             {
@@ -95,43 +110,12 @@ namespace WpfApp1
                 caseFile.facilitylicenseNumber = tempCaseFile.facilitylicenseNumber;
                 this.SetCaseFile(caseFile);
             }
+            */
         }
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             Login loginWindow = new Login();
             loginWindow.ShowDialog();
-        }
-
-        private void addA_Click(object sender, RoutedEventArgs e)
-        {
-
-            User currentUser = UserPrefs.user;
-            CaseFile caseFile = UserPrefs.caseFile;
-            foreach (Report report in caseFile.reports)
-            {
-                //changed after testing works
-                if (report.licensorID == UserPrefs.user.id)
-                {
-                    Form A;
-                    XmlSerializer ser = new XmlSerializer(typeof(Form));
-                    using (TextReader reader = new StreamReader(GetPath(@"\A.frm")))
-                    {
-                        A = (Form)ser.Deserialize(reader); ///the cast is important, as XmlSerializer just returns a generic object.
-                    }
-                    report.AddForm(A);
-                }
-            }
-
-            //TODO save the new UI and then load it to refresh the window
-            this.SetCaseFile(caseFile);
-            
-
-
-        }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void PrintFile_Click(object sender, RoutedEventArgs e)
@@ -143,6 +127,23 @@ namespace WpfApp1
             }
 
             UserPrefs.caseFile.Print();
+        }
+
+        private void addForm_Click(object sender, RoutedEventArgs e)
+        {
+            if (UserPrefs.report == null)
+            {
+                MessageBox.Show("Can't add a new form. No report is open");
+                return;
+            }
+            else if (UserPrefs.report.isReadOnly)
+            {
+                MessageBox.Show("Can't add a new form. The report is read-only");
+                return;
+            }
+
+            AddFormWindow addForm = new AddFormWindow();
+            addForm.ShowDialog();
         }
     }
 }

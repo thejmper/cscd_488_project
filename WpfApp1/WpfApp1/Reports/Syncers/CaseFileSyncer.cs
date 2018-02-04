@@ -254,6 +254,35 @@ namespace WpfApp1.Reports.Syncers
             }
         }
 
+        public List<CaseFile> GetAllCaseFiles()
+        {
+            List<CaseFile> caseFiles = new List<CaseFile>();
+
+            WebRequest request = WebRequest.Create(caseSyncAddress);
+            request.Method = "GET";
+            using (WebResponse response = request.GetResponse())
+            {
+                using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+                {
+                    string pagesource = stream.ReadToEnd();
+                    string[] result = pagesource.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string caseFileLine in result)
+                    {
+                        string[] caseFileResult = caseFileLine.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
+                        CaseFile temp = new CaseFile("null", caseFileResult[1], int.Parse(caseFileResult[2]));
+                        temp.caseID = caseFileResult[0];
+                        if (int.Parse(caseFileResult[3]) == 1)
+                        {
+                            temp.closed = true;
+                        }
+                        caseFiles.Add(temp);
+                    }
+                }
+            }
+
+            return caseFiles;
+        }
+
         public CaseFile CreateCaseFile(string facilityName, int facilityLicenseNumber)
         {
             using (WebClient client = new WebClient())

@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddFormWindow.xaml.cs">
+      <DependentUpon>AddFormWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BoilerplateTestWindow.xaml.cs">
       <DependentUpon>BoilerplateTestWindow.xaml</DependentUpon>
     </Compile>
@@ -73,6 +76,12 @@
     <Content Include="FormItems\LayoutStackPanel.txt" />
     <Compile Include="FormItems\LayoutStackPanel.cs" />
     <Compile Include="FormItems\TabbedGroup.cs" />
+    <Compile Include="LoadOpenCaseFile.xaml.cs">
+      <DependentUpon>LoadOpenCaseFile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoadOpenCaseFileDatabase.xaml.cs">
+      <DependentUpon>LoadOpenCaseFileDatabase.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -104,7 +113,19 @@
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\UserSyncer.cs" />
     <Compile Include="Utils\UIElementExtensions.cs" />
+    <Page Include="AddFormWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BoilerplateTestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoadOpenCaseFile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoadOpenCaseFileDatabase.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

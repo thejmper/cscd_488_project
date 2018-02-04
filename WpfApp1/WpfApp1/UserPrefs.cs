@@ -3,6 +3,10 @@ using WpfApp1.Users;
 
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
+using System;
+using System.Windows;
+using System.Xml.Serialization;
 
 namespace WpfApp1
 {
@@ -11,6 +15,12 @@ namespace WpfApp1
     /// </summary>
     static class UserPrefs
     {
+        //--constants--//
+        public const string CASEFILE_EXTENSION = ".csfl";
+        public const string CASEFILE_FILTER = "Casefiles (*.csfl)|*.csfl";
+        public const string FORM_EXTENSION = ".frm";
+        public const string FORM_SEARCH_FILTER = "*.frm";
+
         //--variables--//
         /// <summary>
         /// the currently logged-in user
@@ -33,13 +43,25 @@ namespace WpfApp1
             set
             {
                 _caseFile = value;
-                _caseFile.OpenAsUser(user);
+                report = _caseFile.OpenAsUser(user);      
             }
         }
         private static CaseFile _caseFile;
 
+        /// <summary>
+        /// the report we're working on, if we're a field user.
+        /// </summary>
+        public static Report report { get; private set; }
+
+        /// <summary>
+        /// collection of users on this machine
+        /// </summary>
         public static ObservableCollection<User> users;
 
+        /// <summary>
+        /// collection of forms we can potentially add to a report!
+        /// </summary>
+        public static List<Form> formtemplates { get; private set; }
 
         //--methods--//
         /// <summary>
@@ -60,6 +82,33 @@ namespace WpfApp1
             AddUser(new User("cMitchell", "pass", "Cameron Mitchell"));
             AddUser(new User("vMalDoran", "pass", "Vala Mal Doran"));
             AddUser(new User("gHammond", "pass", "George Hammond"));
+
+
+            LoadFormTemplates();
+        }
+
+
+        private static void LoadFormTemplates()
+        {
+            formtemplates = new List<Form>();
+            string[] formFiles = Directory.GetFiles(GetFormDirectory(), FORM_SEARCH_FILTER);
+
+            for(int i = 0; i < formFiles.Length; i++)
+            {
+                try
+                {
+                    XmlSerializer ser = new XmlSerializer(typeof(Form));
+                    using (TextReader reader = new StreamReader(formFiles[i]))
+                    {
+                        Form form = (Form)ser.Deserialize(reader);
+                        formtemplates.Add(form);
+                    }
+
+                } catch (Exception ex)
+                {
+                    MessageBox.Show("Error when loading form template '" + formtemplates[i] + "' " + ex.ToString());
+                }
+            }
         }
 
         public static void SetUser(User newUser, bool wasCheckedOnline)
@@ -80,11 +129,35 @@ namespace WpfApp1
                     throw new System.ArgumentException("Cannot add" + user.name + "to system, a user with that name already exists!");
                 }
             }
-            //TODO: add error checking.
-            //if (users.Exists(element => element.id.Equals(user.id)))
-            //    throw new System.ArgumentException("Cannot add" + user.id + "to system, a user with that ID already exists!");
-
             users.Add(user);
+        }
+
+        /// <summary>
+        /// gets a path to our workign directory
+        /// </summary>
+        /// <returns></returns>
+        private static string GetPath(string fileName)
+        {
+            string baseDir = Directory.GetParent(Directory.GetCurrentDirectory() + @"..\..\..").FullName;
+            string path = Path.Combine(baseDir, "testXML");
+            return path + fileName;
+        }
+
+        /// <summary>
+        /// returns the path where our forms are stored.
+        /// </summary>
+        /// <returns></returns>
+        private static string GetFormDirectory()
+        {
+            return GetPath(@"/FormTemplates");
+        }
+        /// <summary>
+        /// returns the path where our casefiles are stored.
+        /// </summary>
+        /// <returns></returns>
+        public static string GetCasefileDirectory()
+        {
+            return GetPath(@"\CaseFiles");
         }
     }
 }
