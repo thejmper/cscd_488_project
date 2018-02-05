@@ -23,7 +23,7 @@
             <MenuItem Header="AddForm" Name="addForm" Click="addForm_Click"/>
             <MenuItem Header="Admin">
                 <MenuItem Header="New Case File" Click="newCaseFile_Click" Name="NewFile"/>
-                <MenuItem Header="Add Licencor"/>
+                <MenuItem Header="Add Licencor" Click="AddLicencor_Click" Name="addLicencor"/>
             </MenuItem>
             <MenuItem Header="Login">
                 <MenuItem Header="Login" Click="Login_Click"/>

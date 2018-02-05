@@ -153,8 +153,10 @@ namespace WpfApp1.Case
 
             Report report = new Report(user.id +"_Report", user.name, user.id, this);
             this.AddElementInternal(report);
-            DatabaseAssignUser(user);
-
+            if (new CaseFileSyncer().GetCaseFile(UserPrefs.caseFile.caseID) != null)
+            {
+                DatabaseAssignUser(user);
+            }
 
             return report;
         }

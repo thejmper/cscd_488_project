@@ -182,5 +182,13 @@ namespace WpfApp1
             master.MergeIntoSelf(UserPrefs.caseFile);
 
         }
+
+        private void AddLicencor_Click(object sender, RoutedEventArgs e)
+        {
+            if (UserPrefs.caseFile != null)
+            {
+                UserPrefs.caseFile.AssignUser(UserPrefs.user);
+            }
+        }
     }
 }
