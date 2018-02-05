@@ -20,7 +20,7 @@ namespace WpfApp1.FormItems
         //--construction--//
         public ControlDate(string name, string engishTitle, Orientation orientation = Orientation.Vertical) : base(name, engishTitle, new DatePicker(), orientation)
         {
-            this.control.SelectedDate = DateTime.Now;
+            //this.control.SelectedDate = DateTime.Now;
             //this.control.DisplayDate = DateTime.Now;
         }
 
