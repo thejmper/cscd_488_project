@@ -89,7 +89,7 @@ namespace WpfApp1.Case
                 this.SetReadOnly(false);
                 return null;
             }
-            else if (caseFileSyncer.IsUserAssigned(user.id, caseID))
+            else if (caseFileSyncer.IsUserAssigned(user.id, caseID) || assignedUserIDs.Contains(user.id))
             {
                 Report report = this.elementList.Find(item => item.licensorID.Equals(user.id));
                 report.SetReadOnly(false);
