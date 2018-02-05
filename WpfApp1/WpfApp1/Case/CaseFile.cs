@@ -87,7 +87,8 @@ namespace WpfApp1.Case
             if (user.isAdmin)
             {
                 this.SetReadOnly(false);
-                return null;
+                Report report = this.elementList.Find(item => item.licensorID.Equals(user.id));
+                return report;
             }
             else if (caseFileSyncer.IsUserAssigned(user.id, caseID) || assignedUserIDs.Contains(user.id))
             {
