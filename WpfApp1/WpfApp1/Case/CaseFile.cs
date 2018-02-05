@@ -41,8 +41,6 @@ namespace WpfApp1.Case
         /// </summary>
         public bool closed { get; set; }
 
-        bool isOpen;
-
         /// <summary>
         /// UNIQUE case ID. created when the case-file is created from the server-side
         /// and asasigned to users.
