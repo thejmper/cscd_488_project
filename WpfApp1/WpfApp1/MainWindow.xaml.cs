@@ -28,11 +28,11 @@ namespace WpfApp1
         {
             InitializeComponent();
 
-            FormWindow formWindow = new FormWindow();
-            formWindow.Show();
-            this.Close();
+            //FormWindow formWindow = new FormWindow();
+            //formWindow.Show();
+            //this.Close();
 
-            /*
+            
             UserPrefs.OnLoad();
 
             Login loginWindow = new Login();

@@ -50,11 +50,9 @@ namespace WpfApp1
 
 
             form.AddElement(body);
-            //form.AddElement(new ControlLabel("label01", "this is a label that has a small amount of text"));
-            //form.AddElement(new ControlLabel("label02", "this is a label that has lots of text. \n It even has a second line. \n\n\n\n\n Look at all these lines!"));
 
             string fileName = Path.Combine(UserPrefs.GetFormDirectory(), form.name + UserPrefs.FORM_EXTENSION);
-            this.scrollView.Content = form.UIelement;
+            //this.scrollView.Content = form.UIelement;
             XmlSerializer ser = new XmlSerializer(typeof(Form));
             using (TextWriter writer = new StreamWriter(fileName))
             {
