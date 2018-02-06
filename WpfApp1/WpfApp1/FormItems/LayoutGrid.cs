@@ -180,6 +180,7 @@ namespace WpfApp1.FormItems
             //write the inner control!
             writer.WriteStartElement(this.formElement.GetType().Name);
             formElement.WriteXml(writer);
+            writer.WriteEndElement();
         }
     }
 }

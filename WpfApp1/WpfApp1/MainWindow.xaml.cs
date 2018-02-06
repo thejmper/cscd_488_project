@@ -28,11 +28,12 @@ namespace WpfApp1
         {
             InitializeComponent();
 
-            /*FormWindow formWindow = new FormWindow();
+            FormWindow formWindow = new FormWindow();
             formWindow.Show();
             this.Close();
 
-            */
+            
+            /*
             UserPrefs.OnLoad();
 
             Login loginWindow = new Login();
@@ -41,6 +42,7 @@ namespace WpfApp1
             {
                 this.Close();
             }
+            */
             /*CaseFile test = new CaseFile("datetest", "datetest", 3);
             ControlDate date = new ControlDate("test", "enter date");
             LayoutGrid g = new LayoutGrid("name");
