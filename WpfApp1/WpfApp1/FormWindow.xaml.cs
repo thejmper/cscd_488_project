@@ -147,7 +147,7 @@ namespace WpfApp1
             body.AddElement(new ControlText("notes", "", true), 7, 1, 5);
             form.AddElement(body);*/
 
-            /*Form E*/
+            /*Form E
             Form form = new Form("FormE");
             LayoutStackPanel layoutStackPanel = new LayoutStackPanel("inspectionType");
             layoutStackPanel.AddElement(new ControlLabel("lab1", "Inspection Type"));
@@ -172,9 +172,154 @@ namespace WpfApp1
                                                      "We would like to ask you several questions about life in the facility and the interactions of residents and staff.\n" +
                                                       "•	Rules.Tell me about the rules in this facility.For instance, are there rules about what time residents go to bed \nat night and get up in the morning ?", true), 0, 4, 12);
             body.AddElement(new ControlText("text3", "•	Privacy.  Can you please describe the ways staff makes an effort to make sure that your privacy and the privacy of all\n residents are respected?  Do you meet privately with visitors, and have private telephone calls? ", true), 0, 5, 12);
+            body.AddElement(new ControlText("text4", "•	Dignity respected (those with and without ability to speak for selves). How do staff members treat the residents\n here, not just yourselves, but others who cannot speak for themselves?  \nDo they try to accommodate residents’ wishes where possible? ", true), 0, 6, 12);
+            body.AddElement(new ControlText("text5", "•	Abuse and neglect.  Are you aware of any residents that are abused or neglected here?  Are you aware of anytime\n when a resident had property taken away from them by staff?  Is there enough staff here to take care of everyone? ", true), 0, 7, 12);
+            body.AddElement(new ControlText("text6", "•	Personal belongings / Loss or theft.  Can residents have their own belongings in their rooms if they want to?  Does\n the facility make efforts to prevent loss, theft of destruction of property? ", true), 0, 8, 12);
+            body.AddElement(new ControlText("text7", "•	Meals and food service. Can you please describe what the food is like here?  If you do not like some\n food, do they give you something else to eat?  \nIs the temperature of your hot and cold food appropriate? Are your meats tender enough?", true), 0, 9, 12);
+            body.AddElement(new ControlText("text8", "•	Response to concerns. Do you talk to staff about your concerns?  What is their response? ", true), 0, 10, 12);
+            body.AddElement(new ControlText("text9", "•	Unmet needs.   Do you feel free to talk to staff (and your family) about needs that are not being met?  ", true), 0, 11, 12);
+            body.AddElement(new ControlText("text10", "•    Activities. Can you please share your thoughts about the activities offered here? Do the activity programs meet your interests and needs?\n  Do you participate in activities?    \nAre there enough help and supplies available so that everyone who wants to can participate?", true), 0, 12, 12);
+            body.AddElement(new ControlText("text11", "•    Costs.  Are residents here informed by the facility about which items and services are paid by Medicare or Medicaid?\n Are you aware of any changes in the care any resident received after paying for their own care, and changed to Medicaid paying?  ", true), 0, 13, 12);
+            body.AddElement(new ControlText("text12", "•    Medicaid Policy.  Please tell me what the ALF told you about whether they admit and keep residents whose stay if paid by the state (Medicaid).\n   When were you told about this?  Did the home tell you if they would allow you to stay if you ran out of money, and had to apply to the state for assistance?\n How did they give you the information, in writing or verbally? Did the home tell you what might happen if they quit taking state pay?", true), 0, 14, 12);
+            body.AddElement(new ControlText("text13", "•	Building. What do you think about the air and temperature in your room; in the dining and activity rooms?\n  Does the lighting in your room allow you to do whatever you want to do?\n  Is it generally noisy or quiet?  How about at night?", true), 0,15, 12);
+            body.AddElement(new ControlText("text14", "•	Other.  Is there anything else about life here in the facility that you would like to discuss?\n Thank the group for their time.  After the interview, follow up on concerns that need further investigation. ", true), 0, 16, 12);
+
+            body.AddElement(new ControlText("notes", "Notes", true), 0, 17, 12);
+            form.AddElement(body);*/
+
+            /*Form G*/
+            Form form = new Form("FormG");
+            LayoutGrid head = new LayoutGrid("Head");
+            head.AddElement(new ControlText("resName", "RESIDENT NAME"), 0, 0, 4);
+            head.AddElement(new ControlInteger("resNum", "RESIDENT NUMBER"), 4, 0, 2);
+            head.AddElement(new ControlText("roomNum", "ROOM NUMBER"), 6, 0, 2);
+            head.AddElement(new ControlLabel("lab1", "PAY STATUS"), 8, 0, 4,1,false);
+            head.AddElement(new ControlBoolean("private", "Private"), 8, 1, 2, 1, false);
+            head.AddElement(new ControlBoolean("state", "State"), 10, 1, 2, 1, false);
+            head.AddElement(new ControlText("agreement", "Brief Review of Negotiated Service Agreement:", true), 0, 2, 12);
+
+            form.AddElement(head);
+
+            LayoutGrid body = new LayoutGrid("body");
+            body.AddElement(new ControlBoolean("resInterview", "Resident Interview"),0,0,2,1,false);
+            body.AddElement(new ControlBoolean("repInterview", "Representative Interview"), 2, 0, 2, 1, false);
+
+            body.AddElement(new ControlLabel("lab1", "A.	The following are REQUIRED questions and MUST be asked during the interview.\nCheck “Y,” if the answer is yes; check “N,” if the answer is no and document the interviewee’s response; or \ncheck “D” if the interviewee declined to answer the question."), 0, 1, 12);
+
+            body.AddElement(new ControlLabel("question1", "Can you make choices about the care and \nservices you receive here at the facility?"), 0, 2, 4,1,false);
+            body.AddElement(new ControlBoolean("y1", "Y"),4,2,1,1,false);
+            body.AddElement(new ControlBoolean("n1", "N"), 5, 2, 1, 1, false);
+            body.AddElement(new ControlBoolean("d1", "D"), 6, 2, 1, 1, false);
+            body.AddElement(new ControlText("notes1", "Notes", true), 7, 2, 5);
+            body.AddElement(new ControlLabel("question2", "If you have a roommate, were you informed \nyou would have a roommate? \nCould you change roommates if you wanted to?"), 0, 3, 4, 1, false);
+            body.AddElement(new ControlBoolean("y2", "Y"), 4, 3, 1, 1, false);
+            body.AddElement(new ControlBoolean("n2", "N"), 5, 3, 1, 1, false);
+            body.AddElement(new ControlBoolean("d2", "D"), 6, 3, 1, 1, false);
+            body.AddElement(new ControlText("notes2", "Notes", true), 7, 3, 5);
+            body.AddElement(new ControlLabel("question3", "Do you have an opportunity to participate in \ncommunity activities?"), 0, 4, 4, 1, false);
+            body.AddElement(new ControlBoolean("y3", "Y"), 4, 4, 1, 1, false);
+            body.AddElement(new ControlBoolean("n3", "N"), 5, 4, 1, 1, false);
+            body.AddElement(new ControlBoolean("d3", "D"), 6, 4, 1, 1, false);
+            body.AddElement(new ControlText("notes3", "Notes", true), 7, 4, 5);
+            body.AddElement(new ControlLabel("question4", "Can you choose who visits you and when?"), 0, 5, 4, 1, false);
+            body.AddElement(new ControlBoolean("y4", "Y"), 4, 5, 1, 1, false);
+            body.AddElement(new ControlBoolean("n4", "N"), 5, 5, 1, 1, false);
+            body.AddElement(new ControlBoolean("d4", "D"), 6, 5, 1, 1, false);
+            body.AddElement(new ControlText("notes4", "Notes", true), 7, 5, 5);
+            body.AddElement(new ControlLabel("question5", "Do they pay attention to what you have to say?"), 0, 6, 4, 1, false);
+            body.AddElement(new ControlBoolean("y5", "Y"), 4, 6, 1, 1, false);
+            body.AddElement(new ControlBoolean("n5", "N"), 5, 6, 1, 1, false);
+            body.AddElement(new ControlBoolean("d5", "D"), 6, 6, 1, 1, false);
+            body.AddElement(new ControlText("notes5", "Notes", true), 7, 6, 5);
+            body.AddElement(new ControlLabel("question6", "Can you choose to lock your door?"), 0, 7, 4, 1, false);
+            body.AddElement(new ControlBoolean("y6", "Y"), 4, 7, 1, 1, false);
+            body.AddElement(new ControlBoolean("n6", "N"), 5, 7, 1, 1, false);
+            body.AddElement(new ControlBoolean("d6", "D"), 6, 7, 1, 1, false);
+            body.AddElement(new ControlText("notes6", "Notes", true), 7, 7, 5);
+            body.AddElement(new ControlLabel("question7", "Do you have access to food anytime?"), 0, 8, 4, 1, false);
+            body.AddElement(new ControlBoolean("y7", "Y"), 4, 8, 1, 1, false);
+            body.AddElement(new ControlBoolean("n7", "N"), 5, 8, 1, 1, false);
+            body.AddElement(new ControlBoolean("d7", "D"), 6, 8, 1, 1, false);
+            body.AddElement(new ControlText("notes7", "Notes", true), 7, 8, 5);
+            body.AddElement(new ControlLabel("question8", "Do you receive services in the community?"), 0, 9, 4, 1, false);
+            body.AddElement(new ControlBoolean("y8", "Y"), 4, 9, 1, 1, false);
+            body.AddElement(new ControlBoolean("n8", "N"), 5, 9, 1, 1, false);
+            body.AddElement(new ControlBoolean("d8", "D"), 6, 9, 1, 1, false);
+            body.AddElement(new ControlText("notes8", "Notes", true), 7, 9, 5);
+
+            body.AddElement(new ControlLabel("lab3", "B.	 Care and Service Needs"), 0, 10, 12);
+            body.AddElement(new ControlBoolean("help3","What kind of help do you get from the staff?"),0,11,6,1,false);
+            body.AddElement(new ControlText("othertext1", "Other: ",true), 6,11,6,1,false);
+            body.AddElement(new ControlBoolean("needs", "How well does staff meet your needs?"),0,12,6,1,false);
+            body.AddElement(new ControlBoolean("noC1", "No Concerns"), 6, 12, 6, 1, false);
+
+            body.AddElement(new ControlLabel("lab4", "C.	 Support of Personal Relationships (if the resident has family or significant others)"), 0, 13, 12);
+            body.AddElement(new ControlBoolean("c1", "Does staff give you time and space to meet / visit \nwith friends and family who come to visit?"), 0, 14, 6, 1, false);
+            body.AddElement(new ControlText("othertext2", "Other: ",true), 6, 14, 6, 1, false);
+            body.AddElement(new ControlBoolean("c2", "Are you able to make personal phone calls without \nbeing overheard?"), 0, 15, 6, 1, false);
+            body.AddElement(new ControlBoolean("noC2", "No Concerns"), 6, 15, 6, 1, false);
+
+            body.AddElement(new ControlLabel("lab5", "D.	 Reasonable House Rules"), 0, 16, 12);
+            body.AddElement(new ControlBoolean("D1", "Tell me about the rules of the facility."), 0, 17, 6, 1, false);
+            body.AddElement(new ControlText("othertext3", "Other: ",true), 6, 17, 6, 1, false);
+            body.AddElement(new ControlBoolean("D2", "What have you been told about how long you can stay \nup at night or how early or late you can watch TV?"), 0, 18, 6, 1, false);
+            body.AddElement(new ControlBoolean("noC3", "No Concerns"), 6, 18, 6, 1, false);
+
+            body.AddElement(new ControlLabel("E", "E.	Respect of Individuality, Independence, Personal Choice, Dignity"), 0, 19, 12);
+            body.AddElement(new ControlBoolean("E1", "Does the staff here know about your preferences?"), 0, 20, 6, 1, false);
+            body.AddElement(new ControlText("othertext4", "Other: ",true), 6, 20, 6, 1, false);
+            body.AddElement(new ControlBoolean("E2", "What kinds of things do you make choices about?"), 0, 21, 6, 1, false);
+            body.AddElement(new ControlBoolean("noC4", "No Concerns"), 6, 21, 6, 1, false);
+            body.AddElement(new ControlBoolean("E3", "How does the staff treat you?  Speak to you?"), 0, 23, 6, 1, false);
+            body.AddElement(new ControlBoolean("E4", "Do you have any concerns about how you are treated?"), 0, 24, 6, 1, false);
+
+            body.AddElement(new ControlLabel("F", "F.	 Homelike Environment"), 0, 25, 12);
+            body.AddElement(new ControlBoolean("F1", "What is your room like?"), 0, 26, 6, 1, false);
+            body.AddElement(new ControlText("othertext5", "Other: ",true), 6, 26, 6, 1, false);
+            body.AddElement(new ControlBoolean("F2", "Are you comfortable there?"), 0, 27, 6, 1, false);
+            body.AddElement(new ControlBoolean("noC5", "No Concerns"), 6, 27, 6, 1, false);
+            body.AddElement(new ControlBoolean("F3", "What personal items were you allowed to bring when \nyou came here?"), 0, 28, 6, 1, false);
+            body.AddElement(new ControlBoolean("F4", "Is the temperature here comfortable to you?"), 0, 29, 6, 1, false);
+
+            body.AddElement(new ControlLabel("G", "G.	 Response to Concerns"), 0, 30, 12);
+            body.AddElement(new ControlBoolean("G1", "Do you feel like you can tell someone if you don’t like \nit here?"), 0, 31, 6, 1, false);
+            body.AddElement(new ControlText("othertext6", "Other: ",true), 6, 31, 6, 1, false);
+            body.AddElement(new ControlBoolean("G2", "Who would you talk to if you had concerns?"), 0, 32, 6, 1, false);
+            body.AddElement(new ControlBoolean("noC6", "No Concerns"), 6, 32, 6, 1, false);
+            body.AddElement(new ControlBoolean("G3", "What do you think they would do about it?"), 0, 33, 6, 1, false);
+
+            body.AddElement(new ControlLabel("H", "H.	 Sense of Well-Being and Safety"), 0, 34, 12);
+            body.AddElement(new ControlBoolean("H1", "Do you feel safe here?"), 0, 35, 6, 1, false);
+            body.AddElement(new ControlText("othertext7", "Other: ",true), 6, 35, 6, 1, false);
+            body.AddElement(new ControlBoolean("H2", "Does anything make you feel uncomfortable here?"), 0, 36, 6, 1, false);
+            body.AddElement(new ControlBoolean("noC7", "No Concerns"), 6, 36, 6, 1, false);
+
+            body.AddElement(new ControlLabel("I", "I.	 Meals / Snacks / Preferences"), 0, 37, 12);
+            body.AddElement(new ControlBoolean("I1", "How is the food here?"), 0, 38, 6, 1, false);
+            body.AddElement(new ControlText("othertext8", "Other: ",true), 6, 38, 6, 1, false);
+            body.AddElement(new ControlBoolean("I2", "If you can’t eat something or don’t like something, \nwhat kind of replacement does the home offer you?"), 0, 39, 6, 1, false);
+            body.AddElement(new ControlBoolean("no8", "No Concerns"), 6, 39, 6, 1, false);
+            body.AddElement(new ControlBoolean("I3", "How often do you get the foods you like to eat?"), 0, 40, 6, 1, false);
+
+            body.AddElement(new ControlLabel("J", "J.	 Activities"), 0, 41, 12);
+            body.AddElement(new ControlBoolean("J1", "What activities are offered to you by the facility?"), 0, 42, 6, 1, false);
+            body.AddElement(new ControlText("othertext9", "Other: ",true), 6,42, 6, 1, false);
+            body.AddElement(new ControlBoolean("J2", "What kinds of things did you do for fun and relaxation\n before you came here?"), 0, 43, 6, 1, false);
+            body.AddElement(new ControlBoolean("noC9", "No Concerns"), 6, 43, 6, 1, false);
+            body.AddElement(new ControlBoolean("J3", "Are there activities you would like to do that you are \nnot offered?"), 0, 44, 6, 1, false);
+            body.AddElement(new ControlBoolean("J4", "Is there anything you wanted to do and the facility \nhelped you do it?"), 0, 45, 6, 1, false);
+
+            body.AddElement(new ControlLabel("K", "K.	 Notice"), 0, 46, 12);
+            body.AddElement(new ControlBoolean("K1", "Do you handle your own finances or does someone \nhelp you with that?"), 0,47, 6, 1, false);
+            body.AddElement(new ControlText("othertext10", "Other: ", true), 6, 47, 6, 1, false);
+            body.AddElement(new ControlBoolean("K2", "What were you told about paying for your care here \nand the facility’s policy about admitting and keeping \nresidents whose stay is paid for by the state \n(Medicaid)?"), 0, 48, 6, 1, false);
+            body.AddElement(new ControlBoolean("noC10", "No Concerns"), 6, 48, 6, 1, false);
+            body.AddElement(new ControlBoolean("K3", "When and how were you told about this?	"), 0, 49, 6, 1, false);
+
+            body.AddElement(new ControlText("footnotes", "Notes", true), 0, 50, 12);
+
 
             form.AddElement(body);
-
 
             string fileName = Path.Combine(UserPrefs.GetFormDirectory(), form.name + UserPrefs.FORM_EXTENSION);
             this.scrollView.Content = form.UIelement;
