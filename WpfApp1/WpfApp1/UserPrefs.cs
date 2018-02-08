@@ -78,6 +78,7 @@ namespace WpfApp1
             AddUser(new User("cMitchell", "pass", "Cameron Mitchell"));
             AddUser(new User("vMalDoran", "pass", "Vala Mal Doran"));
             AddUser(new User("gHammond", "pass", "George Hammond"));
+            AddUser(new User("Username", "password", "Test User"));
 
 
             LoadFormTemplates();

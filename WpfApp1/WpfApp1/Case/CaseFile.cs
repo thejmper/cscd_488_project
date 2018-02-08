@@ -104,7 +104,7 @@ namespace WpfApp1.Case
         //--closing--//
 
         //--list manipulation--//
-        internal Report AssignUser(User user)
+        public Report AssignUser(User user)
         {
             if (assignedUserIDs.Contains(user.id))
                 throw new ArgumentException("ERROR: User'" + user.ToString() + "' already assigned to this case file!");

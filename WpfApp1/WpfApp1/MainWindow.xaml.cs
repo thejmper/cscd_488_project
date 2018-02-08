@@ -24,16 +24,18 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow instance;
+
         public MainWindow()
         {
+            instance = this;
+
             InitializeComponent();
 
-            FormWindow formWindow = new FormWindow();
-            formWindow.Show();
-            this.Close();
-
+            //FormWindow formWindow = new FormWindow();
+            //formWindow.Show();
+            //this.Close();           
             
-            /*
             UserPrefs.OnLoad();
 
             Login loginWindow = new Login();
@@ -42,7 +44,7 @@ namespace WpfApp1
             {
                 this.Close();
             }
-            */
+            
             /*CaseFile test = new CaseFile("datetest", "datetest", 3);
             ControlDate date = new ControlDate("test", "enter date");
             LayoutGrid g = new LayoutGrid("name");
@@ -162,6 +164,12 @@ namespace WpfApp1
             //CaseFile master = get casefile from web matching UserPrefs.caseFile id;
             //master.mergeIntoSelf(UserPrefs.casefile);
 
+        }
+
+        private void btnAssignUser_Click(object sender, RoutedEventArgs e)
+        {
+            AssignUser assignUserWindow = new AssignUser();
+            assignUserWindow.ShowDialog();
         }
     }
 }

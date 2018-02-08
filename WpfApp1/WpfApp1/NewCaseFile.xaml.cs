@@ -1,11 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using WpfApp1.Case;
-using WpfApp1.Users;
 
 namespace WpfApp1
 {
@@ -14,79 +22,93 @@ namespace WpfApp1
     /// </summary>
     public partial class NewCaseFile : Window
     {
-        MainWindow mainWin;
-
-        private ObservableCollection<User> assignedUsers;
+        private ObservableCollection<FacilityHolder> facilities;
 
         public NewCaseFile()
         {
             InitializeComponent();
-            this.assignedUsers = new ObservableCollection<User>();
 
-            mainWin = ((MainWindow)Application.Current.MainWindow);
+            facilities = new ObservableCollection<FacilityHolder>();
 
-            this.userListView.ItemsSource = UserPrefs.users;
-            this.assignedUsersList.ItemsSource = assignedUsers;
+            //TODO: Anthony, fetch a list of existing facilities from the database
+            //create FacilityHolder objects for each one, and add them tot eh
+            //facilities observable collection.
+
+            this.ExistingCaseFiles.ItemsSource = facilities;
         }
 
-        //--helpers--//
-
-        //--button handlers--//
-        private void CreateCaseFileClick(object sender, RoutedEventArgs e)
-        {
-            if (FacilityName.Text == "" || FacilityNum.Text == "")
-                return;
-            int num;
-            Int32.TryParse(FacilityNum.Text, out num);
-            //TODO: get a casefile number from the database and load it here!
-            CaseFile caseFile = new CaseFile("CaseFile", FacilityName.Text, num);
-            foreach (User user in this.assignedUsers)
-            {
-                caseFile.AssignUser(user);
-            }
-
-            //TODO: save this facility to the database so we can reference it again easily
-            //(assuming it doesn't already exist. If there's a matching facility number, inform the user
-            //and ask if they want to use the old facility instead!
-            mainWin.SetCaseFile(caseFile);
-            this.Close();
-        }
-
-        private void btnNewUser_Click(object sender, RoutedEventArgs e)
-        {
-            NewUser newUserWindow = new NewUser();
-            newUserWindow.ShowDialog();
-        }
-
-        private void item1_Selected(object sender, RoutedEventArgs e)
-        {
-            ListBoxItem item = e.Source as ListBoxItem;
-            MessageBox.Show("clicked on " + item.Uid);
-        }
-
-        /// <summary>
-        /// handles when a list item is clicked.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void RemoveAssignedUser(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            var item = sender as ListViewItem;
-            if(item != null)
-            {
-                User user = item.DataContext as User;
-                this.assignedUsers.Add(user);
-            }
-        }
-
-        private void AssignedUserDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ExistingDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var item = sender as ListViewItem;
             if (item != null)
             {
-                User user = item.DataContext as User;
-                this.assignedUsers.Remove(user);
+                FacilityHolder facility = item.DataContext as FacilityHolder;
+
+                this.CreateCaseFile(facility);
             }
         }
+
+        private void btnCreateAndAssign_Click(object sender, RoutedEventArgs e)
+        {
+            this.CreateCaseFile();
+            AssignUser usersPane = new AssignUser();
+            usersPane.ShowDialog();
+            this.Close();
+        }
+
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            this.CreateCaseFile();
+            this.Close();
+        }
+        
+        private void CreateCaseFile()
+        {
+            string name = this.facilityNameBox.Text;
+            int id = Int32.Parse(this.facilityIdBox.Text);
+
+            FacilityHolder holder = this.CreateNewFacility(name, id);
+            this.CreateCaseFile(holder);
+        }
+
+        private void CreateCaseFile(FacilityHolder facility)
+        {
+            CaseFile caseFile = new CaseFile(facility.id.ToString(), facility.name, facility.id);
+            UserPrefs.caseFile = caseFile;
+            MainWindow.instance.SetCaseFile(caseFile);
+
+        }
+
+        private FacilityHolder CreateNewFacility(string facilityName, int facilityID)
+        {
+            //TODO: Anthony, add a new entry in the facilities database with the given data
+            //might not need to update the existing facilities list manually, though.
+
+            FacilityHolder holder = new FacilityHolder(facilityName, facilityID);
+            this.facilities.Add(holder);
+
+            return holder;
+        }
+
+        //private internal class used to pass data on assigned casefiles to the observable collection
+        private class FacilityHolder
+        {
+            public string name { get;  }
+            public int id { get; }
+
+            //constructor
+            public FacilityHolder(string name, int id)
+            {
+                this.name = name;
+                this.id = id;
+            }
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
     }
 }

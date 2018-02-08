@@ -58,6 +58,9 @@
     <Compile Include="AddFormWindow.xaml.cs">
       <DependentUpon>AddFormWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AssignUser.xaml.cs">
+      <DependentUpon>AssignUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BoilerplateTestWindow.xaml.cs">
       <DependentUpon>BoilerplateTestWindow.xaml</DependentUpon>
     </Compile>
@@ -96,6 +99,10 @@
     <Compile Include="Users\User.cs" />
     <Compile Include="Utils\UIElementExtensions.cs" />
     <Page Include="AddFormWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AssignUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
