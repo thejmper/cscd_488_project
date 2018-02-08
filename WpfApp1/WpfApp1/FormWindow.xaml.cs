@@ -187,7 +187,7 @@ namespace WpfApp1
             body.AddElement(new ControlText("notes", "Notes", true), 0, 17, 12);
             form.AddElement(body);*/
 
-            /*Form G*/
+            /*Form G
             Form form = new Form("FormG");
             LayoutGrid head = new LayoutGrid("Head");
             head.AddElement(new ControlText("resName", "RESIDENT NAME"), 0, 0, 4);
@@ -320,6 +320,38 @@ namespace WpfApp1
 
 
             form.AddElement(body);
+            */
+
+            //might want to add function to keep adding contacts
+            /*Form H */
+            Form form = new Form("FormH");
+            LayoutStackPanel layoutStackPanel = new LayoutStackPanel("inspectionType");
+            layoutStackPanel.AddElement(new ControlLabel("lab1", "Inspection Type"));
+            layoutStackPanel.AddElement(new ControlBoolean("initial", "Initial"));
+            layoutStackPanel.AddElement(new ControlBoolean("full", "Full"));
+            layoutStackPanel.AddElement(new ControlBoolean("followup", "Follow up"));
+            layoutStackPanel.AddElement(new ControlBoolean("monitering", "Monitoring"));
+            layoutStackPanel.AddElement(new ControlBoolean("complaint", "Complaint"));
+            layoutStackPanel.AddElement(new ControlInteger("number", "Number"));
+            form.AddElement(layoutStackPanel);
+
+            LayoutGrid body = new LayoutGrid("body");
+            body.AddElement(new ControlText("resName", "RESIDENT NAME"), 0, 0, 6);
+            body.AddElement(new ControlText("resNum", "RESIDENT NUMBER"), 6, 0, 3);
+            body.AddElement(new ControlDate("date", "DATE OF INTERVIEW"), 9, 0, 3);
+            body.AddElement(new ControlText("contactName", "CONTACT NAME AND NUMBER"), 0, 1, 6);
+            body.AddElement(new ControlText("relationship", "RELATIONSHIP TO RESIDENT"), 6, 1, 6);
+            body.AddElement(new ControlText("notes1", "NOTES", true), 0, 2, 12);
+
+            //this is that start of a new contact
+            body.AddElement(new ControlText("Contact", "CONTACT NAME AND NUMBER"), 0, 3, 6);
+            body.AddElement(new ControlDate("date2", "DATE OF INTERVIEW"), 6, 3, 3);
+            body.AddElement(new ControlText("relationship2", "RELATIONSHIP TO RESIDENT"), 9, 3, 3);
+            body.AddElement(new ControlText("NOTES2", "NOTES", true), 0, 4, 12);
+
+            body.AddElement(new ControlText("finalNotes", "Additional Notes", true), 0, 5, 12);
+            form.AddElement(body);
+
 
             string fileName = Path.Combine(UserPrefs.GetFormDirectory(), form.name + UserPrefs.FORM_EXTENSION);
             this.scrollView.Content = form.UIelement;
