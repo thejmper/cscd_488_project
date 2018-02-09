@@ -323,7 +323,7 @@ namespace WpfApp1
             */
 
             //might want to add function to keep adding contacts
-            /*Form H */
+            /*Form H 
             Form form = new Form("FormH");
             LayoutStackPanel layoutStackPanel = new LayoutStackPanel("inspectionType");
             layoutStackPanel.AddElement(new ControlLabel("lab1", "Inspection Type"));
@@ -350,7 +350,109 @@ namespace WpfApp1
             body.AddElement(new ControlText("NOTES2", "NOTES", true), 0, 4, 12);
 
             body.AddElement(new ControlText("finalNotes", "Additional Notes", true), 0, 5, 12);
+            form.AddElement(body);*/
+
+            /*Form I*/
+            Form form = new Form("FormI");
+            LayoutStackPanel layoutStackPanel = new LayoutStackPanel("inspectionType");
+            layoutStackPanel.AddElement(new ControlLabel("lab1", "Inspection Type"));
+            layoutStackPanel.AddElement(new ControlBoolean("initial", "Initial"));
+            layoutStackPanel.AddElement(new ControlBoolean("full", "Full"));
+            layoutStackPanel.AddElement(new ControlBoolean("followup", "Follow up"));
+            layoutStackPanel.AddElement(new ControlBoolean("monitering", "Monitoring"));
+            layoutStackPanel.AddElement(new ControlBoolean("complaint", "Complaint"));
+            layoutStackPanel.AddElement(new ControlInteger("number", "Number"));
+            form.AddElement(layoutStackPanel);
+
+            LayoutGrid body = new LayoutGrid("body");
+            body.AddElement(new ControlLabel("lab1", "Quality of Life/Resident Rights"), 0, 0, 12, 1, true);
+            body.AddElement(new ControlBoolean("y1", "YES"), 0, 1, 1, 1, false);
+            body.AddElement(new ControlBoolean("n1", "NO"), 1, 1, 1, 1, false);
+            body.AddElement(new ControlLabel("qq1", "Presence of objectionable odors"), 2, 1, 10,1 ,false);
+            body.AddElement(new ControlBoolean("y2", "YES"), 0, 2, 1, 1, false);
+            body.AddElement(new ControlBoolean("n2", "NO"), 1, 2, 1, 1, false);
+            body.AddElement(new ControlLabel("qq2", "Housekeeping supply area"), 2, 2, 10, 1, false);
+            body.AddElement(new ControlBoolean("y3", "YES"), 0, 3, 1, 1, false);
+            body.AddElement(new ControlBoolean("n3", "NO"), 1, 3, 1, 1, false);
+            body.AddElement(new ControlLabel("qq3", "Laundry – separate areas for clean and soiled linen"), 2, 3, 10, 1, false);
+            body.AddElement(new ControlBoolean("y4", "YES"), 0, 4, 1, 1, false);
+            body.AddElement(new ControlBoolean("n4", "NO"), 1, 4, 1, 1, false);
+            body.AddElement(new ControlLabel("qq4", "Infection control practices of staff"), 2, 4, 10, 1, false);
+            body.AddElement(new ControlBoolean("y5", "YES"), 0, 5, 1, 1, false);
+            body.AddElement(new ControlBoolean("n5", "NO"), 1, 5, 1, 1, false);
+            body.AddElement(new ControlLabel("qq5", "Hand washing"), 2, 5, 10, 1, false);
+            body.AddElement(new ControlBoolean("y6", "YES"), 0, 6, 1, 1, false);
+            body.AddElement(new ControlBoolean("n6", "NO"), 1, 6, 1, 1, false);
+            body.AddElement(new ControlLabel("qq6", "Temperature (68o+ wake hours / 60o+ sleep hours)"), 2, 6, 10, 1, false);
+            body.AddElement(new ControlBoolean("y7", "YES"), 0, 7, 1, 1, false);
+            body.AddElement(new ControlBoolean("n7", "NO"), 1, 7, 1, 1, false);
+            body.AddElement(new ControlLabel("qq7", "Adequate ventilation in resident rooms and common areas"), 2, 7, 10, 1, false);
+            body.AddElement(new ControlBoolean("y8", "YES"), 0, 8, 1, 1, false);
+            body.AddElement(new ControlBoolean("n8", "NO"), 1, 8, 1, 1, false);
+            body.AddElement(new ControlLabel("qq8", "Adequate lighting in resident rooms and common areas"), 2, 8, 10, 1, false);
+            body.AddElement(new ControlBoolean("y9", "YES"), 0, 9, 1, 1, false);
+            body.AddElement(new ControlBoolean("n9", "NO"), 1, 9, 1, 1, false);
+            body.AddElement(new ControlLabel("qq9", "Safe water temperature in resident rooms and sinks utilized by residents"), 2, 9, 10, 1, false);
+            body.AddElement(new ControlBoolean("y10", "YES"), 0, 10, 1, 1, false);
+            body.AddElement(new ControlBoolean("n10", "NO"), 1, 10, 1, 1, false);
+            body.AddElement(new ControlLabel("qq10", "Cleanliness of resident equipment maintained in good repair"), 2, 10, 10, 1, false);
+            body.AddElement(new ControlText("notes1", "NOTES", true), 0, 11, 12,1, false);
+
+            body.AddElement(new ControlLabel("lab2", "Safety"), 0, 12, 12);
+            body.AddElement(new ControlBoolean("sy1", "YES"), 0, 13, 1, 1, false);
+            body.AddElement(new ControlBoolean("sn1", "NO"), 1, 13, 1, 1, false);
+            body.AddElement(new ControlLabel("sq1", "Prevention of resident access to storage of: \n" +
+                "•Cleaning supplies     •Cleaning carts       •Storage closet" +"\n" +"•Toxic materials     •Medications	"), 2, 13, 10, 1, false);
+            body.AddElement(new ControlBoolean("sy2", "YES"), 0, 14, 1, 1, false);
+            body.AddElement(new ControlBoolean("sn2", "NO"), 1, 14, 1, 1, false);
+            body.AddElement(new ControlLabel("sq2", "Access to outdoors including dementia care unit"+"\n•Safe walking areas"+"\n•Walking areas protected from the elements"+"\n•Can summon staff in an emergency"), 2, 14, 10, 1, false);
+            body.AddElement(new ControlBoolean("sy3", "YES"), 0, 15, 1, 1, false);
+            body.AddElement(new ControlBoolean("sn3", "NO"), 1, 15, 1, 1, false);
+            body.AddElement(new ControlLabel("sq3", "System to inform and permit exit without sounding alarm"), 2, 15, 10, 1, false);
+            body.AddElement(new ControlBoolean("sy4", "YES"), 0, 16, 1, 1, false);
+            body.AddElement(new ControlBoolean("sn4", "NO"), 1, 16, 1, 1, false);
+            body.AddElement(new ControlLabel("sq4", "Secure outdoor space\n"+"•	Accessible to residents without staff\n•	Surrounded by walls or fences at least 72” high\n•	Firm, stable walking surfaces and outdoor furniture"), 2, 16, 10, 1, false);
+            body.AddElement(new ControlBoolean("sy5", "YES"), 0, 17, 1, 1, false);
+            body.AddElement(new ControlBoolean("sn5", "NO"), 1, 17, 1, 1, false);
+            body.AddElement(new ControlLabel("sq5", "Emergency / disaster preparedness\n "+ "•Emergency lighting      •First Aid supplies\n•Disaster plan	    •Staff responsibilities"), 2, 17, 10, 1, false);
+            body.AddElement(new ControlText("notes2", "NOTES", true), 0, 18, 12, 1, false);
+
+            body.AddElement(new ControlLabel("lab3", "Common Bathrooms"), 0, 19, 12);
+            body.AddElement(new ControlBoolean("cy", "YES"), 0, 20, 1, 1, false);
+            body.AddElement(new ControlBoolean("cn", "NO"), 1, 20, 1, 1, false);
+            body.AddElement(new ControlLabel("cq", "Common bathrooms are:"), 2, 20, 10, 1, false);
+            body.AddElement(new ControlLabel("clab", "•	Safe / clean / adequate lighting / grab bars(if applicable for resident needs)\n•	Accessible for all resident / privacy available"), 2, 21, 10, 1, false);
+            //maybe add more bathrooms?
+            body.AddElement(new ControlInteger("temp1", "•Water temperature: °F"), 2, 22, 2, 1, false);
+            body.AddElement(new ControlDate("tDate1", "date"), 4, 22, 2, 1, false);
+            body.AddElement(new ControlText("tTime1", "time"), 6, 22, 2, 1, false);
+            body.AddElement(new ControlText("tPlace1", "place"), 8, 22, 4, 1, false);
+            body.AddElement(new ControlInteger("temp2", "•Water temperature: °F"), 2, 23, 2, 1, false);
+            body.AddElement(new ControlDate("tDate2", "date"), 4, 23, 2, 1, false);
+            body.AddElement(new ControlText("tTime2", "time"), 6, 23, 2, 1, false);
+            body.AddElement(new ControlText("tPlace2", "place"), 8, 23, 4, 1, false);
+            body.AddElement(new ControlText("notes3", "NOTES", true), 0, 24, 12, 1, false);
+
+            body.AddElement(new ControlLabel("lab4", "Physical Environment - Outdoors"), 0, 25, 12);
+            body.AddElement(new ControlBoolean("py1", "YES"), 0, 26, 1, 1, false);
+            body.AddElement(new ControlBoolean("pn1", "NO"), 1, 26, 1, 1, false);
+            body.AddElement(new ControlLabel("pq1", "Stairs / steps / ramps in good repair"), 2, 26, 10, 1, false);
+            body.AddElement(new ControlBoolean("py2", "YES"), 0, 27, 1, 1, false);
+            body.AddElement(new ControlBoolean("pn2", "NO"), 1, 27, 1, 1, false);
+            body.AddElement(new ControlLabel("pq2", "Hand rails"), 2, 27, 10, 1, false);
+            body.AddElement(new ControlBoolean("py3", "YES"), 0, 28, 1, 1, false);
+            body.AddElement(new ControlBoolean("pn3", "NO"), 1, 28, 1, 1, false);
+            body.AddElement(new ControlLabel("pq3", "Garbage / refuse"), 2, 28, 10, 1, false);
+            body.AddElement(new ControlBoolean("py4", "YES"), 0, 29, 1, 1, false);
+            body.AddElement(new ControlBoolean("pn4", "NO"), 1, 29, 1, 1, false);
+            body.AddElement(new ControlLabel("pq4", "Presence of pests"), 2, 29, 10, 1, false);
+            body.AddElement(new ControlBoolean("py5", "YES"), 0, 30, 1, 1, false);
+            body.AddElement(new ControlBoolean("pn5", "NO"), 1, 30, 1, 1, false);
+            body.AddElement(new ControlLabel("pq5", "General maintenance of sidewalks / walkways"), 2, 30, 10, 1, false);
+            body.AddElement(new ControlText("notes4", "NOTES", true), 0, 31, 12, 1, false);
+
             form.AddElement(body);
+
 
 
             string fileName = Path.Combine(UserPrefs.GetFormDirectory(), form.name + UserPrefs.FORM_EXTENSION);
