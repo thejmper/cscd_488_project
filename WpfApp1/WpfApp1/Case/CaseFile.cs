@@ -169,7 +169,9 @@ namespace WpfApp1.Case
         public void Print()
         {
             PrintDialog pd = new PrintDialog();
-
+			if(pd.ShowDialog() != true){
+				return;
+			}
 
             Size pageSize = new Size(pd.PrintableAreaWidth, pd.PrintableAreaWidth);
 

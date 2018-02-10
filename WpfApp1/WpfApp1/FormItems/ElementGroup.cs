@@ -72,6 +72,14 @@ namespace WpfApp1.FormItems
             reader.ReadStartElement();
             reader.MoveToContent();
 
+            //make sure there's actually a list to read. If
+            //we're looking at <elementList /> assumptions later
+            //in the code will cause stuff to break.
+            if (reader.NodeType == XmlNodeType.EndElement)
+            {
+                return;
+            }
+
             while(reader.NodeType != XmlNodeType.EndElement)
             {
                 Type type = Type.GetType(reader.GetAttribute("type"));
