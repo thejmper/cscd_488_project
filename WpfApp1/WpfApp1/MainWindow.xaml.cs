@@ -36,7 +36,7 @@ namespace WpfApp1
             formWindow.Show();
             this.Close();           
             
-            UserPrefs.OnLoad();
+            //UserPrefs.OnLoad();
 
            // Login loginWindow = new Login();
             //loginWindow.ShowDialog();

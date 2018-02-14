@@ -635,7 +635,7 @@ namespace WpfApp1
 
             form.AddElement(body);*/
 
-            Form form = new Form("FormM");
+            /*Form form = new Form("FormM");
             LayoutStackPanel layoutStackPanel = new LayoutStackPanel("inspectionType");
             layoutStackPanel.AddElement(new ControlLabel("lab1", "Inspection Type"));
             layoutStackPanel.AddElement(new ControlBoolean("initial", "Initial"));
@@ -688,19 +688,31 @@ namespace WpfApp1
             body.AddElement(new ControlText("PEE9", "3.	Plants are non-toxic, non-poisonous, non- thorny, and not covering the walkway:",true), 1, 35, 11, 1, false);
 
             body.AddElement(new ControlText("notes", "NOTES", true), 0, 36, 12);
-            form.AddElement(body);
+            form.AddElement(body);*/
 
+            Form form = new Form("testForm");
+            LayoutGrid grid = new LayoutGrid("ddd");
+            grid.AddElement(new ControlLabel("d", "Imbefore the toerhh "), 0, 0, 12);
+            form.AddElement(grid);
+            LayoutRepeatGrid repeatGrid = new LayoutRepeatGrid("body", "addrow");
+            repeatGrid.AddRepeatableElement(new ControlLabel("sometest", "some text"), 0, 0, 12);
+            form.AddElement(repeatGrid);
 
-
-
-
-            string fileName = Path.Combine(UserPrefs.GetFormDirectory(), form.name + UserPrefs.FORM_EXTENSION);
+            LayoutGrid bodyafter = new LayoutGrid("asd");
+            bodyafter.AddElement(new ControlLabel("asddd", "Im after adding"),0,0,12);
+            form.AddElement(bodyafter);
             this.scrollView.Content = form.UIelement;
-            XmlSerializer ser = new XmlSerializer(typeof(Form));
+
+
+
+
+             string fileName = Path.Combine(UserPrefs.GetFormDirectory(), form.name + UserPrefs.FORM_EXTENSION);
+            // this.scrollView.Content = form.UIelement;
+             XmlSerializer ser = new XmlSerializer(typeof(Form));
             using (TextWriter writer = new StreamWriter(fileName))
-            {
-                ser.Serialize(writer, form);
-            }
+             {
+                 ser.Serialize(writer, form);
+             }
 
         }
     }

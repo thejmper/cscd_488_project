@@ -19,7 +19,7 @@ namespace WpfApp1.FormItems
         /// <summary>
         /// UNIQUE (within scope) name of this element.
         /// </summary>
-        public string name { get; protected set; }
+        public string name { get; set; }
 
         public bool isReadOnly { get; private set; }
 
