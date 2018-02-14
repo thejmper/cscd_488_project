@@ -11,8 +11,12 @@ namespace WpfApp1.FormItems
 {
     public class ControlBoolean : FormControl<CheckBox, bool>
     {
+        public delegate void onCheckedHandler(ControlBoolean control);
+        
         //--member fields--//
         private BoolDataHolder dataHolder;
+
+        public onCheckedHandler onChecked;
 
         //--construction--//
         public ControlBoolean(string name, string engishTitle, Orientation orientation = Orientation.Horizontal) : base(name, engishTitle, new CheckBox(), orientation)
@@ -31,6 +35,15 @@ namespace WpfApp1.FormItems
             this.binding = new Binding("value");
             binding.Source = dataHolder;
             control.SetBinding(CheckBox.IsCheckedProperty, binding);
+            control.Checked += Control_Checked;
+        }
+
+        private void Control_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if(this.onChecked != null)
+            {
+                this.onChecked.Invoke(this);
+            }
         }
 
         //--cloning--//
@@ -47,6 +60,9 @@ namespace WpfApp1.FormItems
         {
             dataHolder.value = value;
             (control).GetBindingExpression(CheckBox.IsCheckedProperty).UpdateTarget();
+
+            if (value && this.onChecked != null)
+                this.onChecked.Invoke(this);                
         }
 
         protected override void SetReadOnlyInternal(bool isReadOnly)

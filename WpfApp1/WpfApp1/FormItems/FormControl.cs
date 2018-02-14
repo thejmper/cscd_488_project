@@ -18,7 +18,7 @@ namespace WpfApp1.FormItems
         /// <summary>
         /// the control this form control is built around
         /// </summary>
-        protected controlType control;
+        internal controlType control;
 
         protected Binding binding;
 

@@ -72,6 +72,7 @@
     <Compile Include="FormItems\ControlDate.cs" />
     <Compile Include="FormItems\ControlInteger.cs" />
     <Compile Include="FormItems\ControlLabel.cs" />
+    <Compile Include="FormItems\ControlRadio.cs" />
     <Compile Include="FormItems\ControlText.cs" />
     <Compile Include="FormItems\ElementGroup.cs" />
     <Compile Include="FormItems\FormControl.cs" />

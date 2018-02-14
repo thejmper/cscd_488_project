@@ -17,74 +17,41 @@
       <!--Below is the list of items contained within this group-->
       <elementList>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>d</name>
+          <name>Radio Control</name>
           <isReadOnly>false</isReadOnly>
-          <row>0</row>
+          <row>2</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
           <colSpan>12</colSpan>
           <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>d</name>
+          <ControlRadio type="WpfApp1.FormItems.ControlRadio">
+            <name>Radio Control</name>
             <isReadOnly>false</isReadOnly>
-            <labelText>Imbefore the toerhh </labelText>
-          </ControlLabel>
-        </GridElement>
-      </elementList>
-    </LayoutGrid>
-    <LayoutRepeatGrid type="WpfApp1.FormItems.LayoutRepeatGrid">
-      <name>body</name>
-      <isReadOnly>false</isReadOnly>
-      <!--Below is the list of items contained within this group-->
-      <elementList>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>unnamedElement</name>
-          <isReadOnly>false</isReadOnly>
-          <row>999</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>2</colSpan>
-          <isBordered>False</isBordered>
-          <ControlButton type="WpfApp1.FormItems.ControlButton">
-            <name>unnamedElement</name>
-            <isReadOnly>false</isReadOnly>
-            <buttonText>addrow</buttonText>
-          </ControlButton>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>sometest</name>
-          <isReadOnly>false</isReadOnly>
-          <row>0</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>12</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>sometest</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>some text</labelText>
-          </ControlLabel>
-        </GridElement>
-      </elementList>
-    </LayoutRepeatGrid>
-    <LayoutGrid type="WpfApp1.FormItems.LayoutGrid">
-      <name>asd</name>
-      <isReadOnly>false</isReadOnly>
-      <!--Below is the list of items contained within this group-->
-      <elementList>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>asddd</name>
-          <isReadOnly>false</isReadOnly>
-          <row>0</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>12</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>asddd</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>Im after adding</labelText>
-          </ControlLabel>
+            <!--Below is the list of items contained within this group-->
+            <elementList>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>a</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>Option A</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>b</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>Option B</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>c</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>Option C</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+            </elementList>
+          </ControlRadio>
         </GridElement>
       </elementList>
     </LayoutGrid>
