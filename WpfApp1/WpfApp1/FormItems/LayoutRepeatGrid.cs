@@ -9,32 +9,32 @@ using WpfApp1.Utils;
 
 namespace WpfApp1.FormItems
 {
-    public class LayoutRepeatGrid : ElementGroup<GridElement>
+    public class LayoutRepeatGrid : LayoutGrid
     {
         /// <summary>
         /// internal grid reference for laying out objects.
         /// </summary>
-        private Grid grid;
-        private List<GridElement> repeatableElements;
+        private List<GridElement> template;
         private int numRows;
+        private Button button;
 
-        public override UIElement UIelement { get { return this.grid; } }
 
         //--construction--//
-        public LayoutRepeatGrid(string name, string buttonText): base(name)
+        public LayoutRepeatGrid(string name, List<GridElement> template, string buttonText) : base(name)
         {
-            this.grid = new Grid();
-            repeatableElements = new List<GridElement>();
-            numRows = 1;
-            //create 11 new colums, since we start out with 1 by default.
-            for (int i = 1; i < 12; i++)
-                grid.ColumnDefinitions.Add(new ColumnDefinition());
-
-            ControlButton addButton = new ControlButton("button", buttonText);
-            AddElement(addButton, 0, 999, 2, 1, false);
-            addButton.button.Click += Button_Click;
-
-
+            numRows = 0;
+            this.template = template;
+            button = new Button();
+            button.Content = buttonText;
+            button.Click += Button_Click;
+ 
+            //add row so button will sit below all things added
+            grid.RowDefinitions.Add(new RowDefinition());
+            Grid.SetRow(button, 1);
+            if (((Grid)UIelement).Children.Count == 0)
+            {
+                RepeatElements();
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -42,7 +42,7 @@ namespace WpfApp1.FormItems
             RepeatElements();
         }
 
-        protected LayoutRepeatGrid(): this("unnamedLayoutGrid", "unnamedButton")
+        protected LayoutRepeatGrid(): this("unnamedLayoutGrid", null ,"unnamedButton")
         {
 
         }
@@ -50,65 +50,32 @@ namespace WpfApp1.FormItems
         //--cloning--//
         protected override ElementGroup<GridElement> CloneInner()
         {
-            LayoutGrid clone = new LayoutGrid(this.name);
+            LayoutGrid clone = new LayoutGrid(this.name+ numRows);
             return clone;
-        }
-
-        //--grid manipulation--//
-        /// <summary>
-        /// adds an element to the grid in the given location
-        /// </summary>
-        /// <param name="element">element to add</param>
-        /// <param name="col">colum to place the left-most edge at. Starts at 0</param>
-        /// <param name="row">row to place the top-most edge at. Starts at 0</param>
-        /// <param name="colSpan">colums this element should span. Must bet between 1 and 12</param>
-        public void AddElement(FormElement element, int col, int row, int colSpan, int rowSpan = 1, bool isBordered = true)
-        {
-            GridElement gridElement = new GridElement(element, row, col, colSpan, rowSpan, isBordered);
-
-            this.AddElementInternal(gridElement);
-            if (numRows <= row)
-            {
-                numRows++;
-            }
-        }
-
-        public void AddRepeatableElement(FormElement element, int col, int row, int colSpan, int rowSpan = 1, bool isBordered = true)
-        {
-            GridElement gridElement = new GridElement(element, row, col, colSpan, rowSpan, isBordered);
-            this.AddElement(element, row, col, colSpan, rowSpan, isBordered);
-            repeatableElements.Add(gridElement);
-        }
-
-        protected override void AddElementInternal(GridElement element)
-        {
-            base.AddElementInternal(element);
-
-            //add more rows if we need to.
-            while (element.row > (grid.RowDefinitions.Count - 1))
-                grid.RowDefinitions.Add(new RowDefinition());
-
-            //add border (if requested)
-            UIElement uiElement = element.UIelement;
-            if (element.isBordered)
-                uiElement = uiElement.Bordered();
-
-            //add the control
-            Grid.SetRow(uiElement, element.row);
-            Grid.SetColumn(uiElement, element.col);
-            Grid.SetColumnSpan(uiElement, element.colSpan);
-            grid.Children.Add(uiElement);
         }
 
         public void RepeatElements()
         {
-            foreach (GridElement el in repeatableElements)
+            LayoutGrid grid = new LayoutGrid("repeat" + numRows);
+            foreach (GridElement el in template)
             {
-                FormElement newElement = el.formElement.Clone();
-                newElement.name = newElement.name + el.row + numRows;
-                AddElement(newElement, el.col, el.row + numRows, el.colSpan, el.colSpan, el.isBordered);
+                FormElement newElement = el.Clone();
+                newElement.name = newElement.name + numRows;
+                grid.AddElement(newElement, el.col, el.row, el.colSpan, el.rowSpan, el.isBordered);
             }
+            AddElement(grid, 0, numRows, 12,1,false);
+            numRows++;
+            Grid.SetRow(button, numRows+1);
+            ((Grid)this.UIelement).RowDefinitions.Add(new RowDefinition());
+            ((Grid)this.UIelement).Children.Remove(button);
+            ((Grid)this.UIelement).Children.Add(button);
+
         }
+
+       /* protected override void ReadXMLInner(XmlReader reader)
+        {
+            
+        }*/
     }
 
    

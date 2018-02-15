@@ -5,6 +5,7 @@ using WpfApp1.FormItems;
 using WpfApp1.Case;
 using System.Xml.Serialization;
 using System.IO;
+using System.Collections.Generic;
 
 namespace WpfApp1
 {
@@ -32,11 +33,41 @@ namespace WpfApp1
             form.AddElement(grid);
             */
 
+            
+            Form form = new Form("testForm");
+            LayoutGrid grid = new LayoutGrid("ddd");
+            grid.AddElement(new ControlLabel("d", "Im before the repeatable"), 0, 0, 12);
+            form.AddElement(grid);
+            List<GridElement> template = new List<GridElement>();
+            template.Add(new GridElement(new ControlLabel("lab1", "im repeatable1"),0,0,6));
+            template.Add(new GridElement(new ControlLabel("lab2", "im repeatable2"), 6, 0, 6));
+            template.Add(new GridElement(new ControlLabel("lab3", "im repeatable3"), 0, 1, 11));
+            template.Add(new GridElement(new ControlLabel("lab4", "im repeatable4"), 11, 1, 1));
+
+
+            LayoutRepeatGrid repeatGrid = new LayoutRepeatGrid("body", template,"addrow");
+            
+            form.AddElement(repeatGrid);
+
+            LayoutGrid bodyafter = new LayoutGrid("asd");
+            bodyafter.AddElement(new ControlLabel("asddd", "Im after adding"),0,0,12);
+            form.AddElement(bodyafter);
+            this.scrollView.Content = form.UIelement;
+
+            string fileName = Path.Combine(UserPrefs.GetFormDirectory(), form.name + UserPrefs.FORM_EXTENSION);
+            // this.scrollView.Content = form.UIelement;
+          /*   XmlSerializer ser = new XmlSerializer(typeof(Form));
+            using (TextWriter writer = new StreamWriter(fileName))
+             {
+                 ser.Serialize(writer, form);
+             }*/
+ 
+
 
 
             //this.scrollView.Content = form.UIelement;
 
-            Form form;
+          /*  Form form;
             string fileName = Path.Combine(UserPrefs.GetFormDirectory(), "testForm" + UserPrefs.FORM_EXTENSION);
             XmlSerializer ser = new XmlSerializer(typeof(Form));
             //using (TextWriter writer = new StreamWriter(fileName))
@@ -48,7 +79,7 @@ namespace WpfApp1
                 form = (Form)ser.Deserialize(reader);
             }
 
-            this.scrollView.Content = form.UIelement;
+            this.scrollView.Content = form.UIelement;*/
 
 
 

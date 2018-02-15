@@ -22,7 +22,7 @@ namespace WpfApp1.FormItems
         /// <summary>
         /// internal grid reference for laying out objects.
         /// </summary>
-        private Grid grid;
+        protected Grid grid;
 
         //--construction--//
         public LayoutGrid(string name): base(name)
@@ -55,7 +55,7 @@ namespace WpfApp1.FormItems
         /// <param name="colSpan">colums this element should span. Must bet between 1 and 12</param>
         public void AddElement(FormElement element, int col, int row, int colSpan, int rowSpan = 1, bool isBordered = true)
         {
-            GridElement gridElement = new GridElement(element, row, col, colSpan, rowSpan, isBordered);
+            GridElement gridElement = new GridElement(element,  col, row,colSpan, rowSpan, isBordered);
 
             this.AddElementInternal(gridElement);
         }
@@ -103,7 +103,7 @@ namespace WpfApp1.FormItems
         public override UIElement UIelement { get { return this.formElement.UIelement; } }
 
         //--construction--//
-        public GridElement(FormElement element, int row = 0, int col = 0, int colSpan = 1, int rowSpan = 1, bool isBordered = true): base(element.name)
+        public GridElement(FormElement element, int col = 0, int row = 0, int colSpan = 1, int rowSpan = 1, bool isBordered = true): base(element.name)
         {
             if (row < 0)
                 throw new System.ArgumentException("row must be 0 or greater");
@@ -136,7 +136,7 @@ namespace WpfApp1.FormItems
         public override FormElement Clone()
         {
             FormElement inner = this.formElement.Clone();
-            GridElement clone = new GridElement(inner, this.row, this.col, this.colSpan, this.rowSpan, this.isBordered);
+            GridElement clone = new GridElement(inner,  this.col, this.row,this.colSpan, this.rowSpan, this.isBordered);
 
             return clone;
         }
