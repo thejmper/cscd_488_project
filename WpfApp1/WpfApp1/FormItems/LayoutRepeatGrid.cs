@@ -72,10 +72,21 @@ namespace WpfApp1.FormItems
 
         }
 
-       /* protected override void ReadXMLInner(XmlReader reader)
+       protected override void ReadXMLInner(XmlReader reader)
         {
             
-        }*/
+        }
+
+        protected override void WriteXMLInner(XmlWriter writer)
+        {
+            foreach (GridElement el in template)
+            {
+                writer.WriteStartElement(el.GetType().Name);
+                el.WriteXml(writer);
+                writer.WriteEndElement();
+            }
+            base.WriteXMLInner(writer);
+        }
     }
 
    
