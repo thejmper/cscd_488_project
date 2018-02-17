@@ -11,49 +11,30 @@
   </ControlDate>
   <!--Below is the list of items contained within this group-->
   <elementList>
-    <LayoutGrid type="WpfApp1.FormItems.LayoutGrid">
-      <name>ddd</name>
+    <ElementSpacer type="WpfApp1.FormItems.ElementSpacer">
+      <name>spacer1</name>
       <isReadOnly>false</isReadOnly>
-      <!--Below is the list of items contained within this group-->
-      <elementList>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>Radio Control</name>
-          <isReadOnly>false</isReadOnly>
-          <row>2</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>12</colSpan>
-          <isBordered>True</isBordered>
-          <ControlRadio type="WpfApp1.FormItems.ControlRadio">
-            <name>Radio Control</name>
-            <isReadOnly>false</isReadOnly>
-            <!--Below is the list of items contained within this group-->
-            <elementList>
-              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-                <name>a</name>
-                <isReadOnly>false</isReadOnly>
-                <englishTitle>Option A</englishTitle>
-                <orientation>Horizontal</orientation>
-                <value>false</value>
-              </ControlBoolean>
-              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-                <name>b</name>
-                <isReadOnly>false</isReadOnly>
-                <englishTitle>Option B</englishTitle>
-                <orientation>Horizontal</orientation>
-                <value>false</value>
-              </ControlBoolean>
-              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-                <name>c</name>
-                <isReadOnly>false</isReadOnly>
-                <englishTitle>Option C</englishTitle>
-                <orientation>Horizontal</orientation>
-                <value>false</value>
-              </ControlBoolean>
-            </elementList>
-          </ControlRadio>
-        </GridElement>
-      </elementList>
-    </LayoutGrid>
+      <height>25</height>
+    </ElementSpacer>
+    <ControlText type="WpfApp1.FormItems.ControlText">
+      <name>txtcontrol</name>
+      <isReadOnly>false</isReadOnly>
+      <englishTitle>Text Control</englishTitle>
+      <orientation>Vertical</orientation>
+      <acceptsNewLine>false</acceptsNewLine>
+      <text />
+    </ControlText>
+    <ElementSpacer type="WpfApp1.FormItems.ElementSpacer">
+      <name>spacer2</name>
+      <isReadOnly>false</isReadOnly>
+      <height>150</height>
+    </ElementSpacer>
+    <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+      <name>boolcontrol</name>
+      <isReadOnly>false</isReadOnly>
+      <englishTitle>Check me</englishTitle>
+      <orientation>Horizontal</orientation>
+      <value>false</value>
+    </ControlBoolean>
   </elementList>
 </Form>
