@@ -24,7 +24,7 @@ else if ($_SERVER['REQUEST_METHOD'] === 'GET')
 {
 	if (isset($_GET["report_id"]))
 	{
-		getFormByReport($conn, $_GET["report_id"]);
+		getFormsByReport($conn, $_GET["report_id"]);
 	}
 }
 
@@ -32,7 +32,7 @@ $conn->close();
 
 function createForm($conn, $reportID, $fieldsXML)
 {
-	$sql = "INSERT INTO forms (report_id, fields_xml) VALUES (?,?)";
+	$sql = "INSERT INTO forms (report_id, fields_xml, last_modified) VALUES (?,?,UTC_TIMESTAMP())";
 	$statement = $conn->prepare($sql);
 	$statement->bind_param("is", $reportID, $fieldsXML);
 	$statement->execute();
@@ -51,9 +51,20 @@ function createForm($conn, $reportID, $fieldsXML)
 	$statement->close();
 }
 
-function getFormByReport($conn, $reportID)
+function getFormsByReport($conn, $reportID)
 {
+	$sql = "SELECT * FROM forms WHERE report_id=?";
+	$statement = $conn->prepare($sql);
+	$statement->bind_param("i", $reportID);
+	$statement->execute();
+	$statement->bind_result($formID, $reportID, $fieldsXML, $lastModified);
 
+	while ($statement->fetch())
+	{
+		echo $formID . "|" . $reportID . "|" . $fieldsXML . "|" . $lastModified . "```";
+	}
+
+	$statement->close();
 }
 
 ?>

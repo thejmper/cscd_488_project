@@ -72,6 +72,13 @@ namespace WpfApp1.Reports.Syncers
                         string[] result = pagesource.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
                         Report temp = new Report(result[2] + "_Report", result[2], result[2], null);
                         temp.reportID = reportID;
+
+                        FormSyncer formSyncer = new FormSyncer();
+                        foreach (Form form in formSyncer.GetForms(temp))
+                        {
+                            temp.AddForm(form);
+                        }
+
                         return temp;
                     }
                 }
@@ -101,6 +108,11 @@ namespace WpfApp1.Reports.Syncers
                             string[] reportResult = reportLine.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
                             Report temp = new Report(reportResult[2] + "_Report", reportResult[2], reportResult[2], caseFile); // TODO: Change it so it actually gets and provides the full name of the user
                             temp.reportID = reportResult[0].ToString();
+                            FormSyncer formSyncer = new FormSyncer();
+                            foreach (Form form in formSyncer.GetForms(temp))
+                            {
+                                temp.AddForm(form);
+                            }
                             reports.Add(temp);
                         }
 

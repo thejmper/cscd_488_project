@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Cache;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
@@ -184,6 +185,42 @@ namespace WpfApp1.Reports.Syncers
                 };
                 string pagesource = Encoding.UTF8.GetString(client.UploadValues(formSyncAddress, postData));
                 form.formID = pagesource;
+            }
+        }
+
+        public List<Form> GetForms(Report report)
+        {
+            List<Form> forms = new List<Form>();
+            WebRequest request = WebRequest.Create(formSyncAddress + "?report_id=" + report.reportID);
+            request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
+            request.Method = "GET";
+            using (WebResponse response = request.GetResponse())
+            {
+                using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+                {
+                    string pagesource = stream.ReadToEnd();
+                    if (pagesource == "")
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        string[] result = pagesource.Split(new string[] { "```" }, StringSplitOptions.RemoveEmptyEntries);
+                        foreach (string formLine in result)
+                        {
+                            string[] formResult = formLine.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
+                            Form tempForm = new Form("null");
+                            XmlSerializer ser = new XmlSerializer(tempForm.GetType());
+                            using (TextReader tReader = new StringReader(formResult[2]))
+                            {
+                                tempForm = (Form)ser.Deserialize(tReader);
+                            }
+                            forms.Add(tempForm);
+                        }
+
+                        return forms;
+                    }
+                }
             }
         }
 
