@@ -40,6 +40,12 @@ namespace WpfApp1.Reports.Syncers
             {
                 UpdateReport(report);
             }
+
+            FormSyncer formSyncer = new FormSyncer();
+            foreach (Form form in report.forms)
+            {
+                formSyncer.InsertForm(form);
+            }
         }
 
         private void UpdateReport(Report report)

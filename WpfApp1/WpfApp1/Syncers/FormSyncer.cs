@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
@@ -11,13 +13,12 @@ namespace WpfApp1.Reports.Syncers
 {
     public class FormSyncer
     {
-        //MySqlConnection conn;
+        string formSyncAddress;
 
-        //public FormSyncer()
-        //{
-        //    string connectionString = System.IO.File.ReadAllText(@"conn.txt");
-        //    conn = new MySqlConnection(connectionString);
-        //}
+        public FormSyncer()
+        {
+            formSyncAddress = "http://anthonyreinecker.com/seniorproject/formsync.php";
+        }
 
         //public Form SyncForm(Form form)
         //{
@@ -163,6 +164,28 @@ namespace WpfApp1.Reports.Syncers
         //        return null;
         //    }
         //}
+
+        public void InsertForm(Form form)
+        {
+            string formXML;
+            XmlSerializer ser = new XmlSerializer(form.GetType());
+            using (TextWriter writer = new StringWriter())
+            {
+                ser.Serialize(writer, form);
+                formXML = writer.ToString();
+            }
+
+            using (WebClient client = new WebClient())
+            {
+                NameValueCollection postData = new NameValueCollection()
+                {
+                    {"report_id", form.report.reportID },
+                    {"fields_xml",  formXML }
+                };
+                string pagesource = Encoding.UTF8.GetString(client.UploadValues(formSyncAddress, postData));
+                form.formID = pagesource;
+            }
+        }
 
         //public Form InsertForm(Form form)
         //{
