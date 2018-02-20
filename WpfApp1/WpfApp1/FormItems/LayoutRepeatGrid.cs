@@ -9,85 +9,118 @@ using WpfApp1.Utils;
 
 namespace WpfApp1.FormItems
 {
-    public class LayoutRepeatGrid : LayoutGrid
+    public class LayoutRepeatGrid : ElementGroup<LayoutStackPanel>
     {
-        /// <summary>
-        /// internal grid reference for laying out objects.
-        /// </summary>
-        private List<GridElement> template;
-        private int numRows;
-        private Button button;
+        //--member fields--//
+        public override UIElement UIelement { get { return grid; } }
 
+        private Grid grid;
+        private StackPanel stackPanel;
+        private FormElement[] template;
+
+        private int numRows;
 
         //--construction--//
-        public LayoutRepeatGrid(string name, List<GridElement> template, string buttonText) : base(name)
+        public LayoutRepeatGrid(string name, FormElement[] template) : base(name)
         {
-            numRows = 0;
+            //create what we need
             this.template = template;
-            button = new Button();
-            button.Content = buttonText;
-            button.Click += Button_Click;
- 
-            //add row so button will sit below all things added
-            grid.RowDefinitions.Add(new RowDefinition());
-            Grid.SetRow(button, 1);
-            if (((Grid)UIelement).Children.Count == 0)
-            {
-                RepeatElements();
-            }
+            this.grid = new Grid();
+            this.stackPanel = new StackPanel();
+            this.numRows = 0;
+
+            //setup grid rows
+            this.grid.RowDefinitions.Add(new RowDefinition());
+            this.grid.RowDefinitions.Add(new RowDefinition());
+
+            //put an expandable stack panel in the top row
+            Grid.SetRow(this.stackPanel, 0);
+            Grid.SetColumn(this.stackPanel, 0);
+            grid.Children.Add(this.stackPanel);
+
+            //put a button at the bottom
+            Button expandButton = new Button();
+            expandButton.Content = "Add New Row";
+            expandButton.Click += ExpandButton_Click;
+
+            Grid.SetRow(expandButton, 1);
+            grid.Children.Add(expandButton);
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            RepeatElements();
-        }
-
-        protected LayoutRepeatGrid(): this("unnamedLayoutGrid", null ,"unnamedButton")
+        protected LayoutRepeatGrid(): this("UntitledRepeatGrid", null)
         {
 
         }
-
-        //--cloning--//
-        protected override ElementGroup<GridElement> CloneInner()
+        protected override ElementGroup<LayoutStackPanel> CloneInner()
         {
-            LayoutGrid clone = new LayoutGrid(this.name+ numRows);
+            LayoutRepeatGrid clone = new LayoutRepeatGrid(this.name, this.template);
+
+            foreach (LayoutStackPanel element in this.elementList)
+                clone.AddElementInternal(element);
+
             return clone;
         }
 
-        public void RepeatElements()
-        {
-            LayoutGrid grid = new LayoutGrid("repeat" + numRows);
-            foreach (GridElement el in template)
-            {
-                FormElement newElement = el.Clone();
-                newElement.name = newElement.name + numRows;
-                grid.AddElement(newElement, el.col, el.row, el.colSpan, el.rowSpan, el.isBordered);
-            }
-            AddElement(grid, 0, numRows, 12,1,false);
-            numRows++;
-            Grid.SetRow(button, numRows+1);
-            ((Grid)this.UIelement).RowDefinitions.Add(new RowDefinition());
-            ((Grid)this.UIelement).Children.Remove(button);
-            ((Grid)this.UIelement).Children.Add(button);
 
+        //--click handler--//
+        private void ExpandButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.AddRow();
+        }
+        private void AddRow()
+        {
+            LayoutStackPanel innerRow = new LayoutStackPanel("row" + numRows, Orientation.Horizontal);
+            foreach(FormElement element in this.template)
+            {
+                innerRow.AddElement(element.Clone());
+            }
+
+            this.AddElementInternal(innerRow);
+        }
+        protected override void AddElementInternal(LayoutStackPanel element)
+        {
+            base.AddElementInternal(element);
+            this.stackPanel.Children.Add(element.UIelement);
+            this.numRows++;
         }
 
-       protected override void ReadXMLInner(XmlReader reader)
+        protected override void ReadXMLInner(XmlReader reader)
         {
-            
+            List<FormElement> templateList = new List<FormElement>();
+
+            reader.ReadStartElement();
+            while (reader.NodeType != XmlNodeType.EndElement)
+            {
+                Type type = Type.GetType(reader.GetAttribute("type"));
+
+                XmlSerializer ser = new XmlSerializer(type);
+                FormElement element = (FormElement)ser.Deserialize(reader);
+
+                reader.MoveToContent();
+                templateList.Add(element);
+            }
+            reader.ReadEndElement();
+            this.template = templateList.ToArray();
+
+            base.ReadXMLInner(reader);
         }
 
         protected override void WriteXMLInner(XmlWriter writer)
         {
-            foreach (GridElement el in template)
+            writer.WriteStartElement("template");
+            //write elements here
+            foreach (FormElement element in this.template)
             {
-                writer.WriteStartElement(el.GetType().Name);
-                el.WriteXml(writer);
+                writer.WriteStartElement(element.GetType().Name);
+                element.WriteXml(writer);
                 writer.WriteEndElement();
             }
+            //done
+            writer.WriteEndElement();
+
             base.WriteXMLInner(writer);
         }
+
     }
 
-   
+
 }

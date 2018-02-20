@@ -14,19 +14,37 @@ namespace WpfApp1
     /// </summary>
     public partial class FormWindow : Window
     {
+        Form form;
 
         //TODO: form k , d
         public FormWindow()
         {
             InitializeComponent();
 
+<<<<<<< HEAD
             // Form form;
             /* Form form = new Form("testForm");
+=======
+            /*
+            form = new Form("testForm");
+
+            FormElement[] elements = new FormElement[] { new ControlLabel("lbl1", "A Label"),
+                                                       new ControlText("trlText", "Some Text"),
+                                                       new ControlBoolean("btn", "Check Box")};
+
+            LayoutRepeatGrid grid = new LayoutRepeatGrid("rptGrid", elements);
+
+            form.AddElement(grid);
+            this.scrollView.Content = form.UIelement;
+            */
+    
+            /*
+            Form form = new Form("testForm");
+>>>>>>> ab891a8ff02390da5ae223b72e16ef6eab7d4523
             form.AddElement(new ElementSpacer("spacer1"));
             form.AddElement(new ControlText("txtcontrol", "Text Control"));
             form.AddElement(new ElementSpacer("spacer2", 150));
             form.AddElement(new ControlBoolean("boolcontrol", "Check me"));
-            this.scrollView.Content = form.UIelement;
 
 
             
@@ -40,10 +58,24 @@ namespace WpfApp1
              {
                  ser.Serialize(writer, form);
              }
+<<<<<<< HEAD
             
 
             this.scrollView.Content = form.UIelement;*/
 
+=======
+            */
+
+            
+            string fileName = Path.Combine(UserPrefs.GetFormDirectory(), "testForm" + UserPrefs.FORM_EXTENSION);
+            XmlSerializer ser = new XmlSerializer(typeof(Form));
+            using (TextReader reader = new StreamReader(fileName))
+            {
+                form = (Form)ser.Deserialize(reader);
+            }
+            this.scrollView.Content = form.UIelement;
+            
+>>>>>>> ab891a8ff02390da5ae223b72e16ef6eab7d4523
 
 
 
@@ -65,6 +97,16 @@ namespace WpfApp1
 
 
 
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            string fileName = Path.Combine(UserPrefs.GetFormDirectory(), form.name + UserPrefs.FORM_EXTENSION);
+            XmlSerializer ser = new XmlSerializer(typeof(Form));
+            using (TextWriter writer = new StreamWriter(fileName))
+            {
+                ser.Serialize(writer, form);
+            }
         }
     }
 }

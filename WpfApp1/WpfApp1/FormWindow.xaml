@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="FormWindow" Height="800" Width="1000">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button Name="btnSave" Content="Save Form" Click="btnSave_Click"></Button>
+        
+        
         <ScrollViewer Name="scrollView" HorizontalScrollBarVisibility="Disabled"  VerticalScrollBarVisibility="Auto" Grid.Row="1">
 
         </ScrollViewer>
