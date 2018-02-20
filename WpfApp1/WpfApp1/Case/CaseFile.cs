@@ -106,7 +106,8 @@ namespace WpfApp1.Case
             {
                 return false;
             }
-            this.reports.Add(report);
+            this.AddElementInternal(report);
+
             return true;
         }
 
@@ -154,10 +155,6 @@ namespace WpfApp1.Case
 
             Report report = new Report(user.id +"_Report", user.name, user.id, this);
             this.AddElementInternal(report);
-            if (new CaseFileSyncer().GetCaseFile(UserPrefs.caseFile.caseID) != null)
-            {
-                DatabaseAssignUser(user);
-            }
 
             return report;
         }
@@ -298,16 +295,6 @@ namespace WpfApp1.Case
                 }
             }
             return false;
-        }
-
-        public void Sync()
-        {
-            
-        }
-
-        public void DatabaseAssignUser(User user)
-        {
-            
         }
     }
 }

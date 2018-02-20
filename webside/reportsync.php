@@ -4,6 +4,7 @@ header("Access-Control-Allow-Origin: *");
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
+
 require_once('conn.php');
 
 $conn = new mysqli($servername, $username, $password, $db);
@@ -25,6 +26,10 @@ else if ($_SERVER['REQUEST_METHOD'] === 'GET')
 	if (isset($_GET["case_id"]))
 	{
 		getReportByCase($conn, $_GET["case_id"]);
+	}
+	else if (isset($_GET["report_id"]))
+	{
+		getReportByID($conn, $_GET["report_id"]);
 	}
 }
 
@@ -52,9 +57,36 @@ function createReport($conn, $caseID, $authorID)
 	$statement->close();
 }
 
+function getReportByID($conn, $reportID)
+{
+	$sql = "SELECT * FROM reports WHERE report_id=?";
+	$statement = $conn->prepare($sql);
+	$statement->bind_param("i", $reportID);
+	$statement->execute();
+	$statement->bind_result($reportID, $caseID, $authorID, $lastModified);
+
+	while ($statement->fetch())
+	{
+		echo $reportID . "\n" . $caseID . "\n" . $authorID . "\n" . $lastModified;
+	}
+
+	$statement->close();
+}
+
 function getReportByCase($conn, $caseID)
 {
+	$sql = "SELECT * FROM reports WHERE case_id=?";
+	$statement = $conn->prepare($sql);
+	$statement->bind_param("i", $caseID);
+	$statement->execute();
+	$statement->bind_result($reportID, $caseID, $authorID, $lastModified);
 
+	while ($statement->fetch())
+	{
+		echo $reportID . "|" . $caseID . "|" . $authorID . "|" . $lastModified . "\n";
+	}
+
+	$statement->close();
 }
 
 ?>

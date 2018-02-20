@@ -44,8 +44,8 @@ namespace WpfApp1
             CaseFile caseFile = caseFileSyncer.CreateCaseFile(FacilityName.Text, num);
             foreach (User user in this.assignedUsers)
             {
-                caseFile.AssignUser(user);
                 caseFileSyncer.AssignUser(user.id, caseFile.caseID);
+                caseFile.AssignUser(user);
             }
 
             //TODO: If there's a matching facility number, inform the user

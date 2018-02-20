@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Xml.Serialization;
 using WpfApp1.Case;
 using WpfApp1.Reports.Syncers;
+using WpfApp1.Users;
 
 namespace WpfApp1
 {
@@ -71,7 +72,14 @@ namespace WpfApp1
         {
             if (selectedCaseFile != null)
             {
-                UserPrefs.caseFile = selectedCaseFile;
+                CaseFile temp = selectedCaseFile;
+                List<Report> reports = new ReportSyncer().GetReports(temp);
+                foreach (Report report in reports)
+                {
+                    temp.AddReport(report);
+                }
+                
+                UserPrefs.caseFile = temp;
             }
             this.Close();
         }

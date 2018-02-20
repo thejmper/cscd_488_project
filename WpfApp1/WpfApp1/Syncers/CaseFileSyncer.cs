@@ -143,15 +143,22 @@ namespace WpfApp1.Reports.Syncers
 
         public void InsertCaseFile(CaseFile file)
         {
-            using (WebClient client = new WebClient())
+            if (GetCaseFile(file.caseID) == null)
             {
-                NameValueCollection postData = new NameValueCollection()
+                using (WebClient client = new WebClient())
+                {
+                    NameValueCollection postData = new NameValueCollection()
                 {
                     {"facility_name", file.facilityName },
                     {"facility_license", file.facilitylicenseNumber.ToString() }
                 };
-                string pagesource = Encoding.UTF8.GetString(client.UploadValues(caseSyncAddress, postData));
-                file.caseID = pagesource;
+                    string pagesource = Encoding.UTF8.GetString(client.UploadValues(caseSyncAddress, postData));
+                    file.caseID = pagesource;
+                }
+            }
+            else
+            {
+                UpdateCaseFile(file);
             }
 
             ReportSyncer reportSyncer = new ReportSyncer();
@@ -159,6 +166,11 @@ namespace WpfApp1.Reports.Syncers
             {
                 reportSyncer.InsertReport(report);
             }
+        }
+
+        private void UpdateCaseFile(CaseFile file)
+        {
+
         }
     }
 }
