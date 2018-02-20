@@ -66,6 +66,11 @@
         </ControlInteger>
       </elementList>
     </LayoutStackPanel>
+    <ElementSpacer type="WpfApp1.FormItems.ElementSpacer">
+      <name>spacer</name>
+      <isReadOnly>false</isReadOnly>
+      <height>25</height>
+    </ElementSpacer>
     <LayoutGrid type="WpfApp1.FormItems.LayoutGrid">
       <name>body</name>
       <isReadOnly>false</isReadOnly>
@@ -173,71 +178,257 @@
           </ControlText>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>Contact</name>
+          <name>contacts</name>
           <isReadOnly>false</isReadOnly>
           <row>3</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
-          <colSpan>6</colSpan>
-          <isBordered>True</isBordered>
-          <ControlText type="WpfApp1.FormItems.ControlText">
-            <name>Contact</name>
+          <colSpan>12</colSpan>
+          <isBordered>False</isBordered>
+          <LayoutRepeatGrid type="WpfApp1.FormItems.LayoutRepeatGrid">
+            <name>contacts</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>CONTACT NAME AND NUMBER</englishTitle>
-            <orientation>Vertical</orientation>
-            <acceptsNewLine>false</acceptsNewLine>
-            <text />
-          </ControlText>
+            <GridElement type="WpfApp1.FormItems.GridElement">
+              <name>spacer</name>
+              <isReadOnly>false</isReadOnly>
+              <row>0</row>
+              <col>0</col>
+              <rowSpan>1</rowSpan>
+              <colSpan>12</colSpan>
+              <isBordered>False</isBordered>
+              <ElementSpacer type="WpfApp1.FormItems.ElementSpacer">
+                <name>spacer</name>
+                <isReadOnly>false</isReadOnly>
+                <height>10</height>
+              </ElementSpacer>
+            </GridElement>
+            <GridElement type="WpfApp1.FormItems.GridElement">
+              <name>Contact</name>
+              <isReadOnly>false</isReadOnly>
+              <row>3</row>
+              <col>0</col>
+              <rowSpan>1</rowSpan>
+              <colSpan>6</colSpan>
+              <isBordered>True</isBordered>
+              <ControlText type="WpfApp1.FormItems.ControlText">
+                <name>Contact</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>CONTACT NAME AND NUMBER</englishTitle>
+                <orientation>Vertical</orientation>
+                <acceptsNewLine>false</acceptsNewLine>
+                <text />
+              </ControlText>
+            </GridElement>
+            <GridElement type="WpfApp1.FormItems.GridElement">
+              <name>date2</name>
+              <isReadOnly>false</isReadOnly>
+              <row>3</row>
+              <col>6</col>
+              <rowSpan>1</rowSpan>
+              <colSpan>3</colSpan>
+              <isBordered>True</isBordered>
+              <ControlDate type="WpfApp1.FormItems.ControlDate">
+                <name>date2</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>DATE OF INTERVIEW</englishTitle>
+                <orientation>Vertical</orientation>
+                <SelectedDateProperty>1/1/0001 12:00:00 AM</SelectedDateProperty>
+              </ControlDate>
+            </GridElement>
+            <GridElement type="WpfApp1.FormItems.GridElement">
+              <name>relationship2</name>
+              <isReadOnly>false</isReadOnly>
+              <row>3</row>
+              <col>9</col>
+              <rowSpan>1</rowSpan>
+              <colSpan>3</colSpan>
+              <isBordered>True</isBordered>
+              <ControlText type="WpfApp1.FormItems.ControlText">
+                <name>relationship2</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>RELATIONSHIP TO RESIDENT</englishTitle>
+                <orientation>Vertical</orientation>
+                <acceptsNewLine>false</acceptsNewLine>
+                <text />
+              </ControlText>
+            </GridElement>
+            <GridElement type="WpfApp1.FormItems.GridElement">
+              <name>NOTES2</name>
+              <isReadOnly>false</isReadOnly>
+              <row>4</row>
+              <col>0</col>
+              <rowSpan>1</rowSpan>
+              <colSpan>12</colSpan>
+              <isBordered>True</isBordered>
+              <ControlText type="WpfApp1.FormItems.ControlText">
+                <name>NOTES2</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>NOTES</englishTitle>
+                <orientation>Vertical</orientation>
+                <acceptsNewLine>true</acceptsNewLine>
+                <text />
+              </ControlText>
+            </GridElement>
+            <!--Below is the list of items contained within this group-->
+            <elementList>
+              <GridElement type="WpfApp1.FormItems.GridElement">
+                <name>repeat0</name>
+                <isReadOnly>false</isReadOnly>
+                <row>0</row>
+                <col>0</col>
+                <rowSpan>1</rowSpan>
+                <colSpan>12</colSpan>
+                <isBordered>False</isBordered>
+                <LayoutGrid type="WpfApp1.FormItems.LayoutGrid">
+                  <name>repeat0</name>
+                  <isReadOnly>false</isReadOnly>
+                  <!--Below is the list of items contained within this group-->
+                  <elementList>
+                    <GridElement type="WpfApp1.FormItems.GridElement">
+                      <name>spacer0</name>
+                      <isReadOnly>false</isReadOnly>
+                      <row>0</row>
+                      <col>0</col>
+                      <rowSpan>1</rowSpan>
+                      <colSpan>12</colSpan>
+                      <isBordered>False</isBordered>
+                      <GridElement type="WpfApp1.FormItems.GridElement">
+                        <name>spacer0</name>
+                        <isReadOnly>false</isReadOnly>
+                        <row>0</row>
+                        <col>0</col>
+                        <rowSpan>1</rowSpan>
+                        <colSpan>12</colSpan>
+                        <isBordered>False</isBordered>
+                        <ElementSpacer type="WpfApp1.FormItems.ElementSpacer">
+                          <name>spacer</name>
+                          <isReadOnly>false</isReadOnly>
+                          <height>25</height>
+                        </ElementSpacer>
+                      </GridElement>
+                    </GridElement>
+                    <GridElement type="WpfApp1.FormItems.GridElement">
+                      <name>Contact0</name>
+                      <isReadOnly>false</isReadOnly>
+                      <row>3</row>
+                      <col>0</col>
+                      <rowSpan>1</rowSpan>
+                      <colSpan>6</colSpan>
+                      <isBordered>True</isBordered>
+                      <GridElement type="WpfApp1.FormItems.GridElement">
+                        <name>Contact0</name>
+                        <isReadOnly>false</isReadOnly>
+                        <row>3</row>
+                        <col>0</col>
+                        <rowSpan>1</rowSpan>
+                        <colSpan>6</colSpan>
+                        <isBordered>True</isBordered>
+                        <ControlText type="WpfApp1.FormItems.ControlText">
+                          <name>Contact</name>
+                          <isReadOnly>false</isReadOnly>
+                          <englishTitle>CONTACT NAME AND NUMBER</englishTitle>
+                          <orientation>Vertical</orientation>
+                          <acceptsNewLine>false</acceptsNewLine>
+                          <text />
+                        </ControlText>
+                      </GridElement>
+                    </GridElement>
+                    <GridElement type="WpfApp1.FormItems.GridElement">
+                      <name>date20</name>
+                      <isReadOnly>false</isReadOnly>
+                      <row>3</row>
+                      <col>6</col>
+                      <rowSpan>1</rowSpan>
+                      <colSpan>3</colSpan>
+                      <isBordered>True</isBordered>
+                      <GridElement type="WpfApp1.FormItems.GridElement">
+                        <name>date20</name>
+                        <isReadOnly>false</isReadOnly>
+                        <row>3</row>
+                        <col>6</col>
+                        <rowSpan>1</rowSpan>
+                        <colSpan>3</colSpan>
+                        <isBordered>True</isBordered>
+                        <ControlDate type="WpfApp1.FormItems.ControlDate">
+                          <name>date2</name>
+                          <isReadOnly>false</isReadOnly>
+                          <englishTitle>DATE OF INTERVIEW</englishTitle>
+                          <orientation>Vertical</orientation>
+                          <SelectedDateProperty>1/1/0001 12:00:00 AM</SelectedDateProperty>
+                        </ControlDate>
+                      </GridElement>
+                    </GridElement>
+                    <GridElement type="WpfApp1.FormItems.GridElement">
+                      <name>relationship20</name>
+                      <isReadOnly>false</isReadOnly>
+                      <row>3</row>
+                      <col>9</col>
+                      <rowSpan>1</rowSpan>
+                      <colSpan>3</colSpan>
+                      <isBordered>True</isBordered>
+                      <GridElement type="WpfApp1.FormItems.GridElement">
+                        <name>relationship20</name>
+                        <isReadOnly>false</isReadOnly>
+                        <row>3</row>
+                        <col>9</col>
+                        <rowSpan>1</rowSpan>
+                        <colSpan>3</colSpan>
+                        <isBordered>True</isBordered>
+                        <ControlText type="WpfApp1.FormItems.ControlText">
+                          <name>relationship2</name>
+                          <isReadOnly>false</isReadOnly>
+                          <englishTitle>RELATIONSHIP TO RESIDENT</englishTitle>
+                          <orientation>Vertical</orientation>
+                          <acceptsNewLine>false</acceptsNewLine>
+                          <text />
+                        </ControlText>
+                      </GridElement>
+                    </GridElement>
+                    <GridElement type="WpfApp1.FormItems.GridElement">
+                      <name>NOTES20</name>
+                      <isReadOnly>false</isReadOnly>
+                      <row>4</row>
+                      <col>0</col>
+                      <rowSpan>1</rowSpan>
+                      <colSpan>12</colSpan>
+                      <isBordered>True</isBordered>
+                      <GridElement type="WpfApp1.FormItems.GridElement">
+                        <name>NOTES20</name>
+                        <isReadOnly>false</isReadOnly>
+                        <row>4</row>
+                        <col>0</col>
+                        <rowSpan>1</rowSpan>
+                        <colSpan>12</colSpan>
+                        <isBordered>True</isBordered>
+                        <ControlText type="WpfApp1.FormItems.ControlText">
+                          <name>NOTES2</name>
+                          <isReadOnly>false</isReadOnly>
+                          <englishTitle>NOTES</englishTitle>
+                          <orientation>Vertical</orientation>
+                          <acceptsNewLine>true</acceptsNewLine>
+                          <text />
+                        </ControlText>
+                      </GridElement>
+                    </GridElement>
+                  </elementList>
+                </LayoutGrid>
+              </GridElement>
+            </elementList>
+          </LayoutRepeatGrid>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>date2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>3</row>
-          <col>6</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>3</colSpan>
-          <isBordered>True</isBordered>
-          <ControlDate type="WpfApp1.FormItems.ControlDate">
-            <name>date2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>DATE OF INTERVIEW</englishTitle>
-            <orientation>Vertical</orientation>
-            <SelectedDateProperty>1/1/0001 12:00:00 AM</SelectedDateProperty>
-          </ControlDate>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>relationship2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>3</row>
-          <col>9</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>3</colSpan>
-          <isBordered>True</isBordered>
-          <ControlText type="WpfApp1.FormItems.ControlText">
-            <name>relationship2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>RELATIONSHIP TO RESIDENT</englishTitle>
-            <orientation>Vertical</orientation>
-            <acceptsNewLine>false</acceptsNewLine>
-            <text />
-          </ControlText>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>NOTES2</name>
+          <name>spacer1</name>
           <isReadOnly>false</isReadOnly>
           <row>4</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
           <colSpan>12</colSpan>
-          <isBordered>True</isBordered>
-          <ControlText type="WpfApp1.FormItems.ControlText">
-            <name>NOTES2</name>
+          <isBordered>False</isBordered>
+          <ElementSpacer type="WpfApp1.FormItems.ElementSpacer">
+            <name>spacer1</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>NOTES</englishTitle>
-            <orientation>Vertical</orientation>
-            <acceptsNewLine>true</acceptsNewLine>
-            <text />
-          </ControlText>
+            <height>25</height>
+          </ElementSpacer>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
           <name>finalNotes</name>

@@ -81,36 +81,34 @@
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>private</name>
+          <name>paystat</name>
           <isReadOnly>false</isReadOnly>
           <row>1</row>
           <col>8</col>
           <rowSpan>1</rowSpan>
-          <colSpan>2</colSpan>
+          <colSpan>4</colSpan>
           <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>private</name>
+          <ControlRadio type="WpfApp1.FormItems.ControlRadio">
+            <name>paystat</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>Private</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>state</name>
-          <isReadOnly>false</isReadOnly>
-          <row>1</row>
-          <col>10</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>2</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>state</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>State</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
+            <!--Below is the list of items contained within this group-->
+            <elementList>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>private</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>Private</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>state</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>State</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+            </elementList>
+          </ControlRadio>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
           <name>agreement</name>
@@ -137,36 +135,34 @@
       <!--Below is the list of items contained within this group-->
       <elementList>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>resInterview</name>
+          <name>interview</name>
           <isReadOnly>false</isReadOnly>
           <row>0</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
-          <colSpan>2</colSpan>
+          <colSpan>4</colSpan>
           <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>resInterview</name>
+          <ControlRadio type="WpfApp1.FormItems.ControlRadio">
+            <name>interview</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>Resident Interview</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>repInterview</name>
-          <isReadOnly>false</isReadOnly>
-          <row>0</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>2</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>repInterview</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>Representative Interview</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
+            <!--Below is the list of items contained within this group-->
+            <elementList>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>resInterview</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>Resident Interview</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>repInterview</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>Representative Interview</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+            </elementList>
+          </ControlRadio>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
           <name>lab1</name>
@@ -200,58 +196,47 @@ services you receive here at the facility?</labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>y1</name>
+          <name>rad1</name>
           <isReadOnly>false</isReadOnly>
           <row>2</row>
           <col>4</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
+          <colSpan>3</colSpan>
           <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>y1</name>
+          <ControlRadio type="WpfApp1.FormItems.ControlRadio">
+            <name>rad1</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>Y</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>n1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>2</row>
-          <col>5</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>n1</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>N</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>d1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>2</row>
-          <col>6</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>d1</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>D</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
+            <!--Below is the list of items contained within this group-->
+            <elementList>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>yes</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>Y</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>no</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>N</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>d</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>D</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+            </elementList>
+          </ControlRadio>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
           <name>notes1</name>
           <isReadOnly>false</isReadOnly>
           <row>2</row>
-          <col>7</col>
+          <col>6</col>
           <rowSpan>1</rowSpan>
           <colSpan>5</colSpan>
           <isBordered>True</isBordered>
@@ -281,58 +266,47 @@ Could you change roommates if you wanted to?</labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>y2</name>
+          <name>rad2</name>
           <isReadOnly>false</isReadOnly>
           <row>3</row>
           <col>4</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
+          <colSpan>3</colSpan>
           <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>y2</name>
+          <ControlRadio type="WpfApp1.FormItems.ControlRadio">
+            <name>rad2</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>Y</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>n2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>3</row>
-          <col>5</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>n2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>N</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>d2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>3</row>
-          <col>6</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>d2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>D</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
+            <!--Below is the list of items contained within this group-->
+            <elementList>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>yes1</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>Y</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>no1</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>N</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>d1</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>D</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+            </elementList>
+          </ControlRadio>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
           <name>notes2</name>
           <isReadOnly>false</isReadOnly>
           <row>3</row>
-          <col>7</col>
+          <col>6</col>
           <rowSpan>1</rowSpan>
           <colSpan>5</colSpan>
           <isBordered>True</isBordered>
@@ -361,58 +335,47 @@ community activities?</labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>y3</name>
+          <name>rad3</name>
           <isReadOnly>false</isReadOnly>
           <row>4</row>
           <col>4</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
+          <colSpan>3</colSpan>
           <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>y3</name>
+          <ControlRadio type="WpfApp1.FormItems.ControlRadio">
+            <name>rad3</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>Y</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>n3</name>
-          <isReadOnly>false</isReadOnly>
-          <row>4</row>
-          <col>5</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>n3</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>N</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>d3</name>
-          <isReadOnly>false</isReadOnly>
-          <row>4</row>
-          <col>6</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>d3</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>D</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
+            <!--Below is the list of items contained within this group-->
+            <elementList>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>yes2</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>Y</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>no2</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>N</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>d2</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>D</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+            </elementList>
+          </ControlRadio>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
           <name>notes3</name>
           <isReadOnly>false</isReadOnly>
           <row>4</row>
-          <col>7</col>
+          <col>6</col>
           <rowSpan>1</rowSpan>
           <colSpan>5</colSpan>
           <isBordered>True</isBordered>
@@ -440,58 +403,47 @@ community activities?</labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>y4</name>
+          <name>rad4</name>
           <isReadOnly>false</isReadOnly>
           <row>5</row>
           <col>4</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
+          <colSpan>3</colSpan>
           <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>y4</name>
+          <ControlRadio type="WpfApp1.FormItems.ControlRadio">
+            <name>rad4</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>Y</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>n4</name>
-          <isReadOnly>false</isReadOnly>
-          <row>5</row>
-          <col>5</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>n4</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>N</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>d4</name>
-          <isReadOnly>false</isReadOnly>
-          <row>5</row>
-          <col>6</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>d4</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>D</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
+            <!--Below is the list of items contained within this group-->
+            <elementList>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>yes3</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>Y</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>no3</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>N</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>d3</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>D</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+            </elementList>
+          </ControlRadio>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
           <name>notes4</name>
           <isReadOnly>false</isReadOnly>
           <row>5</row>
-          <col>7</col>
+          <col>6</col>
           <rowSpan>1</rowSpan>
           <colSpan>5</colSpan>
           <isBordered>True</isBordered>
@@ -519,58 +471,47 @@ community activities?</labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>y5</name>
+          <name>rad5</name>
           <isReadOnly>false</isReadOnly>
           <row>6</row>
           <col>4</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
+          <colSpan>3</colSpan>
           <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>y5</name>
+          <ControlRadio type="WpfApp1.FormItems.ControlRadio">
+            <name>rad5</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>Y</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>n5</name>
-          <isReadOnly>false</isReadOnly>
-          <row>6</row>
-          <col>5</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>n5</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>N</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>d5</name>
-          <isReadOnly>false</isReadOnly>
-          <row>6</row>
-          <col>6</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>d5</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>D</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
+            <!--Below is the list of items contained within this group-->
+            <elementList>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>yes4</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>Y</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>no4</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>N</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>d4</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>D</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+            </elementList>
+          </ControlRadio>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
           <name>notes5</name>
           <isReadOnly>false</isReadOnly>
           <row>6</row>
-          <col>7</col>
+          <col>6</col>
           <rowSpan>1</rowSpan>
           <colSpan>5</colSpan>
           <isBordered>True</isBordered>
@@ -598,58 +539,47 @@ community activities?</labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>y6</name>
+          <name>rad6</name>
           <isReadOnly>false</isReadOnly>
           <row>7</row>
           <col>4</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
+          <colSpan>3</colSpan>
           <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>y6</name>
+          <ControlRadio type="WpfApp1.FormItems.ControlRadio">
+            <name>rad6</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>Y</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>n6</name>
-          <isReadOnly>false</isReadOnly>
-          <row>7</row>
-          <col>5</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>n6</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>N</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>d6</name>
-          <isReadOnly>false</isReadOnly>
-          <row>7</row>
-          <col>6</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>d6</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>D</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
+            <!--Below is the list of items contained within this group-->
+            <elementList>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>yes5</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>Y</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>no5</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>N</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>d5</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>D</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+            </elementList>
+          </ControlRadio>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
           <name>notes6</name>
           <isReadOnly>false</isReadOnly>
           <row>7</row>
-          <col>7</col>
+          <col>6</col>
           <rowSpan>1</rowSpan>
           <colSpan>5</colSpan>
           <isBordered>True</isBordered>
@@ -677,58 +607,47 @@ community activities?</labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>y7</name>
+          <name>rad7</name>
           <isReadOnly>false</isReadOnly>
           <row>8</row>
           <col>4</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
+          <colSpan>3</colSpan>
           <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>y7</name>
+          <ControlRadio type="WpfApp1.FormItems.ControlRadio">
+            <name>rad7</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>Y</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>n7</name>
-          <isReadOnly>false</isReadOnly>
-          <row>8</row>
-          <col>5</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>n7</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>N</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>d7</name>
-          <isReadOnly>false</isReadOnly>
-          <row>8</row>
-          <col>6</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>d7</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>D</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
+            <!--Below is the list of items contained within this group-->
+            <elementList>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>yes6</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>Y</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>no6</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>N</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>d6</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>D</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+            </elementList>
+          </ControlRadio>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
           <name>notes7</name>
           <isReadOnly>false</isReadOnly>
           <row>8</row>
-          <col>7</col>
+          <col>6</col>
           <rowSpan>1</rowSpan>
           <colSpan>5</colSpan>
           <isBordered>True</isBordered>
@@ -756,58 +675,47 @@ community activities?</labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>y8</name>
+          <name>rad8</name>
           <isReadOnly>false</isReadOnly>
           <row>9</row>
           <col>4</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
+          <colSpan>3</colSpan>
           <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>y8</name>
+          <ControlRadio type="WpfApp1.FormItems.ControlRadio">
+            <name>rad8</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>Y</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>n8</name>
-          <isReadOnly>false</isReadOnly>
-          <row>9</row>
-          <col>5</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>n8</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>N</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>d8</name>
-          <isReadOnly>false</isReadOnly>
-          <row>9</row>
-          <col>6</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>d8</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>D</englishTitle>
-            <orientation>Horizontal</orientation>
-            <value>false</value>
-          </ControlBoolean>
+            <!--Below is the list of items contained within this group-->
+            <elementList>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>yes7</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>Y</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>no7</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>N</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+                <name>d7</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle>D</englishTitle>
+                <orientation>Horizontal</orientation>
+                <value>false</value>
+              </ControlBoolean>
+            </elementList>
+          </ControlRadio>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
           <name>notes8</name>
           <isReadOnly>false</isReadOnly>
           <row>9</row>
-          <col>7</col>
+          <col>6</col>
           <rowSpan>1</rowSpan>
           <colSpan>5</colSpan>
           <isBordered>True</isBordered>
