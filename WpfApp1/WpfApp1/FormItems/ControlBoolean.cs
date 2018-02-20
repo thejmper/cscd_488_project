@@ -19,13 +19,12 @@ namespace WpfApp1.FormItems
         public onCheckedHandler onChecked;
 
         //--construction--//
-        public ControlBoolean(string name, string engishTitle, Orientation orientation = Orientation.Horizontal) : base(name, engishTitle, new CheckBox(), orientation)
+        public ControlBoolean(string name, string engishTitle, Orientation orientation = Orientation.Vertical) : base(name, engishTitle, new CheckBox(), orientation)
         {
         }
 
         protected ControlBoolean() : base("untitledControlDate", "untitled date control", new CheckBox())
         {
-
         }
 
         protected override void BindControl()
