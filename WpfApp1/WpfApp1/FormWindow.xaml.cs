@@ -13,87 +13,145 @@ namespace WpfApp1
     /// Interaction logic for FormWindow.xaml
     /// </summary>
     public partial class FormWindow : Window
-    {
-        Form form;
+    { 
 
-        //TODO: form k , d
+        //TODO: form k369 , d362
         public FormWindow()
         {
             InitializeComponent();
 
-<<<<<<< HEAD
-            // Form form;
-            /* Form form = new Form("testForm");
-=======
-            /*
-            form = new Form("testForm");
+           /*Form form = new Form("this is so that it can compile and run");
+           
+            ControlLabel label1 = new ControlLabel("lab1", "label1");
+            ControlLabel label2 = new ControlLabel("lab2", "label2");
+            ControlLabel label3 = new ControlLabel("lab3", "label3");
+            ControlLabel label4 = new ControlLabel("lab4", "label4");
+            LayoutGrid child = new LayoutGrid("child");
+            child.AddElement(label1, 0, 0, 8);
+            child.AddElement(label2, 8, 0, 4);
+            child.AddElement(label3, 0, 1, 6);
+            child.AddElement(label4, 6, 1, 6);
 
-            FormElement[] elements = new FormElement[] { new ControlLabel("lbl1", "A Label"),
-                                                       new ControlText("trlText", "Some Text"),
-                                                       new ControlBoolean("btn", "Check Box")};
-
-            LayoutRepeatGrid grid = new LayoutRepeatGrid("rptGrid", elements);
-
-            form.AddElement(grid);
-            this.scrollView.Content = form.UIelement;
-            */
-    
-            /*
-            Form form = new Form("testForm");
->>>>>>> ab891a8ff02390da5ae223b72e16ef6eab7d4523
-            form.AddElement(new ElementSpacer("spacer1"));
-            form.AddElement(new ControlText("txtcontrol", "Text Control"));
-            form.AddElement(new ElementSpacer("spacer2", 150));
-            form.AddElement(new ControlBoolean("boolcontrol", "Check me"));
-
-
-            
+            FormElement[] array = { child };
+            LayoutRepeatGrid grid = new LayoutRepeatGrid("grid",array);
+            form.AddElement(grid);*/
 
 
 
+            Form form = new Form("FormI");
+            LayoutStackPanel layoutStackPanel = new LayoutStackPanel("inspectionType");
+             layoutStackPanel.AddElement(new ControlLabel("lab1", "Inspection Type"));
+             layoutStackPanel.AddElement(new ControlBoolean("initial", "Initial"));
+             layoutStackPanel.AddElement(new ControlBoolean("full", "Full"));
+             layoutStackPanel.AddElement(new ControlBoolean("followup", "Follow up"));
+             layoutStackPanel.AddElement(new ControlBoolean("monitering", "Monitoring"));
+             layoutStackPanel.AddElement(new ControlBoolean("complaint", "Complaint"));
+             layoutStackPanel.AddElement(new ControlInteger("number", "Number"));
+             form.AddElement(layoutStackPanel);
+
+             LayoutGrid body = new LayoutGrid("body");
+             body.AddElement(new ControlLabel("lab1", "Quality of Life/Resident Rights"), 0, 0, 12, 1, true);
+             ControlBoolean[] yesno1 = { new ControlBoolean("yes1", "YES"), new ControlBoolean("no1", "NO") };
+             body.AddElement(new ControlRadio("yesno1", yesno1), 0, 1, 2, 1, false);
+             body.AddElement(new ControlLabel("qq1", "Furnishing, floors, walls, and ceilings"), 2, 1, 10, 1, false);
+             ControlBoolean[] yesno2 = { new ControlBoolean("yes2", "YES"), new ControlBoolean("no2", "NO") };
+             body.AddElement(new ControlRadio("yesno2", yesno2), 0, 2, 2, 1, false);
+             body.AddElement(new ControlLabel("qq2", "Presence of objectionable odors"), 2, 2, 10, 1, false);
+             ControlBoolean[] yesno3 = { new ControlBoolean("yes3", "YES"), new ControlBoolean("no3", "NO") };
+             body.AddElement(new ControlRadio("yesno3", yesno3), 0, 3, 2, 1, false);
+             body.AddElement(new ControlLabel("qq3", "Housekeeping supply area"), 2, 3, 10, 1, false);
+             ControlBoolean[] yesno4 = { new ControlBoolean("yes4", "YES"), new ControlBoolean("no4", "NO") };
+             body.AddElement(new ControlRadio("yesno4", yesno4), 0, 4, 2, 1, false);
+             body.AddElement(new ControlLabel("qq4", "Laundry – separate areas for clean and soiled linen"), 2, 4, 10, 1, false);
+             ControlBoolean[] yesno5 = { new ControlBoolean("yes5", "YES"), new ControlBoolean("no5", "NO") };
+             body.AddElement(new ControlRadio("yesno5", yesno5), 0, 5, 2, 1, false);
+             body.AddElement(new ControlLabel("qq5", "Infection control practices of staff"), 2, 5, 10, 1, false);
+             ControlBoolean[] yesno6 = { new ControlBoolean("yes6", "YES"), new ControlBoolean("no6", "NO") };
+             body.AddElement(new ControlRadio("yesno6", yesno6), 0, 6, 2, 1, false);
+             body.AddElement(new ControlLabel("qq6", "Hand washing"), 2, 6, 10, 1, false);
+             ControlBoolean[] yesno7 = { new ControlBoolean("yes7", "YES"), new ControlBoolean("no7", "NO") };
+             body.AddElement(new ControlRadio("yesno7", yesno7), 0, 7, 2, 1, false);
+             body.AddElement(new ControlLabel("qq7", "Temperature (68°+ wake hours / 60°+ sleep hours)"), 2, 7, 10, 1, false);
+             ControlBoolean[] yesno8 = { new ControlBoolean("yes8", "YES"), new ControlBoolean("no8", "NO") };
+             body.AddElement(new ControlRadio("yesno8", yesno8), 0, 8, 2, 1, false);
+             body.AddElement(new ControlLabel("qq8", "Adequate ventilation in resident rooms and common areas"), 2, 8, 10, 1, false);
+             ControlBoolean[] yesno9 = { new ControlBoolean("yes9", "YES"), new ControlBoolean("no9", "NO") };
+             body.AddElement(new ControlRadio("yesno9", yesno9), 0, 9, 2, 1, false);
+             body.AddElement(new ControlLabel("qq9", "Adequate lighting in resident rooms and common areas"), 2, 9, 10, 1, false);
+             ControlBoolean[] yesno10 = { new ControlBoolean("yes10", "YES"), new ControlBoolean("no10", "NO") };
+             body.AddElement(new ControlRadio("yesno10", yesno10), 0, 10, 2, 1, false);
+             body.AddElement(new ControlLabel("qq10", "Safe water temperature in resident rooms and sinks utilized by residents"), 2, 10, 10, 1, false);
+             ControlBoolean[] yesno11 = { new ControlBoolean("yes11", "YES"), new ControlBoolean("no11", "NO") };
+             body.AddElement(new ControlRadio("yesno11", yesno11), 0, 11, 2, 1, false);
+             body.AddElement(new ControlLabel("qq11", "Cleanliness of resident equipment maintained in good repair"), 2, 11, 10, 1, false);
+             body.AddElement(new ControlText("notes1", "NOTES", true), 0, 12, 12, 1, false);
+
+             body.AddElement(new ControlLabel("lab2", "Safety"), 0, 13, 12);
+             ControlBoolean[] yesno14 = { new ControlBoolean("yes14", "YES"), new ControlBoolean("no14", "NO") };
+             body.AddElement(new ControlRadio("yesno14", yesno14), 0, 14, 2, 1, false);
+             body.AddElement(new ControlLabel("qq14", "Prevention of resident access to storage of: \n" +
+                 "•Cleaning supplies     •Cleaning carts       •Storage closet" + "\n" + "•Toxic materials     •Medications	"), 2, 14, 10, 1, false);
+             ControlBoolean[] yesno15 = { new ControlBoolean("yes15", "YES"), new ControlBoolean("no15", "NO") };
+             body.AddElement(new ControlRadio("yesno15", yesno15), 0, 15, 2, 1, false);
+             body.AddElement(new ControlLabel("qq15", "Access to outdoors including dementia care unit" + "\n•Safe walking areas" + "\n•Walking areas protected from the elements" + "\n•Can summon staff in an emergency"), 2, 15, 10, 1, false);
+             ControlBoolean[] yesno16 = { new ControlBoolean("yes16", "YES"), new ControlBoolean("no16", "NO") };
+             body.AddElement(new ControlRadio("yesno16", yesno16), 0, 16, 2, 1, false);
+             body.AddElement(new ControlLabel("qq16", "System to inform and permit exit without sounding alarm"), 2, 16, 10, 1, false);
+             ControlBoolean[] yesno17 = { new ControlBoolean("yes17", "YES"), new ControlBoolean("no17", "NO") };
+             body.AddElement(new ControlRadio("yesno17", yesno17), 0, 17, 2, 1, false);
+             body.AddElement(new ControlLabel("qq17", "Secure outdoor space\n" + "•	Accessible to residents without staff\n•	Surrounded by walls or fences at least 72” high\n•	Firm, stable walking surfaces and outdoor furniture"), 2, 17, 10, 1, false);
+             ControlBoolean[] yesno18 = { new ControlBoolean("yes18", "YES"), new ControlBoolean("no18", "NO") };
+             body.AddElement(new ControlRadio("yesno18", yesno18), 0, 18, 2, 1, false);
+             body.AddElement(new ControlLabel("qq18", "Emergency / disaster preparedness\n " + "•Emergency lighting      •First Aid supplies\n•Disaster plan	    •Staff responsibilities"), 2, 18, 10, 1, false);
+             body.AddElement(new ControlText("notes2", "NOTES", true), 0, 19, 12, 1, false);
+
+
+             body.AddElement(new ControlLabel("lab3", "Common Bathrooms"), 0, 20, 12);
+             ControlBoolean[] yesno21 = { new ControlBoolean("yes21", "YES"), new ControlBoolean("no21", "NO") };
+             body.AddElement(new ControlRadio("yesno21", yesno21), 0, 21, 2, 1, false);
+             body.AddElement(new ControlLabel("cq", "Common bathrooms are:"), 2, 21, 10, 1, false);
+             body.AddElement(new ControlLabel("clab", "•	Safe / clean / adequate lighting / grab bars(if applicable for resident needs)\n•	Accessible for all resident / privacy available"), 2, 22, 10, 1, false);
+             LayoutGrid bathroom = new LayoutGrid("bathroom");
+
+             bathroom.AddElement(new ControlInteger("temp1", "•Water temperature: °F"), 2, 0, 2, 1, false);
+             bathroom.AddElement(new ControlDate("tDate1", "date"), 4, 0, 2, 1, false);
+             bathroom.AddElement(new ControlText("tTime1", "time"), 6, 0, 2, 1, false);
+             bathroom.AddElement(new ControlText("tPlace1", "place"), 8, 0, 4, 1, false);
+            FormElement[] array = { bathroom };
+             LayoutRepeatGrid bathrooms = new LayoutRepeatGrid("bathrooms", array, "Add new Bathroom");
+             body.AddElement(bathrooms, 0, 23, 12, 1, false);
+             body.AddElement(new ControlText("notes3", "NOTES", true), 0, 24, 12, 1, false);
+
+             body.AddElement(new ControlLabel("lab4", "Physical Environment - Outdoors"), 0, 25, 12);
+             ControlBoolean[] yesno26 = { new ControlBoolean("yes26", "YES"), new ControlBoolean("no26", "NO") };
+             body.AddElement(new ControlRadio("yesno26", yesno26), 0, 26, 2, 1, false);
+             body.AddElement(new ControlLabel("pq26", "Stairs / steps / ramps in good repair"), 2, 26, 10, 1, false);
+             ControlBoolean[] yesno27 = { new ControlBoolean("yes27", "YES"), new ControlBoolean("no27", "NO") };
+             body.AddElement(new ControlRadio("yesno27", yesno27), 0, 27, 2, 1, false);
+             body.AddElement(new ControlLabel("pq27", "Hand rails"), 2, 27, 10, 1, false);
+             ControlBoolean[] yesno28 = { new ControlBoolean("yes28", "YES"), new ControlBoolean("no28", "NO") };
+             body.AddElement(new ControlRadio("yesno28", yesno28), 0, 28, 2, 1, false);
+             body.AddElement(new ControlLabel("pq28", "Garbage / refuse"), 2, 28, 10, 1, false);
+             ControlBoolean[] yesno29 = { new ControlBoolean("yes29", "YES"), new ControlBoolean("no29", "NO") };
+             body.AddElement(new ControlRadio("yesno29", yesno29), 0, 29, 2, 1, false);
+             body.AddElement(new ControlLabel("pq29", "Presence of pests"), 2, 29, 10, 1, false);
+             ControlBoolean[] yesno30 = { new ControlBoolean("yes30", "YES"), new ControlBoolean("no30", "NO") };
+             body.AddElement(new ControlRadio("yesno30", yesno30), 0, 30, 2, 1, false);
+             body.AddElement(new ControlLabel("pq30", "General maintenance of sidewalks / walkways"), 2, 30, 10, 1, false);
+
+            body.AddElement(new ControlLabel("lastLabel", "Use Attachment I – Environmental Observations and Attachment P- Food Service Observations for all full\ninspections.  \n\nContinue with Attachment O for further observations if the facility has a contract for AL, EARC, or EARC – \nSpecialty Dementia Care."), 0, 31, 12);
+
+             body.AddElement(new ControlText("notes4", "NOTES", true), 0, 32, 12, 1, false);
+
+             form.AddElement(body);
 
             string fileName = Path.Combine(UserPrefs.GetFormDirectory(), form.name + UserPrefs.FORM_EXTENSION);
             XmlSerializer ser = new XmlSerializer(typeof(Form));
             using (TextWriter writer = new StreamWriter(fileName))
-             {
-                 ser.Serialize(writer, form);
-             }
-<<<<<<< HEAD
-            
-
-            this.scrollView.Content = form.UIelement;*/
-
-=======
-            */
-
-            
-            string fileName = Path.Combine(UserPrefs.GetFormDirectory(), "testForm" + UserPrefs.FORM_EXTENSION);
-            XmlSerializer ser = new XmlSerializer(typeof(Form));
-            using (TextReader reader = new StreamReader(fileName))
             {
-                form = (Form)ser.Deserialize(reader);
+                ser.Serialize(writer, form);
             }
-            this.scrollView.Content = form.UIelement;
-            
->>>>>>> ab891a8ff02390da5ae223b72e16ef6eab7d4523
-
-
-
-            //this.scrollView.Content = form.UIelement;
-
-            /*  Form form;
-              string fileName = Path.Combine(UserPrefs.GetFormDirectory(), "testForm" + UserPrefs.FORM_EXTENSION);
-              XmlSerializer ser = new XmlSerializer(typeof(Form));
-              //using (TextWriter writer = new StreamWriter(fileName))
-              {
-              //    ser.Serialize(writer, form);
-              }
-              using (TextReader reader = new StreamReader(fileName))
-              {
-                  form = (Form)ser.Deserialize(reader);
-              }
-
-              this.scrollView.Content = form.UIelement;*/
+            scrollView.Content = form.UIelement;
 
 
 
@@ -101,12 +159,11 @@ namespace WpfApp1
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            string fileName = Path.Combine(UserPrefs.GetFormDirectory(), form.name + UserPrefs.FORM_EXTENSION);
+           /* string fileName = Path.Combine(UserPrefs.GetFormDirectory(), form.name + UserPrefs.FORM_EXTENSION);
             XmlSerializer ser = new XmlSerializer(typeof(Form));
             using (TextWriter writer = new StreamWriter(fileName))
-            {
                 ser.Serialize(writer, form);
-            }
+            }*/
         }
     }
 }
@@ -136,38 +193,44 @@ form.AddElement(grid);
 
 /*FormA
 Form form = new Form("FormA");
-LayoutStackPanel layoutStackPanel = new LayoutStackPanel("inspectionType");
-layoutStackPanel.AddElement(new ControlLabel("lab1", "Inspection Type"));
-layoutStackPanel.AddElement(new ControlBoolean("full", "Full"));
-form.AddElement(layoutStackPanel);
-form.AddElement(new ElementSpacer("spacer1"));
-LayoutGrid body = new LayoutGrid("body");
-body.AddElement(new ControlText("caseManager", "CASE MANAGER DDD / HCS"),0,0,8);
-body.AddElement(new ControlDate("contact1", "Contact Date"), 8, 0, 4);
-body.AddElement(new ControlText("comm1", "COMMENTS / CONCERNS",true),0,1,12);
-body.AddElement(new ElementSpacer("space2"),0,2,12);
-body.AddElement(new ControlText("ombuds", "OMBUDS"), 0, 3, 12);
-body.AddElement(new ControlText("com2", "COMMENTS / CONCERNS", true), 0, 4, 12);
-body.AddElement(new ElementSpacer("space3"), 0, 5, 12);
-body.AddElement(new ControlText("other", "OTHER OUTSIDE AGENCY"), 0, 6, 8);
-body.AddElement(new ControlDate("contact2", "CONTACT DATE"), 8, 6, 4);
-body.AddElement(new ControlText("com3", "COMMENTS / CONCERNS", true),0,8,12);
-body.AddElement(new ElementSpacer("space4"), 0, 9, 12);
-LayoutStackPanel contracts = new LayoutStackPanel("contracts");
-contracts.AddElement(new ControlLabel("con", "Contracts: "));
-contracts.AddElement(new ControlBoolean("al", "AL"));
-contracts.AddElement(new ControlBoolean("earc", "EARC"));
-contracts.AddElement(new ControlBoolean("arc", "ARC"));
-contracts.AddElement(new ControlBoolean("dementia", "Dementia"));
-contracts.AddElement(new ControlBoolean("ddd", "DDD"));
-contracts.AddElement(new ControlBoolean("adc", "Adult Day Care"));
-contracts.AddElement(new ControlBoolean("none", "None"));
-body.AddElement(contracts, 0, 10, 12);
-body.AddElement(new ControlText("exempt", "CURRENT EXEMPTIONS", true), 0, 12, 12);
-body.AddElement(new ElementSpacer("space5"), 0, 13, 12);
-body.AddElement(new ControlText("notes", "Notes:  Pre-Inspection Preparation", true), 0,14,12);
+            LayoutStackPanel layoutStackPanel = new LayoutStackPanel("inspectionType");
+            layoutStackPanel.AddElement(new ControlLabel("lab1", "Inspection Type"));
+            layoutStackPanel.AddElement(new ControlBoolean("full", "Full"));
+            form.AddElement(layoutStackPanel);
+            form.AddElement(new ElementSpacer("spacer1"));
+            LayoutGrid labelgrid = new LayoutGrid("labelholder");
+            labelgrid.AddElement(new ControlLabel("label", "Review licensing file for:\n•	Current state contract – if applicable\n•	Past and current complaint investigations\n•	Past SOD’s and uncorrected deficiencies(list on back of form)\n•	Past three consecutive years compliance with all inspections and investigations\n•	Resident and staff list from last licensing inspection\nCurrent exemptions"), 0, 0, 8, 1, false);
+            labelgrid.AddElement(new ControlLabel("label2", "Confer regarding concerns about facility with:\n•	Complaint Nurse, licensor\n•	Case Managers: HCS, DDD"), 8, 0, 4, 1, false);
+            form.AddElement(labelgrid);
+            form.AddElement(new ElementSpacer("spacera"));
 
-form.AddElement(body);*/
+            LayoutGrid body = new LayoutGrid("body");
+            body.AddElement(new ControlText("caseManager", "CASE MANAGER DDD / HCS"), 0, 0, 8);
+            body.AddElement(new ControlDate("contact1", "Contact Date"), 8, 0, 4);
+            body.AddElement(new ControlText("comm1", "COMMENTS / CONCERNS", true), 0, 1, 12);
+            body.AddElement(new ElementSpacer("space2"), 0, 2, 12);
+            body.AddElement(new ControlText("ombuds", "OMBUDS"), 0, 3, 12);
+            body.AddElement(new ControlText("com2", "COMMENTS / CONCERNS", true), 0, 4, 12);
+            body.AddElement(new ElementSpacer("space3"), 0, 5, 12);
+            body.AddElement(new ControlText("other", "OTHER OUTSIDE AGENCY"), 0, 6, 8);
+            body.AddElement(new ControlDate("contact2", "CONTACT DATE"), 8, 6, 4);
+            body.AddElement(new ControlText("com3", "COMMENTS / CONCERNS", true), 0, 8, 12);
+            body.AddElement(new ElementSpacer("space4"), 0, 9, 12);
+            LayoutStackPanel contracts = new LayoutStackPanel("contracts");
+            contracts.AddElement(new ControlLabel("con", "Contracts: "));
+            contracts.AddElement(new ControlBoolean("al", "AL"));
+            contracts.AddElement(new ControlBoolean("earc", "EARC"));
+            contracts.AddElement(new ControlBoolean("arc", "ARC"));
+            contracts.AddElement(new ControlBoolean("dementia", "Dementia"));
+            contracts.AddElement(new ControlBoolean("ddd", "DDD"));
+            contracts.AddElement(new ControlBoolean("adc", "Adult Day Care"));
+            contracts.AddElement(new ControlBoolean("none", "None"));
+            body.AddElement(contracts, 0, 10, 12);
+            body.AddElement(new ControlText("exempt", "CURRENT EXEMPTIONS", true), 0, 12, 12);
+            body.AddElement(new ElementSpacer("space5"), 0, 13, 12);
+            body.AddElement(new ControlText("notes", "Notes:  Pre-Inspection Preparation", true), 0, 14, 12);
+
+            form.AddElement(body);*/
 
 /*from b
 Form form = new Form("FormB");
@@ -328,6 +391,7 @@ Form form = new Form("FormG");
                                  new ControlBoolean("state", "State")};
             head.AddElement(new ControlRadio("paystat", paystat), 8, 1, 4, 1, false);
             head.AddElement(new ControlText("agreement", "Brief Review of Negotiated Service Agreement:", true), 0, 2, 12);
+            head.AddElement(new ControlLabel("labela", "The questions in Section B – K below are intended as a guide and should not prevent the interviewer from asking\n more questions or obtaining more data if concerns are identified.  If you are concerned about the answers, \nplease investigate further.\n\nIntroductory questions: The interviewer may want to consider one of the following questions as a lead to the interview."), 0, 3, 12, 1, false);
 
             form.AddElement(head);
 
@@ -335,18 +399,18 @@ Form form = new Form("FormG");
             ControlBoolean[] interview = {new ControlBoolean("resInterview", "Resident Interview"),
                                  new ControlBoolean("repInterview", "Representative Interview")};
             body.AddElement(new ControlRadio("interview", interview), 0, 0, 4, 1, false);
-            
+
 
             body.AddElement(new ControlLabel("lab1", "A.	The following are REQUIRED questions and MUST be asked during the interview.\nCheck “Y,” if the answer is yes; check “N,” if the answer is no and document the interviewee’s response; or \ncheck “D” if the interviewee declined to answer the question."), 0, 1, 12);
 
-            
+
 
 
             body.AddElement(new ControlLabel("question1", "Can you make choices about the care and \nservices you receive here at the facility?"), 0, 2, 4, 1, false);
             ControlBoolean[] radioOptions = {new ControlBoolean("yes", "Y"),
                                  new ControlBoolean("no", "N"),
                                  new ControlBoolean("d", "D") };
-            body.AddElement(new ControlRadio("rad1", radioOptions), 4, 2, 3, 1, false);      
+            body.AddElement(new ControlRadio("rad1", radioOptions), 4, 2, 3, 1, false);
             body.AddElement(new ControlText("notes1", "Notes", true), 6, 2, 5);
             body.AddElement(new ControlLabel("question2", "If you have a roommate, were you informed \nyou would have a roommate? \nCould you change roommates if you wanted to?"), 0, 3, 4, 1, false);
             ControlBoolean[] radioOptions1 = {new ControlBoolean("yes1", "Y"),
@@ -460,7 +524,9 @@ Form form = new Form("FormG");
             body.AddElement(new ControlBoolean("noC10", "No Concerns"), 6, 48, 6, 1, false);
             body.AddElement(new ControlBoolean("K3", "When and how were you told about this?	"), 0, 49, 6, 1, false);
 
-            body.AddElement(new ControlText("footnotes", "Notes", true), 0, 50, 12);
+            body.AddElement(new ControlLabel("lastLabel", "Leave a contact number for the resident to be able to contact you / RCS staff in the future."), 0, 50, 12);
+
+            body.AddElement(new ControlText("footnotes", "Notes", true), 0, 51, 12);
 
 
             form.AddElement(body);
@@ -607,145 +673,146 @@ Form form = new Form("FormI");
             form.AddElement(body);*/
 
 /*Form form = new Form("FormJ");
-LayoutStackPanel layoutStackPanel = new LayoutStackPanel("inspectionType");
-layoutStackPanel.AddElement(new ControlLabel("lab1", "Inspection Type"));
-layoutStackPanel.AddElement(new ControlBoolean("initial", "Initial"));
-layoutStackPanel.AddElement(new ControlBoolean("full", "Full"));
-layoutStackPanel.AddElement(new ControlBoolean("followup", "Follow up"));
-layoutStackPanel.AddElement(new ControlBoolean("monitering", "Monitoring"));
-layoutStackPanel.AddElement(new ControlBoolean("complaint", "Complaint"));
-layoutStackPanel.AddElement(new ControlInteger("number", "Number"));
-form.AddElement(layoutStackPanel);
+            LayoutStackPanel layoutStackPanel = new LayoutStackPanel("inspectionType");
+            layoutStackPanel.AddElement(new ControlLabel("lab1", "Inspection Type"));
+            layoutStackPanel.AddElement(new ControlBoolean("initial", "Initial"));
+            layoutStackPanel.AddElement(new ControlBoolean("full", "Full"));
+            layoutStackPanel.AddElement(new ControlBoolean("followup", "Follow up"));
+            layoutStackPanel.AddElement(new ControlBoolean("monitering", "Monitoring"));
+            layoutStackPanel.AddElement(new ControlBoolean("complaint", "Complaint"));
+            layoutStackPanel.AddElement(new ControlInteger("number", "Number"));
+            form.AddElement(layoutStackPanel);
+            form.AddElement(new ElementSpacer("spacer1"));
 
-LayoutGrid body = new LayoutGrid("Body");
-body.AddElement(new ControlText("name", "NAME"), 0, 0, 3);
-body.AddElement(new ControlInteger("id", "ID NO."),3,0,1);
-body.AddElement(new ControlDate("DOB", "DATE OF BIRTH"), 4, 0, 2);
-body.AddElement(new ControlInteger("roomNum", "ROOM NO."), 6, 0, 1);
-body.AddElement(new ControlDate("moveIn", "MOVE-IN-DATE"), 7, 0, 2);
-body.AddElement(new ControlText("pay", "PAY STATUS"), 9, 0, 2);
-body.AddElement(new ControlText("family", "FAMILY/MEMBER/RESIDENT’S REPRESENTATIVE/PHONE"), 0, 1, 6);
-body.AddElement(new ControlText("history", "PERTINENT MEDICAL HISTORY/DIAGNOSES"), 6, 1, 6);
+            LayoutGrid body = new LayoutGrid("Body");
+            body.AddElement(new ControlText("name", "NAME"), 0, 0, 3);
+            body.AddElement(new ControlInteger("id", "ID NO."), 3, 0, 1);
+            body.AddElement(new ControlDate("DOB", "DATE OF BIRTH"), 4, 0, 2);
+            body.AddElement(new ControlInteger("roomNum", "ROOM NO."), 6, 0, 1);
+            body.AddElement(new ControlDate("moveIn", "MOVE-IN-DATE"), 7, 0, 2);
+            body.AddElement(new ControlText("pay", "PAY STATUS"), 9, 0, 2);
+            body.AddElement(new ControlText("family", "FAMILY/MEMBER/RESIDENT’S REPRESENTATIVE/PHONE"), 0, 1, 6);
+            body.AddElement(new ControlText("history", "PERTINENT MEDICAL HISTORY/DIAGNOSES"), 6, 1, 6);
 
-body.AddElement(new ControlLabel("assessment", "Assessment"), 3, 2, 9);
-body.AddElement(new ControlLabel("yesLab1", "Yes"), 0, 2, 1);
-body.AddElement(new ControlLabel("noLab", "No"), 1, 2, 1);
-body.AddElement(new ControlLabel("naLab", "N/A"), 2, 2, 1);
+            body.AddElement(new ControlLabel("assessment", "Assessment"), 3, 2, 9);
+            body.AddElement(new ControlLabel("yesLab1", "Yes"), 0, 2, 1);
+            body.AddElement(new ControlLabel("noLab", "No"), 1, 2, 1);
+            body.AddElement(new ControlLabel("naLab", "N/A"), 2, 2, 1);
 
-body.AddElement(new ControlBoolean("ay1", ""), 0, 3, 1, 1, false);
-body.AddElement(new ControlBoolean("an1", ""), 1, 3, 1, 1, false);
-body.AddElement(new ControlBoolean("ana1", ""), 2, 3, 1, 1, false);
-body.AddElement(new ControlLabel("aq1", "Pre-admission (for residents admitted in last six months)."), 3, 3, 9, 1, false);
-body.AddElement(new ControlBoolean("ay2", ""), 0, 4, 1, 1, false);
-body.AddElement(new ControlBoolean("an2", ""), 1, 4, 1, 1, false);
-body.AddElement(new ControlBoolean("ana2", ""), 2, 4, 1, 1, false);
-body.AddElement(new ControlLabel("aq2", "Annual to meet resident’s needs or semi-annual for EARC – Specialized Dementia Care contract."), 3, 4, 9, 1, false);
-body.AddElement(new ControlBoolean("ay3", ""), 0, 5, 1, 1, false);
-body.AddElement(new ControlBoolean("an3", ""), 1, 5, 1, 1, false);
-body.AddElement(new ControlBoolean("ana3", ""), 2, 5, 1, 1, false);
-body.AddElement(new ControlLabel("aq3", "Limited for change of condition as needed."), 3, 5, 9, 1, false);
-body.AddElement(new ControlText("notes1", "NOTES", true), 0, 6, 12, 1, false);
+            body.AddElement(new ControlBoolean("ay1", ""), 0, 3, 1, 1, false);
+            body.AddElement(new ControlBoolean("an1", ""), 1, 3, 1, 1, false);
+            body.AddElement(new ControlBoolean("ana1", ""), 2, 3, 1, 1, false);
+            body.AddElement(new ControlLabel("aq1", "Pre-admission (for residents admitted in last six months)."), 3, 3, 9, 1, false);
+            body.AddElement(new ControlBoolean("ay2", ""), 0, 4, 1, 1, false);
+            body.AddElement(new ControlBoolean("an2", ""), 1, 4, 1, 1, false);
+            body.AddElement(new ControlBoolean("ana2", ""), 2, 4, 1, 1, false);
+            body.AddElement(new ControlLabel("aq2", "Annual to meet resident’s needs or semi-annual for EARC – Specialized Dementia Care contract."), 3, 4, 9, 1, false);
+            body.AddElement(new ControlBoolean("ay3", ""), 0, 5, 1, 1, false);
+            body.AddElement(new ControlBoolean("an3", ""), 1, 5, 1, 1, false);
+            body.AddElement(new ControlBoolean("ana3", ""), 2, 5, 1, 1, false);
+            body.AddElement(new ControlLabel("aq3", "Limited for change of condition as needed."), 3, 5, 9, 1, false);
+            body.AddElement(new ControlText("notes1", "NOTES", true), 0, 6, 12, 1, false);
 
-body.AddElement(new ControlLabel("monitering", "Monitoring Resident’s Well-Being"), 3, 7, 9);
-body.AddElement(new ControlLabel("yesLab2", "Yes"), 0, 7, 1);
-body.AddElement(new ControlLabel("noLab2", "No"), 1, 7, 1);
-body.AddElement(new ControlLabel("naLab2", "N/A"), 2, 7, 1);
+            body.AddElement(new ControlLabel("monitering", "Monitoring Resident’s Well-Being"), 3, 7, 9);
+            body.AddElement(new ControlLabel("yesLab2", "Yes"), 0, 7, 1);
+            body.AddElement(new ControlLabel("noLab2", "No"), 1, 7, 1);
+            body.AddElement(new ControlLabel("naLab2", "N/A"), 2, 7, 1);
 
-body.AddElement(new ControlBoolean("my1", ""), 0, 8, 1, 1, false);
-body.AddElement(new ControlBoolean("mn1", ""), 1, 8, 1, 1, false);
-body.AddElement(new ControlBoolean("mna1", ""), 2, 8, 1, 1, false);
-body.AddElement(new ControlLabel("mq1", "Documented."), 3, 8, 9, 1, false);
-body.AddElement(new ControlBoolean("my2", ""), 0, 9, 1, 1, false);
-body.AddElement(new ControlBoolean("mn2", ""), 1,9, 1, 1, false);
-body.AddElement(new ControlBoolean("mna2", ""), 2, 9, 1, 1, false);
-body.AddElement(new ControlLabel("mq2", "Action taken as needed."), 3, 9, 9, 1, false);
-body.AddElement(new ControlText("notes2", "NOTES", true), 0, 10, 12, 1, false);
+            body.AddElement(new ControlBoolean("my1", ""), 0, 8, 1, 1, false);
+            body.AddElement(new ControlBoolean("mn1", ""), 1, 8, 1, 1, false);
+            body.AddElement(new ControlBoolean("mna1", ""), 2, 8, 1, 1, false);
+            body.AddElement(new ControlLabel("mq1", "Documented."), 3, 8, 9, 1, false);
+            body.AddElement(new ControlBoolean("my2", ""), 0, 9, 1, 1, false);
+            body.AddElement(new ControlBoolean("mn2", ""), 1, 9, 1, 1, false);
+            body.AddElement(new ControlBoolean("mna2", ""), 2, 9, 1, 1, false);
+            body.AddElement(new ControlLabel("mq2", "Action taken as needed."), 3, 9, 9, 1, false);
+            body.AddElement(new ControlText("notes2", "NOTES", true), 0, 10, 12, 1, false);
 
-body.AddElement(new ControlLabel("negotiated", "Negotiated Service Agreement (NSA)"), 3, 11, 9);
-body.AddElement(new ControlLabel("yesLab3", "Yes"), 0, 11, 1);
-body.AddElement(new ControlLabel("noLab3", "No"), 1, 11, 1);
-body.AddElement(new ControlLabel("naLab3", "N/A"), 2, 11, 1);
+            body.AddElement(new ControlLabel("negotiated", "Negotiated Service Agreement (NSA)"), 3, 11, 9);
+            body.AddElement(new ControlLabel("yesLab3", "Yes"), 0, 11, 1);
+            body.AddElement(new ControlLabel("noLab3", "No"), 1, 11, 1);
+            body.AddElement(new ControlLabel("naLab3", "N/A"), 2, 11, 1);
 
-body.AddElement(new ControlBoolean("ny1", ""), 0, 12, 1, 1, false);
-body.AddElement(new ControlBoolean("nn1", ""), 1, 12, 1, 1, false);
-body.AddElement(new ControlBoolean("nna1", ""), 2, 12, 1, 1, false);
-body.AddElement(new ControlLabel("nq1", "Initial on admission and completed within 30 days (for residents admitted in last six months)."), 3, 12, 9, 1, false);
-body.AddElement(new ControlBoolean("ny2", ""), 0, 13, 1, 1, false);
-body.AddElement(new ControlBoolean("nn2", ""), 1, 13, 1, 1, false);
-body.AddElement(new ControlBoolean("nna2", ""), 2, 13, 1, 1, false);
-body.AddElement(new ControlLabel("nq2", "Updated as necessary"), 3, 13, 9, 1, false);
-body.AddElement(new ControlBoolean("ny3", ""), 0, 14, 1, 1, false);
-body.AddElement(new ControlBoolean("nn3", ""), 1, 14, 1, 1, false);
-body.AddElement(new ControlBoolean("nna3", ""), 2, 14, 1, 1, false);
-body.AddElement(new ControlLabel("nq3", "Contents meet resident’s needs and preferences.\n•	Defined roles and responsibilities of resident, staff, resident’s representative, outside agency if \n\tused, and alternate plan when necessary.\n•	Times services will be delivered including frequency and approximate time of day.\n•	Resident’s preferences for activities and how supported.\n•	Identifies and incorporates Resident Arranged Services (if applicable).\n•	Identifies and incorporates External Health Providers (if applicable)"), 3, 14, 9, 1, false);
-body.AddElement(new ControlText("notes3", "NOTES", true), 0, 15, 12, 1, false);
+            body.AddElement(new ControlBoolean("ny1", ""), 0, 12, 1, 1, false);
+            body.AddElement(new ControlBoolean("nn1", ""), 1, 12, 1, 1, false);
+            body.AddElement(new ControlBoolean("nna1", ""), 2, 12, 1, 1, false);
+            body.AddElement(new ControlLabel("nq1", "Initial on admission and completed within 30 days (for residents admitted in last six months)."), 3, 12, 9, 1, false);
+            body.AddElement(new ControlBoolean("ny2", ""), 0, 13, 1, 1, false);
+            body.AddElement(new ControlBoolean("nn2", ""), 1, 13, 1, 1, false);
+            body.AddElement(new ControlBoolean("nna2", ""), 2, 13, 1, 1, false);
+            body.AddElement(new ControlLabel("nq2", "Updated as necessary"), 3, 13, 9, 1, false);
+            body.AddElement(new ControlBoolean("ny3", ""), 0, 14, 1, 1, false);
+            body.AddElement(new ControlBoolean("nn3", ""), 1, 14, 1, 1, false);
+            body.AddElement(new ControlBoolean("nna3", ""), 2, 14, 1, 1, false);
+            body.AddElement(new ControlLabel("nq3", "Contents meet resident’s needs and preferences.\n•	Defined roles and responsibilities of resident, staff, resident’s representative, outside agency if \n\tused, and alternate plan when necessary.\n•	Times services will be delivered including frequency and approximate time of day.\n•	Resident’s preferences for activities and how supported.\n•	Identifies and incorporates Resident Arranged Services (if applicable).\n•	Identifies and incorporates External Health Providers (if applicable)"), 3, 14, 9, 1, false);
+            body.AddElement(new ControlText("notes3", "NOTES", true), 0, 15, 12, 1, false);
 
-LayoutStackPanel panel = new LayoutStackPanel("medservs");
-panel.AddElement(new ControlLabel("medServ", "Medication Services:  "));
-panel.AddElement(new ControlBoolean("ind", "Independent"));
-panel.AddElement(new ControlBoolean("assist", "Assistance"));
-panel.AddElement(new ControlBoolean("admin", "Administration"));
+            LayoutStackPanel panel = new LayoutStackPanel("medservs");
+            panel.AddElement(new ControlLabel("medServ", "Medication Services:  "));
+            panel.AddElement(new ControlBoolean("ind", "Independent"));
+            panel.AddElement(new ControlBoolean("assist", "Assistance"));
+            panel.AddElement(new ControlBoolean("admin", "Administration"));
 
-body.AddElement(panel, 3, 16, 9);
-body.AddElement(new ControlLabel("yesLab4", "Yes"), 0, 16, 1);
-body.AddElement(new ControlLabel("noLab4", "No"), 1, 16, 1);
-body.AddElement(new ControlLabel("naLab4", "N/A"), 2, 16, 1);
+            body.AddElement(panel, 3, 16, 9);
+            body.AddElement(new ControlLabel("yesLab4", "Yes"), 0, 16, 1);
+            body.AddElement(new ControlLabel("noLab4", "No"), 1, 16, 1);
+            body.AddElement(new ControlLabel("naLab4", "N/A"), 2, 16, 1);
 
-body.AddElement(new ControlBoolean("msy1", ""), 0, 17, 1, 1, false);
-body.AddElement(new ControlBoolean("msn1", ""), 1, 17, 1, 1, false);
-body.AddElement(new ControlBoolean("msa1", ""), 2, 17, 1, 1, false);
-body.AddElement(new ControlLabel("msq1", "Family / plan."), 3, 17, 9, 1, false);
-body.AddElement(new ControlBoolean("msy2", ""), 0, 18, 1, 1, false);
-body.AddElement(new ControlBoolean("msn2", ""), 1, 18, 1, 1, false);
-body.AddElement(new ControlBoolean("msa2", ""), 2, 18, 1, 1, false);
-body.AddElement(new ControlLabel("msq2", "Facility"), 3, 18, 9, 1, false);
-body.AddElement(new ControlBoolean("msy3", ""), 0, 19, 1, 1, false);
-body.AddElement(new ControlBoolean("msn3", ""), 1, 19, 1, 1, false);
-body.AddElement(new ControlBoolean("msa3", ""), 2, 19, 1, 1, false);
-body.AddElement(new ControlLabel("msq3", "Appropriate for resident abilities and needs"), 3, 19, 9, 1, false);
-body.AddElement(new ControlBoolean("msy4", ""), 0, 20, 1, 1, false);
-body.AddElement(new ControlBoolean("msn4", ""), 1, 20, 1, 1, false);
-body.AddElement(new ControlBoolean("msa4", ""), 2, 20, 1, 1, false);
-body.AddElement(new ControlLabel("msq4", "Review of medication record."), 3, 20, 9, 1, false);
-body.AddElement(new ControlBoolean("msy5", ""), 0, 21, 1, 1, false);
-body.AddElement(new ControlBoolean("msn5", ""), 1, 21, 1, 1, false);
-body.AddElement(new ControlBoolean("msa5", ""), 2, 21, 1, 1, false);
-body.AddElement(new ControlLabel("msq5", "Documentation of refusal (if applicable)"), 3, 21, 9, 1, false);
-body.AddElement(new ControlText("notes4", "NOTES", true), 0, 22, 12, 1, false);
+            body.AddElement(new ControlBoolean("msy1", ""), 0, 17, 1, 1, false);
+            body.AddElement(new ControlBoolean("msn1", ""), 1, 17, 1, 1, false);
+            body.AddElement(new ControlBoolean("msa1", ""), 2, 17, 1, 1, false);
+            body.AddElement(new ControlLabel("msq1", "Family / plan."), 3, 17, 9, 1, false);
+            body.AddElement(new ControlBoolean("msy2", ""), 0, 18, 1, 1, false);
+            body.AddElement(new ControlBoolean("msn2", ""), 1, 18, 1, 1, false);
+            body.AddElement(new ControlBoolean("msa2", ""), 2, 18, 1, 1, false);
+            body.AddElement(new ControlLabel("msq2", "Facility"), 3, 18, 9, 1, false);
+            body.AddElement(new ControlBoolean("msy3", ""), 0, 19, 1, 1, false);
+            body.AddElement(new ControlBoolean("msn3", ""), 1, 19, 1, 1, false);
+            body.AddElement(new ControlBoolean("msa3", ""), 2, 19, 1, 1, false);
+            body.AddElement(new ControlLabel("msq3", "Appropriate for resident abilities and needs"), 3, 19, 9, 1, false);
+            body.AddElement(new ControlBoolean("msy4", ""), 0, 20, 1, 1, false);
+            body.AddElement(new ControlBoolean("msn4", ""), 1, 20, 1, 1, false);
+            body.AddElement(new ControlBoolean("msa4", ""), 2, 20, 1, 1, false);
+            body.AddElement(new ControlLabel("msq4", "Review of medication record."), 3, 20, 9, 1, false);
+            body.AddElement(new ControlBoolean("msy5", ""), 0, 21, 1, 1, false);
+            body.AddElement(new ControlBoolean("msn5", ""), 1, 21, 1, 1, false);
+            body.AddElement(new ControlBoolean("msa5", ""), 2, 21, 1, 1, false);
+            body.AddElement(new ControlLabel("msq5", "Documentation of refusal (if applicable)"), 3, 21, 9, 1, false);
+            body.AddElement(new ControlText("notes4", "NOTES", true), 0, 22, 12, 1, false);
 
-body.AddElement(new ControlLabel("intermitted", "Intermittent Nursing Services Provided"), 3, 23, 9);
-body.AddElement(new ControlLabel("yesLab5", "Yes"), 0, 23, 1);
-body.AddElement(new ControlLabel("noLab5", "No"), 1, 23, 1);
-body.AddElement(new ControlLabel("naLab5", "N/A"), 2, 23, 1);
+            body.AddElement(new ControlLabel("intermitted", "Intermittent Nursing Services Provided"), 3, 23, 9);
+            body.AddElement(new ControlLabel("yesLab5", "Yes"), 0, 23, 1);
+            body.AddElement(new ControlLabel("noLab5", "No"), 1, 23, 1);
+            body.AddElement(new ControlLabel("naLab5", "N/A"), 2, 23, 1);
 
-body.AddElement(new ControlBoolean("iy1", ""), 0, 24, 1, 1, false);
-body.AddElement(new ControlBoolean("in1", ""), 1, 24, 1, 1, false);
-body.AddElement(new ControlBoolean("ia1", ""), 2, 24, 1, 1, false);
-body.AddElement(new ControlLabel("iq1", "Nursing Service System developed."), 3, 24, 9, 1, false);
-body.AddElement(new ControlBoolean("iy2", ""), 0, 25, 1, 1, false);
-body.AddElement(new ControlBoolean("in2", ""), 1, 25, 1, 1, false);
-body.AddElement(new ControlBoolean("ia2", ""), 2, 25, 1, 1, false);
-body.AddElement(new ControlLabel("iq2", "Services identified and appropriate."), 3, 25, 9, 1, false);
-body.AddElement(new ControlText("notes5", "NOTES", true), 0, 26, 12, 1, false);
+            body.AddElement(new ControlBoolean("iy1", ""), 0, 24, 1, 1, false);
+            body.AddElement(new ControlBoolean("in1", ""), 1, 24, 1, 1, false);
+            body.AddElement(new ControlBoolean("ia1", ""), 2, 24, 1, 1, false);
+            body.AddElement(new ControlLabel("iq1", "Nursing Service System developed."), 3, 24, 9, 1, false);
+            body.AddElement(new ControlBoolean("iy2", ""), 0, 25, 1, 1, false);
+            body.AddElement(new ControlBoolean("in2", ""), 1, 25, 1, 1, false);
+            body.AddElement(new ControlBoolean("ia2", ""), 2, 25, 1, 1, false);
+            body.AddElement(new ControlLabel("iq2", "Services identified and appropriate."), 3, 25, 9, 1, false);
+            body.AddElement(new ControlText("notes5", "NOTES", true), 0, 26, 12, 1, false);
 
-body.AddElement(new ControlLabel("mod", "Modified / Therapeutic Diet"), 3, 27, 9);
-body.AddElement(new ControlLabel("yesLab6", "Yes"), 0, 27, 1);
-body.AddElement(new ControlLabel("noLab6", "No"), 1, 27, 1);
-body.AddElement(new ControlLabel("naLab6", "N/A"), 2, 27, 1);
+            body.AddElement(new ControlLabel("mod", "Modified / Therapeutic Diet"), 3, 27, 9);
+            body.AddElement(new ControlLabel("yesLab6", "Yes"), 0, 27, 1);
+            body.AddElement(new ControlLabel("noLab6", "No"), 1, 27, 1);
+            body.AddElement(new ControlLabel("naLab6", "N/A"), 2, 27, 1);
 
-body.AddElement(new ControlBoolean("mty1", ""), 0, 28, 1, 1, false);
-body.AddElement(new ControlBoolean("mtn1", ""), 1, 28, 1, 1, false);
-body.AddElement(new ControlBoolean("mta1", ""), 2, 28, 1, 1, false);
-body.AddElement(new ControlLabel("mtq1", "Receiving Food Services as ordered."), 3, 28, 9, 1, false);
-body.AddElement(new ControlBoolean("mty2", ""), 0, 29, 1, 1, false);
-body.AddElement(new ControlBoolean("mtn2", ""), 1, 29, 1, 1, false);
-body.AddElement(new ControlBoolean("mta2", ""), 2, 29, 1, 1, false);
-body.AddElement(new ControlLabel("mtq2", "Receiving eating assistance."), 3, 29, 9, 1, false);
-body.AddElement(new ControlText("notes6", "NOTES", true), 0, 30, 12, 1, false);
+            body.AddElement(new ControlBoolean("mty1", ""), 0, 28, 1, 1, false);
+            body.AddElement(new ControlBoolean("mtn1", ""), 1, 28, 1, 1, false);
+            body.AddElement(new ControlBoolean("mta1", ""), 2, 28, 1, 1, false);
+            body.AddElement(new ControlLabel("mtq1", "Receiving Food Services as ordered."), 3, 28, 9, 1, false);
+            body.AddElement(new ControlBoolean("mty2", ""), 0, 29, 1, 1, false);
+            body.AddElement(new ControlBoolean("mtn2", ""), 1, 29, 1, 1, false);
+            body.AddElement(new ControlBoolean("mta2", ""), 2, 29, 1, 1, false);
+            body.AddElement(new ControlLabel("mtq2", "Receiving eating assistance."), 3, 29, 9, 1, false);
+            body.AddElement(new ControlText("notes6", "NOTES", true), 0, 30, 12, 1, false);
 
-body.AddElement(new ControlText("finalNotes", "Addtional Notes"), 0, 31, 12);
+            body.AddElement(new ControlText("finalNotes", "Addtional Notes"), 0, 31, 12);
 
-form.AddElement(body);*/
+            form.AddElement(body);*/
 
 /*FormL
 Form form = new Form("FormL");

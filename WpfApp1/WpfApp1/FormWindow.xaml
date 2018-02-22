@@ -12,7 +12,6 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button Name="btnSave" Content="Save Form" Click="btnSave_Click"></Button>
         
         
         <ScrollViewer Name="scrollView" HorizontalScrollBarVisibility="Disabled"  VerticalScrollBarVisibility="Auto" Grid.Row="1">

@@ -19,15 +19,17 @@ namespace WpfApp1.FormItems
         private FormElement[] template;
 
         private int numRows;
+        private string buttonText;
 
         //--construction--//
-        public LayoutRepeatGrid(string name, FormElement[] template) : base(name)
+        public LayoutRepeatGrid(string name, FormElement[] template, string buttontext) : base(name)
         {
             //create what we need
             this.template = template;
             this.grid = new Grid();
             this.stackPanel = new StackPanel();
             this.numRows = 0;
+            this.buttonText = buttontext;
 
             //setup grid rows
             this.grid.RowDefinitions.Add(new RowDefinition());
@@ -40,19 +42,23 @@ namespace WpfApp1.FormItems
 
             //put a button at the bottom
             Button expandButton = new Button();
-            expandButton.Content = "Add New Row";
+            expandButton.Content = buttontext;
             expandButton.Click += ExpandButton_Click;
 
             Grid.SetRow(expandButton, 1);
             grid.Children.Add(expandButton);
+            if (grid.Children.Count == 2)
+            {
+                this.AddRow();
+            }
         }
-        protected LayoutRepeatGrid(): this("UntitledRepeatGrid", null)
+        protected LayoutRepeatGrid(): this("UntitledRepeatGrid", null, "")
         {
 
         }
         protected override ElementGroup<LayoutStackPanel> CloneInner()
         {
-            LayoutRepeatGrid clone = new LayoutRepeatGrid(this.name, this.template);
+            LayoutRepeatGrid clone = new LayoutRepeatGrid(this.name, this.template, this.buttonText);
 
             foreach (LayoutStackPanel element in this.elementList)
                 clone.AddElementInternal(element);
@@ -68,7 +74,7 @@ namespace WpfApp1.FormItems
         }
         private void AddRow()
         {
-            LayoutStackPanel innerRow = new LayoutStackPanel("row" + numRows, Orientation.Horizontal);
+            LayoutStackPanel innerRow = new LayoutStackPanel("row" + numRows, Orientation.Vertical);
             foreach(FormElement element in this.template)
             {
                 innerRow.AddElement(element.Clone());

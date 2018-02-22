@@ -97,14 +97,14 @@
                 <name>private</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>Private</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>state</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>State</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -126,6 +126,24 @@
             <acceptsNewLine>true</acceptsNewLine>
             <text />
           </ControlText>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>labela</name>
+          <isReadOnly>false</isReadOnly>
+          <row>3</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>12</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>labela</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>The questions in Section B – K below are intended as a guide and should not prevent the interviewer from asking
+ more questions or obtaining more data if concerns are identified.  If you are concerned about the answers, 
+please investigate further.
+
+Introductory questions: The interviewer may want to consider one of the following questions as a lead to the interview.</labelText>
+          </ControlLabel>
         </GridElement>
       </elementList>
     </LayoutGrid>
@@ -151,14 +169,14 @@
                 <name>resInterview</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>Resident Interview</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>repInterview</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>Representative Interview</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -212,21 +230,21 @@ services you receive here at the facility?</labelText>
                 <name>yes</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>Y</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>N</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>d</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>D</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -282,21 +300,21 @@ Could you change roommates if you wanted to?</labelText>
                 <name>yes1</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>Y</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no1</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>N</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>d1</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>D</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -351,21 +369,21 @@ community activities?</labelText>
                 <name>yes2</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>Y</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no2</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>N</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>d2</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>D</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -419,21 +437,21 @@ community activities?</labelText>
                 <name>yes3</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>Y</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no3</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>N</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>d3</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>D</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -487,21 +505,21 @@ community activities?</labelText>
                 <name>yes4</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>Y</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no4</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>N</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>d4</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>D</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -555,21 +573,21 @@ community activities?</labelText>
                 <name>yes5</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>Y</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no5</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>N</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>d5</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>D</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -623,21 +641,21 @@ community activities?</labelText>
                 <name>yes6</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>Y</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no6</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>N</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>d6</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>D</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -691,21 +709,21 @@ community activities?</labelText>
                 <name>yes7</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>Y</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no7</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>N</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>d7</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>D</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -754,7 +772,7 @@ community activities?</labelText>
             <name>help3</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>What kind of help do you get from the staff?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -787,7 +805,7 @@ community activities?</labelText>
             <name>needs</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>How well does staff meet your needs?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -803,7 +821,7 @@ community activities?</labelText>
             <name>noC1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>No Concerns</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -834,7 +852,7 @@ community activities?</labelText>
             <isReadOnly>false</isReadOnly>
             <englishTitle>Does staff give you time and space to meet / visit 
 with friends and family who come to visit?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -868,7 +886,7 @@ with friends and family who come to visit?</englishTitle>
             <isReadOnly>false</isReadOnly>
             <englishTitle>Are you able to make personal phone calls without 
 being overheard?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -884,7 +902,7 @@ being overheard?</englishTitle>
             <name>noC2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>No Concerns</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -914,7 +932,7 @@ being overheard?</englishTitle>
             <name>D1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>Tell me about the rules of the facility.</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -948,7 +966,7 @@ being overheard?</englishTitle>
             <isReadOnly>false</isReadOnly>
             <englishTitle>What have you been told about how long you can stay 
 up at night or how early or late you can watch TV?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -964,7 +982,7 @@ up at night or how early or late you can watch TV?</englishTitle>
             <name>noC3</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>No Concerns</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -994,7 +1012,7 @@ up at night or how early or late you can watch TV?</englishTitle>
             <name>E1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>Does the staff here know about your preferences?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1027,7 +1045,7 @@ up at night or how early or late you can watch TV?</englishTitle>
             <name>E2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>What kinds of things do you make choices about?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1043,7 +1061,7 @@ up at night or how early or late you can watch TV?</englishTitle>
             <name>noC4</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>No Concerns</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1059,7 +1077,7 @@ up at night or how early or late you can watch TV?</englishTitle>
             <name>E3</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>How does the staff treat you?  Speak to you?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1075,7 +1093,7 @@ up at night or how early or late you can watch TV?</englishTitle>
             <name>E4</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>Do you have any concerns about how you are treated?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1105,7 +1123,7 @@ up at night or how early or late you can watch TV?</englishTitle>
             <name>F1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>What is your room like?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1138,7 +1156,7 @@ up at night or how early or late you can watch TV?</englishTitle>
             <name>F2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>Are you comfortable there?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1154,7 +1172,7 @@ up at night or how early or late you can watch TV?</englishTitle>
             <name>noC5</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>No Concerns</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1171,7 +1189,7 @@ up at night or how early or late you can watch TV?</englishTitle>
             <isReadOnly>false</isReadOnly>
             <englishTitle>What personal items were you allowed to bring when 
 you came here?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1187,7 +1205,7 @@ you came here?</englishTitle>
             <name>F4</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>Is the temperature here comfortable to you?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1218,7 +1236,7 @@ you came here?</englishTitle>
             <isReadOnly>false</isReadOnly>
             <englishTitle>Do you feel like you can tell someone if you don’t like 
 it here?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1251,7 +1269,7 @@ it here?</englishTitle>
             <name>G2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>Who would you talk to if you had concerns?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1267,7 +1285,7 @@ it here?</englishTitle>
             <name>noC6</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>No Concerns</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1283,7 +1301,7 @@ it here?</englishTitle>
             <name>G3</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>What do you think they would do about it?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1313,7 +1331,7 @@ it here?</englishTitle>
             <name>H1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>Do you feel safe here?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1346,7 +1364,7 @@ it here?</englishTitle>
             <name>H2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>Does anything make you feel uncomfortable here?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1362,7 +1380,7 @@ it here?</englishTitle>
             <name>noC7</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>No Concerns</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1392,7 +1410,7 @@ it here?</englishTitle>
             <name>I1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>How is the food here?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1426,7 +1444,7 @@ it here?</englishTitle>
             <isReadOnly>false</isReadOnly>
             <englishTitle>If you can’t eat something or don’t like something, 
 what kind of replacement does the home offer you?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1442,7 +1460,7 @@ what kind of replacement does the home offer you?</englishTitle>
             <name>no8</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>No Concerns</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1458,7 +1476,7 @@ what kind of replacement does the home offer you?</englishTitle>
             <name>I3</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>How often do you get the foods you like to eat?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1488,7 +1506,7 @@ what kind of replacement does the home offer you?</englishTitle>
             <name>J1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>What activities are offered to you by the facility?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1522,7 +1540,7 @@ what kind of replacement does the home offer you?</englishTitle>
             <isReadOnly>false</isReadOnly>
             <englishTitle>What kinds of things did you do for fun and relaxation
  before you came here?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1538,7 +1556,7 @@ what kind of replacement does the home offer you?</englishTitle>
             <name>noC9</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>No Concerns</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1555,7 +1573,7 @@ what kind of replacement does the home offer you?</englishTitle>
             <isReadOnly>false</isReadOnly>
             <englishTitle>Are there activities you would like to do that you are 
 not offered?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1572,7 +1590,7 @@ not offered?</englishTitle>
             <isReadOnly>false</isReadOnly>
             <englishTitle>Is there anything you wanted to do and the facility 
 helped you do it?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1603,7 +1621,7 @@ helped you do it?</englishTitle>
             <isReadOnly>false</isReadOnly>
             <englishTitle>Do you handle your own finances or does someone 
 help you with that?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1639,7 +1657,7 @@ help you with that?</englishTitle>
 and the facility’s policy about admitting and keeping 
 residents whose stay is paid for by the state 
 (Medicaid)?</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1655,7 +1673,7 @@ residents whose stay is paid for by the state
             <name>noC10</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>No Concerns</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1671,14 +1689,28 @@ residents whose stay is paid for by the state
             <name>K3</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>When and how were you told about this?	</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>footnotes</name>
+          <name>lastLabel</name>
           <isReadOnly>false</isReadOnly>
           <row>50</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>12</colSpan>
+          <isBordered>True</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>lastLabel</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Leave a contact number for the resident to be able to contact you / RCS staff in the future.</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>footnotes</name>
+          <isReadOnly>false</isReadOnly>
+          <row>51</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
           <colSpan>12</colSpan>

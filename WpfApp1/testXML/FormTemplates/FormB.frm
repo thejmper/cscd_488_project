@@ -26,35 +26,35 @@
           <name>initial</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Initial</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>full</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Full</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>followup</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Follow up</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>monitering</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Monitoring</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>complaint</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Complaint</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlInteger type="WpfApp1.FormItems.ControlInteger">
@@ -83,7 +83,7 @@
             <name>ombuds</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle>The field office has contacted the Ombuds. (Attachment A)</englishTitle>
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -172,7 +172,7 @@
             <name>bool1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -219,7 +219,7 @@
             <name>bool2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -264,7 +264,7 @@
             <name>bool3</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -310,7 +310,7 @@ Provide a copy for each inspection team member.  (Attachment K)</labelText>
             <name>bool4</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -356,7 +356,7 @@ dietary staff, and housekeeping / laundry staff.</labelText>
             <name>bool6</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -403,7 +403,7 @@ dietary staff, and housekeeping / laundry staff.</labelText>
             <name>bool7</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -448,7 +448,7 @@ dietary staff, and housekeeping / laundry staff.</labelText>
             <name>bool8</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -493,7 +493,7 @@ dietary staff, and housekeeping / laundry staff.</labelText>
             <name>bool9</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -540,7 +540,7 @@ insurance coverage, must have name and address of the facility on the document.
             <name>bool10</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -585,7 +585,7 @@ insurance coverage, must have name and address of the facility on the document.
             <name>bool11</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -630,7 +630,7 @@ insurance coverage, must have name and address of the facility on the document.
             <name>bool12</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -676,7 +676,7 @@ insurance coverage, must have name and address of the facility on the document.
             <name>bool13</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -722,14 +722,29 @@ insurance coverage, must have name and address of the facility on the document.
             <name>bool14</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>lab32</name>
+          <name>labela</name>
           <isReadOnly>false</isReadOnly>
           <row>15</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>12</colSpan>
+          <isBordered>True</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>labela</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>If an issue is identified that directly relates to a specific resident no longer in the ALF, if no current residents 
+reside in the ALF, or if there is a concern regarding discharge or transfers:</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>lab32</name>
+          <isReadOnly>false</isReadOnly>
+          <row>16</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
           <colSpan>11</colSpan>
@@ -744,7 +759,7 @@ discharge unless deceased, then just write deceased.</labelText>
         <GridElement type="WpfApp1.FormItems.GridElement">
           <name>bool15</name>
           <isReadOnly>false</isReadOnly>
-          <row>15</row>
+          <row>16</row>
           <col>11</col>
           <rowSpan>1</rowSpan>
           <colSpan>1</colSpan>
@@ -753,14 +768,14 @@ discharge unless deceased, then just write deceased.</labelText>
             <name>bool15</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
           <name>notes</name>
           <isReadOnly>false</isReadOnly>
-          <row>16</row>
+          <row>17</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
           <colSpan>12</colSpan>

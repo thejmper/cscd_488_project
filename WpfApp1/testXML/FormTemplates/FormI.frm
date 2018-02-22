@@ -26,35 +26,35 @@
           <name>initial</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Initial</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>full</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Full</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>followup</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Follow up</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>monitering</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Monitoring</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>complaint</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Complaint</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlInteger type="WpfApp1.FormItems.ControlInteger">
@@ -102,14 +102,14 @@
                 <name>yes1</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no1</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -146,14 +146,14 @@
                 <name>yes2</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no2</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -190,14 +190,14 @@
                 <name>yes3</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no3</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -234,14 +234,14 @@
                 <name>yes4</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no4</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -278,14 +278,14 @@
                 <name>yes5</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no5</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -322,14 +322,14 @@
                 <name>yes6</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no6</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -366,14 +366,14 @@
                 <name>yes7</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no7</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -410,14 +410,14 @@
                 <name>yes8</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no8</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -454,14 +454,14 @@
                 <name>yes9</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no9</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -498,14 +498,14 @@
                 <name>yes10</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no10</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -542,14 +542,14 @@
                 <name>yes11</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no11</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -617,14 +617,14 @@
                 <name>yes14</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no14</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -663,14 +663,14 @@
                 <name>yes15</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no15</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -710,14 +710,14 @@
                 <name>yes16</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no16</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -754,14 +754,14 @@
                 <name>yes17</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no17</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -801,14 +801,14 @@
                 <name>yes18</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no18</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -878,14 +878,14 @@
                 <name>yes21</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no21</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -931,97 +931,96 @@
           <LayoutRepeatGrid type="WpfApp1.FormItems.LayoutRepeatGrid">
             <name>bathrooms</name>
             <isReadOnly>false</isReadOnly>
-            <GridElement type="WpfApp1.FormItems.GridElement">
-              <name>temp1</name>
-              <isReadOnly>false</isReadOnly>
-              <row>0</row>
-              <col>2</col>
-              <rowSpan>1</rowSpan>
-              <colSpan>2</colSpan>
-              <isBordered>False</isBordered>
-              <ControlInteger type="WpfApp1.FormItems.ControlInteger">
-                <name>temp1</name>
+            <template>
+              <LayoutGrid type="WpfApp1.FormItems.LayoutGrid">
+                <name>bathroom</name>
                 <isReadOnly>false</isReadOnly>
-                <englishTitle>•Water temperature: °F</englishTitle>
-                <orientation>Vertical</orientation>
-                <value>0</value>
-              </ControlInteger>
-            </GridElement>
-            <GridElement type="WpfApp1.FormItems.GridElement">
-              <name>tDate1</name>
-              <isReadOnly>false</isReadOnly>
-              <row>0</row>
-              <col>4</col>
-              <rowSpan>1</rowSpan>
-              <colSpan>2</colSpan>
-              <isBordered>False</isBordered>
-              <ControlDate type="WpfApp1.FormItems.ControlDate">
-                <name>tDate1</name>
-                <isReadOnly>false</isReadOnly>
-                <englishTitle>date</englishTitle>
-                <orientation>Vertical</orientation>
-                <SelectedDateProperty>1/1/0001 12:00:00 AM</SelectedDateProperty>
-              </ControlDate>
-            </GridElement>
-            <GridElement type="WpfApp1.FormItems.GridElement">
-              <name>tTime1</name>
-              <isReadOnly>false</isReadOnly>
-              <row>0</row>
-              <col>6</col>
-              <rowSpan>1</rowSpan>
-              <colSpan>2</colSpan>
-              <isBordered>False</isBordered>
-              <ControlText type="WpfApp1.FormItems.ControlText">
-                <name>tTime1</name>
-                <isReadOnly>false</isReadOnly>
-                <englishTitle>time</englishTitle>
-                <orientation>Vertical</orientation>
-                <acceptsNewLine>false</acceptsNewLine>
-                <text />
-              </ControlText>
-            </GridElement>
-            <GridElement type="WpfApp1.FormItems.GridElement">
-              <name>tPlace1</name>
-              <isReadOnly>false</isReadOnly>
-              <row>0</row>
-              <col>8</col>
-              <rowSpan>1</rowSpan>
-              <colSpan>4</colSpan>
-              <isBordered>False</isBordered>
-              <ControlText type="WpfApp1.FormItems.ControlText">
-                <name>tPlace1</name>
-                <isReadOnly>false</isReadOnly>
-                <englishTitle>place</englishTitle>
-                <orientation>Vertical</orientation>
-                <acceptsNewLine>false</acceptsNewLine>
-                <text />
-              </ControlText>
-            </GridElement>
+                <!--Below is the list of items contained within this group-->
+                <elementList>
+                  <GridElement type="WpfApp1.FormItems.GridElement">
+                    <name>temp1</name>
+                    <isReadOnly>false</isReadOnly>
+                    <row>0</row>
+                    <col>2</col>
+                    <rowSpan>1</rowSpan>
+                    <colSpan>2</colSpan>
+                    <isBordered>False</isBordered>
+                    <ControlInteger type="WpfApp1.FormItems.ControlInteger">
+                      <name>temp1</name>
+                      <isReadOnly>false</isReadOnly>
+                      <englishTitle>•Water temperature: °F</englishTitle>
+                      <orientation>Vertical</orientation>
+                      <value>0</value>
+                    </ControlInteger>
+                  </GridElement>
+                  <GridElement type="WpfApp1.FormItems.GridElement">
+                    <name>tDate1</name>
+                    <isReadOnly>false</isReadOnly>
+                    <row>0</row>
+                    <col>4</col>
+                    <rowSpan>1</rowSpan>
+                    <colSpan>2</colSpan>
+                    <isBordered>False</isBordered>
+                    <ControlDate type="WpfApp1.FormItems.ControlDate">
+                      <name>tDate1</name>
+                      <isReadOnly>false</isReadOnly>
+                      <englishTitle>date</englishTitle>
+                      <orientation>Vertical</orientation>
+                      <SelectedDateProperty>1/1/0001 12:00:00 AM</SelectedDateProperty>
+                    </ControlDate>
+                  </GridElement>
+                  <GridElement type="WpfApp1.FormItems.GridElement">
+                    <name>tTime1</name>
+                    <isReadOnly>false</isReadOnly>
+                    <row>0</row>
+                    <col>6</col>
+                    <rowSpan>1</rowSpan>
+                    <colSpan>2</colSpan>
+                    <isBordered>False</isBordered>
+                    <ControlText type="WpfApp1.FormItems.ControlText">
+                      <name>tTime1</name>
+                      <isReadOnly>false</isReadOnly>
+                      <englishTitle>time</englishTitle>
+                      <orientation>Vertical</orientation>
+                      <acceptsNewLine>false</acceptsNewLine>
+                      <text />
+                    </ControlText>
+                  </GridElement>
+                  <GridElement type="WpfApp1.FormItems.GridElement">
+                    <name>tPlace1</name>
+                    <isReadOnly>false</isReadOnly>
+                    <row>0</row>
+                    <col>8</col>
+                    <rowSpan>1</rowSpan>
+                    <colSpan>4</colSpan>
+                    <isBordered>False</isBordered>
+                    <ControlText type="WpfApp1.FormItems.ControlText">
+                      <name>tPlace1</name>
+                      <isReadOnly>false</isReadOnly>
+                      <englishTitle>place</englishTitle>
+                      <orientation>Vertical</orientation>
+                      <acceptsNewLine>false</acceptsNewLine>
+                      <text />
+                    </ControlText>
+                  </GridElement>
+                </elementList>
+              </LayoutGrid>
+            </template>
             <!--Below is the list of items contained within this group-->
             <elementList>
-              <GridElement type="WpfApp1.FormItems.GridElement">
-                <name>repeat0</name>
+              <LayoutStackPanel type="WpfApp1.FormItems.LayoutStackPanel">
+                <name>row0</name>
                 <isReadOnly>false</isReadOnly>
-                <row>0</row>
-                <col>0</col>
-                <rowSpan>1</rowSpan>
-                <colSpan>12</colSpan>
-                <isBordered>False</isBordered>
-                <LayoutGrid type="WpfApp1.FormItems.LayoutGrid">
-                  <name>repeat0</name>
-                  <isReadOnly>false</isReadOnly>
-                  <!--Below is the list of items contained within this group-->
-                  <elementList>
-                    <GridElement type="WpfApp1.FormItems.GridElement">
-                      <name>temp10</name>
-                      <isReadOnly>false</isReadOnly>
-                      <row>0</row>
-                      <col>2</col>
-                      <rowSpan>1</rowSpan>
-                      <colSpan>2</colSpan>
-                      <isBordered>False</isBordered>
+                <orientation>Vertical</orientation>
+                <!--Below is the list of items contained within this group-->
+                <elementList>
+                  <LayoutGrid type="WpfApp1.FormItems.LayoutGrid">
+                    <name>bathroom</name>
+                    <isReadOnly>false</isReadOnly>
+                    <!--Below is the list of items contained within this group-->
+                    <elementList>
                       <GridElement type="WpfApp1.FormItems.GridElement">
-                        <name>temp10</name>
+                        <name>temp1</name>
                         <isReadOnly>false</isReadOnly>
                         <row>0</row>
                         <col>2</col>
@@ -1036,17 +1035,8 @@
                           <value>0</value>
                         </ControlInteger>
                       </GridElement>
-                    </GridElement>
-                    <GridElement type="WpfApp1.FormItems.GridElement">
-                      <name>tDate10</name>
-                      <isReadOnly>false</isReadOnly>
-                      <row>0</row>
-                      <col>4</col>
-                      <rowSpan>1</rowSpan>
-                      <colSpan>2</colSpan>
-                      <isBordered>False</isBordered>
                       <GridElement type="WpfApp1.FormItems.GridElement">
-                        <name>tDate10</name>
+                        <name>tDate1</name>
                         <isReadOnly>false</isReadOnly>
                         <row>0</row>
                         <col>4</col>
@@ -1061,17 +1051,8 @@
                           <SelectedDateProperty>1/1/0001 12:00:00 AM</SelectedDateProperty>
                         </ControlDate>
                       </GridElement>
-                    </GridElement>
-                    <GridElement type="WpfApp1.FormItems.GridElement">
-                      <name>tTime10</name>
-                      <isReadOnly>false</isReadOnly>
-                      <row>0</row>
-                      <col>6</col>
-                      <rowSpan>1</rowSpan>
-                      <colSpan>2</colSpan>
-                      <isBordered>False</isBordered>
                       <GridElement type="WpfApp1.FormItems.GridElement">
-                        <name>tTime10</name>
+                        <name>tTime1</name>
                         <isReadOnly>false</isReadOnly>
                         <row>0</row>
                         <col>6</col>
@@ -1087,17 +1068,8 @@
                           <text />
                         </ControlText>
                       </GridElement>
-                    </GridElement>
-                    <GridElement type="WpfApp1.FormItems.GridElement">
-                      <name>tPlace10</name>
-                      <isReadOnly>false</isReadOnly>
-                      <row>0</row>
-                      <col>8</col>
-                      <rowSpan>1</rowSpan>
-                      <colSpan>4</colSpan>
-                      <isBordered>False</isBordered>
                       <GridElement type="WpfApp1.FormItems.GridElement">
-                        <name>tPlace10</name>
+                        <name>tPlace1</name>
                         <isReadOnly>false</isReadOnly>
                         <row>0</row>
                         <col>8</col>
@@ -1113,10 +1085,10 @@
                           <text />
                         </ControlText>
                       </GridElement>
-                    </GridElement>
-                  </elementList>
-                </LayoutGrid>
-              </GridElement>
+                    </elementList>
+                  </LayoutGrid>
+                </elementList>
+              </LayoutStackPanel>
             </elementList>
           </LayoutRepeatGrid>
         </GridElement>
@@ -1168,14 +1140,14 @@
                 <name>yes26</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no26</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -1212,14 +1184,14 @@
                 <name>yes27</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no27</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -1256,14 +1228,14 @@
                 <name>yes28</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no28</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -1300,14 +1272,14 @@
                 <name>yes29</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no29</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -1344,14 +1316,14 @@
                 <name>yes30</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>YES</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>no30</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>NO</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -1372,9 +1344,27 @@
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>notes4</name>
+          <name>lastLabel</name>
           <isReadOnly>false</isReadOnly>
           <row>31</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>12</colSpan>
+          <isBordered>True</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>lastLabel</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Use Attachment I – Environmental Observations and Attachment P- Food Service Observations for all full
+inspections.  
+
+Continue with Attachment O for further observations if the facility has a contract for AL, EARC, or EARC – 
+Specialty Dementia Care.</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>notes4</name>
+          <isReadOnly>false</isReadOnly>
+          <row>32</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
           <colSpan>12</colSpan>

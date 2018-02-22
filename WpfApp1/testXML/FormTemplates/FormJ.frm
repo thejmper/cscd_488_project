@@ -26,35 +26,35 @@
           <name>initial</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Initial</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>full</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Full</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>followup</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Follow up</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>monitering</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Monitoring</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>complaint</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Complaint</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlInteger type="WpfApp1.FormItems.ControlInteger">
@@ -66,6 +66,11 @@
         </ControlInteger>
       </elementList>
     </LayoutStackPanel>
+    <ElementSpacer type="WpfApp1.FormItems.ElementSpacer">
+      <name>spacer1</name>
+      <isReadOnly>false</isReadOnly>
+      <height>25</height>
+    </ElementSpacer>
     <LayoutGrid type="WpfApp1.FormItems.LayoutGrid">
       <name>Body</name>
       <isReadOnly>false</isReadOnly>
@@ -271,7 +276,7 @@
             <name>ay1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -287,7 +292,7 @@
             <name>an1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -303,7 +308,7 @@
             <name>ana1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -333,7 +338,7 @@
             <name>ay2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -349,7 +354,7 @@
             <name>an2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -365,7 +370,7 @@
             <name>ana2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -395,7 +400,7 @@
             <name>ay3</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -411,7 +416,7 @@
             <name>an3</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -427,7 +432,7 @@
             <name>ana3</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -530,7 +535,7 @@
             <name>my1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -546,7 +551,7 @@
             <name>mn1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -562,7 +567,7 @@
             <name>mna1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -592,7 +597,7 @@
             <name>my2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -608,7 +613,7 @@
             <name>mn2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -624,7 +629,7 @@
             <name>mna2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -727,7 +732,7 @@
             <name>ny1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -743,7 +748,7 @@
             <name>nn1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -759,7 +764,7 @@
             <name>nna1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -789,7 +794,7 @@
             <name>ny2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -805,7 +810,7 @@
             <name>nn2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -821,7 +826,7 @@
             <name>nna2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -851,7 +856,7 @@
             <name>ny3</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -867,7 +872,7 @@
             <name>nn3</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -883,7 +888,7 @@
             <name>nna3</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -947,21 +952,21 @@
                 <name>ind</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>Independent</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>assist</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>Assistance</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>admin</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>Administration</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
@@ -1021,7 +1026,7 @@
             <name>msy1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1037,7 +1042,7 @@
             <name>msn1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1053,7 +1058,7 @@
             <name>msa1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1083,7 +1088,7 @@
             <name>msy2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1099,7 +1104,7 @@
             <name>msn2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1115,7 +1120,7 @@
             <name>msa2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1145,7 +1150,7 @@
             <name>msy3</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1161,7 +1166,7 @@
             <name>msn3</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1177,7 +1182,7 @@
             <name>msa3</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1207,7 +1212,7 @@
             <name>msy4</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1223,7 +1228,7 @@
             <name>msn4</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1239,7 +1244,7 @@
             <name>msa4</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1269,7 +1274,7 @@
             <name>msy5</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1285,7 +1290,7 @@
             <name>msn5</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1301,7 +1306,7 @@
             <name>msa5</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1404,7 +1409,7 @@
             <name>iy1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1420,7 +1425,7 @@
             <name>in1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1436,7 +1441,7 @@
             <name>ia1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1466,7 +1471,7 @@
             <name>iy2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1482,7 +1487,7 @@
             <name>in2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1498,7 +1503,7 @@
             <name>ia2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1601,7 +1606,7 @@
             <name>mty1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1617,7 +1622,7 @@
             <name>mtn1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1633,7 +1638,7 @@
             <name>mta1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1663,7 +1668,7 @@
             <name>mty2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1679,7 +1684,7 @@
             <name>mtn2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
@@ -1695,7 +1700,7 @@
             <name>mta2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Horizontal</orientation>
+            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>

@@ -26,13 +26,61 @@
           <name>full</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Full</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
       </elementList>
     </LayoutStackPanel>
     <ElementSpacer type="WpfApp1.FormItems.ElementSpacer">
       <name>spacer1</name>
+      <isReadOnly>false</isReadOnly>
+      <height>25</height>
+    </ElementSpacer>
+    <LayoutGrid type="WpfApp1.FormItems.LayoutGrid">
+      <name>labelholder</name>
+      <isReadOnly>false</isReadOnly>
+      <!--Below is the list of items contained within this group-->
+      <elementList>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>label</name>
+          <isReadOnly>false</isReadOnly>
+          <row>0</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>8</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>label</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Review licensing file for:
+•	Current state contract – if applicable
+•	Past and current complaint investigations
+•	Past SOD’s and uncorrected deficiencies(list on back of form)
+•	Past three consecutive years compliance with all inspections and investigations
+•	Resident and staff list from last licensing inspection
+Current exemptions</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>label2</name>
+          <isReadOnly>false</isReadOnly>
+          <row>0</row>
+          <col>8</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>4</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>label2</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Confer regarding concerns about facility with:
+•	Complaint Nurse, licensor
+•	Case Managers: HCS, DDD</labelText>
+          </ControlLabel>
+        </GridElement>
+      </elementList>
+    </LayoutGrid>
+    <ElementSpacer type="WpfApp1.FormItems.ElementSpacer">
+      <name>spacera</name>
       <isReadOnly>false</isReadOnly>
       <height>25</height>
     </ElementSpacer>
@@ -240,49 +288,49 @@
                 <name>al</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>AL</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>earc</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>EARC</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>arc</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>ARC</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>dementia</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>Dementia</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>ddd</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>DDD</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>adc</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>Adult Day Care</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
               <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
                 <name>none</name>
                 <isReadOnly>false</isReadOnly>
                 <englishTitle>None</englishTitle>
-                <orientation>Horizontal</orientation>
+                <orientation>Vertical</orientation>
                 <value>false</value>
               </ControlBoolean>
             </elementList>
