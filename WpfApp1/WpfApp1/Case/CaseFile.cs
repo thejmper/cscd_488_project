@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
+
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Markup;
 using System.Windows.Media;
 using System.Xml;
-using System.Xml.Serialization;
+
 using WpfApp1.FormItems;
 using WpfApp1.Users;
 using WpfApp1.Utils;
@@ -17,8 +16,6 @@ namespace WpfApp1.Case
 {   
     public class CaseFile : TabbedGroup<Report>
     {
-        private const string CHECKSUM_NODE_NAME = "checksum";
-
         //--member fields--//
         /// <summary>
         /// facility name for this case file
@@ -136,67 +133,8 @@ namespace WpfApp1.Case
         }
 
         //--save/load--//
-        public static void SaveCaseFile(CaseFile caseFile, string filename)
-        {
-            //save the casefile to a string so we can get its char data, but do NOT
-            //save it to a file yet. We want to keep it in memory until we can find the checksum
-            //and make sure nobody messes with this that they shouldn't.
-            StringBuilder sb = new StringBuilder();
-            XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
-            using (StringWriter writer = new StringWriter(sb))
-            {
-                ser.Serialize(writer, caseFile);
-            }
-
-            //create a temp XML document.
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(sb.ToString());
-
-
-            //use that to find the char count of the case file's XML SANS <?xml.... tag at the top
-            int checksum = doc.DocumentElement.OuterXml.Length;
-
-            XmlNode checksumNode = doc.CreateNode("element", CHECKSUM_NODE_NAME, "");
-            checksumNode.InnerText = checksum.ToString();
-            doc.DocumentElement.AppendChild(checksumNode);
-
-            
-
-            doc.Save(filename);
-        }
-        public static CaseFile LoadCaseFile(string filename)
-        {
-            XmlDocument doc = new XmlDocument();
-            doc.Load(filename);
-
-            int checksum = -1;
-            XmlNodeList childNodes = doc.DocumentElement.ChildNodes;
-            for(int i = childNodes.Count-1; i >= 0; i--)
-            {
-                if (childNodes[i].Name.Equals(CHECKSUM_NODE_NAME))
-                {
-                    XmlNode checksumNode = childNodes[i];
-                    checksum = int.Parse(checksumNode.InnerText);
-                    doc.DocumentElement.RemoveChild(checksumNode);
-                }
-            }
-
-            if (doc.DocumentElement.OuterXml.Length != checksum)
-                throw new ArgumentException("ERROR: checksum does not match! File '" + filename + "' is corrupt!");
-
-            CaseFile cf;
-
-            XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
-            using (TextReader reader = new StringReader(doc.InnerXml))
-            {
-                cf = (CaseFile)ser.Deserialize(reader);
-            }
-
-            return cf;
-        }
         protected override void WriteXMLInner(XmlWriter writer)
         {
-            //writer.WriteAttributeString("checkSum", "0");
             writer.WriteElementString("facilityName", this.facilityName);
             writer.WriteElementString("facilityLicenseNumber", this.facilitylicenseNumber.ToString());
 

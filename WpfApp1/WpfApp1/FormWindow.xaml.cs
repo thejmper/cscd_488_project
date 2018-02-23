@@ -6,8 +6,6 @@ using WpfApp1.Case;
 using System.Xml.Serialization;
 using System.IO;
 using System.Collections.Generic;
-using System.Text;
-using System.Xml;
 
 namespace WpfApp1
 {
@@ -22,26 +20,46 @@ namespace WpfApp1
         {
             InitializeComponent();
 
+            Form form;
+            
+            /*
+            Form form = new Form("testForm");
+            LayoutGrid grid = new LayoutGrid("ddd");
+
+            ControlBoolean[] radioOptions = {new ControlBoolean("a", "Option A"),
+                                             new ControlBoolean("b", "Option B"),
+                                             new ControlBoolean("c", "Option C") };
+            ControlRadio radioControl = new ControlRadio("Radio Control", radioOptions);
+            grid.AddElement(radioControl, 0, 2, 12);
+
+            form.AddElement(grid);
+            */
+
             /*
             Form form = new Form("testForm");
             form.AddElement(new ElementSpacer("spacer1"));
             form.AddElement(new ControlText("txtcontrol", "Text Control"));
             form.AddElement(new ElementSpacer("spacer2", 150));
             form.AddElement(new ControlBoolean("boolcontrol", "Check me"));
+            this.scrollView.Content = form.UIelement;
 
-            CaseFile cf = new CaseFile("case001", "Facility Name", 001);
-            Report rep = cf.AssignUser(new Users.User("ksmith", "pass", "Kenny Smith"));
-            rep.AddForm(form);
-
-            this.scrollView.Content = cf.UIelement;
-
-            string fileName = Path.Combine(UserPrefs.GetCasefileDirectory(), "TEST" + UserPrefs.CASEFILE_EXTENSION);
-            CaseFile.SaveCaseFile(cf, fileName);
+            string fileName = Path.Combine(UserPrefs.GetFormDirectory(), form.name + UserPrefs.FORM_EXTENSION);
+            XmlSerializer ser = new XmlSerializer(typeof(Form));
+            using (TextWriter writer = new StreamWriter(fileName))
+             {
+                 ser.Serialize(writer, form);
+             }
             */
+            string fileName = Path.Combine(UserPrefs.GetFormDirectory(), "testForm" + UserPrefs.FORM_EXTENSION);
+            XmlSerializer ser = new XmlSerializer(typeof(Form));
+            using (TextReader reader = new StreamReader(fileName))
+            {
+                form = (Form)ser.Deserialize(reader);
+            }
 
-            string fileName = Path.Combine(UserPrefs.GetCasefileDirectory(), "TEST" + UserPrefs.CASEFILE_EXTENSION);
-            CaseFile cf = CaseFile.LoadCaseFile(fileName);
-            this.scrollView.Content = cf.UIelement;
+            this.scrollView.Content = form.UIelement;
+
+
 
 
             //this.scrollView.Content = form.UIelement;
