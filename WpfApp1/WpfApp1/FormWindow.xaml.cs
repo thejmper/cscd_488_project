@@ -11,6 +11,7 @@ namespace WpfApp1
 {
     /// <summary>
     /// Interaction logic for FormWindow.xaml
+    /// TODO" get rid of this.
     /// </summary>
     public partial class FormWindow : Window
     { 

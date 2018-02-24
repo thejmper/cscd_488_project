@@ -53,9 +53,9 @@ namespace WpfApp1.FormItems
         /// <param name="col">colum to place the left-most edge at. Starts at 0</param>
         /// <param name="row">row to place the top-most edge at. Starts at 0</param>
         /// <param name="colSpan">colums this element should span. Must bet between 1 and 12</param>
-        public void AddElement(FormElement element, int col, int row, int colSpan, int rowSpan = 1, bool isBordered = true)
+        public void AddElement(FormElement element, int col, int row, int colSpan, bool isBordered = true)
         {
-            GridElement gridElement = new GridElement(element,  col, row,colSpan, rowSpan, isBordered);
+            GridElement gridElement = new GridElement(element,  col, row,colSpan, 1, isBordered);
 
             this.AddElementInternal(gridElement);
         }

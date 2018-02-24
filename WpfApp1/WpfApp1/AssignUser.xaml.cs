@@ -22,6 +22,9 @@ namespace WpfApp1
     /// </summary>
     public partial class AssignUser : Window
     {
+        /// <summary>
+        /// users already assigned to this casefile
+        /// </summary>
         private ObservableCollection<User> assignedUsers;
 
         public AssignUser()
@@ -55,6 +58,12 @@ namespace WpfApp1
             }
         }
 
+        /// <summary>
+        /// handles when an already assigned user is doubleclicked and removed
+        /// from the casefile.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AssignedUserDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             var item = sender as ListViewItem;
@@ -65,6 +74,12 @@ namespace WpfApp1
             }
         }
 
+        /// <summary>
+        /// called when we're done making changes and want to apply them and go back to whatever else
+        /// we were doing.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDone_Click(object sender, RoutedEventArgs e)
         {
             try

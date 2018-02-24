@@ -7,12 +7,20 @@ using System.Xml;
 
 namespace WpfApp1.FormItems
 {
+    /// <summary>
+    /// a simple read-only element that spaces out things
+    /// </summary>
     public class ElementSpacer : FormElement
     {
         public override UIElement UIelement { get { return this.rectangle; } }
 
         private Rectangle rectangle;
 
+        /// <summary>
+        /// creates a new spacer
+        /// </summary>
+        /// <param name="name">unique non-user-visible name</param>
+        /// <param name="height">height of this spacer</param>
         public ElementSpacer(string name, int height = 25): base(name)
         {
             this.rectangle = new Rectangle();
@@ -39,6 +47,10 @@ namespace WpfApp1.FormItems
             this.rectangle.Height = height;
         }
 
+        /// <summary>
+        /// this is already a read-only element, but this method needs to be here to fulfill the superclass contract.
+        /// </summary>
+        /// <param name="isReadOnly"></param>
         protected override void SetReadOnlyInternal(bool isReadOnly)
         {
             //do nothing

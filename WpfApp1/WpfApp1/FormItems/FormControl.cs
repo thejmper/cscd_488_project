@@ -7,12 +7,18 @@ using System;
 
 namespace WpfApp1.FormItems
 {
+    /// <summary>
+    /// generic baseclass for any form element that can have its value changed during the course of a user session.
+    /// </summary>
+    /// <typeparam name="controlType">type of WPF element used to display this control</typeparam>
+    /// <typeparam name="dataType">type of data this control holds.</typeparam>
     public abstract class FormControl<controlType, dataType>: FormElement where controlType: Control
     {
         public override UIElement UIelement { get { return this.stackPanel; } }
 
         /// <summary>
-        /// stack panel used to format data.
+        /// stack panel used to format data. We don't just use a controlType because we want
+        /// to have a label for the button/textbox/whatever.
         /// </summary>
         protected StackPanel stackPanel;
         /// <summary>
@@ -20,6 +26,9 @@ namespace WpfApp1.FormItems
         /// </summary>
         internal controlType control;
 
+        /// <summary>
+        /// binding used to pass data between WPF display and code-behind.
+        /// </summary>
         protected Binding binding;
 
         //--saveable stuff--//
@@ -79,7 +88,15 @@ namespace WpfApp1.FormItems
             this.WriteControl(writer);
         }
 
+        /// <summary>
+        /// writes the control's value and anything else required
+        /// </summary>
+        /// <param name="writer"></param>
         protected abstract void WriteControl(XmlWriter writer);
+        /// <summary>
+        /// reads the control's value and anything else needed.
+        /// </summary>
+        /// <param name="reader"></param>
         protected abstract void ReadControl(XmlReader reader);
     }
 }

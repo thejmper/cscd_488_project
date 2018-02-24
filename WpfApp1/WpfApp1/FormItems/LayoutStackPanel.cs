@@ -5,6 +5,9 @@ using System.Xml;
 
 namespace WpfApp1.FormItems
 {
+    /// <summary>
+    /// layout group that places things into a stackpanel for display.
+    /// </summary>
     public class LayoutStackPanel : ElementGroup<FormElement>
     {
         public override UIElement UIelement { get { return panel; } }
@@ -13,6 +16,11 @@ namespace WpfApp1.FormItems
         private Orientation orientation;
 
         //--construction--//
+        /// <summary>
+        /// creates a new layoutstackpanel
+        /// </summary>
+        /// <param name="name">unique non-user-visible name of this layoutstackpanel</param>
+        /// <param name="orientation">orientation of the display stackpanel</param>
         public LayoutStackPanel(string name, Orientation orientation = Orientation.Horizontal) : base(name)
         {
             this.orientation = orientation;

@@ -9,6 +9,9 @@ using WpfApp1.Utils;
 
 namespace WpfApp1.FormItems
 {
+    /// <summary>
+    /// element group that can be expanded with copies of a given template.
+    /// </summary>
     public class LayoutRepeatGrid : ElementGroup<LayoutStackPanel>
     {
         //--member fields--//

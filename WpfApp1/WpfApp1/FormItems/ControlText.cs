@@ -5,6 +5,9 @@ using System.Xml;
 
 namespace WpfApp1.FormItems
 {
+    /// <summary>
+    /// a form element that allows for text entry
+    /// </summary>
     public class ControlText : FormControl<TextBox, string>
     {
         //--member fields--//
@@ -13,6 +16,13 @@ namespace WpfApp1.FormItems
         private bool acceptsNewLine;
 
         //--constructor--//
+        /// <summary>
+        /// constructs a controltext
+        /// </summary>
+        /// <param name="name">non-user-visible unique id</param>
+        /// <param name="engishTitle">user-visible control title</param>
+        /// <param name="acceptsNewLine">does this textbox accept new lines? Defaults to false</param>
+        /// <param name="orientation">where the title is placed relative to the control</param>
         public ControlText(string name, string engishTitle, bool acceptsNewLine = false, Orientation orientation = Orientation.Vertical) : base(name, engishTitle, new TextBox(), orientation)
         {
             this.acceptsNewLine = acceptsNewLine;
