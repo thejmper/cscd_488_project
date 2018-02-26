@@ -20,14 +20,67 @@ namespace WpfApp1
         {
             InitializeComponent();
 
-            Form form = new Form("this is so that it can compile and run");
+            //Form form = new Form("this is so that it can compile and run");
+            Form form = new Form("FormO");
+            LayoutStackPanel layoutStackPanel = new LayoutStackPanel("inspectionType");
+            layoutStackPanel.AddElement(new ControlLabel("lab1", "Inspection Type"));
+            layoutStackPanel.AddElement(new ControlBoolean("initial", "Initial"));
+            layoutStackPanel.AddElement(new ControlBoolean("full", "Full"));
+            layoutStackPanel.AddElement(new ControlBoolean("followup", "Follow up"));
+            layoutStackPanel.AddElement(new ControlBoolean("monitering", "Monitoring"));
+            layoutStackPanel.AddElement(new ControlBoolean("complaint", "Complaint"));
+            layoutStackPanel.AddElement(new ControlInteger("number", "Number"));
+            form.AddElement(layoutStackPanel);
+            LayoutGrid body = new LayoutGrid("body");
+            body.AddElement(new ControlLabel("QoL", "Quality of Life/Resident Rights:  WAC 3288-110-140(5)"), 0, 0, 12);
+            body.AddElement(new ControlText("QoL1", "Assisted Living Contract \n•   Homelike, smoke free common areas with sufficient space for socialization to meet residents:", true), 0, 1, 12, 1, false);
+
+            body.AddElement(new ControlLabel("PE", "Physical Environment – Interior:"), 0, 2, 12);
+            body.AddElement(new ControlText("PE1", "Assisted Living Contract:  WAC 388-110-140 \n• 	Meeting space outside apartment: ", true), 0, 3, 12, 1, false);
+            body.AddElement(new ControlText("PE2", "•	Access by resident to on-site washing machine and dryer:", true), 0, 4, 12, 1, false);
+            body.AddElement(new ControlText("PE3", "•	Private apartment – note roommate situation (no exemption required if spouse): :", true), 0, 5, 12, 1, false);
+            body.AddElement(new ControlLabel("P4", "•	Resident room – meeting the requirements of a type “B” dwelling:"), 0, 6, 12, 1, false);
+            body.AddElement(new ControlText("PE5", "1.	180 square feet in an existing ALF:", true), 1, 7, 11, 1, false);
+            body.AddElement(new ControlText("PE6", "	220 square feet in a new ALF:  ", true), 1, 8, 11, 1, false);
+            body.AddElement(new ControlText("PE7", "2.	Separate bathroom with sink, toilet, and shower or bathtub:  ", true), 1, 9, 11, 1, false);
+            body.AddElement(new ControlText("PE8", "3.	Lockable entry door:  ", true), 1, 10, 11, 1, false);
+            body.AddElement(new ControlText("PE9", "4.	Kitchen with refrigerator, microwave or stove top, counter or table, kitchen sink: ", true), 1, 11, 11, 1, false);
+            body.AddElement(new ControlText("PE10", "5.	New ALF (CRS project number issued09/01/2004 or after) includes storage for utensils / supplies,\ncounter surface with knee space and wired for phone:  ", true), 1, 12, 11, 1, false);
+            body.AddElement(new ControlText("PE11", "6.	New ALF must also have a private mailbox:  ", true), 1, 13, 11, 1, false);
+
+            body.AddElement(new ControlLabel("EARCa", "EARC:  WAC 388-110-220(1)"), 0, 14, 12);
+            body.AddElement(new ControlText("EARC1", "•	Resident apartment – no more than two residents per room:", true), 0, 15, 12, 1, false);
+
+            body.AddElement(new ControlLabel("EARCb", "EARC – Specialty Dementia Care Contract:  WAC 388-110-220(2)(3)"), 0, 16, 12);
+            body.AddElement(new ControlText("EARC2", "•	Residential atmosphere:", true), 0, 17, 12, 1, false);
+            body.AddElement(new ControlLabel("EARCc", "•	Area for privacy and socialization:"), 0, 18, 12, 1, false);
+            body.AddElement(new ControlText("EARC3", "1.	Opportunity for wandering:", true), 1, 19, 11, 1, false);
+            body.AddElement(new ControlText("EARC4", "2.	Resident room is furnished / decorated with personal items based on needs and preferences:", true), 1, 20, 11, 1, false);
+            body.AddElement(new ControlText("EARC5", "3.	Resident has access to room at all times without staff assistance:", true), 1, 21, 11, 1, false);
+            body.AddElement(new ControlText("EARC6", "•	Multiple common areas – varying in size and arrangement:", true), 0, 22, 12, 1, false);
+            body.AddElement(new ControlText("EARC7", "•	Environmental cues to stimulate activity:", true), 0, 23, 12, 1, false);
+            body.AddElement(new ControlText("EARC8", "•	Communication System:  if public address system (used only for emergencies)", true), 0, 24, 12, 1, false);
+
+            body.AddElement(new ControlLabel("PEE", "Physical Environment – Exterior "), 0, 25, 12);
+            body.AddElement(new ControlText("PEE1", "Assisted Living Contract: WAC 388-110-140 (5) \n•	Access to outdoor areas available to all residents.", true), 0, 26, 12, 1, false);
+            body.AddElement(new ControlText("PEE2", "EARC – Specialty Dementia Care Contract:\nOutdoor area – at least one outdoor area.WAC 388 - 110 - 220(3)\n•	Accessible to residents without staff assistance:", true), 0, 27, 12, 1, false);
+            body.AddElement(new ControlText("PEE3", "•	Garden area:", true), 0, 28, 12, 1, false);
+            body.AddElement(new ControlText("PEE4", "•	Surrounded by walls and fences  at least 72 inches high:", true), 0, 29, 12, 1, false);
+            body.AddElement(new ControlText("PEE5", "•	Outdoor area protected from sun or rain throughout day:", true), 0, 30, 12, 1, false);
+            body.AddElement(new ControlText("PEE6", "•	Suitable outdoor furniture:", true), 0, 31, 12, 1, false);
+            body.AddElement(new ControlLabel("PEEa", "•	Paths and walkways"), 0, 32, 12, 1, false);
+            body.AddElement(new ControlText("PEE7", "1.	Encourage exploration and walking:", true), 1, 33, 11, 1, false);
+            body.AddElement(new ControlText("PEE8", "2.	Walking surfaces are firm, stable, slip-resistant, and free from abrupt changes, suitable for wheelchairs \nand walkers:", true), 1, 34, 11, 1, false);
+            body.AddElement(new ControlText("PEE9", "3.	Plants are non-toxic, non-poisonous, non- thorny, and not covering the walkway:", true), 1, 35, 11, 1, false);
+
+            body.AddElement(new ControlText("notes", "NOTES", true), 0, 36, 12);
+            form.AddElement(body);
 
 
 
 
 
-
-    string fileName = Path.Combine(UserPrefs.GetFormDirectory(), form.name + UserPrefs.FORM_EXTENSION);
+            string fileName = Path.Combine(UserPrefs.GetFormDirectory(), form.name + UserPrefs.FORM_EXTENSION);
              XmlSerializer ser = new XmlSerializer(typeof(Form));
              using (TextWriter writer = new StreamWriter(fileName))
              {
