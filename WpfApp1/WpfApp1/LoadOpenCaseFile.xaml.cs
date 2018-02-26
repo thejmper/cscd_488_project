@@ -18,7 +18,9 @@ using WpfApp1.Case;
 namespace WpfApp1
 {
     /// <summary>
-    /// Interaction logic for LoadOpenCaseFile.xaml
+    /// Interaction logic for LoadOpenCaseFile.xaml Allows the user
+    /// to load a casefile from the database or open one from
+    /// the local machine.
     /// </summary>
     public partial class LoadOpenCaseFile : Window
     {

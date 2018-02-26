@@ -24,9 +24,17 @@ namespace WpfApp1
         public AddFormWindow()
         {
             InitializeComponent();
+            //grabs the set of form templates we've loaded from the database and display it
+            //on a grid that can be easily referenced.
             this.formTemplateList.ItemsSource = UserPrefs.formtemplates;
         }
 
+        /// <summary>
+        /// add the selected form to the user report.
+        /// TODO: make this work for adding multiple forms.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -41,6 +49,11 @@ namespace WpfApp1
             }
         }
 
+        /// <summary>
+        /// add a form to the user report if that form is double-clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var item = sender as ListViewItem;

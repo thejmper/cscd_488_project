@@ -7,6 +7,10 @@ using System.Xml.Serialization;
 
 namespace WpfApp1.FormItems
 {
+    /// <summary>
+    /// abstract group that contains within it several form elements
+    /// </summary>
+    /// <typeparam name="T">type of form element to be contained</typeparam>
     public abstract class ElementGroup<T>: FormElement where T: FormElement
     {
 
@@ -50,6 +54,11 @@ namespace WpfApp1.FormItems
         }
 
         //--element manipulation--//
+        /// <summary>
+        /// adds a new form element to this element group. Throws an exception if an element with
+        /// the same id is already contained in this element group.
+        /// </summary>
+        /// <param name="element"></param>
         protected virtual void AddElementInternal(T element)
         {
             if (elementList.Find(item => item.name.Equals(element.name)) != null)
@@ -57,6 +66,10 @@ namespace WpfApp1.FormItems
 
             elementList.Add(element);
         }
+        /// <summary>
+        /// removes an element from this element list. Throws an exception if the element does not exist.
+        /// </summary>
+        /// <param name="element"></param>
         protected virtual void RemoveElementInternal(T element)
         {
             if (elementList.Find(item => item.name.Equals(element.name)) == null)
@@ -79,9 +92,10 @@ namespace WpfApp1.FormItems
             {
                 return;
             }
-
+            //read each element from the xml element list
             while(reader.NodeType != XmlNodeType.EndElement)
             {
+                //figure out the type so we know which deserializer to create
                 Type type = Type.GetType(reader.GetAttribute("type"));
 
                 XmlSerializer ser = new XmlSerializer(type);
@@ -90,7 +104,11 @@ namespace WpfApp1.FormItems
                 this.AddElementInternal(element);
 
                 reader.MoveToContent();
+                //at this point, we've consumed the end of the element tag, so we're either
+                //at the start of a new open element tag, in which case we'll just read it,
+                //or we've reached the </elementList> tag in which case we continue.
             }
+            //read the </elementlist> tag. Important, otherwise things will break in unexpected ways.
             reader.ReadEndElement();
         }
         protected override void WriteXMLInner(XmlWriter writer)
@@ -98,6 +116,7 @@ namespace WpfApp1.FormItems
             writer.WriteComment("Below is the list of items contained within this group");
             writer.WriteStartElement("elementList");
 
+            //delegate to each element's writeXML method.
             //write elements here
             foreach (T element in this.elementList)
             {
@@ -106,7 +125,12 @@ namespace WpfApp1.FormItems
                 writer.WriteEndElement();
             }
             //done
+            //write the closing tag for the <elementlist> tag. This is really important, 
+            //otherwise open tags will stack up and you'll end up with a malformed XML file at the end of it all,
+            //but it's not always obvious why the end tags aren't being formed, since later "write.WriteEndElement()" 
+            //calls are closing what this should've closed.
             writer.WriteEndElement();
+       
         }
     }
 }

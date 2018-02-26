@@ -72,7 +72,11 @@ namespace WpfApp1.Case
             }
         }
 
-        //--construction--/
+        //--construction--//
+        /// <summary>
+        /// public form constructor.
+        /// </summary>
+        /// <param name="name"></param>
         public Form(string name): base(name)
         {
             this.stackPanel = new StackPanel();
@@ -99,6 +103,17 @@ namespace WpfApp1.Case
             this.SetHeaderValues();
         }
 
+        protected Form(): this("unnamedForm")
+        {
+            
+        }
+
+        /// <summary>
+        /// I don't know what this does, Nick, did you add it?
+        /// Do we even needed?
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
         public void SetValueByName(string name, string value)
         {
             for (int i = 0; i < this.stackPanel.Children.Count; i++)
@@ -119,7 +134,7 @@ namespace WpfApp1.Case
                         currElement.Text = value;
                     }
                 }
-                else if (stackPanel.Children[i].GetType() == typeof(ControlDate)) 
+                else if (stackPanel.Children[i].GetType() == typeof(ControlDate))
                 {
                     DatePicker currElement = (DatePicker)stackPanel.Children[i];
                 }
@@ -127,13 +142,12 @@ namespace WpfApp1.Case
         }
 
 
-        protected Form(): this("unnamedForm")
-        {
-            
-        }
-        
-        
+
         //--helpers--//
+        /// <summary>
+        /// grabs header values from the report this form is attached to. Loaded into
+        /// a private method because it's called a few times and there's no reason to dupilciate code.
+        /// </summary>
         private void SetHeaderValues()
         {
             this.facilityNameField.SetValue(this.facilityName);
@@ -143,11 +157,20 @@ namespace WpfApp1.Case
 
 
         //--cloning--//
+        /// <summary>
+        /// creates a basic instance of this class for the clone system.
+        /// </summary>
+        /// <returns></returns>
         protected override ElementGroup<FormElement> CloneInner()
         {
             Form clone = new Form(this.name);
             return clone;
         }
+        /// <summary>
+        /// clone a form with a given name, instead of just copying the game.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public Form Clone(string name)
         {
             Form clone = (Form)this.Clone();
@@ -155,13 +178,23 @@ namespace WpfApp1.Case
 
             return clone;
         }
+        
 
         //--manipulation--//
+        /// <summary>
+        /// adds a new form element to this form. This simply duplicates the existing
+        /// addelementinternal funcionality, but makes it public so other classes can interact with it.
+        /// </summary>
+        /// <param name="element"></param>
         public void AddElement(FormElement element)
         {
             this.AddElementInternal(element);
         }
 
+        /// <summary>
+        /// adds an element to both this form and it's form-displaying stackpanel
+        /// </summary>
+        /// <param name="element"></param>
         protected override void AddElementInternal(FormElement element)
         {
             base.AddElementInternal(element);
@@ -171,6 +204,10 @@ namespace WpfApp1.Case
         }
 
         //--save/load stuff--//
+        /// <summary>
+        /// writes the inner part of the form's XML
+        /// </summary>
+        /// <param name="writer"></param>
         protected override void WriteXMLInner(XmlWriter writer)
         {
             writer.WriteStartElement(inspectionDateControl.GetType().Name);
@@ -178,6 +215,10 @@ namespace WpfApp1.Case
             writer.WriteEndElement();
             base.WriteXMLInner(writer);
         }
+        /// <summary>
+        /// reads the inner part of the form's XML
+        /// </summary>
+        /// <param name="reader"></param>
         protected override void ReadXMLInner(XmlReader reader)
         {
             Type type = typeof(ControlDate);
@@ -191,7 +232,5 @@ namespace WpfApp1.Case
 
             base.ReadXMLInner(reader);
         }
-
-
     }
 }

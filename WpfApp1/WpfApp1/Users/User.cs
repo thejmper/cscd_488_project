@@ -3,6 +3,9 @@
 
 namespace WpfApp1.Users
 {
+    /// <summary>
+    /// simple user representation
+    /// </summary>
     public class User
     {
         public string id { get; private set; }

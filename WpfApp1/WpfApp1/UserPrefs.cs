@@ -84,7 +84,10 @@ namespace WpfApp1
             LoadFormTemplates();
         }
 
-
+        /// <summary>
+        /// loads all formtemplates from external files into the system so they can
+        /// then be added to casefiles at will.
+        /// </summary>
         private static void LoadFormTemplates()
         {
             formtemplates = new List<Form>();
@@ -108,11 +111,21 @@ namespace WpfApp1
             }
         }
 
+        /// <summary>
+        /// sets the user when user logs in.
+        /// </summary>
+        /// <param name="newUser"></param>
+        /// <param name="wasCheckedOnline"></param>
         public static void SetUser(User newUser, bool wasCheckedOnline)
         {
             user = newUser;
             userIsAuthenticatedOnline = wasCheckedOnline;
         }
+        /// <summary>
+        /// adds a new user to the database and local copy.4
+        /// throws an exception if the unique ID already exists.
+        /// </summary>
+        /// <param name="user"></param>
         public static void AddUser(User user)
         {
 
@@ -122,10 +135,7 @@ namespace WpfApp1
                 {
                     throw new System.ArgumentException("Cannot add" + user.id + "to system, a user with that ID already exists!");
                 }
-                else if(user.name == registerdUser.name)
-                {
-                    throw new System.ArgumentException("Cannot add" + user.name + "to system, a user with that name already exists!");
-                }
+ 
             }
             users.Add(user);
         }
@@ -142,7 +152,8 @@ namespace WpfApp1
         }
 
         /// <summary>
-        /// returns the path where our forms are stored.
+        /// returns the path where our forms are stored. Used because we had to use a non-typical address
+        /// for testing purposes.
         /// </summary>
         /// <returns></returns>
         public static string GetFormDirectory()
@@ -150,7 +161,8 @@ namespace WpfApp1
             return GetPath(@"/FormTemplates");
         }
         /// <summary>
-        /// returns the path where our casefiles are stored.
+        /// returns the path where our casefiles are stored. used because we had to use a non-typical address
+        /// for testing purpuses.
         /// </summary>
         /// <returns></returns>
         public static string GetCasefileDirectory()

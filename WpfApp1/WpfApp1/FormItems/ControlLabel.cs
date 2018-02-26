@@ -10,6 +10,9 @@ using System.Xml;
 
 namespace WpfApp1.FormItems
 {
+    /// <summary>
+    /// represents a non-interactable text label. 
+    /// </summary>
     public class ControlLabel : FormElement
     {
         //--member fields--//
@@ -19,6 +22,11 @@ namespace WpfApp1.FormItems
         private Label label;
 
         //--construction--//
+        /// <summary>
+        /// constructs a label
+        /// </summary>
+        /// <param name="name">the name of this control, not user-visible</param>
+        /// <param name="labelText">the text of this label that will be visible to the user.</param>
         public ControlLabel(string name, string labelText) : base(name)
         {
             this.label = new Label();
@@ -35,15 +43,19 @@ namespace WpfApp1.FormItems
             return clone;
         }
 
+        /// <summary>
+        /// This does nothing, since this is already read only. It's just here to fulfill the FormElement contract.
+        /// </summary>
+        /// <param name="isReadOnly"></param>
+        protected override void SetReadOnlyInternal(bool isReadOnly)
+        {
+            //do nothing, there's nothing to set to read-only
+        }
+
         protected override void ReadXMLInner(XmlReader reader)
         {
             string content = reader.ReadElementContentAsString();
             this.label.Content = content;
-        }
-
-        protected override void SetReadOnlyInternal(bool isReadOnly)
-        {
-            //do nothing, there's nothing to set to read-only
         }
 
         protected override void WriteXMLInner(XmlWriter writer)

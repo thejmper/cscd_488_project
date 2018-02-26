@@ -19,6 +19,7 @@ namespace WpfApp1
 {
     /// <summary>
     /// Interaction logic for BoilerplateTestWindow.xaml
+    /// just here for testing.
     /// </summary>
     public partial class BoilerplateTestWindow : Window
     {

@@ -10,6 +10,10 @@ using System.Xml;
 
 namespace WpfApp1.FormItems
 {
+    /*
+    /// <summary>
+    /// control for a wpf button. I don't think we actually need this one.
+    /// </summary>
     public class ControlButton : FormElement
     {
         //--private fields--//
@@ -48,4 +52,5 @@ namespace WpfApp1.FormItems
             writer.WriteElementString("buttonText", this.button.Content.ToString());
         }
     }
+    */
 }

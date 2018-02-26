@@ -7,9 +7,16 @@ using WpfApp1.FormItems;
 
 namespace WpfApp1.Case
 {
+    /// <summary>
+    /// represents a single user's report, containing multiple forms.
+    /// </summary>
     public class Report : TabbedGroup<Form>
     {
         //--member fields--//
+        /// <summary>
+        /// set of forms in this report. Just extends the base class's element list, but does
+        /// so with a name that's more intelligable.
+        /// </summary>
          public List<Form> forms
         {
             get
@@ -50,6 +57,8 @@ namespace WpfApp1.Case
         internal DateTime lastModified;
 
         //label used to display this report
+        //case file this report is attached to, used to fetch
+        //autofill data.
         private CaseFile _caseFile;
         internal CaseFile caseFile
         {
@@ -81,6 +90,11 @@ namespace WpfApp1.Case
         }
         
         //--form manipulation--//
+        /// <summary>
+        /// adds a form to this report, and makes sure the name is unique.
+        /// </summary>
+        /// <param name="formTemplate"></param>
+        /// <returns></returns>
         public Form AddForm(Form formTemplate)
         {
             string name = formTemplate.name;

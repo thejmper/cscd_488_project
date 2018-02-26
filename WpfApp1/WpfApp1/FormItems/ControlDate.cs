@@ -11,7 +11,9 @@ using WpfApp1.Case;
 
 namespace WpfApp1.FormItems
 {
-    //TODO figure out how to set the orginal value after loading
+    /// <summary>
+    /// control that displays a date. Not much more to say here.
+    /// </summary>
     public class ControlDate : FormControl<DatePicker, DateTime>
     {
         //--member fields--//
@@ -20,11 +22,10 @@ namespace WpfApp1.FormItems
         //--construction--//
         public ControlDate(string name, string engishTitle, Orientation orientation = Orientation.Vertical) : base(name, engishTitle, new DatePicker(), orientation)
         {
-            //this.control.SelectedDate = DateTime.Now;
-            //this.control.DisplayDate = DateTime.Now;
+
         }
 
-
+        /*
         private static void Dp_SelectedDateChanged(object sender, SelectionChangedEventArgs e, ControlDate controlDate)
         {
             
@@ -40,6 +41,7 @@ namespace WpfApp1.FormItems
 
             d.DisplayDate = new DateTime(1, 2, 3);
         }
+        */
 
         public ControlDate() : this("untitledControlDate", "untitled date control")
         {
