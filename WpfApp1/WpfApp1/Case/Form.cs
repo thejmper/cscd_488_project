@@ -108,38 +108,6 @@ namespace WpfApp1.Case
             
         }
 
-        /// <summary>
-        /// I don't know what this does, Nick, did you add it?
-        /// Do we even needed?
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
-        public void SetValueByName(string name, string value)
-        {
-            for (int i = 0; i < this.stackPanel.Children.Count; i++)
-            {
-                if (stackPanel.Children[i].GetType() == typeof(ControlText))
-                {
-                    var currElement = (TextBox)stackPanel.Children[i];
-                    if (currElement.Name == name)
-                    {
-                        currElement.Text = value;
-                    }
-                }
-                else if (stackPanel.Children[i].GetType() == typeof(ControlInteger))
-                {
-                    var currElement = (TextBox)stackPanel.Children[i];
-                    if (currElement.Name == name)
-                    {
-                        currElement.Text = value;
-                    }
-                }
-                else if (stackPanel.Children[i].GetType() == typeof(ControlDate))
-                {
-                    DatePicker currElement = (DatePicker)stackPanel.Children[i];
-                }
-            }
-        }
 
 
 
