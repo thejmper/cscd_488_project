@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Form type="WpfApp1.Case.Form">
-  <name>FormM</name>
+  <name>FormO</name>
   <isReadOnly>false</isReadOnly>
   <ControlDate type="WpfApp1.FormItems.ControlDate">
     <name>inspectionDate</name>
@@ -26,35 +26,35 @@
           <name>initial</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Initial</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>full</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Full</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>followup</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Follow up</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>monitering</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Monitoring</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>complaint</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Complaint</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlInteger type="WpfApp1.FormItems.ControlInteger">

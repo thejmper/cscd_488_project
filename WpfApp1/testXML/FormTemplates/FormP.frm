@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Form type="WpfApp1.Case.Form">
-  <name>FormJ</name>
+  <name>FormP</name>
   <isReadOnly>false</isReadOnly>
   <ControlDate type="WpfApp1.FormItems.ControlDate">
     <name>inspectionDate</name>
@@ -66,206 +66,87 @@
         </ControlInteger>
       </elementList>
     </LayoutStackPanel>
-    <ElementSpacer type="WpfApp1.FormItems.ElementSpacer">
-      <name>spacer1</name>
-      <isReadOnly>false</isReadOnly>
-      <height>25</height>
-    </ElementSpacer>
     <LayoutGrid type="WpfApp1.FormItems.LayoutGrid">
-      <name>Body</name>
+      <name>body</name>
       <isReadOnly>false</isReadOnly>
       <!--Below is the list of items contained within this group-->
       <elementList>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>name</name>
+          <name>lab1</name>
           <isReadOnly>false</isReadOnly>
           <row>0</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
-          <colSpan>3</colSpan>
+          <colSpan>12</colSpan>
           <isBordered>True</isBordered>
-          <ControlText type="WpfApp1.FormItems.ControlText">
-            <name>name</name>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>lab1</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>NAME</englishTitle>
-            <orientation>Vertical</orientation>
-            <acceptsNewLine>false</acceptsNewLine>
-            <text />
-          </ControlText>
+            <labelText>Food Services:  General observation of kitchen and staff (wear a hair restraint per regulation and facility policy).</labelText>
+          </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>id</name>
-          <isReadOnly>false</isReadOnly>
-          <row>0</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
-          <ControlInteger type="WpfApp1.FormItems.ControlInteger">
-            <name>id</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>ID NO.</englishTitle>
-            <orientation>Vertical</orientation>
-            <value>0</value>
-          </ControlInteger>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>DOB</name>
-          <isReadOnly>false</isReadOnly>
-          <row>0</row>
-          <col>4</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>2</colSpan>
-          <isBordered>True</isBordered>
-          <ControlDate type="WpfApp1.FormItems.ControlDate">
-            <name>DOB</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>DATE OF BIRTH</englishTitle>
-            <orientation>Vertical</orientation>
-            <SelectedDateProperty>1/1/0001 12:00:00 AM</SelectedDateProperty>
-          </ControlDate>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>roomNum</name>
-          <isReadOnly>false</isReadOnly>
-          <row>0</row>
-          <col>6</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
-          <ControlInteger type="WpfApp1.FormItems.ControlInteger">
-            <name>roomNum</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>ROOM NO.</englishTitle>
-            <orientation>Vertical</orientation>
-            <value>0</value>
-          </ControlInteger>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>moveIn</name>
-          <isReadOnly>false</isReadOnly>
-          <row>0</row>
-          <col>7</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>2</colSpan>
-          <isBordered>True</isBordered>
-          <ControlDate type="WpfApp1.FormItems.ControlDate">
-            <name>moveIn</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>MOVE-IN-DATE</englishTitle>
-            <orientation>Vertical</orientation>
-            <SelectedDateProperty>1/1/0001 12:00:00 AM</SelectedDateProperty>
-          </ControlDate>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>pay</name>
-          <isReadOnly>false</isReadOnly>
-          <row>0</row>
-          <col>9</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>2</colSpan>
-          <isBordered>True</isBordered>
-          <ControlText type="WpfApp1.FormItems.ControlText">
-            <name>pay</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>PAY STATUS</englishTitle>
-            <orientation>Vertical</orientation>
-            <acceptsNewLine>false</acceptsNewLine>
-            <text />
-          </ControlText>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>family</name>
+          <name>FS1</name>
           <isReadOnly>false</isReadOnly>
           <row>1</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
-          <colSpan>6</colSpan>
-          <isBordered>True</isBordered>
-          <ControlText type="WpfApp1.FormItems.ControlText">
-            <name>family</name>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FS1</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>FAMILY/MEMBER/RESIDENT’S REPRESENTATIVE/PHONE</englishTitle>
-            <orientation>Vertical</orientation>
-            <acceptsNewLine>false</acceptsNewLine>
-            <text />
-          </ControlText>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>history</name>
+          <name>FSLab1</name>
           <isReadOnly>false</isReadOnly>
           <row>1</row>
-          <col>6</col>
+          <col>1</col>
           <rowSpan>1</rowSpan>
-          <colSpan>6</colSpan>
-          <isBordered>True</isBordered>
-          <ControlText type="WpfApp1.FormItems.ControlText">
-            <name>history</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>PERTINENT MEDICAL HISTORY/DIAGNOSES</englishTitle>
-            <orientation>Vertical</orientation>
-            <acceptsNewLine>false</acceptsNewLine>
-            <text />
-          </ControlText>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>assessment</name>
-          <isReadOnly>false</isReadOnly>
-          <row>2</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
-          <isBordered>True</isBordered>
+          <colSpan>11</colSpan>
+          <isBordered>False</isBordered>
           <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>assessment</name>
+            <name>FSLab1</name>
             <isReadOnly>false</isReadOnly>
-            <labelText>Assessment</labelText>
+            <labelText>Overall cleanliness of kitchen area (6505)</labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>yesLab1</name>
+          <name>FS2</name>
           <isReadOnly>false</isReadOnly>
           <row>2</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
           <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>yesLab1</name>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FS2</name>
             <isReadOnly>false</isReadOnly>
-            <labelText>Yes</labelText>
-          </ControlLabel>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>noLab</name>
+          <name>FSLab2</name>
           <isReadOnly>false</isReadOnly>
           <row>2</row>
           <col>1</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
+          <colSpan>11</colSpan>
+          <isBordered>False</isBordered>
           <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>noLab</name>
+            <name>FSLab2</name>
             <isReadOnly>false</isReadOnly>
-            <labelText>No</labelText>
+            <labelText>Proper hand hygiene and glove use (02305 and 02310) during food preparation and service</labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>naLab</name>
-          <isReadOnly>false</isReadOnly>
-          <row>2</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>naLab</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>N/A</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>ay1</name>
+          <name>FS3</name>
           <isReadOnly>false</isReadOnly>
           <row>3</row>
           <col>0</col>
@@ -273,61 +154,29 @@
           <colSpan>1</colSpan>
           <isBordered>False</isBordered>
           <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>ay1</name>
+            <name>FS3</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Vertical</orientation>
+            <orientation>Horizontal</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>an1</name>
+          <name>FSLab3</name>
           <isReadOnly>false</isReadOnly>
           <row>3</row>
           <col>1</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>an1</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>ana1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>3</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>ana1</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>aq1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>3</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
+          <colSpan>11</colSpan>
           <isBordered>False</isBordered>
           <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>aq1</name>
+            <name>FSLab3</name>
             <isReadOnly>false</isReadOnly>
-            <labelText>Pre-admission (for residents admitted in last six months).</labelText>
+            <labelText>Staff cleanliness, use of hair restraints and hygienic practices (02325, 02335, 02410)</labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>ay2</name>
+          <name>FS4</name>
           <isReadOnly>false</isReadOnly>
           <row>4</row>
           <col>0</col>
@@ -335,61 +184,30 @@
           <colSpan>1</colSpan>
           <isBordered>False</isBordered>
           <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>ay2</name>
+            <name>FS4</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Vertical</orientation>
+            <orientation>Horizontal</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>an2</name>
+          <name>FSLab4</name>
           <isReadOnly>false</isReadOnly>
           <row>4</row>
           <col>1</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>an2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>ana2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>4</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>ana2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>aq2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>4</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
+          <colSpan>11</colSpan>
           <isBordered>False</isBordered>
           <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>aq2</name>
+            <name>FSLab4</name>
             <isReadOnly>false</isReadOnly>
-            <labelText>Annual to meet resident’s needs or semi-annual for EARC – Specialized Dementia Care contract.</labelText>
+            <labelText>Food stored with proper temperature controls (for example, no potentially hazardous foods, such as beef, chicken, pork  thawing 
+at room temperature) (03510) </labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>ay3</name>
+          <name>FS5</name>
           <isReadOnly>false</isReadOnly>
           <row>5</row>
           <col>0</col>
@@ -397,63 +215,214 @@
           <colSpan>1</colSpan>
           <isBordered>False</isBordered>
           <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>ay3</name>
+            <name>FS5</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Vertical</orientation>
+            <orientation>Horizontal</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>an3</name>
+          <name>FSLab5</name>
           <isReadOnly>false</isReadOnly>
           <row>5</row>
           <col>1</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>an3</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>ana3</name>
-          <isReadOnly>false</isReadOnly>
-          <row>5</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>ana3</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>aq3</name>
-          <isReadOnly>false</isReadOnly>
-          <row>5</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
+          <colSpan>11</colSpan>
           <isBordered>False</isBordered>
           <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>aq3</name>
+            <name>FSLab5</name>
             <isReadOnly>false</isReadOnly>
-            <labelText>Limited for change of condition as needed.</labelText>
+            <labelText>Food from approved sources (03200) (for example food from known providers, no home prepared items) </labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FS6</name>
+          <isReadOnly>false</isReadOnly>
+          <row>6</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FS6</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSLab6</name>
+          <isReadOnly>false</isReadOnly>
+          <row>6</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>11</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSLab6</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>No ill food workers present  (02220)</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FS7</name>
+          <isReadOnly>false</isReadOnly>
+          <row>7</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FS7</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSLab7</name>
+          <isReadOnly>false</isReadOnly>
+          <row>7</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>11</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSLab7</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Chemicals labeled and properly stored (07200)</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FS8</name>
+          <isReadOnly>false</isReadOnly>
+          <row>8</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FS8</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSLab8</name>
+          <isReadOnly>false</isReadOnly>
+          <row>8</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>11</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSLab8</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Person in charge to provide a copy of the food handlers’ cards for meal preparation staff observed during the meal observed in this 
+inspection. (02120)</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FS9</name>
+          <isReadOnly>false</isReadOnly>
+          <row>9</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FS9</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSLab9</name>
+          <isReadOnly>false</isReadOnly>
+          <row>9</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>11</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSLab9</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Person in Charge describes process for staff to report illnesses and procedures used when an ill food workers reports an illness 
+(02205, 02220, 02225)</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FS10</name>
+          <isReadOnly>false</isReadOnly>
+          <row>10</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FS10</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSLab10</name>
+          <isReadOnly>false</isReadOnly>
+          <row>10</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>11</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSLab10</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Person in Charge or designee describes proper dishwashing procedure that follow manufacture guidelines for temperature or 
+chemical controls (04555, 04560) </labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FS11</name>
+          <isReadOnly>false</isReadOnly>
+          <row>11</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FS11</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSLab11</name>
+          <isReadOnly>false</isReadOnly>
+          <row>11</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>11</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSLab11</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Person in Charge or designee describes steps taken to prevent cross-contamination of food items (03306)</labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
           <name>notes1</name>
           <isReadOnly>false</isReadOnly>
-          <row>6</row>
+          <row>12</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
           <colSpan>12</colSpan>
@@ -461,196 +430,305 @@
           <ControlText type="WpfApp1.FormItems.ControlText">
             <name>notes1</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>NOTES</englishTitle>
+            <englishTitle>Notes</englishTitle>
             <orientation>Vertical</orientation>
             <acceptsNewLine>true</acceptsNewLine>
             <text />
           </ControlText>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>monitering</name>
+          <name>lab2</name>
           <isReadOnly>false</isReadOnly>
-          <row>7</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>monitering</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>Monitoring Resident’s Well-Being</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>yesLab2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>7</row>
+          <row>13</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
+          <colSpan>12</colSpan>
           <isBordered>True</isBordered>
           <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>yesLab2</name>
+            <name>lab2</name>
             <isReadOnly>false</isReadOnly>
-            <labelText>Yes</labelText>
+            <labelText>Food Preparation and Service:  Observe for proper food preparation, thawing of frozen items, areas used for food preparation, and 
+proper temperature controls, for example.</labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>noLab2</name>
+          <name>FPS1</name>
           <isReadOnly>false</isReadOnly>
-          <row>7</row>
-          <col>1</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>noLab2</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>No</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>naLab2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>7</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>naLab2</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>N/A</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>my1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>8</row>
+          <row>14</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
           <colSpan>1</colSpan>
           <isBordered>False</isBordered>
           <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>my1</name>
+            <name>FPS1</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Vertical</orientation>
+            <orientation>Horizontal</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>mn1</name>
+          <name>FPSLab1</name>
           <isReadOnly>false</isReadOnly>
-          <row>8</row>
+          <row>14</row>
           <col>1</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>mn1</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>mna1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>8</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>mna1</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>mq1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>8</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
+          <colSpan>11</colSpan>
           <isBordered>False</isBordered>
           <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>mq1</name>
+            <name>FPSLab1</name>
             <isReadOnly>false</isReadOnly>
-            <labelText>Documented.</labelText>
+            <labelText>Person in Charge or designee describes how food contact surfaces are thoroughly cleaned/rinsed/sanitized 
+(4640 washing, 04645 rinsing, 04700 sanitization) </labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>my2</name>
+          <name>FPS2</name>
           <isReadOnly>false</isReadOnly>
-          <row>9</row>
+          <row>15</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
           <colSpan>1</colSpan>
           <isBordered>False</isBordered>
           <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>my2</name>
+            <name>FPS2</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Vertical</orientation>
+            <orientation>Horizontal</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>mn2</name>
+          <name>FPSLab2</name>
           <isReadOnly>false</isReadOnly>
-          <row>9</row>
+          <row>15</row>
           <col>1</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>mn2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>mna2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>9</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>mna2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>mq2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>9</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
+          <colSpan>11</colSpan>
           <isBordered>False</isBordered>
           <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>mq2</name>
+            <name>FPSLab2</name>
             <isReadOnly>false</isReadOnly>
-            <labelText>Action taken as needed.</labelText>
+            <labelText>Person in Charge describes process to check food temperatures   </labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FPS3</name>
+          <isReadOnly>false</isReadOnly>
+          <row>16</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FPS3</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FPSLab3</name>
+          <isReadOnly>false</isReadOnly>
+          <row>16</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>11</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FPSLab3</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Person in Charge or designee identifies proper cooking time and temperatures for potentially hazardous foods 
+(for example, poultry 165°F, ground meat at least 155°F, fish and other meats 145°F) </labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FPS4</name>
+          <isReadOnly>false</isReadOnly>
+          <row>17</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FPS4</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FPSLab4</name>
+          <isReadOnly>false</isReadOnly>
+          <row>17</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>11</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FPSLab4</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Person in Charge or designee describes how food items are properly reheated (03400)  </labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FPS5</name>
+          <isReadOnly>false</isReadOnly>
+          <row>18</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FPS5</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FPSLab5</name>
+          <isReadOnly>false</isReadOnly>
+          <row>18</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>11</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FPSLab5</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>No bare hand contact with ready to eat foods, except during the washing of fruits and vegetables (03300) </labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FPS6</name>
+          <isReadOnly>false</isReadOnly>
+          <row>19</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FPS6</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FPSLab6</name>
+          <isReadOnly>false</isReadOnly>
+          <row>19</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>11</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FPSLab6</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Proper hand hygiene and glove use (see above)</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FPS7</name>
+          <isReadOnly>false</isReadOnly>
+          <row>20</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FPS7</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FPSLab7</name>
+          <isReadOnly>false</isReadOnly>
+          <row>20</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>11</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FPSLab7</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Fruits and vegetables are thoroughly rinsed (washed) (03318) </labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FPS8</name>
+          <isReadOnly>false</isReadOnly>
+          <row>21</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FPS8</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FPSLab8</name>
+          <isReadOnly>false</isReadOnly>
+          <row>21</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>11</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FPSLab8</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Hot foods held at ≥135°F prior to serving  (03525) 
+(facility can check food temperature in your presence or you can check temperature of food with your sanitized thermometer)</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FPS9</name>
+          <isReadOnly>false</isReadOnly>
+          <row>22</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FPS9</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FPSLab9</name>
+          <isReadOnly>false</isReadOnly>
+          <row>22</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>11</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FPSLab9</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Cold foods held at ≤41°F prior to serving (03525) 
+(facility can check food temperature in your presence or you can check temperature of food with your sanitized thermometer) </labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
           <name>notes2</name>
           <isReadOnly>false</isReadOnly>
-          <row>10</row>
+          <row>23</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
           <colSpan>12</colSpan>
@@ -658,944 +736,118 @@
           <ControlText type="WpfApp1.FormItems.ControlText">
             <name>notes2</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>NOTES</englishTitle>
+            <englishTitle>Notes</englishTitle>
             <orientation>Vertical</orientation>
             <acceptsNewLine>true</acceptsNewLine>
             <text />
           </ControlText>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>negotiated</name>
+          <name>lab3</name>
           <isReadOnly>false</isReadOnly>
-          <row>11</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>negotiated</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>Negotiated Service Agreement (NSA)</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>yesLab3</name>
-          <isReadOnly>false</isReadOnly>
-          <row>11</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>yesLab3</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>Yes</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>noLab3</name>
-          <isReadOnly>false</isReadOnly>
-          <row>11</row>
-          <col>1</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>noLab3</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>No</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>naLab3</name>
-          <isReadOnly>false</isReadOnly>
-          <row>11</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>naLab3</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>N/A</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>ny1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>12</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>ny1</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>nn1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>12</row>
-          <col>1</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>nn1</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>nna1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>12</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>nna1</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>nq1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>12</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
-          <isBordered>False</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>nq1</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>Initial on admission and completed within 30 days (for residents admitted in last six months).</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>ny2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>13</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>ny2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>nn2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>13</row>
-          <col>1</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>nn2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>nna2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>13</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>nna2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>nq2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>13</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
-          <isBordered>False</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>nq2</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>Updated as necessary</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>ny3</name>
-          <isReadOnly>false</isReadOnly>
-          <row>14</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>ny3</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>nn3</name>
-          <isReadOnly>false</isReadOnly>
-          <row>14</row>
-          <col>1</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>nn3</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>nna3</name>
-          <isReadOnly>false</isReadOnly>
-          <row>14</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>nna3</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>nq3</name>
-          <isReadOnly>false</isReadOnly>
-          <row>14</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
-          <isBordered>False</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>nq3</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>Contents meet resident’s needs and preferences.
-•	Defined roles and responsibilities of resident, staff, resident’s representative, outside agency if 
-	used, and alternate plan when necessary.
-•	Times services will be delivered including frequency and approximate time of day.
-•	Resident’s preferences for activities and how supported.
-•	Identifies and incorporates Resident Arranged Services (if applicable).
-•	Identifies and incorporates External Health Providers (if applicable)</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>notes3</name>
-          <isReadOnly>false</isReadOnly>
-          <row>15</row>
+          <row>24</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
           <colSpan>12</colSpan>
-          <isBordered>False</isBordered>
-          <ControlText type="WpfApp1.FormItems.ControlText">
-            <name>notes3</name>
+          <isBordered>True</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>lab3</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>NOTES</englishTitle>
-            <orientation>Vertical</orientation>
-            <acceptsNewLine>true</acceptsNewLine>
-            <text />
-          </ControlText>
+            <labelText>Food Storage:  Observe for food storage to prevent contamination and to promote proper temperature controls.</labelText>
+          </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>medservs</name>
+          <name>FST1</name>
           <isReadOnly>false</isReadOnly>
-          <row>16</row>
-          <col>3</col>
+          <row>25</row>
+          <col>0</col>
           <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
-          <isBordered>True</isBordered>
-          <LayoutStackPanel type="WpfApp1.FormItems.LayoutStackPanel">
-            <name>medservs</name>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST1</name>
             <isReadOnly>false</isReadOnly>
+            <englishTitle />
             <orientation>Horizontal</orientation>
-            <!--Below is the list of items contained within this group-->
-            <elementList>
-              <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-                <name>medServ</name>
-                <isReadOnly>false</isReadOnly>
-                <labelText>Medication Services:  </labelText>
-              </ControlLabel>
-              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-                <name>ind</name>
-                <isReadOnly>false</isReadOnly>
-                <englishTitle>Independent</englishTitle>
-                <orientation>Vertical</orientation>
-                <value>false</value>
-              </ControlBoolean>
-              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-                <name>assist</name>
-                <isReadOnly>false</isReadOnly>
-                <englishTitle>Assistance</englishTitle>
-                <orientation>Vertical</orientation>
-                <value>false</value>
-              </ControlBoolean>
-              <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-                <name>admin</name>
-                <isReadOnly>false</isReadOnly>
-                <englishTitle>Administration</englishTitle>
-                <orientation>Vertical</orientation>
-                <value>false</value>
-              </ControlBoolean>
-            </elementList>
-          </LayoutStackPanel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>yesLab4</name>
-          <isReadOnly>false</isReadOnly>
-          <row>16</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>yesLab4</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>Yes</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>noLab4</name>
-          <isReadOnly>false</isReadOnly>
-          <row>16</row>
-          <col>1</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>noLab4</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>No</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>naLab4</name>
-          <isReadOnly>false</isReadOnly>
-          <row>16</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>naLab4</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>N/A</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msy1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>17</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>msy1</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msn1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>17</row>
-          <col>1</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>msn1</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msa1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>17</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>msa1</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msq1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>17</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
-          <isBordered>False</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>msq1</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>Family / plan.</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msy2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>18</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>msy2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msn2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>18</row>
-          <col>1</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>msn2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msa2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>18</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>msa2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msq2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>18</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
-          <isBordered>False</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>msq2</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>Facility</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msy3</name>
-          <isReadOnly>false</isReadOnly>
-          <row>19</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>msy3</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msn3</name>
-          <isReadOnly>false</isReadOnly>
-          <row>19</row>
-          <col>1</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>msn3</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msa3</name>
-          <isReadOnly>false</isReadOnly>
-          <row>19</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>msa3</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msq3</name>
-          <isReadOnly>false</isReadOnly>
-          <row>19</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
-          <isBordered>False</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>msq3</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>Appropriate for resident abilities and needs</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msy4</name>
-          <isReadOnly>false</isReadOnly>
-          <row>20</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>msy4</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msn4</name>
-          <isReadOnly>false</isReadOnly>
-          <row>20</row>
-          <col>1</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>msn4</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msa4</name>
-          <isReadOnly>false</isReadOnly>
-          <row>20</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>msa4</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msq4</name>
-          <isReadOnly>false</isReadOnly>
-          <row>20</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
-          <isBordered>False</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>msq4</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>Review of medication record.</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msy5</name>
-          <isReadOnly>false</isReadOnly>
-          <row>21</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>msy5</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msn5</name>
-          <isReadOnly>false</isReadOnly>
-          <row>21</row>
-          <col>1</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>msn5</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msa5</name>
-          <isReadOnly>false</isReadOnly>
-          <row>21</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>msa5</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>msq5</name>
-          <isReadOnly>false</isReadOnly>
-          <row>21</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
-          <isBordered>False</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>msq5</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>Documentation of refusal (if applicable)</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>notes4</name>
-          <isReadOnly>false</isReadOnly>
-          <row>22</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>12</colSpan>
-          <isBordered>False</isBordered>
-          <ControlText type="WpfApp1.FormItems.ControlText">
-            <name>notes4</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle>NOTES</englishTitle>
-            <orientation>Vertical</orientation>
-            <acceptsNewLine>true</acceptsNewLine>
-            <text />
-          </ControlText>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>intermitted</name>
-          <isReadOnly>false</isReadOnly>
-          <row>23</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>intermitted</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>Intermittent Nursing Services Provided</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>yesLab5</name>
-          <isReadOnly>false</isReadOnly>
-          <row>23</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>yesLab5</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>Yes</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>noLab5</name>
-          <isReadOnly>false</isReadOnly>
-          <row>23</row>
-          <col>1</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>noLab5</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>No</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>naLab5</name>
-          <isReadOnly>false</isReadOnly>
-          <row>23</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>naLab5</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>N/A</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>iy1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>24</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>iy1</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>in1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>24</row>
-          <col>1</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>in1</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>ia1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>24</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>ia1</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>iq1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>24</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
-          <isBordered>False</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>iq1</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>Nursing Service System developed.</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>iy2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>25</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>iy2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>in2</name>
+          <name>FSTLab1</name>
           <isReadOnly>false</isReadOnly>
           <row>25</row>
           <col>1</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>in2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>ia2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>25</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>ia2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>iq2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>25</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
+          <colSpan>11</colSpan>
           <isBordered>False</isBordered>
           <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>iq2</name>
+            <name>FSTLab1</name>
             <isReadOnly>false</isReadOnly>
-            <labelText>Services identified and appropriate.</labelText>
+            <labelText>Store rooms free from rodents and pests (06550)</labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>notes5</name>
+          <name>FST2</name>
           <isReadOnly>false</isReadOnly>
           <row>26</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
-          <colSpan>12</colSpan>
+          <colSpan>1</colSpan>
           <isBordered>False</isBordered>
-          <ControlText type="WpfApp1.FormItems.ControlText">
-            <name>notes5</name>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>NOTES</englishTitle>
-            <orientation>Vertical</orientation>
-            <acceptsNewLine>true</acceptsNewLine>
-            <text />
-          </ControlText>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>mod</name>
+          <name>FSTLab2</name>
           <isReadOnly>false</isReadOnly>
-          <row>27</row>
-          <col>3</col>
+          <row>26</row>
+          <col>1</col>
           <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
-          <isBordered>True</isBordered>
+          <colSpan>11</colSpan>
+          <isBordered>False</isBordered>
           <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>mod</name>
+            <name>FSTLab2</name>
             <isReadOnly>false</isReadOnly>
-            <labelText>Modified / Therapeutic Diet</labelText>
+            <labelText>Refrigerator temperature is maintained at ≤41°F (internal temperature of potentially hazardous food must be  at ≤41°F) (03525) </labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>yesLab6</name>
+          <name>FST3</name>
           <isReadOnly>false</isReadOnly>
           <row>27</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
           <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>yesLab6</name>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST3</name>
             <isReadOnly>false</isReadOnly>
-            <labelText>Yes</labelText>
-          </ControlLabel>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>noLab6</name>
+          <name>FSTLab3</name>
           <isReadOnly>false</isReadOnly>
           <row>27</row>
           <col>1</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
+          <colSpan>11</colSpan>
+          <isBordered>False</isBordered>
           <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>noLab6</name>
+            <name>FSTLab3</name>
             <isReadOnly>false</isReadOnly>
-            <labelText>No</labelText>
+            <labelText>Foods are frozen in freezer (no specific temperature requirement) (03500)</labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>naLab6</name>
-          <isReadOnly>false</isReadOnly>
-          <row>27</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>True</isBordered>
-          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>naLab6</name>
-            <isReadOnly>false</isReadOnly>
-            <labelText>N/A</labelText>
-          </ControlLabel>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>mty1</name>
+          <name>FST4</name>
           <isReadOnly>false</isReadOnly>
           <row>28</row>
           <col>0</col>
@@ -1603,61 +855,29 @@
           <colSpan>1</colSpan>
           <isBordered>False</isBordered>
           <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>mty1</name>
+            <name>FST4</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Vertical</orientation>
+            <orientation>Horizontal</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>mtn1</name>
+          <name>FSTLab4</name>
           <isReadOnly>false</isReadOnly>
           <row>28</row>
           <col>1</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>mtn1</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>mta1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>28</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>mta1</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>mtq1</name>
-          <isReadOnly>false</isReadOnly>
-          <row>28</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
+          <colSpan>11</colSpan>
           <isBordered>False</isBordered>
           <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>mtq1</name>
+            <name>FSTLab4</name>
             <isReadOnly>false</isReadOnly>
-            <labelText>Receiving Food Services as ordered.</labelText>
+            <labelText>Raw meats stored below or away from ready to eat food  (03306)</labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>mty2</name>
+          <name>FST5</name>
           <isReadOnly>false</isReadOnly>
           <row>29</row>
           <col>0</col>
@@ -1665,61 +885,32 @@
           <colSpan>1</colSpan>
           <isBordered>False</isBordered>
           <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>mty2</name>
+            <name>FST5</name>
             <isReadOnly>false</isReadOnly>
             <englishTitle />
-            <orientation>Vertical</orientation>
+            <orientation>Horizontal</orientation>
             <value>false</value>
           </ControlBoolean>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>mtn2</name>
+          <name>FSTLab5</name>
           <isReadOnly>false</isReadOnly>
           <row>29</row>
           <col>1</col>
           <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>mtn2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>mta2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>29</row>
-          <col>2</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>1</colSpan>
-          <isBordered>False</isBordered>
-          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
-            <name>mta2</name>
-            <isReadOnly>false</isReadOnly>
-            <englishTitle />
-            <orientation>Vertical</orientation>
-            <value>false</value>
-          </ControlBoolean>
-        </GridElement>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>mtq2</name>
-          <isReadOnly>false</isReadOnly>
-          <row>29</row>
-          <col>3</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>9</colSpan>
+          <colSpan>11</colSpan>
           <isBordered>False</isBordered>
           <ControlLabel type="WpfApp1.FormItems.ControlLabel">
-            <name>mtq2</name>
+            <name>FSTLab5</name>
             <isReadOnly>false</isReadOnly>
-            <labelText>Receiving eating assistance.</labelText>
+            <labelText>Potentially hazardous foods are properly cooled (within two hours going from 135°F to  70°F and then to ≤41°F within a total of six 
+hours or following the rapid cooling procedure of continuous cooling in a shallow layer of 2 inches or less, uncovered, protected 
+from cross contamination, in cooling equipment maintaining an ambient air temperature of ≤41°F or other methods as described in 
+regulation) (03515)</labelText>
           </ControlLabel>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>notes6</name>
+          <name>notes3</name>
           <isReadOnly>false</isReadOnly>
           <row>30</row>
           <col>0</col>
@@ -1727,28 +918,718 @@
           <colSpan>12</colSpan>
           <isBordered>False</isBordered>
           <ControlText type="WpfApp1.FormItems.ControlText">
-            <name>notes6</name>
+            <name>notes3</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>NOTES</englishTitle>
+            <englishTitle>Notes</englishTitle>
             <orientation>Vertical</orientation>
             <acceptsNewLine>true</acceptsNewLine>
             <text />
           </ControlText>
         </GridElement>
         <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>finalNotes</name>
+          <name>lab4</name>
           <isReadOnly>false</isReadOnly>
           <row>31</row>
           <col>0</col>
           <rowSpan>1</rowSpan>
           <colSpan>12</colSpan>
           <isBordered>True</isBordered>
-          <ControlText type="WpfApp1.FormItems.ControlText">
-            <name>finalNotes</name>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>lab4</name>
             <isReadOnly>false</isReadOnly>
-            <englishTitle>Addtional Notes</englishTitle>
+            <labelText>Food Storage:  Observe for food storage to prevent contamination and to promote proper temperature controls.</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>lab4a</name>
+          <isReadOnly>false</isReadOnly>
+          <row>32</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>12</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>lab4a</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>•	Menus:</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2m1</name>
+          <isReadOnly>false</isReadOnly>
+          <row>33</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2m1</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2m1</name>
+          <isReadOnly>false</isReadOnly>
+          <row>33</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2m1</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Provide Variety</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2m2</name>
+          <isReadOnly>false</isReadOnly>
+          <row>34</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2m2</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2m2</name>
+          <isReadOnly>false</isReadOnly>
+          <row>34</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2m2</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Are nutritious, meets the residents’ dietary needs</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2m3</name>
+          <isReadOnly>false</isReadOnly>
+          <row>35</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2m3</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2m3</name>
+          <isReadOnly>false</isReadOnly>
+          <row>35</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2m3</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Are palatable and served at proper temperature (if issues with food palatability temperature and/or palatability, consider 
+obtaining a meal sample)</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2m4</name>
+          <isReadOnly>false</isReadOnly>
+          <row>36</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2m4</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2m4</name>
+          <isReadOnly>false</isReadOnly>
+          <row>36</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2m4</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Are attractively served</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2m5</name>
+          <isReadOnly>false</isReadOnly>
+          <row>37</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2m5</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2m5</name>
+          <isReadOnly>false</isReadOnly>
+          <row>37</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2m5</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Alternate choices for entrees are available</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2m6</name>
+          <isReadOnly>false</isReadOnly>
+          <row>38</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2m6</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2m6</name>
+          <isReadOnly>false</isReadOnly>
+          <row>38</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2m6</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Prescribed diets available per diet manual</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2m7</name>
+          <isReadOnly>false</isReadOnly>
+          <row>39</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2m7</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2m7</name>
+          <isReadOnly>false</isReadOnly>
+          <row>39</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2m7</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Menus are posted</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>lab4b</name>
+          <isReadOnly>false</isReadOnly>
+          <row>40</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>12</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>lab4b</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>•	Dining Observation:</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2d1</name>
+          <isReadOnly>false</isReadOnly>
+          <row>41</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2d1</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2d1</name>
+          <isReadOnly>false</isReadOnly>
+          <row>41</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2d1</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Residents who need assistance for eating or swallowing concerns receive it timely, appropriately and in a dignified manner</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2d2</name>
+          <isReadOnly>false</isReadOnly>
+          <row>42</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2d2</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2d2</name>
+          <isReadOnly>false</isReadOnly>
+          <row>42</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2d2</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Meals are distributed in a timely manner</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2d3</name>
+          <isReadOnly>false</isReadOnly>
+          <row>43</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2d3</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2d3</name>
+          <isReadOnly>false</isReadOnly>
+          <row>43</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2d3</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>For each sampled resident being observed, identify any special needs and interventions planned to meet their needs</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2d4</name>
+          <isReadOnly>false</isReadOnly>
+          <row>44</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2d4</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2d4</name>
+          <isReadOnly>false</isReadOnly>
+          <row>44</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2d4</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Tables adjusted to accommodate wheelchairs</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2d5</name>
+          <isReadOnly>false</isReadOnly>
+          <row>45</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2d5</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2d5</name>
+          <isReadOnly>false</isReadOnly>
+          <row>45</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2d5</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Residents prepared for meals, dentures, glasses and/or hearing aides are in place</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2d6</name>
+          <isReadOnly>false</isReadOnly>
+          <row>46</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2d6</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2d6</name>
+          <isReadOnly>false</isReadOnly>
+          <row>46</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2d6</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Adaptive equipment is available per need</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2d7</name>
+          <isReadOnly>false</isReadOnly>
+          <row>47</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2d7</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2d7</name>
+          <isReadOnly>false</isReadOnly>
+          <row>47</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2d7</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Residents at the same table are served and assisted concurrently</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2d8</name>
+          <isReadOnly>false</isReadOnly>
+          <row>48</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2d8</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2d8</name>
+          <isReadOnly>false</isReadOnly>
+          <row>48</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2d8</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Sufficient staff are available for the distribution of meals and assistance</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2d9</name>
+          <isReadOnly>false</isReadOnly>
+          <row>49</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2d9</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2d9</name>
+          <isReadOnly>false</isReadOnly>
+          <row>49</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2d9</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Sufficient time is allowed for residents to eat</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2d10</name>
+          <isReadOnly>false</isReadOnly>
+          <row>50</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2d10</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2d10</name>
+          <isReadOnly>false</isReadOnly>
+          <row>50</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2d10</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Sufficient  dining space available in all dining areas</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2d11</name>
+          <isReadOnly>false</isReadOnly>
+          <row>51</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2d11</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2d11</name>
+          <isReadOnly>false</isReadOnly>
+          <row>51</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2d11</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Dining atmosphere is pleasant</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2d12</name>
+          <isReadOnly>false</isReadOnly>
+          <row>52</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2d12</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2d12</name>
+          <isReadOnly>false</isReadOnly>
+          <row>52</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2d12</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Family members are accommodated for dining with their resident</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2d13</name>
+          <isReadOnly>false</isReadOnly>
+          <row>53</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2d13</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2d13</name>
+          <isReadOnly>false</isReadOnly>
+          <row>53</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2d13</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Meals are provided as written on posted menu</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FST2d14</name>
+          <isReadOnly>false</isReadOnly>
+          <row>54</row>
+          <col>1</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>False</isBordered>
+          <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
+            <name>FST2d14</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Horizontal</orientation>
+            <value>false</value>
+          </ControlBoolean>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>FSTLab2d14</name>
+          <isReadOnly>false</isReadOnly>
+          <row>54</row>
+          <col>2</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>10</colSpan>
+          <isBordered>False</isBordered>
+          <ControlLabel type="WpfApp1.FormItems.ControlLabel">
+            <name>FSTLab2d14</name>
+            <isReadOnly>false</isReadOnly>
+            <labelText>Meals provided in resident rooms are served promptly to ensure proper</labelText>
+          </ControlLabel>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>notes4</name>
+          <isReadOnly>false</isReadOnly>
+          <row>55</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>12</colSpan>
+          <isBordered>False</isBordered>
+          <ControlText type="WpfApp1.FormItems.ControlText">
+            <name>notes4</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle>Notes</englishTitle>
             <orientation>Vertical</orientation>
-            <acceptsNewLine>false</acceptsNewLine>
+            <acceptsNewLine>true</acceptsNewLine>
+            <text />
+          </ControlText>
+        </GridElement>
+        <GridElement type="WpfApp1.FormItems.GridElement">
+          <name>notes5</name>
+          <isReadOnly>false</isReadOnly>
+          <row>56</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>12</colSpan>
+          <isBordered>True</isBordered>
+          <ControlText type="WpfApp1.FormItems.ControlText">
+            <name>notes5</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle>Additional Notes</englishTitle>
+            <orientation>Vertical</orientation>
+            <acceptsNewLine>true</acceptsNewLine>
             <text />
           </ControlText>
         </GridElement>
