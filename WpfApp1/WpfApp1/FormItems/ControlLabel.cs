@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
 using System.Xml;
 
 namespace WpfApp1.FormItems
@@ -31,6 +32,7 @@ namespace WpfApp1.FormItems
         {
             this.label = new Label();
             this.label.Content = labelText;
+
         }
         protected ControlLabel(): this("UntitledLabel", "NO LABEL TEXT")
         {
@@ -52,14 +54,18 @@ namespace WpfApp1.FormItems
             //do nothing, there's nothing to set to read-only
         }
 
+
+
         protected override void ReadXMLInner(XmlReader reader)
         {
+
             string content = reader.ReadElementContentAsString();
             this.label.Content = content;
         }
 
         protected override void WriteXMLInner(XmlWriter writer)
         {
+
             writer.WriteElementString("labelText",this.label.Content.ToString());
         }
     }
