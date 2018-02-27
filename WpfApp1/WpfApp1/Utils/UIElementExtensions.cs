@@ -34,7 +34,12 @@ namespace WpfApp1.Utils
             return Bordered(element, Brushes.Black, new Thickness(1));
         }
 
-        /*
+        
+        /// <summary>
+        /// creates a clone of a UI element. Used for the print fucntion.
+        /// </summary>
+        /// <param name="orig"></param>
+        /// <returns></returns>
         public static UIElement CloneElement(this UIElement orig)
         {
             if (orig == null)
@@ -49,6 +54,6 @@ namespace WpfApp1.Utils
             return (UIElement)XamlReader.Load(xmlReader);
 
         }
-        */
+        
     }
 }
