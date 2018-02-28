@@ -16,134 +16,14 @@ namespace WpfApp1
     public partial class FormWindow : Window
     { 
 
-        //TODO: form k369 , d362
         public FormWindow()
         {
             InitializeComponent();
 
-            //Form form = new Form("this is so that it can compile and run");
+            Form form = new Form("this is so that it can compile and run");
+            
 
-            Form form = new Form("FormP");
-            LayoutStackPanel layoutStackPanel = new LayoutStackPanel("inspectionType");
-            layoutStackPanel.AddElement(new ControlLabel("lab1", "Inspection Type"));
-            layoutStackPanel.AddElement(new ControlBoolean("initial", "Initial"));
-            layoutStackPanel.AddElement(new ControlBoolean("full", "Full"));
-            layoutStackPanel.AddElement(new ControlBoolean("followup", "Follow up"));
-            layoutStackPanel.AddElement(new ControlBoolean("monitering", "Monitoring"));
-            layoutStackPanel.AddElement(new ControlBoolean("complaint", "Complaint"));
-            layoutStackPanel.AddElement(new ControlInteger("number", "Number"));
-            form.AddElement(layoutStackPanel);
-            LayoutGrid body = new LayoutGrid("body");
-            body.AddElement(new ControlLabel("lab1", "Food Services:  General observation of kitchen and staff (wear a hair restraint per regulation and facility policy)."), 0, 0, 12);
-            body.AddElement(new ControlBoolean("FS1", "", System.Windows.Controls.Orientation.Horizontal), 0, 1, 1, false);
-            body.AddElement(new ControlLabel("FSLab1", "Overall cleanliness of kitchen area (6505)"), 1, 1, 11, false);
-            body.AddElement(new ControlBoolean("FS2", "", System.Windows.Controls.Orientation.Horizontal), 0, 2, 1, false);
-            body.AddElement(new ControlLabel("FSLab2", "Proper hand hygiene and glove use (02305 and 02310) during food preparation and service"), 1, 2, 11, false);
-            body.AddElement(new ControlBoolean("FS3", "", System.Windows.Controls.Orientation.Horizontal), 0, 3, 1, false);
-            body.AddElement(new ControlLabel("FSLab3", "Staff cleanliness, use of hair restraints and hygienic practices (02325, 02335, 02410)"), 1, 3, 11, false);
-            body.AddElement(new ControlBoolean("FS4", "", System.Windows.Controls.Orientation.Horizontal), 0, 4, 1, false);
-            body.AddElement(new ControlLabel("FSLab4", "Food stored with proper temperature controls (for example, no potentially hazardous foods, such as beef, chicken, pork  thawing \nat room temperature) (03510) "), 1, 4, 11, false);
-            body.AddElement(new ControlBoolean("FS5", "", System.Windows.Controls.Orientation.Horizontal), 0, 5, 1, false);
-            body.AddElement(new ControlLabel("FSLab5", "Food from approved sources (03200) (for example food from known providers, no home prepared items) "), 1, 5, 11, false);
-            body.AddElement(new ControlBoolean("FS6", "", System.Windows.Controls.Orientation.Horizontal), 0, 6, 1, false);
-            body.AddElement(new ControlLabel("FSLab6", "No ill food workers present  (02220)"), 1, 6, 11, false);
-            body.AddElement(new ControlBoolean("FS7", "", System.Windows.Controls.Orientation.Horizontal), 0, 7, 1, false);
-            body.AddElement(new ControlLabel("FSLab7", "Chemicals labeled and properly stored (07200)"), 1, 7, 11, false);
-            body.AddElement(new ControlBoolean("FS8", "", System.Windows.Controls.Orientation.Horizontal), 0, 8, 1, false);
-            body.AddElement(new ControlLabel("FSLab8", "Person in charge to provide a copy of the food handlers’ cards for meal preparation staff observed during the meal observed in this \ninspection. (02120)"), 1, 8, 11, false);
-            body.AddElement(new ControlBoolean("FS9", "", System.Windows.Controls.Orientation.Horizontal), 0, 9, 1, false);
-            body.AddElement(new ControlLabel("FSLab9", "Person in Charge describes process for staff to report illnesses and procedures used when an ill food workers reports an illness \n(02205, 02220, 02225)"), 1, 9, 11, false);
-            body.AddElement(new ControlBoolean("FS10", "", System.Windows.Controls.Orientation.Horizontal), 0, 10, 1, false);
-            body.AddElement(new ControlLabel("FSLab10", "Person in Charge or designee describes proper dishwashing procedure that follow manufacture guidelines for temperature or \nchemical controls (04555, 04560) "), 1, 10, 11, false);
-            body.AddElement(new ControlBoolean("FS11", "", System.Windows.Controls.Orientation.Horizontal), 0, 11, 1, false);
-            body.AddElement(new ControlLabel("FSLab11", "Person in Charge or designee describes steps taken to prevent cross-contamination of food items (03306)"), 1, 11, 11, false);
-            body.AddElement(new ControlText("notes1", "Notes", true), 0, 12, 12, false);
 
-            body.AddElement(new ControlLabel("lab2", "Food Preparation and Service:  Observe for proper food preparation, thawing of frozen items, areas used for food preparation, and \nproper temperature controls, for example."), 0, 13, 12);
-            body.AddElement(new ControlBoolean("FPS1", "", System.Windows.Controls.Orientation.Horizontal), 0, 14, 1, false);
-            body.AddElement(new ControlLabel("FPSLab1", "Person in Charge or designee describes how food contact surfaces are thoroughly cleaned/rinsed/sanitized \n(4640 washing, 04645 rinsing, 04700 sanitization) "), 1, 14, 11, false);
-            body.AddElement(new ControlBoolean("FPS2", "", System.Windows.Controls.Orientation.Horizontal), 0, 15, 1, false);
-            body.AddElement(new ControlLabel("FPSLab2", "Person in Charge describes process to check food temperatures   "), 1, 15, 11, false);
-            body.AddElement(new ControlBoolean("FPS3", "", System.Windows.Controls.Orientation.Horizontal), 0, 16, 1, false);
-            body.AddElement(new ControlLabel("FPSLab3", "Person in Charge or designee identifies proper cooking time and temperatures for potentially hazardous foods \n(for example, poultry 165°F, ground meat at least 155°F, fish and other meats 145°F) "), 1, 16, 11, false);
-            body.AddElement(new ControlBoolean("FPS4", "", System.Windows.Controls.Orientation.Horizontal), 0, 17, 1, false);
-            body.AddElement(new ControlLabel("FPSLab4", "Person in Charge or designee describes how food items are properly reheated (03400)  "), 1, 17, 11, false);
-            body.AddElement(new ControlBoolean("FPS5", "", System.Windows.Controls.Orientation.Horizontal), 0, 18, 1, false);
-            body.AddElement(new ControlLabel("FPSLab5", "No bare hand contact with ready to eat foods, except during the washing of fruits and vegetables (03300) "), 1, 18, 11, false);
-            body.AddElement(new ControlBoolean("FPS6", "", System.Windows.Controls.Orientation.Horizontal), 0, 19, 1, false);
-            body.AddElement(new ControlLabel("FPSLab6", "Proper hand hygiene and glove use (see above)"), 1, 19, 11, false);
-            body.AddElement(new ControlBoolean("FPS7", "", System.Windows.Controls.Orientation.Horizontal), 0, 20, 1, false);
-            body.AddElement(new ControlLabel("FPSLab7", "Fruits and vegetables are thoroughly rinsed (washed) (03318) "), 1, 20, 11, false);
-            body.AddElement(new ControlBoolean("FPS8", "", System.Windows.Controls.Orientation.Horizontal), 0, 21, 1, false);
-            body.AddElement(new ControlLabel("FPSLab8", "Hot foods held at ≥135°F prior to serving  (03525) \n(facility can check food temperature in your presence or you can check temperature of food with your sanitized thermometer)"), 1, 21, 11, false);
-            body.AddElement(new ControlBoolean("FPS9", "", System.Windows.Controls.Orientation.Horizontal), 0, 22, 1, false);
-            body.AddElement(new ControlLabel("FPSLab9", "Cold foods held at ≤41°F prior to serving (03525) \n(facility can check food temperature in your presence or you can check temperature of food with your sanitized thermometer) "), 1, 22, 11, false);
-            body.AddElement(new ControlText("notes2", "Notes", true), 0, 23, 12, false);
-
-            body.AddElement(new ControlLabel("lab3", "Food Storage:  Observe for food storage to prevent contamination and to promote proper temperature controls."), 0, 24, 12);
-            body.AddElement(new ControlBoolean("FST1", "", System.Windows.Controls.Orientation.Horizontal), 0, 25, 1, false);
-            body.AddElement(new ControlLabel("FSTLab1", "Store rooms free from rodents and pests (06550)"), 1, 25, 11, false);
-            body.AddElement(new ControlBoolean("FST2", "", System.Windows.Controls.Orientation.Horizontal), 0, 26, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2", "Refrigerator temperature is maintained at ≤41°F (internal temperature of potentially hazardous food must be  at ≤41°F) (03525) "), 1, 26, 11, false);
-            body.AddElement(new ControlBoolean("FST3", "", System.Windows.Controls.Orientation.Horizontal), 0, 27, 1, false);
-            body.AddElement(new ControlLabel("FSTLab3", "Foods are frozen in freezer (no specific temperature requirement) (03500)"), 1, 27, 11, false);
-            body.AddElement(new ControlBoolean("FST4", "", System.Windows.Controls.Orientation.Horizontal), 0, 28, 1, false);
-            body.AddElement(new ControlLabel("FSTLab4", "Raw meats stored below or away from ready to eat food  (03306)"), 1, 28, 11, false);
-            body.AddElement(new ControlBoolean("FST5", "", System.Windows.Controls.Orientation.Horizontal), 0, 29, 1, false);
-            body.AddElement(new ControlLabel("FSTLab5", "Potentially hazardous foods are properly cooled (within two hours going from 135°F to  70°F and then to ≤41°F within a total of six \nhours or following the rapid cooling procedure of continuous cooling in a shallow layer of 2 inches or less, uncovered, protected \nfrom cross contamination, in cooling equipment maintaining an ambient air temperature of ≤41°F or other methods as described in \nregulation) (03515)"), 1, 29, 11, false);
-            body.AddElement(new ControlText("notes3", "Notes", true), 0, 30, 12, false);
-
-            body.AddElement(new ControlLabel("lab4", "Food Storage:  Observe for food storage to prevent contamination and to promote proper temperature controls."), 0, 31, 12);
-            body.AddElement(new ControlLabel("lab4a", "•	Menus:"), 0, 32, 12, false);
-            body.AddElement(new ControlBoolean("FST2m1", "", System.Windows.Controls.Orientation.Horizontal), 1, 33, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2m1", "Provide Variety"), 2, 33, 10, false);
-            body.AddElement(new ControlBoolean("FST2m2", "", System.Windows.Controls.Orientation.Horizontal), 1, 34, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2m2", "Are nutritious, meets the residents’ dietary needs"), 2, 34, 10, false);
-            body.AddElement(new ControlBoolean("FST2m3", "", System.Windows.Controls.Orientation.Horizontal), 1, 35, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2m3", "Are palatable and served at proper temperature (if issues with food palatability temperature and/or palatability, consider \nobtaining a meal sample)"), 2, 35, 10, false);
-            body.AddElement(new ControlBoolean("FST2m4", "", System.Windows.Controls.Orientation.Horizontal), 1, 36, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2m4", "Are attractively served"), 2, 36, 10, false);
-            body.AddElement(new ControlBoolean("FST2m5", "", System.Windows.Controls.Orientation.Horizontal), 1, 37, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2m5", "Alternate choices for entrees are available"), 2, 37, 10, false);
-            body.AddElement(new ControlBoolean("FST2m6", "", System.Windows.Controls.Orientation.Horizontal), 1, 38, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2m6", "Prescribed diets available per diet manual"), 2, 38, 10, false);
-            body.AddElement(new ControlBoolean("FST2m7", "", System.Windows.Controls.Orientation.Horizontal), 1, 39, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2m7", "Menus are posted"), 2, 39, 10, false);
-
-            body.AddElement(new ControlLabel("lab4b", "•	Dining Observation:"), 0, 40, 12, false);
-            body.AddElement(new ControlBoolean("FST2d1", "", System.Windows.Controls.Orientation.Horizontal), 1, 41, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2d1", "Residents who need assistance for eating or swallowing concerns receive it timely, appropriately and in a dignified manner"), 2, 41, 10, false);
-            body.AddElement(new ControlBoolean("FST2d2", "", System.Windows.Controls.Orientation.Horizontal), 1, 42, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2d2", "Meals are distributed in a timely manner"), 2, 42, 10, false);
-            body.AddElement(new ControlBoolean("FST2d3", "", System.Windows.Controls.Orientation.Horizontal), 1, 43, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2d3", "For each sampled resident being observed, identify any special needs and interventions planned to meet their needs"), 2, 43, 10, false);
-            body.AddElement(new ControlBoolean("FST2d4", "", System.Windows.Controls.Orientation.Horizontal), 1, 44, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2d4", "Tables adjusted to accommodate wheelchairs"), 2, 44, 10, false);
-            body.AddElement(new ControlBoolean("FST2d5", "", System.Windows.Controls.Orientation.Horizontal), 1, 45, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2d5", "Residents prepared for meals, dentures, glasses and/or hearing aides are in place"), 2, 45, 10, false);
-            body.AddElement(new ControlBoolean("FST2d6", "", System.Windows.Controls.Orientation.Horizontal), 1, 46, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2d6", "Adaptive equipment is available per need"), 2, 46, 10, false);
-            body.AddElement(new ControlBoolean("FST2d7", "", System.Windows.Controls.Orientation.Horizontal), 1, 47, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2d7", "Residents at the same table are served and assisted concurrently"), 2, 47, 10, false);
-            body.AddElement(new ControlBoolean("FST2d8", "", System.Windows.Controls.Orientation.Horizontal), 1, 48, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2d8", "Sufficient staff are available for the distribution of meals and assistance"), 2, 48, 10, false);
-            body.AddElement(new ControlBoolean("FST2d9", "", System.Windows.Controls.Orientation.Horizontal), 1, 49, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2d9", "Sufficient time is allowed for residents to eat"), 2, 49, 10, false);
-            body.AddElement(new ControlBoolean("FST2d10", "", System.Windows.Controls.Orientation.Horizontal), 1, 50, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2d10", "Sufficient  dining space available in all dining areas"), 2, 50, 10, false);
-            body.AddElement(new ControlBoolean("FST2d11", "", System.Windows.Controls.Orientation.Horizontal), 1, 51, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2d11", "Dining atmosphere is pleasant"), 2, 51, 10, false);
-            body.AddElement(new ControlBoolean("FST2d12", "", System.Windows.Controls.Orientation.Horizontal), 1, 52, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2d12", "Family members are accommodated for dining with their resident"), 2, 52, 10, false);
-            body.AddElement(new ControlBoolean("FST2d13", "", System.Windows.Controls.Orientation.Horizontal), 1, 53, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2d13", "Meals are provided as written on posted menu"), 2, 53, 10, false);
-            body.AddElement(new ControlBoolean("FST2d14", "", System.Windows.Controls.Orientation.Horizontal), 1, 54, 1, false);
-            body.AddElement(new ControlLabel("FSTLab2d14", "Meals provided in resident rooms are served promptly to ensure proper"), 2, 54, 10, false);
-            body.AddElement(new ControlText("notes4", "Notes", true), 0, 55, 12, false);
-
-            body.AddElement(new ControlText("notes5", "Additional Notes", true), 0, 56, 12);
-
-            form.AddElement(body);
 
 
             string fileName = Path.Combine(UserPrefs.GetFormDirectory(), form.name + UserPrefs.FORM_EXTENSION);
@@ -870,6 +750,41 @@ Form form = new Form("FormI");
              body.AddElement(new ControlText("finalNotes", "Addtional Notes"), 0, 31, 12);
 
              form.AddElement(body);*/
+
+/*Form form = new Form("FormK");
+        LayoutStackPanel layoutStackPanel = new LayoutStackPanel("inspectionType");
+        layoutStackPanel.AddElement(new ControlLabel("lab1", "Inspection Type"));
+        layoutStackPanel.AddElement(new ControlBoolean("initial", "Initial"));
+        layoutStackPanel.AddElement(new ControlBoolean("full", "Full"));
+        layoutStackPanel.AddElement(new ControlBoolean("followup", "Follow up"));
+        layoutStackPanel.AddElement(new ControlBoolean("monitering", "Monitoring"));
+        layoutStackPanel.AddElement(new ControlBoolean("complaint", "Complaint"));
+        layoutStackPanel.AddElement(new ControlInteger("number", "Number"));
+        form.AddElement(layoutStackPanel);
+
+        form.AddElement(new ElementSpacer("spacer"));
+        LayoutGrid staff = new LayoutGrid("staff");
+        staff.AddElement(new ControlText("name", "Name"), 0, 0, 3);
+        staff.AddElement(new ControlText("title", "Title"), 0, 1, 2);
+        staff.AddElement(new ControlDate("hire", "Hire Date"), 3, 0, 2);
+        staff.AddElement(new ControlDate("DOB", "Birth Date"), 5, 0, 2);
+        staff.AddElement(new ControlBoolean("safety", "SAFETY\nORIENTA-\nTION AND \nFACILITY \nORIENTATION"),7, 0, 1);
+        staff.AddElement(new ControlDate("background", "Background \nCheck Date"), 8, 0, 2);
+        staff.AddElement(new ControlDate("fingerprinting", "Fingerprinting\nDate"), 10, 0, 2);
+        staff.AddElement(new ControlBoolean("firstaid", "FIRST \nAID \nAND \nCPR"), 2, 1, 1);
+        staff.AddElement(new ControlText("training", "TRAINIG \nEXEMPTION \nCNA, RN, ETC."), 3, 1, 1);
+        staff.AddElement(new ControlBoolean("tb", "TB"), 4, 1, 1);
+        staff.AddElement(new ControlBoolean("food", "Food\nCard"), 5, 1, 1);
+        staff.AddElement(new ControlDate("cert", "BASIC 120 \nDAYS CERT \nEFFECTIVE\n 01/07/2012"), 6, 1, 1);
+        staff.AddElement(new ControlBoolean("nurse", "NURSE \nDELEGA-\nTION"), 7, 1, 1);
+        staff.AddElement(new ControlText("spec", "SPECIALITY:  \nDDA / \nMH / \nDEMENTIA / \nMANAGER"), 8, 1, 1);
+        staff.AddElement(new ControlBoolean("admin", "ADMIN \nQUALS \nAND \nTRAINING"),9, 1, 1);
+        staff.AddElement(new ControlBoolean("birth", "CE – 12 HR \nPER \nBIRTHDAY \nYEAR \nEFFECTIVE \n07/01/2012"), 10, 1, 1);
+        staff.AddElement(new ElementSpacer("space"), 0, 3, 12);
+
+        LayoutRepeatGrid staffs = new LayoutRepeatGrid("staffs", new FormElement[] { staff }, "Add Staff");
+        form.AddElement(staffs);
+        form.AddElement(new ControlText("notes", "Notes", true));*/
 
 /*FormL
 Form form = new Form("FormL");
