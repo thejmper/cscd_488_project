@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Xml;
-using WpfApp1.Case;
+using WpfApp1.CaseObject;
 
 namespace WpfApp1.FormItems
 {

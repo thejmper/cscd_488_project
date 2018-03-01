@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Form type="WpfApp1.Case.Form">
+<Form type="WpfApp1.CaseObject.Form">
   <name>FormC</name>
   <isReadOnly>false</isReadOnly>
   <ControlDate type="WpfApp1.FormItems.ControlDate">
@@ -26,35 +26,35 @@
           <name>initial</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Initial</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>full</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Full</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>followup</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Follow up</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>monitering</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Monitoring</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlBoolean type="WpfApp1.FormItems.ControlBoolean">
           <name>complaint</name>
           <isReadOnly>false</isReadOnly>
           <englishTitle>Complaint</englishTitle>
-          <orientation>Horizontal</orientation>
+          <orientation>Vertical</orientation>
           <value>false</value>
         </ControlBoolean>
         <ControlInteger type="WpfApp1.FormItems.ControlInteger">
@@ -124,82 +124,81 @@ Number</labelText>
     <LayoutRepeatGrid type="WpfApp1.FormItems.LayoutRepeatGrid">
       <name>residents</name>
       <isReadOnly>false</isReadOnly>
-      <GridElement type="WpfApp1.FormItems.GridElement">
-        <name>roomnum</name>
-        <isReadOnly>false</isReadOnly>
-        <row>1</row>
-        <col>0</col>
-        <rowSpan>1</rowSpan>
-        <colSpan>2</colSpan>
-        <isBordered>True</isBordered>
-        <ControlText type="WpfApp1.FormItems.ControlText">
-          <name>roomnum</name>
+      <template>
+        <LayoutGrid type="WpfApp1.FormItems.LayoutGrid">
+          <name>resident</name>
           <isReadOnly>false</isReadOnly>
-          <englishTitle />
-          <orientation>Vertical</orientation>
-          <acceptsNewLine>false</acceptsNewLine>
-          <text />
-        </ControlText>
-      </GridElement>
-      <GridElement type="WpfApp1.FormItems.GridElement">
-        <name>resname</name>
-        <isReadOnly>false</isReadOnly>
-        <row>1</row>
-        <col>2</col>
-        <rowSpan>1</rowSpan>
-        <colSpan>5</colSpan>
-        <isBordered>True</isBordered>
-        <ControlText type="WpfApp1.FormItems.ControlText">
-          <name>resname</name>
-          <isReadOnly>false</isReadOnly>
-          <englishTitle />
-          <orientation>Vertical</orientation>
-          <acceptsNewLine>false</acceptsNewLine>
-          <text />
-        </ControlText>
-      </GridElement>
-      <GridElement type="WpfApp1.FormItems.GridElement">
-        <name>notes</name>
-        <isReadOnly>false</isReadOnly>
-        <row>1</row>
-        <col>7</col>
-        <rowSpan>1</rowSpan>
-        <colSpan>5</colSpan>
-        <isBordered>True</isBordered>
-        <ControlText type="WpfApp1.FormItems.ControlText">
-          <name>notes</name>
-          <isReadOnly>false</isReadOnly>
-          <englishTitle />
-          <orientation>Vertical</orientation>
-          <acceptsNewLine>true</acceptsNewLine>
-          <text />
-        </ControlText>
-      </GridElement>
+          <!--Below is the list of items contained within this group-->
+          <elementList>
+            <GridElement type="WpfApp1.FormItems.GridElement">
+              <name>roomnum</name>
+              <isReadOnly>false</isReadOnly>
+              <row>1</row>
+              <col>0</col>
+              <rowSpan>1</rowSpan>
+              <colSpan>2</colSpan>
+              <isBordered>True</isBordered>
+              <ControlText type="WpfApp1.FormItems.ControlText">
+                <name>roomnum</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle />
+                <orientation>Vertical</orientation>
+                <acceptsNewLine>false</acceptsNewLine>
+                <text />
+              </ControlText>
+            </GridElement>
+            <GridElement type="WpfApp1.FormItems.GridElement">
+              <name>resname</name>
+              <isReadOnly>false</isReadOnly>
+              <row>1</row>
+              <col>2</col>
+              <rowSpan>1</rowSpan>
+              <colSpan>5</colSpan>
+              <isBordered>True</isBordered>
+              <ControlText type="WpfApp1.FormItems.ControlText">
+                <name>resname</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle />
+                <orientation>Vertical</orientation>
+                <acceptsNewLine>false</acceptsNewLine>
+                <text />
+              </ControlText>
+            </GridElement>
+            <GridElement type="WpfApp1.FormItems.GridElement">
+              <name>notes</name>
+              <isReadOnly>false</isReadOnly>
+              <row>1</row>
+              <col>7</col>
+              <rowSpan>1</rowSpan>
+              <colSpan>5</colSpan>
+              <isBordered>True</isBordered>
+              <ControlText type="WpfApp1.FormItems.ControlText">
+                <name>notes</name>
+                <isReadOnly>false</isReadOnly>
+                <englishTitle />
+                <orientation>Vertical</orientation>
+                <acceptsNewLine>true</acceptsNewLine>
+                <text />
+              </ControlText>
+            </GridElement>
+          </elementList>
+        </LayoutGrid>
+      </template>
       <!--Below is the list of items contained within this group-->
       <elementList>
-        <GridElement type="WpfApp1.FormItems.GridElement">
-          <name>repeat0</name>
+        <LayoutStackPanel type="WpfApp1.FormItems.LayoutStackPanel">
+          <name>row0</name>
           <isReadOnly>false</isReadOnly>
-          <row>0</row>
-          <col>0</col>
-          <rowSpan>1</rowSpan>
-          <colSpan>12</colSpan>
-          <isBordered>False</isBordered>
-          <LayoutGrid type="WpfApp1.FormItems.LayoutGrid">
-            <name>repeat0</name>
-            <isReadOnly>false</isReadOnly>
-            <!--Below is the list of items contained within this group-->
-            <elementList>
-              <GridElement type="WpfApp1.FormItems.GridElement">
-                <name>roomnum0</name>
-                <isReadOnly>false</isReadOnly>
-                <row>1</row>
-                <col>0</col>
-                <rowSpan>1</rowSpan>
-                <colSpan>2</colSpan>
-                <isBordered>True</isBordered>
+          <orientation>Vertical</orientation>
+          <!--Below is the list of items contained within this group-->
+          <elementList>
+            <LayoutGrid type="WpfApp1.FormItems.LayoutGrid">
+              <name>resident</name>
+              <isReadOnly>false</isReadOnly>
+              <!--Below is the list of items contained within this group-->
+              <elementList>
                 <GridElement type="WpfApp1.FormItems.GridElement">
-                  <name>roomnum0</name>
+                  <name>roomnum</name>
                   <isReadOnly>false</isReadOnly>
                   <row>1</row>
                   <col>0</col>
@@ -215,17 +214,8 @@ Number</labelText>
                     <text />
                   </ControlText>
                 </GridElement>
-              </GridElement>
-              <GridElement type="WpfApp1.FormItems.GridElement">
-                <name>resname0</name>
-                <isReadOnly>false</isReadOnly>
-                <row>1</row>
-                <col>2</col>
-                <rowSpan>1</rowSpan>
-                <colSpan>5</colSpan>
-                <isBordered>True</isBordered>
                 <GridElement type="WpfApp1.FormItems.GridElement">
-                  <name>resname0</name>
+                  <name>resname</name>
                   <isReadOnly>false</isReadOnly>
                   <row>1</row>
                   <col>2</col>
@@ -241,17 +231,8 @@ Number</labelText>
                     <text />
                   </ControlText>
                 </GridElement>
-              </GridElement>
-              <GridElement type="WpfApp1.FormItems.GridElement">
-                <name>notes0</name>
-                <isReadOnly>false</isReadOnly>
-                <row>1</row>
-                <col>7</col>
-                <rowSpan>1</rowSpan>
-                <colSpan>5</colSpan>
-                <isBordered>True</isBordered>
                 <GridElement type="WpfApp1.FormItems.GridElement">
-                  <name>notes0</name>
+                  <name>notes</name>
                   <isReadOnly>false</isReadOnly>
                   <row>1</row>
                   <col>7</col>
@@ -267,10 +248,10 @@ Number</labelText>
                     <text />
                   </ControlText>
                 </GridElement>
-              </GridElement>
-            </elementList>
-          </LayoutGrid>
-        </GridElement>
+              </elementList>
+            </LayoutGrid>
+          </elementList>
+        </LayoutStackPanel>
       </elementList>
     </LayoutRepeatGrid>
   </elementList>

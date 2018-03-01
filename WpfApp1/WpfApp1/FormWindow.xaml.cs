@@ -2,7 +2,7 @@
 using System.Windows;
 
 using WpfApp1.FormItems;
-using WpfApp1.Case;
+using WpfApp1.CaseObject;
 using System.Xml.Serialization;
 using System.IO;
 using System.Collections.Generic;
@@ -20,25 +20,57 @@ namespace WpfApp1
         {
             InitializeComponent();
 
-            Form form = new Form("this is so that it can compile and run");
-            
+            /* Form form = new Form("this is so that it can compile and run");*/
 
+            Form form = new Form("FormH");
+            LayoutStackPanel layoutStackPanel = new LayoutStackPanel("inspectionType");
+            layoutStackPanel.AddElement(new ControlLabel("lab1", "Inspection Type"));
+            layoutStackPanel.AddElement(new ControlBoolean("initial", "Initial"));
+            layoutStackPanel.AddElement(new ControlBoolean("full", "Full"));
+            layoutStackPanel.AddElement(new ControlBoolean("followup", "Follow up"));
+            layoutStackPanel.AddElement(new ControlBoolean("monitering", "Monitoring"));
+            layoutStackPanel.AddElement(new ControlBoolean("complaint", "Complaint"));
+            layoutStackPanel.AddElement(new ControlInteger("number", "Number"));
+            form.AddElement(layoutStackPanel);
+            form.AddElement(new ElementSpacer("spacer"));
+
+            LayoutGrid body = new LayoutGrid("body");
+            body.AddElement(new ControlText("resName", "RESIDENT NAME"), 0, 0, 6);
+            body.AddElement(new ControlText("resNum", "RESIDENT NUMBER"), 6, 0, 3);
+            body.AddElement(new ControlDate("date", "DATE OF INTERVIEW"), 9, 0, 3);
+            body.AddElement(new ControlText("contactName", "CONTACT NAME AND NUMBER"), 0, 1, 6);
+            body.AddElement(new ControlText("relationship", "RELATIONSHIP TO RESIDENT"), 6, 1, 6);
+            body.AddElement(new ControlText("notes1", "NOTES", true), 0, 2, 12);
+
+            LayoutGrid contact = new LayoutGrid("contact");
+            contact.AddElement(new ElementSpacer("spacer", 10), 0, 0, 12, false);
+            contact.AddElement(new ControlText("Contact", "CONTACT NAME AND NUMBER"), 0, 3, 6);
+            contact.AddElement(new ControlDate("date2", "DATE OF INTERVIEW"), 6, 3, 3);
+            contact.AddElement(new ControlText("relationship2", "RELATIONSHIP TO RESIDENT"), 9, 3, 3);
+            contact.AddElement(new ControlText("NOTES2", "NOTES", true), 0, 4, 12);
+            LayoutRepeatGrid newContact = new LayoutRepeatGrid("contacts", new FormElement[] { contact }, "Add Contact");
+            body.AddElement(newContact, 0, 3, 12, false);
+
+            body.AddElement(new ElementSpacer("spacer1"), 0, 4, 12, false);
+
+            body.AddElement(new ControlText("finalNotes", "Additional Notes", true), 0, 5, 12);
+            form.AddElement(body);
 
 
 
             string fileName = Path.Combine(UserPrefs.GetFormDirectory(), form.name + UserPrefs.FORM_EXTENSION);
-             XmlSerializer ser = new XmlSerializer(typeof(Form));
-             using (TextWriter writer = new StreamWriter(fileName))
-             {
-                 ser.Serialize(writer, form);
-             }
-             scrollView.Content = form.UIelement;
+              XmlSerializer ser = new XmlSerializer(typeof(Form));
+              using (TextWriter writer = new StreamWriter(fileName))
+              {
+                  ser.Serialize(writer, form);
+              }
+              scrollView.Content = form.UIelement;
 
 
 
-         }
+        }
 
-         private void btnSave_Click(object sender, RoutedEventArgs e)
+        private void btnSave_Click(object sender, RoutedEventArgs e)
          {
             /* string fileName = Path.Combine(UserPrefs.GetFormDirectory(), form.name + UserPrefs.FORM_EXTENSION);
              XmlSerializer ser = new XmlSerializer(typeof(Form));
@@ -192,29 +224,29 @@ form.AddElement(body);
 
 /*Form C 
 Form form = new Form("FormC");
-LayoutStackPanel layoutStackPanel = new LayoutStackPanel("inspectionType");
-layoutStackPanel.AddElement(new ControlLabel("lab1", "Inspection Type"));
-layoutStackPanel.AddElement(new ControlBoolean("initial", "Initial"));
-layoutStackPanel.AddElement(new ControlBoolean("full", "Full"));
-layoutStackPanel.AddElement(new ControlBoolean("followup", "Follow up"));
-layoutStackPanel.AddElement(new ControlBoolean("monitering", "Monitoring"));
-layoutStackPanel.AddElement(new ControlBoolean("complaint", "Complaint"));
-layoutStackPanel.AddElement(new ControlInteger("number", "Number"));
-form.AddElement(layoutStackPanel);
-form.AddElement(new ElementSpacer("space1"));
-LayoutGrid body = new LayoutGrid("body");
-body.AddElement(new ControlLabel("lab1", "Room\nNumber"), 0, 0, 2);
-body.AddElement(new ControlLabel("lab2", "RESIDENT NAME"), 2, 0, 5);
-body.AddElement(new ControlLabel("lab3", "NOTES"), 7, 0, 5);
+             LayoutStackPanel layoutStackPanel = new LayoutStackPanel("inspectionType");
+             layoutStackPanel.AddElement(new ControlLabel("lab1", "Inspection Type"));
+             layoutStackPanel.AddElement(new ControlBoolean("initial", "Initial"));
+             layoutStackPanel.AddElement(new ControlBoolean("full", "Full"));
+             layoutStackPanel.AddElement(new ControlBoolean("followup", "Follow up"));
+             layoutStackPanel.AddElement(new ControlBoolean("monitering", "Monitoring"));
+             layoutStackPanel.AddElement(new ControlBoolean("complaint", "Complaint"));
+             layoutStackPanel.AddElement(new ControlInteger("number", "Number"));
+             form.AddElement(layoutStackPanel);
+             form.AddElement(new ElementSpacer("space1"));
+             LayoutGrid body = new LayoutGrid("body");
+             body.AddElement(new ControlLabel("lab1", "Room\nNumber"), 0, 0, 2);
+             body.AddElement(new ControlLabel("lab2", "RESIDENT NAME"), 2, 0, 5);
+             body.AddElement(new ControlLabel("lab3", "NOTES"), 7, 0, 5);
 
-List<GridElement> resident = new List<GridElement>();
-resident.Add(new GridElement( new ControlText("roomnum", ""), 0, 1, 2));
-resident.Add(new GridElement( new ControlText("resname", ""), 2, 1, 5));
-resident.Add(new GridElement( new ControlText("notes", "", true), 7, 1, 5));
-LayoutRepeatGrid residents = new LayoutRepeatGrid("residents",resident, "Add Resident");
+             LayoutGrid resident = new LayoutGrid("resident");
+             resident.AddElement(new ControlText("roomnum", ""), 0, 1, 2);
+             resident.AddElement(new ControlText("resname", ""), 2, 1, 5);
+             resident.AddElement(new ControlText("notes", "", true), 7, 1, 5);
+             LayoutRepeatGrid residents = new LayoutRepeatGrid("residents", new FormElement[] { resident }, "Add Resident");
 
-form.AddElement(body);
-form.AddElement(residents);*/
+             form.AddElement(body);
+             form.AddElement(residents);*/
 
 /*Form form = new Form("FormD");
         LayoutStackPanel layoutStackPanel = new LayoutStackPanel("inspectionType");

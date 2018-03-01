@@ -8,7 +8,7 @@ using WpfApp1.FormItems;
 using WpfApp1.Utils;
 using System.Xml.Serialization;
 
-namespace WpfApp1.Case
+namespace WpfApp1.CaseObject
 {
     /// <summary>
     /// class for a single form, 1-for-1 with the existing goverment stuff.

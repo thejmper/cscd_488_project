@@ -55,8 +55,11 @@ namespace WpfApp1.FormItems
             //add a header
             this.label= new Label();
             label.Content = engishTitle;
-
-            this.stackPanel.Children.Add(label);
+            if (engishTitle != "")
+            {
+                this.stackPanel.Children.Add(label);
+            }
+            
             this.stackPanel.Children.Add(control);
         }
         protected FormControl(): this("unnamedControll", "Unnamed Control", null,Orientation.Vertical)

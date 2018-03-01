@@ -42,6 +42,11 @@ namespace WpfApp1.FormItems
             TabItem tab = new TabItem();
             tab.Header = element.name;
             tab.Content = element.UIelement;
+           /* ScrollViewer viewer = new ScrollViewer();
+            viewer.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
+            viewer.Content = element.UIelement;
+            tab.Content = viewer;*/
+
 
             this.tabControl.Items.Insert(0, tab);
             this.tabItemDictionary.Add(element, tab);

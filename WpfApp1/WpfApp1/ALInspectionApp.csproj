@@ -64,9 +64,9 @@
     <Compile Include="BoilerplateTestWindow.xaml.cs">
       <DependentUpon>BoilerplateTestWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Case\CaseFile.cs" />
-    <Compile Include="Case\Form.cs" />
-    <Compile Include="Case\Report.cs" />
+    <Compile Include="CaseObjects\CaseFile.cs" />
+    <Compile Include="CaseObjects\Form.cs" />
+    <Compile Include="CaseObjects\Report.cs" />
     <Compile Include="FormItems\ControlBoolean.cs" />
     <Compile Include="FormItems\ControlButton.cs" />
     <Compile Include="FormItems\ControlDate.cs" />
@@ -79,7 +79,6 @@
     <Compile Include="FormItems\FormControl.cs" />
     <Compile Include="FormItems\FormElement.cs" />
     <Compile Include="FormItems\LayoutGrid.cs" />
-    <Content Include="FormItems\LayoutStackPanel.txt" />
     <Compile Include="FormItems\LayoutRepeatGrid.cs" />
     <Compile Include="FormItems\LayoutStackPanel.cs" />
     <Compile Include="FormItems\TabbedGroup.cs" />

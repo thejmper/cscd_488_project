@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 
 using WpfApp1.FormItems;
-using WpfApp1.Case;
+using WpfApp1.CaseObject;
 using WpfApp1.Users;
 
 namespace WpfApp1
@@ -32,18 +32,18 @@ namespace WpfApp1
 
             InitializeComponent();
 
-            FormWindow formWindow = new FormWindow();
-            formWindow.Show();
-            this.Close();           
+            //FormWindow formWindow = new FormWindow();
+            //formWindow.Show();
+            //this.Close();           
             
-            //UserPrefs.OnLoad();
+            UserPrefs.OnLoad();
 
-           // Login loginWindow = new Login();
-            //loginWindow.ShowDialog();
-            //if (UserPrefs.user == null)
-           // {
-           //     this.Close();
-            //}
+            Login loginWindow = new Login();
+            loginWindow.ShowDialog();
+            if (UserPrefs.user == null)
+            {
+                this.Close();
+            }
             
             /*CaseFile test = new CaseFile("datetest", "datetest", 3);
             ControlDate date = new ControlDate("test", "enter date");

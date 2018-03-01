@@ -51,7 +51,7 @@ namespace WpfApp1.FormItems
             Grid.SetRow(expandButton, 1);
             grid.Children.Add(expandButton);
 
-            if (grid.Children.Count == 2)
+            if (grid.Children.Count == 2 && template != null)
             {
                 this.AddRow();
             }

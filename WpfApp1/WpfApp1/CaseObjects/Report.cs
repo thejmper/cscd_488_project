@@ -5,7 +5,7 @@ using System.Windows.Controls;
 using System.Xml;
 using WpfApp1.FormItems;
 
-namespace WpfApp1.Case
+namespace WpfApp1.CaseObject
 {
     /// <summary>
     /// represents a single user's report, containing multiple forms.

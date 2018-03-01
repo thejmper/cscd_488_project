@@ -12,7 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Xml.Serialization;
-using WpfApp1.Case;
+using WpfApp1.CaseObject;
 using WpfApp1.FormItems;
 
 namespace WpfApp1

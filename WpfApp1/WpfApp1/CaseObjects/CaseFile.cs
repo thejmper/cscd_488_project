@@ -12,7 +12,7 @@ using WpfApp1.FormItems;
 using WpfApp1.Users;
 using WpfApp1.Utils;
 
-namespace WpfApp1.Case
+namespace WpfApp1.CaseObject
 {   
     /// <summary>
     /// Represents a single temporal incident at a single physical location, but containing reports 

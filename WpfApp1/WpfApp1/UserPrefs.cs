@@ -1,4 +1,4 @@
-﻿using WpfApp1.Case;
+﻿using WpfApp1.CaseObject;
 using WpfApp1.Users;
 
 using System.Collections.Generic;
