@@ -59,8 +59,7 @@ namespace WpfApp1.FormItems
 
         //--cloning--//
         public override FormElement Clone()
-        {
-            //TODO fix this too add event to the date picker
+        { 
             ControlDate clone = new ControlDate(this.name, this.englishTitle, this.orientation);
             //ControlDate clone = NewControlDate(this.name, englishTitle, this.orientation);
             clone.dataHolder.date = this.dataHolder.date;
@@ -92,7 +91,6 @@ namespace WpfApp1.FormItems
 
         protected override void ReadControl(XmlReader reader)
         {
-            //TODO: make this work.
             String dateString = reader.ReadElementContentAsString();
             if (dateString != "")
             {

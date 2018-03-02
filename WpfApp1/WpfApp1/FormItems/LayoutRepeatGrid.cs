@@ -20,6 +20,7 @@ namespace WpfApp1.FormItems
         private Grid grid;
         private StackPanel stackPanel;
         private FormElement[] template;
+        private Button expandButton;
 
         private int numRows;
         private string buttonText;
@@ -44,17 +45,17 @@ namespace WpfApp1.FormItems
             grid.Children.Add(this.stackPanel);
 
             //put a button at the bottom
-            Button expandButton = new Button();
+            this.expandButton = new Button();
             expandButton.Content = buttonText;
             expandButton.Click += ExpandButton_Click;
 
             Grid.SetRow(expandButton, 1);
             grid.Children.Add(expandButton);
 
-            if (grid.Children.Count == 2 && template != null)
-            {
-                this.AddRow();
-            }
+            //if (grid.Children.Count == 2 && template != null)
+            //{
+            //    this.AddRow();
+            //}
         }
         protected LayoutRepeatGrid(): this("UntitledRepeatGrid", null, "")
         {
@@ -64,8 +65,8 @@ namespace WpfApp1.FormItems
         {
             LayoutRepeatGrid clone = new LayoutRepeatGrid(this.name, this.template, this.buttonText);
 
-            foreach (LayoutStackPanel element in this.elementList)
-                clone.AddElementInternal(element);
+            //foreach (LayoutStackPanel element in this.elementList)
+            //    clone.AddElementInternal((LayoutStackPanel)element.Clone());    //<- fixed the load bug.
 
             return clone;
         }
@@ -95,6 +96,9 @@ namespace WpfApp1.FormItems
 
         protected override void ReadXMLInner(XmlReader reader)
         {
+            //uncomment this once we re-build the form templates.
+            //this.buttonText = reader.ReadElementContentAsString();
+            //this.expandButton.Content = buttonText;
             List<FormElement> templateList = new List<FormElement>();
 
             reader.ReadStartElement();
@@ -116,6 +120,7 @@ namespace WpfApp1.FormItems
 
         protected override void WriteXMLInner(XmlWriter writer)
         {
+            writer.WriteElementString("buttonText", this.buttonText);
             writer.WriteStartElement("template");
             //write elements here
             foreach (FormElement element in this.template)

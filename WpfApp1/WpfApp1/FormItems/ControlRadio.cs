@@ -73,13 +73,13 @@ namespace WpfApp1.FormItems
 
         protected override ElementGroup<ControlBoolean> CloneInner()
         {
-            ControlBoolean[] checks = new ControlBoolean[this.elementList.Count];
-            for(int i = 0; i < checks.Length; i++)
-            {
-                checks[i] = (ControlBoolean)this.elementList[i].Clone();
-            }
+            //ControlBoolean[] checks = new ControlBoolean[this.elementList.Count];
+            //for(int i = 0; i < checks.Length; i++)
+            //{
+            //    checks[i] = (ControlBoolean)this.elementList[i].Clone();
+            //}
 
-            ControlRadio clone = new ControlRadio(this.name, checks);
+            ControlRadio clone = new ControlRadio(this.name, new ControlBoolean[0]);
             return clone;
         }
     }
