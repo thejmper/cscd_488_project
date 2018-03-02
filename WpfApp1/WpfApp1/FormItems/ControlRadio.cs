@@ -79,7 +79,7 @@ namespace WpfApp1.FormItems
                 checks[i] = (ControlBoolean)this.elementList[i].Clone();
             }
 
-            ControlRadio clone = new ControlRadio(this.name, checks);
+            ControlRadio clone = new ControlRadio(this.name , checks);
             return clone;
         }
     }
