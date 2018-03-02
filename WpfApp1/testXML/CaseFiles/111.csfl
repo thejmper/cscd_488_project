@@ -13,7 +13,7 @@
       <isReadOnly>false</isReadOnly>
       <licensorName>Test User</licensorName>
       <licensorID>Username</licensorID>
-      <lastModified>3/2/2018 1:19:40 PM</lastModified>
+      <lastModified>3/2/2018 1:29:13 PM</lastModified>
       <!--Below is the list of items contained within this group-->
       <elementList>
         <Form type="WpfApp1.CaseObject.Form">
@@ -24,7 +24,7 @@
             <isReadOnly>false</isReadOnly>
             <englishTitle>INSPECTION DATE</englishTitle>
             <orientation>Vertical</orientation>
-            <SelectedDateProperty>1/1/0001 12:00:00 AM</SelectedDateProperty>
+            <SelectedDateProperty>1/25/0001 12:00:00 AM</SelectedDateProperty>
           </ControlDate>
           <!--Below is the list of items contained within this group-->
           <elementList>
@@ -71,7 +71,7 @@
                     <isReadOnly>false</isReadOnly>
                     <englishTitle>DATE</englishTitle>
                     <orientation>Vertical</orientation>
-                    <SelectedDateProperty>1/1/0001 12:00:00 AM</SelectedDateProperty>
+                    <SelectedDateProperty>1/25/0001 12:00:00 AM</SelectedDateProperty>
                   </ControlDate>
                 </GridElement>
                 <GridElement type="WpfApp1.FormItems.GridElement">
@@ -165,7 +165,7 @@
                     <englishTitle>COUNCIL PRESIDENT</englishTitle>
                     <orientation>Vertical</orientation>
                     <acceptsNewLine>false</acceptsNewLine>
-                    <text />
+                    <text>yytuy</text>
                   </ControlText>
                 </GridElement>
                 <GridElement type="WpfApp1.FormItems.GridElement">
@@ -207,7 +207,7 @@
                         <isReadOnly>false</isReadOnly>
                         <englishTitle>No</englishTitle>
                         <orientation>Horizontal</orientation>
-                        <value>false</value>
+                        <value>true</value>
                       </ControlBoolean>
                     </elementList>
                   </ControlRadio>
