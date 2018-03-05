@@ -13,11 +13,11 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
             <RowDefinition Height="*"/>
-
         </Grid.RowDefinitions>
 
         <!--new casefile creation!-->
@@ -55,7 +55,7 @@
 
         <!-- user display and list-->
         <Border BorderBrush="Black" BorderThickness="2" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
-        <Grid>
+            <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
@@ -79,6 +79,33 @@
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <EventSetter Event="MouseDoubleClick" Handler="RemoveAssignedUser"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+        
+        <!-- Facility display-->
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--Facility list-->
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" Name="facilityScrollViewer" Grid.Row="1">
+                    <ListView Name="facilityListView">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="FacilityLicenseNumber" Width="120" DisplayMemberBinding="{Binding facilitylicenseNumber}"/>
+                                <GridViewColumn Header="FacilityName" Width="120" DisplayMemberBinding="{Binding facilityName}"/>
+                            </GridView>
+                        </ListView.View>
+                        <!--this defines the clicked action-->
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <EventSetter Event="Selected" Handler="SelectFacility"/>
                             </Style>
                         </ListView.ItemContainerStyle>
                     </ListView>

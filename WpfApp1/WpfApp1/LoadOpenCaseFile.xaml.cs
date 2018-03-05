@@ -89,7 +89,7 @@ namespace WpfApp1
             var item = sender as System.Windows.Controls.ListViewItem;
             if (item != null)
             {
-                selectedCaseFile = item.DataContext as CaseFile;
+                selectedCaseFile = item.DataContext as CaseFile; 
             }
         }
     }

@@ -18,6 +18,7 @@ namespace WpfApp1
         MainWindow mainWin;
 
         private ObservableCollection<User> assignedUsers;
+        private CaseFile selectedCaseFile;
 
         public NewCaseFile()
         {
@@ -28,6 +29,8 @@ namespace WpfApp1
 
             this.userListView.ItemsSource = UserPrefs.users;
             this.assignedUsersList.ItemsSource = assignedUsers;
+
+            this.facilityListView.ItemsSource = new CaseFileSyncer().GetAllCaseFiles();
         }
 
         //--helpers--//
@@ -88,6 +91,17 @@ namespace WpfApp1
             {
                 User user = item.DataContext as User;
                 this.assignedUsers.Remove(user);
+            }
+        }
+
+        private void SelectFacility(object sender, EventArgs e)
+        {
+            var item = sender as System.Windows.Controls.ListViewItem;
+            if (item != null)
+            {
+                selectedCaseFile = item.DataContext as CaseFile;
+                FacilityName.Text = selectedCaseFile.facilityName;
+                FacilityNum.Text = selectedCaseFile.facilitylicenseNumber.ToString();
             }
         }
     }
