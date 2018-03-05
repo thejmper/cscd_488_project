@@ -50,29 +50,36 @@ $conn->close();
 
 function login($conn, $username, $password)
 {
-	$sql = "SELECT name, admin FROM users WHERE username=? AND password=?";
-	$statement = $conn->prepare($sql);
-	$statement->bind_param("ss", $username, $password);
-	$statement->execute();
-	$statement->bind_result($name, $admin);
-
-	while ($statement->fetch())
+	if (passwordCorrect($conn, $password, $username))
 	{
-		$row = array("name"=>$name, "admin"=>$admin);
-		$resultArray[] = $row;
-	}
+		$sql = "SELECT name, admin FROM users WHERE username=?";
+		$statement = $conn->prepare($sql);
+		$statement->bind_param("s", $username);
+		$statement->execute();
+		$statement->bind_result($name, $admin);
 
-	if (sizeof($resultArray) > 0)
-	{
-		echo $name . "\n";
-		echo $admin;
+		while ($statement->fetch())
+		{
+			$row = array("name"=>$name, "admin"=>$admin);
+			$resultArray[] = $row;
+		}
+
+		if (sizeof($resultArray) > 0)
+		{
+			echo $name . "\n";
+			echo $admin;
+		}
+		else
+		{
+			echo "invalid";
+		}
+
+		$statement->close();
 	}
 	else
 	{
-		echo "invalid";
+		echo "invalid login";
 	}
-
-	$statement->close();
 }
 
 function userExists($conn, $username)
@@ -101,9 +108,10 @@ function createUser($conn, $username, $password, $name, $admin)
 {
 	if (!userExists($conn, $username))
 	{
+		$passwordHashed = password_hash($password, PASSWORD_DEFAULT);
 		$sql = "INSERT INTO users (username, password, name, admin) VALUES (?,?,?,?)";
 		$statement = $conn->prepare($sql);
-		$statement->bind_param("sssi", $username, $password, $name, $admin);
+		$statement->bind_param("sssi", $username, $passwordHashed, $name, $admin);
 		$statement->execute();
 		$statement->close();
 	}
@@ -128,4 +136,26 @@ function listUsers($conn)
 
 	$statement->close();
 }
+
+function passwordCorrect($conn, $password, $username)
+{
+	return password_verify($password, getHashedPassword($conn, $username));
+}
+
+function getHashedPassword($conn, $username)
+{
+	$sql = "SELECT password FROM users WHERE username=?";
+	$statement = $conn->prepare($sql);
+	$statement->bind_param("s", $username);
+	$statement->execute();
+	$statement->bind_result($hashedPassword);
+	while ($statement->fetch())
+	{
+		$result = array("password"=>$hashedPassword);
+	}
+	$statement->close();
+
+	return $hashedPassword;
+}
+
 ?>

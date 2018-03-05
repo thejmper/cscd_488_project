@@ -85,6 +85,7 @@ namespace WpfApp1.Reports.Syncers
             }
         }
 
+        // TODO: Handle case when user has no forms
         public List<Report> GetReports(CaseFile caseFile)
         {
             List<Report> reports = new List<Report>();
