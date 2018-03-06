@@ -5,7 +5,7 @@ using System.Xml;
 using System.Windows.Data;
 using System;
 
-namespace WpfApp1.FormItems
+namespace ALInspectionApp.FormItems
 {
     /// <summary>
     /// generic baseclass for any form element that can have its value changed during the course of a user session.

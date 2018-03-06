@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace WpfApp1.Users
+namespace ALInspectionApp.Users
 {
     /// <summary>
     /// simple user representation

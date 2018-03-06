@@ -1,23 +1,14 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Xml.Serialization;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 
-using WpfApp1.FormItems;
-using WpfApp1.CaseObject;
-using WpfApp1.Users;
+using ALInspectionApp.CaseObject;
+using ALInspectionApp.Windows.UserWindows;
+using ALInspectionApp.Windows.DevWindows;
+using ALInspectionApp.Windows.CaseFileWindows;
+using ALInspectionApp.Users;
 
-namespace WpfApp1
+namespace ALInspectionApp
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -32,7 +23,7 @@ namespace WpfApp1
 
             InitializeComponent();
 
-            //FormWindow formWindow = new FormWindow();
+           // FormWindow formWindow = new FormWindow();
             //formWindow.Show();
             //this.Close();           
             

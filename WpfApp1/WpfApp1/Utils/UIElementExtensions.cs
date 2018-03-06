@@ -5,7 +5,7 @@ using System.Windows.Markup;
 using System.Windows.Media;
 using System.Xml;
 
-namespace WpfApp1.Utils
+namespace ALInspectionApp.Utils
 {
     /// <summary>
     /// staic class holding a few extention methods for doing stuff with UI element. This class might turn out to be totally pointless.

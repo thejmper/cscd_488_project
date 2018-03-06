@@ -1,9 +1,8 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-namespace WpfApp1.FormItems
+namespace ALInspectionApp.FormItems
 {
     /// <summary>
     /// the base class for everything that makes up a form, up to and including the form itself.

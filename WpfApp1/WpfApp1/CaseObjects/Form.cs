@@ -3,12 +3,14 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Xml;
 using System.Collections.Generic;
+using ALInspectionApp.FormItems.Controls;
 
-using WpfApp1.FormItems;
-using WpfApp1.Utils;
+using ALInspectionApp.FormItems;
+using ALInspectionApp.Utils;
 using System.Xml.Serialization;
+using ALInspectionApp.FormItems.Layout;
 
-namespace WpfApp1.CaseObject
+namespace ALInspectionApp.CaseObject
 {
     /// <summary>
     /// class for a single form, 1-for-1 with the existing goverment stuff.

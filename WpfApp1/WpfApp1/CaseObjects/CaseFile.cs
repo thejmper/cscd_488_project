@@ -5,14 +5,12 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Markup;
-using System.Windows.Media;
 using System.Xml;
+using ALInspectionApp.FormItems.Layout;
+using ALInspectionApp.Users;
+using ALInspectionApp.Utils;
 
-using WpfApp1.FormItems;
-using WpfApp1.Users;
-using WpfApp1.Utils;
-
-namespace WpfApp1.CaseObject
+namespace ALInspectionApp.CaseObject
 {   
     /// <summary>
     /// Represents a single temporal incident at a single physical location, but containing reports 

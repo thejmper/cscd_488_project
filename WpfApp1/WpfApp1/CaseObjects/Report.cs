@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Controls;
 using System.Xml;
-using WpfApp1.FormItems;
+using ALInspectionApp.FormItems.Layout;
 
-namespace WpfApp1.CaseObject
+namespace ALInspectionApp.CaseObject
 {
     /// <summary>
     /// represents a single user's report, containing multiple forms.
