@@ -52,6 +52,8 @@ namespace ALInspectionApp.FormItems.Layout
             Grid.SetRow(expandButton, 1);
             grid.Children.Add(expandButton);
 
+            //comment this out unless your creating forms
+            //add row if no row is present
             //if (grid.Children.Count == 2 && template != null)
             //{
             //    this.AddRow();

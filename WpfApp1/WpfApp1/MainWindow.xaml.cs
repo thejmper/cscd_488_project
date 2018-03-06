@@ -23,7 +23,7 @@ namespace ALInspectionApp
 
             InitializeComponent();
 
-           // FormWindow formWindow = new FormWindow();
+            //FormWindow formWindow = new FormWindow();
             //formWindow.Show();
             //this.Close();           
             
