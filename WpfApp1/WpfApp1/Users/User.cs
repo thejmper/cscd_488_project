@@ -15,9 +15,12 @@ namespace ALInspectionApp.Users
 
         public User(string id, string password, string name, bool isAdmin=false)
         {
-            this.id = id;
+            if (id.Trim().Contains(" "))
+                throw new ArgumentException("Error: username '" + id + "' invalid! It cannot have spaces!");
+
+            this.id = id.Trim();
             this.password = PasswordHash.Hash(password); // TODO: hash the password
-            this.name = name;
+            this.name = name.Trim();
             this.isAdmin = isAdmin;
         }
 

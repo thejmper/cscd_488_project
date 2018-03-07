@@ -23,14 +23,21 @@ namespace ALInspectionApp.Windows.UserWindows
 
         private void btnCreateUser_Click(object sender, RoutedEventArgs e)
         {
-            string userName = this.userNameBox.Text;
-            string password = this.passwordBox.Password;
-            string name = this.nameBox.Text;
-            bool isAdmin = (bool)this.isAdminCheck.IsChecked;
+            try
+            {
+                string userName = this.userNameBox.Text;
+                string password = this.passwordBox.Password;
+                string name = this.nameBox.Text;
+                bool isAdmin = (bool)this.isAdminCheck.IsChecked;
 
-            User user = new User(userName, password, name, isAdmin);
-            UserPrefs.AddUser(user);
-            this.Close();
+                User user = new User(userName, password, name, isAdmin);
+                UserPrefs.AddUser(user);
+                this.Close();
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
         }
     }
 }

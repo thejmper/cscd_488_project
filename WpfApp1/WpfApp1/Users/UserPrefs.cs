@@ -169,5 +169,11 @@ namespace ALInspectionApp.Users
         {
             return GetPath(@"\CaseFiles");
         }
+
+        public static string GetPasswordHashDirectory()
+        {
+            return GetPath(@"\Hashes");
+
+        }
     }
 }
