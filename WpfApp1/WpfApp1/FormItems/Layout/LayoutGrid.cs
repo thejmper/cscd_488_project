@@ -78,6 +78,7 @@ namespace ALInspectionApp.FormItems.Layout
             Grid.SetColumn(uiElement, element.col);
             Grid.SetColumnSpan(uiElement, element.colSpan);
             grid.Children.Add(uiElement);
+
         }
     }
 
@@ -126,10 +127,23 @@ namespace ALInspectionApp.FormItems.Layout
             this.rowSpan = rowSpan;
 
             this.isBordered = isBordered;
+
+            element.onDataChanged += onDataChangedIntermediary;
+
         }
         protected GridElement(): base("untitledGridElement")
         {
 
+        }
+
+        /// <summary>
+        /// transfers the onDataChanged event from the element we're wrapping to this one
+        /// so higher-level grid logic works!
+        /// </summary>
+        private void onDataChangedIntermediary()
+        {
+            if (this.onDataChanged != null)
+                this.onDataChanged.Invoke();
         }
 
         //--cloning--//
@@ -164,6 +178,8 @@ namespace ALInspectionApp.FormItems.Layout
             FormElement element = (FormElement)ser.Deserialize(reader);
 
             this.formElement = element;
+            this.formElement.onDataChanged += this.onDataChangedIntermediary;
+
 
             reader.MoveToContent();
         }

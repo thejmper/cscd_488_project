@@ -51,6 +51,14 @@ namespace ALInspectionApp.FormItems.Layout
             }
         }
 
+        private void Element_onDataEntered()
+        {
+            if (this.onDataChanged != null)
+                this.onDataChanged.Invoke();
+        }
+
+
+
         //--element manipulation--//
         /// <summary>
         /// adds a new form element to this element group. Throws an exception if an element with
@@ -63,7 +71,10 @@ namespace ALInspectionApp.FormItems.Layout
                 throw new System.ArgumentException("Cannot add element " + element.name + ". to Form " + this.name + " that tag is already in use!");
 
             elementList.Add(element);
+            element.onDataChanged += Element_onDataEntered;
         }
+
+
         /// <summary>
         /// removes an element from this element list. Throws an exception if the element does not exist.
         /// </summary>

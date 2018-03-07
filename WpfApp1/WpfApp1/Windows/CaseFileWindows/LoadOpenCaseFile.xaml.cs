@@ -34,12 +34,8 @@ namespace ALInspectionApp.Windows.CaseFileWindows
                 try
                 {
                     string filename = open.FileName;
-                    XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
-                    using (TextReader reader = new StreamReader(filename))
-                    {
-                        CaseFile caseFile = (CaseFile)ser.Deserialize(reader);
-                        UserPrefs.caseFile = caseFile;
-                    }
+                    CaseFile caseFile = CaseFile.LoadCaseFile(filename);
+                    UserPrefs.caseFile = caseFile;
                     this.Close();
 
                 } catch(Exception ex)

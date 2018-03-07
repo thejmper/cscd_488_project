@@ -43,9 +43,16 @@ namespace ALInspectionApp.Users
             set
             {
                 _caseFile = value;
-                report = _caseFile.OpenAsUser(user);      
+                report = _caseFile.OpenAsUser(user);
+                _caseFile.onDataChanged += CaseFileNewDataWatcher;
             }
         }
+
+        private static void CaseFileNewDataWatcher()
+        {
+
+        }
+
         private static CaseFile _caseFile;
 
         /// <summary>

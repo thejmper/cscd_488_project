@@ -74,6 +74,11 @@ namespace ALInspectionApp.CaseObject
             }
         }
 
+        /// <summary>
+        /// has this form been saved since its last new bit of data entry?
+        /// </summary>
+        public bool isSaved { get; internal set; }
+
         //--construction--//
         /// <summary>
         /// public form constructor.
@@ -103,6 +108,10 @@ namespace ALInspectionApp.CaseObject
 
             this.stackPanel.Children.Add(headerGrid.UIelement);
             this.SetHeaderValues();
+
+            //be aware of new data if it's entered
+            this.isSaved = true;
+            //this.onDataEntered += this.OnDataEnteredHandler();     
         }
 
         protected Form(): this("unnamedForm")
@@ -110,6 +119,10 @@ namespace ALInspectionApp.CaseObject
             
         }
 
+        private void OnDataEnteredHandler()
+        {
+
+        }
 
 
 

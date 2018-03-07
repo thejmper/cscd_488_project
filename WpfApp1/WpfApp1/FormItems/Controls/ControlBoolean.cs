@@ -46,7 +46,16 @@ namespace ALInspectionApp.FormItems.Controls
             this.binding = new Binding("value");
             binding.Source = dataHolder;
             control.SetBinding(CheckBox.IsCheckedProperty, binding);
+
             control.Checked += Control_Checked;
+            control.Click += Control_Click;
+
+        }
+
+        private void Control_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (this.onDataChanged != null)
+                this.onDataChanged.Invoke();
         }
 
         /// <summary>

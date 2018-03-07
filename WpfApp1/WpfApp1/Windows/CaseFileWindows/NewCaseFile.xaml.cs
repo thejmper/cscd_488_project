@@ -66,7 +66,7 @@ namespace ALInspectionApp.Windows.CaseFileWindows
 
         private void CreateCaseFile(FacilityHolder facility)
         {
-            CaseFile caseFile = new CaseFile(facility.id.ToString(), facility.name, facility.id);
+            CaseFile caseFile = new CaseFile("Case" + facility.id.ToString(), facility.name, facility.id);
             UserPrefs.caseFile = caseFile;
             MainWindow.instance.SetCaseFile(caseFile);
 

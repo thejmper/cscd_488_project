@@ -125,7 +125,7 @@ namespace ALInspectionApp.Windows.UserWindows
             if (this.userPasswordHashes == null)
                 this.userPasswordHashes = new Dictionary<string, string>();
 
-            if (this.userPasswordHashes.ContainsKey(username))
+            if (!this.userPasswordHashes.ContainsKey(username))
                 this.userPasswordHashes.Add(username, hashedPassword);
             else
                 this.userPasswordHashes[username] = hashedPassword;
