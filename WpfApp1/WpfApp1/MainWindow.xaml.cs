@@ -175,11 +175,12 @@ namespace ALInspectionApp
             assignUserWindow.ShowDialog();
         }
 
-<<<<<<< HEAD
+
         private void btnCloseFile_Click(object sender, RoutedEventArgs e)
         {
+        }
 
-=======
+
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             CaseFile caseFile = UserPrefs.caseFile;
@@ -198,7 +199,6 @@ namespace ALInspectionApp
                     e.Cancel = true;
                 }
             }
->>>>>>> 82c5ed9eb45c7f2dcc4369848b32dc2021de7875
         }
     }
 }
