@@ -23,13 +23,15 @@ namespace ALInspectionApp.Windows.UserWindows
 
         private void btnCreateUser_Click(object sender, RoutedEventArgs e)
         {
+            //TODO error check input
             try
             {
                 string userName = this.userNameBox.Text;
                 string password = this.passwordBox.Password;
+                string confirm = this.cpasswordBox.Password;
                 string name = this.nameBox.Text;
                 bool isAdmin = (bool)this.isAdminCheck.IsChecked;
-
+                //if()
                 User user = new User(userName, password, name, isAdmin);
                 UserPrefs.AddUser(user);
                 this.Close();

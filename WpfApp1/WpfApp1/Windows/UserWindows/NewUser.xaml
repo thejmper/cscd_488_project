@@ -24,13 +24,15 @@
         <Label Content="Name" Grid.Row="0" Grid.Column="0"/>
         <Label Content="Username" Grid.Row="1" Grid.Column="0"/>
         <Label Content="Password" Grid.Row="2" Grid.Column="0"/>
-        <Label Content="IsAdmin:" Grid.Row="3" Grid.Column="0"/>
+        <Label Content="Confirm Password" Grid.Row="3" Grid.Column="0"/>
+        <Label Content="Admin:" Grid.Row="4" Grid.Column="0"/>
 
         <TextBox Name="nameBox" Grid.Row="0" Grid.Column="1"/>
         <TextBox Name="userNameBox" Grid.Row="1" Grid.Column="1"/>
         <PasswordBox Name="passwordBox" Grid.Row="2" Grid.Column="1"/>
-        <CheckBox Name="isAdminCheck" Grid.Row="3" Grid.Column="1"/>
+        <PasswordBox Name="cpasswordBox" Grid.Row="3" Grid.Column="1"/>
+        <CheckBox Name="isAdminCheck" Grid.Row="4" Grid.Column="1"/>
 
-        <Button Name="btnCreateUser" Content="Create User" Click="btnCreateUser_Click" Grid.Row="4" Grid.Column="1"/>
+        <Button Name="btnCreateUser" Content="Create User" Click="btnCreateUser_Click" Grid.Row="5" Grid.Column="1"/>
     </Grid>
 </Window>

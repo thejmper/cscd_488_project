@@ -126,9 +126,10 @@ namespace ALInspectionApp.Windows.UserWindows
                 this.userPasswordHashes = new Dictionary<string, string>();
 
             if (this.userPasswordHashes.ContainsKey(username))
-                this.userPasswordHashes.Add(username, hashedPassword);
+                this.userPasswordHashes[username] = hashedPassword; 
             else
-                this.userPasswordHashes[username] = hashedPassword;
+                this.userPasswordHashes.Add(username, hashedPassword);
+            
 
         }
         private bool CheckPasswordLocal(string username, string password)

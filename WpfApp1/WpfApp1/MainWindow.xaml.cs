@@ -142,6 +142,11 @@ namespace ALInspectionApp
             AddFormWindow addForm = new AddFormWindow();
             addForm.ShowDialog();
         }
+        private void btnNewUser_Click(object sender, RoutedEventArgs e)
+        {
+            NewUser newUserWindow = new NewUser();
+            newUserWindow.ShowDialog();
+        }
 
         private void MergeFile_Click(object sender, RoutedEventArgs e)
         {
@@ -161,6 +166,11 @@ namespace ALInspectionApp
         {
             AssignUser assignUserWindow = new AssignUser();
             assignUserWindow.ShowDialog();
+        }
+
+        private void btnCloseFile_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
