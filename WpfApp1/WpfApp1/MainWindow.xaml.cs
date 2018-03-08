@@ -52,11 +52,25 @@ namespace ALInspectionApp
         public void SetCaseFile()
         {            
             this.scrollView.Content = UserPrefs.caseFile.UIelement;
+            UserPrefs.caseFile.onCaseFileChanged += CaseFileChangedHandler;
+            UserPrefs.caseFile.onCaseFileSaved += CaseFileSavedHandler;
+
+            this.Title = UserPrefs.caseFile.name;
         }
         public void SetCaseFile(CaseFile file)
         {
             UserPrefs.caseFile = file;
             this.SetCaseFile();
+        }
+
+        //--event handlers--//
+        private void CaseFileChangedHandler()
+        {
+            this.Title = UserPrefs.caseFile.name + " (unsaved)";
+        }
+        private void CaseFileSavedHandler()
+        {
+            this.Title = UserPrefs.caseFile.name;
         }
 
         //--button handlers--//
@@ -77,15 +91,8 @@ namespace ALInspectionApp
 
             if(save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
-                using (TextWriter writer = new StreamWriter(save.FileName))
-                {
-                    ser.Serialize(writer, UserPrefs.caseFile);
-                }
-            }
-            
-
-            
+                CaseFile.SaveCaseFile(UserPrefs.caseFile, save.FileName);
+            }         
         }
         private void newCaseFile_Click(object sender, RoutedEventArgs e)
         {
@@ -168,9 +175,30 @@ namespace ALInspectionApp
             assignUserWindow.ShowDialog();
         }
 
+<<<<<<< HEAD
         private void btnCloseFile_Click(object sender, RoutedEventArgs e)
         {
 
+=======
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            CaseFile caseFile = UserPrefs.caseFile;
+            if(caseFile != null && caseFile.hasUnsavedData)
+            {
+                string msg = "There are unsaved changes to the casefile! Close without saving?";
+                MessageBoxResult result =
+                  MessageBox.Show(
+                    msg,
+                    "Data App",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning);
+                if (result == MessageBoxResult.No)
+                {
+                    // If user doesn't want to close, cancel closure
+                    e.Cancel = true;
+                }
+            }
+>>>>>>> 82c5ed9eb45c7f2dcc4369848b32dc2021de7875
         }
     }
 }

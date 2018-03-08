@@ -9,9 +9,15 @@ using System.Xml;
 using ALInspectionApp.FormItems.Layout;
 using ALInspectionApp.Users;
 using ALInspectionApp.Utils;
+using System.Xml.Serialization;
+using System.IO;
+using System.Text;
 
 namespace ALInspectionApp.CaseObject
-{   
+{
+    public delegate void CaseFileChanged();
+    public delegate void CaseFileSaved();
+
     /// <summary>
     /// Represents a single temporal incident at a single physical location, but containing reports 
     /// from one or more users. This class manages all the save/load logic and everything else that's 
@@ -19,6 +25,12 @@ namespace ALInspectionApp.CaseObject
     /// </summary>
     public class CaseFile : TabbedGroup<Report>
     {
+        /// <summary>
+        /// private constant for naming the checksum node.
+        /// </summary>
+        private const string CHECKSUM_NODE_NAME = "checksum";
+
+
         //--member fields--//
         /// <summary>
         /// facility name for this case file
@@ -51,6 +63,20 @@ namespace ALInspectionApp.CaseObject
             }
         }
 
+        /// <summary>
+        /// does this casefile have data that hasn't been saved?
+        /// </summary>
+        public bool hasUnsavedData { get; private set; }
+
+        /// <summary>
+        /// event invoked when this case file is changed, warns us when there's unsaved data!
+        /// </summary>
+        public CaseFileChanged onCaseFileChanged;
+        /// <summary>
+        /// event triggered when this casefile is saved!
+        /// </summary>
+        public CaseFileSaved onCaseFileSaved;
+
         //--Construction--/
         /// <summary>
         /// EVC for public use.
@@ -66,6 +92,9 @@ namespace ALInspectionApp.CaseObject
             this.isOpen = true;
 
             this.assignedUserIDs = new List<string>();
+            this.hasUnsavedData = false;
+
+            this.onDataChanged += OnNewData;
         }
         /// <summary>
         /// internal constructor used for the serializer method.
@@ -73,6 +102,17 @@ namespace ALInspectionApp.CaseObject
         protected CaseFile() : this("Unnamed", "unnamed", 0)
         {
 
+        }
+
+        /// <summary>
+        /// handles our OnDataChanged events!
+        /// </summary>
+        private void OnNewData()
+        {
+            if (!this.hasUnsavedData)
+                if (this.onCaseFileChanged != null)
+                    this.onCaseFileChanged.Invoke();
+            this.hasUnsavedData = true;
         }
 
         //--opening--//
@@ -177,6 +217,81 @@ namespace ALInspectionApp.CaseObject
         }
 
         //--save/load--//
+        /// <summary>
+        /// saves a casefile, including the all-important checksum!
+        /// </summary>
+        /// <param name="caseFile"></param>
+        /// <param name="filename"></param>
+        public static void SaveCaseFile(CaseFile caseFile, string filename)
+        {
+            //save the casefile to a string so we can get its char data, but do NOT
+            //save it to a file yet. We want to keep it in memory until we can find the checksum
+            //and make sure nobody messes with this that they shouldn't.
+            StringBuilder sb = new StringBuilder();
+            XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
+            using (StringWriter writer = new StringWriter(sb))
+            {
+                ser.Serialize(writer, caseFile);
+            }
+
+            //create a temp XML document.
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(sb.ToString());
+
+
+            //use that to find the char count of the case file's XML SANS <?xml.... tag at the top
+            int checksum = doc.DocumentElement.OuterXml.Length;
+
+            XmlNode checksumNode = doc.CreateNode("element", CHECKSUM_NODE_NAME, "");
+            checksumNode.InnerText = checksum.ToString();
+            doc.DocumentElement.AppendChild(checksumNode);
+
+
+
+            doc.Save(filename);
+            caseFile.hasUnsavedData = false;
+            if (caseFile.onCaseFileSaved != null)
+                caseFile.onCaseFileSaved.Invoke();
+
+        }
+        /// <summary>
+        /// proper way to load a casefile. Checks the checksum as it should.
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <returns></returns>
+        public static CaseFile LoadCaseFile(string filename)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filename);
+
+            int checksum = -1;
+            XmlNodeList childNodes = doc.DocumentElement.ChildNodes;
+            for (int i = childNodes.Count - 1; i >= 0; i--)
+            {
+                if (childNodes[i].Name.Equals(CHECKSUM_NODE_NAME))
+                {
+                    XmlNode checksumNode = childNodes[i];
+                    checksum = int.Parse(checksumNode.InnerText);
+                    doc.DocumentElement.RemoveChild(checksumNode);
+                }
+            }
+
+            if (doc.DocumentElement.OuterXml.Length != checksum)
+                throw new ArgumentException("ERROR: checksum does not match! File '" + filename + "' is corrupt!");
+
+            CaseFile cf;
+
+            XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
+            using (TextReader reader = new StringReader(doc.InnerXml))
+            {
+                cf = (CaseFile)ser.Deserialize(reader);
+            }
+
+            cf.hasUnsavedData = false;
+            return cf;
+        }
+
+
         /// <summary>
         /// writes the inner part of a casefile's XML.
         /// </summary>

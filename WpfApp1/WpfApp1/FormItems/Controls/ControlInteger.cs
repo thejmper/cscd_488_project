@@ -35,6 +35,14 @@ namespace ALInspectionApp.FormItems.Controls
             this.binding= new Binding("value");
             binding.Source = dataHolder;
             control.SetBinding(TextBox.TextProperty, binding);
+
+            control.TextInput += Control_TextInput;
+        }
+
+        private void Control_TextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            if (this.onDataChanged != null)
+                this.onDataChanged.Invoke();
         }
 
         //--cloning--//

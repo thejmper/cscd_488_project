@@ -28,8 +28,6 @@ namespace ALInspectionApp.FormItems.Controls
 
             this.control.AcceptsReturn = acceptsNewLine;
             this.control.TextWrapping = System.Windows.TextWrapping.Wrap;
-
-            
         }
         protected ControlText(): this("unnamedTextControl", "untitled text Control")
         {
@@ -43,6 +41,14 @@ namespace ALInspectionApp.FormItems.Controls
             this.binding = new Binding("text");
             binding.Source = this.dataHolder;
             control.SetBinding(TextBox.TextProperty, binding);
+
+            control.TextChanged += Control_TextChanged;
+        }
+
+        private void Control_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (this.onDataChanged != null)
+                this.onDataChanged.Invoke();
         }
 
         //--cloning--//
@@ -64,8 +70,12 @@ namespace ALInspectionApp.FormItems.Controls
         //--setters--//
         public override void SetValue(string value)
         {
+            control.TextChanged -= this.Control_TextChanged;
+
             dataHolder.text = value;
             (control).GetBindingExpression(TextBox.TextProperty).UpdateTarget();
+
+            control.TextChanged += this.Control_TextChanged;
         }
 
         protected override void ReadControl(XmlReader reader)

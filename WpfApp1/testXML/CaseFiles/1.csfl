@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CaseFile type="ALInspectionApp.CaseObject.CaseFile">
-  <name>12345</name>
+  <name>1</name>
   <isReadOnly>true</isReadOnly>
-  <facilityName>someplace</facilityName>
-  <facilityLicenseNumber>12345</facilityLicenseNumber>
-  <numUsers>3</numUsers>
+  <facilityName>testFacility</facilityName>
+  <facilityLicenseNumber>1</facilityLicenseNumber>
+  <numUsers>1</numUsers>
   <id>Username</id>
-  <id>gHammond</id>
-  <id>vMalDoran</id>
   <!--Below is the list of items contained within this group-->
   <elementList>
     <Report type="ALInspectionApp.CaseObject.Report">
@@ -15,7 +13,7 @@
       <isReadOnly>false</isReadOnly>
       <licensorName>Test User</licensorName>
       <licensorID>Username</licensorID>
-      <lastModified>3/6/2018 10:18:02 AM</lastModified>
+      <lastModified>3/7/2018 2:53:36 PM</lastModified>
       <!--Below is the list of items contained within this group-->
       <elementList>
         <Form type="ALInspectionApp.CaseObject.Form">
@@ -122,7 +120,7 @@ Current exemptions</labelText>
                     <englishTitle>CASE MANAGER DDD / HCS</englishTitle>
                     <orientation>Vertical</orientation>
                     <acceptsNewLine>false</acceptsNewLine>
-                    <text />
+                    <text>here's some text.</text>
                   </ControlText>
                 </GridElement>
                 <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
@@ -138,7 +136,7 @@ Current exemptions</labelText>
                     <isReadOnly>false</isReadOnly>
                     <englishTitle>Contact Date</englishTitle>
                     <orientation>Vertical</orientation>
-                    <SelectedDateProperty />
+                    <SelectedDateProperty>3/6/2018 12:00:00 AM</SelectedDateProperty>
                   </ControlDate>
                 </GridElement>
                 <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
@@ -329,7 +327,7 @@ Current exemptions</labelText>
                         <isReadOnly>false</isReadOnly>
                         <englishTitle>Dementia</englishTitle>
                         <orientation>Vertical</orientation>
-                        <value>false</value>
+                        <value>true</value>
                       </ControlBoolean>
                       <ControlBoolean type="ALInspectionApp.FormItems.Controls.ControlBoolean">
                         <name>ddd</name>
@@ -408,24 +406,6 @@ Current exemptions</labelText>
           </elementList>
         </Form>
       </elementList>
-    </Report>
-    <Report type="ALInspectionApp.CaseObject.Report">
-      <name>gHammond_Report</name>
-      <isReadOnly>false</isReadOnly>
-      <licensorName>George Hammond</licensorName>
-      <licensorID>gHammond</licensorID>
-      <lastModified>3/6/2018 10:18:02 AM</lastModified>
-      <!--Below is the list of items contained within this group-->
-      <elementList />
-    </Report>
-    <Report type="ALInspectionApp.CaseObject.Report">
-      <name>vMalDoran_Report</name>
-      <isReadOnly>false</isReadOnly>
-      <licensorName>Vala Mal Doran</licensorName>
-      <licensorID>vMalDoran</licensorID>
-      <lastModified>3/6/2018 10:18:02 AM</lastModified>
-      <!--Below is the list of items contained within this group-->
-      <elementList />
     </Report>
   </elementList>
 </CaseFile>

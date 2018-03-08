@@ -19,24 +19,6 @@ namespace ALInspectionApp.FormItems.Controls
 
         }
 
-        /*
-        private static void Dp_SelectedDateChanged(object sender, SelectionChangedEventArgs e, ControlDate controlDate)
-        {
-            
-            DatePicker d = (DatePicker)sender;
-            if (d.SelectedDate == null)
-            {
-                return;
-            }
-            DateTime t = (DateTime)d.SelectedDate;
-            controlDate.SetValue(t);
-            //controlDate.control.SelectedDate = t;
-            //controlDate.dataHolder.date = t;    
-
-            d.DisplayDate = new DateTime(1, 2, 3);
-        }
-        */
-
         public ControlDate() : this("untitledControlDate", "untitled date control")
         {
 
@@ -49,6 +31,14 @@ namespace ALInspectionApp.FormItems.Controls
             this.binding = new Binding("SelectedDateProperty");
             binding.Source = dataHolder;
             control.SetBinding(DatePicker.SelectedDateProperty, binding);
+
+            control.SelectedDateChanged += Control_SelectedDateChanged;
+        }
+
+        private void Control_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (this.onDataChanged != null)
+                this.onDataChanged.Invoke();
         }
 
         //--cloning--//
@@ -64,8 +54,14 @@ namespace ALInspectionApp.FormItems.Controls
 
         public override void SetValue(DateTime value)
         {
+            //make sure we don't accidently call this when the user didn't enter anything new
+            control.SelectedDateChanged -= this.Control_SelectedDateChanged;
+
             dataHolder.date = value;
             ((DatePicker)control).SelectedDate = value;
+
+            //make sure we don't accidently call this when the user didn't enter anything new
+            control.SelectedDateChanged += this.Control_SelectedDateChanged;
         }
         public DateTime GetValue()
         {
