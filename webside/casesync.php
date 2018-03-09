@@ -109,6 +109,40 @@ function getAllCases($conn)
 	$statement->close();
 }
 
+function getFacility($conn, $facilityID)
+{
+	$sql = "SELECT * FROM facilities WHERE facility_id=?";
+	$statement = $conn->prepare($sql);
+	$statement->bind_param("i", $facilityID);
+	$statement->execute();
+	$statement->bind_result($facilityID, $facilityLicense, $facilityName);
+
+	while ($statement->fetch())
+	{
+		$result = array("facilityID"=>$facilityID, "facilityLicense"=>$facilityLicense, "facilityName"=>$facilityName);
+	}
+
+	$statement->close();
+	return $result;
+}
+
+function getAllFacilities($conn)
+{
+	$sql = "SELECT * FROM facilities";
+	$statement = $conn->prepare($sql);
+	$statement->execute();
+	$statement->bind_result($facilityID, $facilityLicense, $facilityName);
+
+	while ($statement->fetch())
+	{
+		$row = array("facilityID"=>$facilityID, "facilityLicense"=>$facilityLicense, "facilityName"=>$facilityName);
+		$resultArray[] = $row;
+	}
+
+	$statement->close();
+	return $resultArray;
+}
+
 function assignUser($conn, $caseID, $userID)
 {
 	$sql = "INSERT INTO assigned (username, case_id) VALUES " .
