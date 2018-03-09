@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Net;
 using System.Text;
 
-namespace WpfApp1.Users
+namespace ALInspectionApp.Users
 {
     public class UserSyncer
     {

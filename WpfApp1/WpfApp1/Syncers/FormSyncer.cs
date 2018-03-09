@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ALInspectionApp.CaseObject;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
@@ -8,9 +9,8 @@ using System.Net.Cache;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
-using WpfApp1.Case;
 
-namespace WpfApp1.Reports.Syncers
+namespace ALInspectionApp.Reports.Syncers
 {
     public class FormSyncer
     {

@@ -55,67 +55,76 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddFormWindow.xaml.cs">
+    <Compile Include="Windows\CaseFileWindows\AddFormWindow.xaml.cs">
       <DependentUpon>AddFormWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BoilerplateTestWindow.xaml.cs">
+    <Compile Include="Windows\UserWindows\AssignUser.xaml.cs">
+      <DependentUpon>AssignUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DevWindows\BoilerplateTestWindow.xaml.cs">
       <DependentUpon>BoilerplateTestWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Case\CaseFile.cs" />
-    <Compile Include="Case\Form.cs" />
-    <Compile Include="Case\Report.cs" />
-    <Compile Include="FormItems\ControlBoolean.cs" />
-    <Compile Include="FormItems\ControlDate.cs" />
-    <Compile Include="FormItems\ControlInteger.cs" />
-    <Compile Include="FormItems\ControlLabel.cs" />
-    <Compile Include="FormItems\ControlText.cs" />
-    <Compile Include="FormItems\ElementGroup.cs" />
+    <Compile Include="CaseObjects\CaseFile.cs" />
+    <Compile Include="CaseObjects\Form.cs" />
+    <Compile Include="CaseObjects\Report.cs" />
+    <Compile Include="FormItems\Controls\ControlBoolean.cs" />
+    <Compile Include="FormItems\Controls\ControlDate.cs" />
+    <Compile Include="FormItems\Controls\ControlInteger.cs" />
+    <Compile Include="FormItems\Controls\ControlLabel.cs" />
+    <Compile Include="FormItems\Controls\ControlRadio.cs" />
+    <Compile Include="FormItems\Controls\ControlText.cs" />
+    <Compile Include="FormItems\Layout\ElementGroup.cs" />
+    <Compile Include="FormItems\Controls\ElementSpacer.cs" />
     <Compile Include="FormItems\FormControl.cs" />
     <Compile Include="FormItems\FormElement.cs" />
-    <Compile Include="FormItems\LayoutGrid.cs" />
-    <Content Include="FormItems\LayoutStackPanel.txt" />
-    <Compile Include="FormItems\LayoutStackPanel.cs" />
-    <Compile Include="FormItems\TabbedGroup.cs" />
-    <Compile Include="FormWindow.xaml.cs">
+    <Compile Include="FormItems\Layout\LayoutGrid.cs" />
+    <Compile Include="FormItems\Layout\LayoutRepeatGrid.cs" />
+    <Compile Include="FormItems\Layout\LayoutStackPanel.cs" />
+    <Compile Include="FormItems\Layout\TabbedGroup.cs" />
+    <Compile Include="Windows\DevWindows\FormWindow.xaml.cs">
       <DependentUpon>FormWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoadOpenCaseFile.xaml.cs">
+    <Compile Include="Windows\CaseFileWindows\LoadOpenCaseFile.xaml.cs">
       <DependentUpon>LoadOpenCaseFile.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Login.xaml.cs">
+    <Compile Include="Windows\UserWindows\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="Syncers\CaseFileSyncer.cs" />
     <Compile Include="Syncers\FormSyncer.cs" />
     <Compile Include="Syncers\ReportSyncer.cs" />
-    <Compile Include="NewCaseFile.xaml.cs">
+    <Compile Include="Windows\CaseFileWindows\NewCaseFile.xaml.cs">
       <DependentUpon>NewCaseFile.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NewUser.xaml.cs">
+    <Compile Include="Windows\UserWindows\NewUser.xaml.cs">
       <DependentUpon>NewUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserPrefs.cs" />
+    <Compile Include="Users\UserPrefs.cs" />
     <Compile Include="Users\PasswordHash.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\UserSyncer.cs" />
     <Compile Include="Utils\UIElementExtensions.cs" />
-    <Page Include="AddFormWindow.xaml">
+    <Page Include="Windows\CaseFileWindows\AddFormWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BoilerplateTestWindow.xaml">
+    <Page Include="Windows\UserWindows\AssignUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FormWindow.xaml">
+    <Page Include="Windows\DevWindows\BoilerplateTestWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LoadOpenCaseFile.xaml">
+    <Page Include="Windows\DevWindows\FormWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Login.xaml">
+    <Page Include="Windows\CaseFileWindows\LoadOpenCaseFile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserWindows\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -131,11 +140,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="NewCaseFile.xaml">
+    <Page Include="Windows\CaseFileWindows\NewCaseFile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="NewUser.xaml">
+    <Page Include="Windows\UserWindows\NewUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,5 +175,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

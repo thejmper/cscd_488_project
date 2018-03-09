@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\App.xaml
-8639214295
-1606071084
-341085186718
+92141557943
+
+38544229016
 14-1787462521
-AddFormWindow.xaml;BoilerplateTestWindow.xaml;FormWindow.xaml;LoadOpenCaseFile.xaml;Login.xaml;MainWindow.xaml;NewCaseFile.xaml;NewUser.xaml;
+Windows\CaseFileWindows\AddFormWindow.xaml;Windows\UserWindows\AssignUser.xaml;Windows\DevWindows\BoilerplateTestWindow.xaml;Windows\DevWindows\FormWindow.xaml;Windows\CaseFileWindows\LoadOpenCaseFile.xaml;Windows\UserWindows\Login.xaml;MainWindow.xaml;Windows\CaseFileWindows\NewCaseFile.xaml;Windows\UserWindows\NewUser.xaml;
 
 False
 

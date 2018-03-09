@@ -5,21 +5,30 @@ using System.Xml;
 using System.Windows.Data;
 using System;
 
-namespace WpfApp1.FormItems
+namespace ALInspectionApp.FormItems
 {
+    /// <summary>
+    /// generic baseclass for any form element that can have its value changed during the course of a user session.
+    /// </summary>
+    /// <typeparam name="controlType">type of WPF element used to display this control</typeparam>
+    /// <typeparam name="dataType">type of data this control holds.</typeparam>
     public abstract class FormControl<controlType, dataType>: FormElement where controlType: Control
     {
         public override UIElement UIelement { get { return this.stackPanel; } }
 
         /// <summary>
-        /// stack panel used to format data.
+        /// stack panel used to format data. We don't just use a controlType because we want
+        /// to have a label for the button/textbox/whatever.
         /// </summary>
         protected StackPanel stackPanel;
         /// <summary>
         /// the control this form control is built around
         /// </summary>
-        protected controlType control;
+        internal controlType control;
 
+        /// <summary>
+        /// binding used to pass data between WPF display and code-behind.
+        /// </summary>
         protected Binding binding;
 
         //--saveable stuff--//
@@ -46,8 +55,11 @@ namespace WpfApp1.FormItems
             //add a header
             this.label= new Label();
             label.Content = engishTitle;
-
-            this.stackPanel.Children.Add(label);
+            if (engishTitle != "")
+            {
+                this.stackPanel.Children.Add(label);
+            }
+            
             this.stackPanel.Children.Add(control);
         }
         protected FormControl(): this("unnamedControll", "Unnamed Control", null,Orientation.Vertical)
@@ -79,7 +91,15 @@ namespace WpfApp1.FormItems
             this.WriteControl(writer);
         }
 
+        /// <summary>
+        /// writes the control's value and anything else required
+        /// </summary>
+        /// <param name="writer"></param>
         protected abstract void WriteControl(XmlWriter writer);
+        /// <summary>
+        /// reads the control's value and anything else needed.
+        /// </summary>
+        /// <param name="reader"></param>
         protected abstract void ReadControl(XmlReader reader);
     }
 }

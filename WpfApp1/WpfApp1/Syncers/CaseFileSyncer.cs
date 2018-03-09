@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ALInspectionApp.CaseObject;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
@@ -7,10 +8,8 @@ using System.Net;
 using System.Net.Cache;
 using System.Text;
 using System.Threading.Tasks;
-using WpfApp1.Case;
-using WpfApp1.Users;
 
-namespace WpfApp1.Reports.Syncers
+namespace ALInspectionApp.Reports.Syncers
 {
     public class CaseFileSyncer
     {
@@ -82,7 +81,7 @@ namespace WpfApp1.Reports.Syncers
                         temp.caseID = caseFileID;
                         if (int.Parse(result[2]) == 1)
                         {
-                            temp.closed = true;
+                            temp.CloseCase();
                         }
                         return temp;
                     }
@@ -110,7 +109,7 @@ namespace WpfApp1.Reports.Syncers
                         temp.caseID = caseFileResult[0];
                         if (int.Parse(caseFileResult[3]) == 1)
                         {
-                            temp.closed = true;
+                            temp.CloseCase();
                         }
                         caseFiles.Add(temp);
                     }

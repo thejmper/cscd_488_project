@@ -5,13 +5,20 @@ using System.Windows.Markup;
 using System.Windows.Media;
 using System.Xml;
 
-namespace WpfApp1.Utils
+namespace ALInspectionApp.Utils
 {
     /// <summary>
-    /// staic class holding a few extention methods for doing stuff with UI element.
+    /// staic class holding a few extention methods for doing stuff with UI element. This class might turn out to be totally pointless.
     /// </summary>
     static class UIElementExtensions
     {
+        /// <summary>
+        /// returns the bordered version of a UI element.
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="borderBrush"></param>
+        /// <param name="borderThicnkess"></param>
+        /// <returns></returns>
         public static UIElement Bordered(this UIElement element, Brush borderBrush, Thickness borderThicnkess)
         {
             Border border = new Border();
@@ -27,6 +34,12 @@ namespace WpfApp1.Utils
             return Bordered(element, Brushes.Black, new Thickness(1));
         }
 
+        
+        /// <summary>
+        /// creates a clone of a UI element. Used for the print fucntion.
+        /// </summary>
+        /// <param name="orig"></param>
+        /// <returns></returns>
         public static UIElement CloneElement(this UIElement orig)
         {
             if (orig == null)
@@ -41,5 +54,6 @@ namespace WpfApp1.Utils
             return (UIElement)XamlReader.Load(xmlReader);
 
         }
+        
     }
 }

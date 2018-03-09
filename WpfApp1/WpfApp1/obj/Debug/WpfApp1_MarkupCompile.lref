@@ -1,11 +1,12 @@
 ﻿
 
-FC:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\AddFormWindow.xaml;;
-FC:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\BoilerplateTestWindow.xaml;;
-FC:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\FormWindow.xaml;;
-FC:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\LoadOpenCaseFile.xaml;;
-FC:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\Login.xaml;;
+FC:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\Windows\CaseFileWindows\AddFormWindow.xaml;;
+FC:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\Windows\UserWindows\AssignUser.xaml;;
+FC:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\Windows\DevWindows\BoilerplateTestWindow.xaml;;
+FC:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\Windows\DevWindows\FormWindow.xaml;;
+FC:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\Windows\CaseFileWindows\LoadOpenCaseFile.xaml;;
+FC:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\Windows\UserWindows\Login.xaml;;
 FC:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\MainWindow.xaml;;
-FC:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\NewCaseFile.xaml;;
-FC:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\NewUser.xaml;;
+FC:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\Windows\CaseFileWindows\NewCaseFile.xaml;;
+FC:\Users\antho\Documents\GitHub\cscd_488_project\WpfApp1\WpfApp1\Windows\UserWindows\NewUser.xaml;;
 

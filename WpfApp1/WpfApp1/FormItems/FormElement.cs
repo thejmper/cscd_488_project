@@ -1,10 +1,11 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-namespace WpfApp1.FormItems
+namespace ALInspectionApp.FormItems
 {
+    public delegate void OnDataChangedHandler();
+    
     /// <summary>
     /// the base class for everything that makes up a form, up to and including the form itself.
     /// This class is responsible for drawing itself and saving itself.
@@ -19,14 +20,21 @@ namespace WpfApp1.FormItems
         /// <summary>
         /// UNIQUE (within scope) name of this element.
         /// </summary>
-        public string name { get; protected set; }
+        public string name { get; set; }
 
+        /// <summary>
+        /// is this form element read-only.
+        /// </summary>
         public bool isReadOnly { get; private set; }
+
+        public OnDataChangedHandler onDataChanged;
+
 
         //--construction--//
         protected FormElement(string name)
         {
             this.name = name;
+             
         }
         protected FormElement(): this("unnamedElement")
         {

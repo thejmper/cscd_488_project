@@ -1,38 +1,32 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Xml.Serialization;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 
-using WpfApp1.FormItems;
-using WpfApp1.Case;
-using WpfApp1.Users;
-using WpfApp1.Reports.Syncers;
+using ALInspectionApp.CaseObject;
+using ALInspectionApp.Windows.UserWindows;
+using ALInspectionApp.Windows.DevWindows;
+using ALInspectionApp.Windows.CaseFileWindows;
+using ALInspectionApp.Users;
+using ALInspectionApp.Reports.Syncers;
 
-namespace WpfApp1
+namespace ALInspectionApp
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow instance;
+
         public MainWindow()
         {
+            instance = this;
+
             InitializeComponent();
 
             //FormWindow formWindow = new FormWindow();
             //formWindow.Show();
-            //this.Close();
-
+            //this.Close();           
             
             UserPrefs.OnLoad();
 
@@ -42,6 +36,7 @@ namespace WpfApp1
             {
                 this.Close();
             }
+            
             /*CaseFile test = new CaseFile("datetest", "datetest", 3);
             ControlDate date = new ControlDate("test", "enter date");
             LayoutGrid g = new LayoutGrid("name");
@@ -57,11 +52,25 @@ namespace WpfApp1
         public void SetCaseFile()
         {            
             this.scrollView.Content = UserPrefs.caseFile.UIelement;
+            UserPrefs.caseFile.onCaseFileChanged += CaseFileChangedHandler;
+            UserPrefs.caseFile.onCaseFileSaved += CaseFileSavedHandler;
+
+            this.Title = UserPrefs.caseFile.name;
         }
         public void SetCaseFile(CaseFile file)
         {
             UserPrefs.caseFile = file;
             this.SetCaseFile();
+        }
+
+        //--event handlers--//
+        private void CaseFileChangedHandler()
+        {
+            this.Title = UserPrefs.caseFile.name + " (unsaved)";
+        }
+        private void CaseFileSavedHandler()
+        {
+            this.Title = UserPrefs.caseFile.name;
         }
 
         //--button handlers--//
@@ -102,6 +111,9 @@ namespace WpfApp1
                 CaseFileSyncer syncer = new CaseFileSyncer();
                 syncer.InsertCaseFile(UserPrefs.caseFile);
                 MessageBox.Show("Synced with database");
+
+                // TODO: I (Anthony) need to follow this.
+                //CaseFile.SaveCaseFile(UserPrefs.caseFile, save.FileName);
             }
         }
 
@@ -168,6 +180,11 @@ namespace WpfApp1
             AddFormWindow addForm = new AddFormWindow();
             addForm.ShowDialog();
         }
+        private void btnNewUser_Click(object sender, RoutedEventArgs e)
+        {
+            NewUser newUserWindow = new NewUser();
+            newUserWindow.ShowDialog();
+        }
 
         private void MergeFile_Click(object sender, RoutedEventArgs e)
         {
@@ -183,11 +200,35 @@ namespace WpfApp1
 
         }
 
-        private void AddLicencor_Click(object sender, RoutedEventArgs e)
+        private void btnAssignUser_Click(object sender, RoutedEventArgs e)
         {
-            if (UserPrefs.caseFile != null)
+            AssignUser assignUserWindow = new AssignUser();
+            assignUserWindow.ShowDialog();
+        }
+
+
+        private void btnCloseFile_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            CaseFile caseFile = UserPrefs.caseFile;
+            if(caseFile != null && caseFile.hasUnsavedData)
             {
-                UserPrefs.caseFile.AssignUser(UserPrefs.user);
+                string msg = "There are unsaved changes to the casefile! Close without saving?";
+                MessageBoxResult result =
+                  MessageBox.Show(
+                    msg,
+                    "Data App",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning);
+                if (result == MessageBoxResult.No)
+                {
+                    // If user doesn't want to close, cancel closure
+                    e.Cancel = true;
+                }
             }
         }
     }
