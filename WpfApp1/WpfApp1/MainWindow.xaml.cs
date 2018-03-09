@@ -91,11 +91,15 @@ namespace ALInspectionApp
 
             if(save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                //Don't use this! The serializer method doesn't insert a checksum!
+                /*
                 XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
                 using (TextWriter writer = new StreamWriter(save.FileName))
                 {
                     ser.Serialize(writer, UserPrefs.caseFile);
-                }
+                }*/
+                //do this instead
+                CaseFile.SaveCaseFile(UserPrefs.caseFile, save.FileName);
             }
         }
 

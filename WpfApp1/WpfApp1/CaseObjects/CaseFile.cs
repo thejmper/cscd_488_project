@@ -215,8 +215,6 @@ namespace ALInspectionApp.CaseObject
             // TOOD: Timeout silently when there is no internet
             new ReportSyncer().InsertReport(report);
 
-
-
             return report;
         }
 
