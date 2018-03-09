@@ -32,51 +32,64 @@ namespace ALInspectionApp.Reports.Syncers
                 formXML = writer.ToString();
             }
 
-            using (WebClient client = new WebClient())
+            try
             {
-                NameValueCollection postData = new NameValueCollection()
+                using (WebClient client = new WebClient())
+                {
+                    NameValueCollection postData = new NameValueCollection()
                 {
                     {"report_id", form.report.reportID },
                     {"fields_xml",  formXML }
                 };
-                string pagesource = Encoding.UTF8.GetString(client.UploadValues(formSyncAddress, postData));
-                form.formID = pagesource;
+                    string pagesource = Encoding.UTF8.GetString(client.UploadValues(formSyncAddress, postData));
+                    form.formID = pagesource;
+                }
+            } catch (WebException e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
 
         public List<Form> GetForms(Report report)
         {
             List<Form> forms = new List<Form>();
-            WebRequest request = WebRequest.Create(formSyncAddress + "?report_id=" + report.reportID);
-            request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
-            request.Method = "GET";
-            using (WebResponse response = request.GetResponse())
+            try
             {
-                using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+                WebRequest request = WebRequest.Create(formSyncAddress + "?report_id=" + report.reportID);
+                request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
+                request.Method = "GET";
+                using (WebResponse response = request.GetResponse())
                 {
-                    string pagesource = stream.ReadToEnd();
-                    if (pagesource == "")
+                    using (StreamReader stream = new StreamReader(response.GetResponseStream()))
                     {
-                        return forms;
-                    }
-                    else
-                    {
-                        string[] result = pagesource.Split(new string[] { "```" }, StringSplitOptions.RemoveEmptyEntries);
-                        foreach (string formLine in result)
+                        string pagesource = stream.ReadToEnd();
+                        if (pagesource == "")
                         {
-                            string[] formResult = formLine.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
-                            Form tempForm = new Form("null");
-                            XmlSerializer ser = new XmlSerializer(tempForm.GetType());
-                            using (TextReader tReader = new StringReader(formResult[2]))
-                            {
-                                tempForm = (Form)ser.Deserialize(tReader);
-                            }
-                            forms.Add(tempForm);
+                            return forms;
                         }
+                        else
+                        {
+                            string[] result = pagesource.Split(new string[] { "```" }, StringSplitOptions.RemoveEmptyEntries);
+                            foreach (string formLine in result)
+                            {
+                                string[] formResult = formLine.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
+                                Form tempForm = new Form("null");
+                                XmlSerializer ser = new XmlSerializer(tempForm.GetType());
+                                using (TextReader tReader = new StringReader(formResult[2]))
+                                {
+                                    tempForm = (Form)ser.Deserialize(tReader);
+                                }
+                                forms.Add(tempForm);
+                            }
 
-                        return forms;
+                            return forms;
+                        }
                     }
                 }
+            } catch (WebException e)
+            {
+                Console.WriteLine(e.Message);
+                return forms;
             }
         }
     }

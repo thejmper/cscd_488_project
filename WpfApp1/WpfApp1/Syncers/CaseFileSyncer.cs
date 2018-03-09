@@ -22,70 +22,89 @@ namespace ALInspectionApp.Reports.Syncers
 
         public Boolean AssignUser(string userID, string caseFileID)
         {
-            using (WebClient client = new WebClient())
+            try
             {
-                NameValueCollection postData = new NameValueCollection()
+                using (WebClient client = new WebClient())
+                {
+                    NameValueCollection postData = new NameValueCollection()
                 {
                     {"username", userID },
                     {"caseID", caseFileID }
                 };
-                string pagesource = Encoding.UTF8.GetString(client.UploadValues(caseSyncAddress, postData));
-                return true;
-                // TODO: Check if user is already added
+                    string pagesource = Encoding.UTF8.GetString(client.UploadValues(caseSyncAddress, postData));
+                    return true;
+                    // TODO: Check if user is already added
+                }
+            } catch (WebException e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
             }
-
-            return false;
         }
 
         public Boolean IsUserAssigned(string userID, string caseFileID)
         {
-            WebRequest request = WebRequest.Create(caseSyncAddress + "?case_id=" + caseFileID + "&username=" + userID);
-            request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
-            request.Method = "GET";
-            using (WebResponse response = request.GetResponse())
+            try
             {
-                using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+                WebRequest request = WebRequest.Create(caseSyncAddress + "?case_id=" + caseFileID + "&username=" + userID);
+                request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
+                request.Method = "GET";
+                using (WebResponse response = request.GetResponse())
                 {
-                    string pagesource = stream.ReadToEnd();
-                    if (pagesource == "1")
+                    using (StreamReader stream = new StreamReader(response.GetResponseStream()))
                     {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
+                        string pagesource = stream.ReadToEnd();
+                        if (pagesource == "1")
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
                     }
                 }
+            } catch (WebException e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
             }
         }
 
         public CaseFile GetCaseFile(string caseFileID)
         {
-            WebRequest request = WebRequest.Create(caseSyncAddress + "?case_id=" + caseFileID);
-            request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
-            request.Method = "GET";
-            using (WebResponse response = request.GetResponse())
+            try
             {
-                using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+                WebRequest request = WebRequest.Create(caseSyncAddress + "?case_id=" + caseFileID);
+                request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
+                request.Method = "GET";
+                using (WebResponse response = request.GetResponse())
                 {
-                    string pagesource = stream.ReadToEnd();
-                    Console.WriteLine(pagesource);
-                    if (pagesource == "invalid")
+                    using (StreamReader stream = new StreamReader(response.GetResponseStream()))
                     {
-                        return null;
-                    }
-                    else
-                    {
-                        string[] result = pagesource.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
-                        CaseFile temp = new CaseFile("null", result[0], int.Parse(result[1]));
-                        temp.caseID = caseFileID;
-                        if (int.Parse(result[2]) == 1)
+                        string pagesource = stream.ReadToEnd();
+                        Console.WriteLine(pagesource);
+                        if (pagesource == "invalid")
                         {
-                            temp.CloseCase();
+                            return null;
                         }
-                        return temp;
+                        else
+                        {
+                            string[] result = pagesource.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                            CaseFile temp = new CaseFile("null", result[0], int.Parse(result[1]));
+                            temp.caseID = caseFileID;
+                            if (int.Parse(result[2]) == 1)
+                            {
+                                temp.CloseCase();
+                            }
+                            return temp;
+                        }
                     }
                 }
+            } catch (WebException e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
             }
         }
 
@@ -93,27 +112,33 @@ namespace ALInspectionApp.Reports.Syncers
         {
             List<CaseFile> caseFiles = new List<CaseFile>();
 
-            WebRequest request = WebRequest.Create(caseSyncAddress);
-            request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
-            request.Method = "GET";
-            using (WebResponse response = request.GetResponse())
+            try
             {
-                using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+                WebRequest request = WebRequest.Create(caseSyncAddress);
+                request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
+                request.Method = "GET";
+                using (WebResponse response = request.GetResponse())
                 {
-                    string pagesource = stream.ReadToEnd();
-                    string[] result = pagesource.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
-                    foreach (string caseFileLine in result)
+                    using (StreamReader stream = new StreamReader(response.GetResponseStream()))
                     {
-                        string[] caseFileResult = caseFileLine.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
-                        CaseFile temp = new CaseFile("null", caseFileResult[1], int.Parse(caseFileResult[2]));
-                        temp.caseID = caseFileResult[0];
-                        if (int.Parse(caseFileResult[3]) == 1)
+                        string pagesource = stream.ReadToEnd();
+                        string[] result = pagesource.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                        foreach (string caseFileLine in result)
                         {
-                            temp.CloseCase();
+                            string[] caseFileResult = caseFileLine.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
+                            CaseFile temp = new CaseFile("null", caseFileResult[1], int.Parse(caseFileResult[2]));
+                            temp.caseID = caseFileResult[0];
+                            if (int.Parse(caseFileResult[3]) == 1)
+                            {
+                                temp.CloseCase();
+                            }
+                            caseFiles.Add(temp);
                         }
-                        caseFiles.Add(temp);
                     }
                 }
+            } catch (WebException e)
+            {
+                Console.WriteLine(e.Message);
             }
 
             return caseFiles;
@@ -121,38 +146,52 @@ namespace ALInspectionApp.Reports.Syncers
 
         public CaseFile CreateCaseFile(string facilityName, int facilityLicenseNumber)
         {
-            using (WebClient client = new WebClient())
+            try
             {
-                NameValueCollection postData = new NameValueCollection()
+                using (WebClient client = new WebClient())
+                {
+                    NameValueCollection postData = new NameValueCollection()
                 {
                     {"facility_name", facilityName },
                     {"facility_license", facilityLicenseNumber.ToString() }
                 };
-                string pagesource = Encoding.UTF8.GetString(client.UploadValues(caseSyncAddress, postData));
-                if (pagesource == "already exists")
-                {
-                    return null;
+                    string pagesource = Encoding.UTF8.GetString(client.UploadValues(caseSyncAddress, postData));
+                    if (pagesource == "already exists")
+                    {
+                        return null;
+                    }
+                    string caseID = pagesource;
+                    CaseFile temp = new CaseFile(facilityName, facilityName, facilityLicenseNumber);
+                    temp.caseID = caseID;
+                    return temp;
                 }
-                string caseID = pagesource;
-                CaseFile temp = new CaseFile("null", facilityName, facilityLicenseNumber);
-                temp.caseID = caseID;
-                return temp;
+            } catch (WebException e)
+            {
+                Console.WriteLine(e.Message);
+                return new CaseFile(facilityName, facilityName, facilityLicenseNumber);
             }
+            
         }
 
         public void InsertCaseFile(CaseFile file)
         {
             if (GetCaseFile(file.caseID) == null)
             {
-                using (WebClient client = new WebClient())
+                try
                 {
-                    NameValueCollection postData = new NameValueCollection()
+                    using (WebClient client = new WebClient())
+                    {
+                        NameValueCollection postData = new NameValueCollection()
+                        {
+                            {"facility_name", file.facilityName },
+                            {"facility_license", file.facilitylicenseNumber.ToString() }
+                        };
+                        string pagesource = Encoding.UTF8.GetString(client.UploadValues(caseSyncAddress, postData));
+                        file.caseID = pagesource;
+                    }
+                } catch (WebException e)
                 {
-                    {"facility_name", file.facilityName },
-                    {"facility_license", file.facilitylicenseNumber.ToString() }
-                };
-                    string pagesource = Encoding.UTF8.GetString(client.UploadValues(caseSyncAddress, postData));
-                    file.caseID = pagesource;
+                    Console.WriteLine(e.Message);
                 }
             }
             else

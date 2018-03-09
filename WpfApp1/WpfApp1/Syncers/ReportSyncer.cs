@@ -24,15 +24,21 @@ namespace ALInspectionApp.Reports.Syncers
         {
             if (GetReport(report.reportID) == null)
             {
-                using (WebClient client = new WebClient())
+                try
                 {
-                    NameValueCollection postData = new NameValueCollection()
+                    using (WebClient client = new WebClient())
+                    {
+                        NameValueCollection postData = new NameValueCollection()
                 {
                     {"author_id", report.licensorID },
                     {"case_id", report.caseFile.caseID }
                 };
-                    string pagesource = Encoding.UTF8.GetString(client.UploadValues(reportSyncAddress, postData));
-                    report.reportID = pagesource;
+                        string pagesource = Encoding.UTF8.GetString(client.UploadValues(reportSyncAddress, postData));
+                        report.reportID = pagesource;
+                    }
+                } catch (WebException e)
+                {
+                    Console.WriteLine(e.Message);
                 }
             }
             else
@@ -54,33 +60,40 @@ namespace ALInspectionApp.Reports.Syncers
 
         public Report GetReport(string reportID)
         {
-            WebRequest request = WebRequest.Create(reportSyncAddress + "?report_id=" + reportID);
-            request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
-            request.Method = "GET";
-            using (WebResponse response = request.GetResponse())
+            try
             {
-                using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+                WebRequest request = WebRequest.Create(reportSyncAddress + "?report_id=" + reportID);
+                request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
+                request.Method = "GET";
+                using (WebResponse response = request.GetResponse())
                 {
-                    string pagesource = stream.ReadToEnd();
-                    if (pagesource == "")
+                    using (StreamReader stream = new StreamReader(response.GetResponseStream()))
                     {
-                        return null;
-                    }
-                    else
-                    {
-                        string[] result = pagesource.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
-                        Report temp = new Report(result[2] + "_Report", result[2], result[2], null);
-                        temp.reportID = reportID;
-
-                        FormSyncer formSyncer = new FormSyncer();
-                        foreach (Form form in formSyncer.GetForms(temp))
+                        string pagesource = stream.ReadToEnd();
+                        if (pagesource == "")
                         {
-                            temp.AddForm(form);
+                            return null;
                         }
+                        else
+                        {
+                            string[] result = pagesource.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                            Report temp = new Report(result[2] + "_Report", result[2], result[2], null);
+                            temp.reportID = reportID;
 
-                        return temp;
+                            FormSyncer formSyncer = new FormSyncer();
+                            foreach (Form form in formSyncer.GetForms(temp))
+                            {
+                                temp.AddForm(form);
+                            }
+
+                            return temp;
+                        }
                     }
                 }
+            } catch (WebException e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
             }
         }
 
@@ -88,37 +101,44 @@ namespace ALInspectionApp.Reports.Syncers
         public List<Report> GetReports(CaseFile caseFile)
         {
             List<Report> reports = new List<Report>();
-            WebRequest request = WebRequest.Create(reportSyncAddress + "?case_id=" + caseFile.caseID);
-            request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
-            request.Method = "GET";
-            using (WebResponse response = request.GetResponse())
+            try
             {
-                using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+                WebRequest request = WebRequest.Create(reportSyncAddress + "?case_id=" + caseFile.caseID);
+                request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
+                request.Method = "GET";
+                using (WebResponse response = request.GetResponse())
                 {
-                    string pagesource = stream.ReadToEnd();
-                    if (pagesource == "")
+                    using (StreamReader stream = new StreamReader(response.GetResponseStream()))
                     {
-                        return null;
-                    }
-                    else
-                    {
-                        string[] result = pagesource.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
-                        foreach (string reportLine in result)
+                        string pagesource = stream.ReadToEnd();
+                        if (pagesource == "")
                         {
-                            string[] reportResult = reportLine.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
-                            Report temp = new Report(reportResult[2] + "_Report", reportResult[2], reportResult[2], caseFile); // TODO: Change it so it actually gets and provides the full name of the user
-                            temp.reportID = reportResult[0].ToString();
-                            FormSyncer formSyncer = new FormSyncer();
-                            foreach (Form form in formSyncer.GetForms(temp))
-                            {
-                                temp.AddForm(form);
-                            }
-                            reports.Add(temp);
+                            return null;
                         }
+                        else
+                        {
+                            string[] result = pagesource.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                            foreach (string reportLine in result)
+                            {
+                                string[] reportResult = reportLine.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
+                                Report temp = new Report(reportResult[2] + "_Report", reportResult[2], reportResult[2], caseFile); // TODO: Change it so it actually gets and provides the full name of the user
+                                temp.reportID = reportResult[0].ToString();
+                                FormSyncer formSyncer = new FormSyncer();
+                                foreach (Form form in formSyncer.GetForms(temp))
+                                {
+                                    temp.AddForm(form);
+                                }
+                                reports.Add(temp);
+                            }
 
-                        return reports;
+                            return reports;
+                        }
                     }
                 }
+            } catch (WebException e)
+            {
+                Console.WriteLine(e.Message);
+                return reports;
             }
         }
     }
