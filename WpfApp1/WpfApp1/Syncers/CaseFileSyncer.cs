@@ -1,4 +1,5 @@
 ﻿using ALInspectionApp.CaseObject;
+using ALInspectionApp.Users;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -38,6 +39,7 @@ namespace ALInspectionApp.Reports.Syncers
             } catch (WebException e)
             {
                 Console.WriteLine(e.Message);
+                UserPrefs.isOnline = false;
                 return false;
             }
         }
@@ -67,6 +69,7 @@ namespace ALInspectionApp.Reports.Syncers
             } catch (WebException e)
             {
                 Console.WriteLine(e.Message);
+                UserPrefs.isOnline = false;
                 return false;
             }
         }
@@ -104,6 +107,7 @@ namespace ALInspectionApp.Reports.Syncers
             } catch (WebException e)
             {
                 Console.WriteLine(e.Message);
+                UserPrefs.isOnline = false;
                 return null;
             }
         }
@@ -139,6 +143,7 @@ namespace ALInspectionApp.Reports.Syncers
             } catch (WebException e)
             {
                 Console.WriteLine(e.Message);
+                UserPrefs.isOnline = false;
             }
 
             return caseFiles;
@@ -168,6 +173,7 @@ namespace ALInspectionApp.Reports.Syncers
             } catch (WebException e)
             {
                 Console.WriteLine(e.Message);
+                UserPrefs.isOnline = false;
                 return new CaseFile(facilityName, facilityName, facilityLicenseNumber);
             }
             
@@ -192,6 +198,7 @@ namespace ALInspectionApp.Reports.Syncers
                 } catch (WebException e)
                 {
                     Console.WriteLine(e.Message);
+                    UserPrefs.isOnline = false;
                 }
             }
             else

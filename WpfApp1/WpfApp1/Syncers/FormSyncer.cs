@@ -1,4 +1,5 @@
 ﻿using ALInspectionApp.CaseObject;
+using ALInspectionApp.Users;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -47,6 +48,7 @@ namespace ALInspectionApp.Reports.Syncers
             } catch (WebException e)
             {
                 Console.WriteLine(e.Message);
+                UserPrefs.isOnline = false;
             }
         }
 
@@ -89,6 +91,7 @@ namespace ALInspectionApp.Reports.Syncers
             } catch (WebException e)
             {
                 Console.WriteLine(e.Message);
+                UserPrefs.isOnline = false;
                 return forms;
             }
         }

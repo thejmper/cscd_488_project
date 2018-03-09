@@ -56,6 +56,11 @@ namespace ALInspectionApp.Users
         private static CaseFile _caseFile;
 
         /// <summary>
+        /// Whether the application has internet connectivity
+        /// </summary>
+        public static bool isOnline { get; set; }
+
+        /// <summary>
         /// the report we're working on, if we're a field user.
         /// </summary>
         public static Report report { get; private set; }
@@ -76,6 +81,7 @@ namespace ALInspectionApp.Users
         /// </summary>
         public static void OnLoad()
         {
+            isOnline = true; // Default to assuming there is internet unless otherwise told
             users = new ObservableCollection<User>();
             UserSyncer userSyncer = new UserSyncer();
             foreach (User aUser in userSyncer.WebGetListOfUsers())

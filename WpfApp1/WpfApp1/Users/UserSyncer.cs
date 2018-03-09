@@ -39,6 +39,7 @@ namespace ALInspectionApp.Users
             } catch (WebException e)
             {
                 Console.WriteLine(e.Message);
+                UserPrefs.isOnline = false;
                 return null;
             }
         }
@@ -67,6 +68,7 @@ namespace ALInspectionApp.Users
             } catch (WebException e)
             {
                 Console.WriteLine(e.Message);
+                UserPrefs.isOnline = false;
                 return false;
             }
         }
@@ -94,6 +96,7 @@ namespace ALInspectionApp.Users
             } catch (WebException e)
             {
                 Console.WriteLine(e.Message);
+                UserPrefs.isOnline = false;
                 return new User(username, password, name, admin);
             }
             
@@ -123,6 +126,7 @@ namespace ALInspectionApp.Users
             } catch (WebException e)
             {
                 Console.WriteLine(e.Message);
+                UserPrefs.isOnline = false;
             }
 
             return users;
