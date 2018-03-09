@@ -23,6 +23,7 @@
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <EventSetter Event="MouseDoubleClick" Handler="ExistingDoubleClick"/>
+                    <EventSetter Event="Selected" Handler="Selected"/>
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>

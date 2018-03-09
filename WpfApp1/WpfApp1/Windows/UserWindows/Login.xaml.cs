@@ -54,21 +54,32 @@ namespace ALInspectionApp.Windows.UserWindows
             //      this.AddPasswordHash(username, hashedPassword);
             //  }
             //}
-
-            //if(!isOnline)
+            User tempUser = new UserSyncer().WebLogin(Username.Text, Password.Password);
+            if (tempUser != null)
             {
-                string passwordHash = PasswordHash.Hash(Password.Password);
-                if(this.CheckPasswordLocal(Username.Text, passwordHash)){
-                    UserPrefs.SetUser(new Users.User(Username.Text, Password.Password, Username.Text), false);  //this could be better. TODO: Anthony, do we actually need this?
-
-                    MainWindow mainWindow = ((MainWindow)Application.Current.MainWindow);
-                    this.Close();
-                }
-                else
+                UserPrefs.SetUser(tempUser, true);
+                MainWindow mainWindow = ((MainWindow)Application.Current.MainWindow);
+                this.Close();
+            }
+            else
+            {
+                //if(!isOnline)
                 {
-                    MessageBox.Show("Wrong username or password");
+                    string passwordHash = PasswordHash.Hash(Password.Password);
+                    if (this.CheckPasswordLocal(Username.Text, passwordHash))
+                    {
+                        UserPrefs.SetUser(new Users.User(Username.Text, Password.Password, Username.Text), false);  //this could be better. TODO: Anthony, do we actually need this?
+
+                        MainWindow mainWindow = ((MainWindow)Application.Current.MainWindow);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong username or password");
+                    }
                 }
             }
+            
 
 
 

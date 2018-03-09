@@ -12,6 +12,7 @@ using ALInspectionApp.Utils;
 using System.Xml.Serialization;
 using System.IO;
 using System.Text;
+using ALInspectionApp.Reports.Syncers;
 
 namespace ALInspectionApp.CaseObject
 {
@@ -76,18 +77,6 @@ namespace ALInspectionApp.CaseObject
             return true;
         }
 
-        public Report AddReport(string reportID, string licensorName)
-        {
-            if (reports.Exists(item => item.reportID.Equals(reportID)))
-                throw new System.ArgumentException("Report id: " + reportID + " aready assigned to this report!");
-
-
-            Report report = new Report("unnamed", licensorName, "noID", this); // TODO: Correct this
-            this.reports.Add(report);
-
-            return report;
-        }
-
         /// <summary>
         /// does this casefile have data that hasn't been saved?
         /// </summary>
@@ -150,17 +139,24 @@ namespace ALInspectionApp.CaseObject
         /// <param name="user"></param>
         public Report OpenAsUser(User user)
         {
-            if (user.isAdmin)
-            {
-                this.SetReadOnly(false);
-                return null;
-            }
-            else if (assignedUserIDs.Contains(user.id))
+            if (assignedUserIDs.Contains(user.id) && !user.isAdmin) // User is assigned and not an admin
             {
                 Report report = this.elementList.Find(item => item.licensorID.Equals(user.id));
                 report.SetReadOnly(false);
                 return report;
             }
+            else if (assignedUserIDs.Contains(user.id) && user.isAdmin) // User is assigned and is an admin
+            {
+                Report report = this.elementList.Find(item => item.licensorID.Equals(user.id));
+                report.SetReadOnly(false);
+                return report;
+            }
+            else if (user.isAdmin) // User is not assigned, but is an admin
+            {
+                this.SetReadOnly(false);
+                return null;
+            }
+            
             this.SetReadOnly(true);
             return null;
         }
@@ -211,9 +207,13 @@ namespace ALInspectionApp.CaseObject
                 throw new ArgumentException("ERROR: User'" + user.ToString() + "' already assigned to this case file!");
 
             assignedUserIDs.Add(user.id);
+            // TODO: Timeout silently when there is no internet
+            new CaseFileSyncer().AssignUser(user.id, this.caseID);
 
             Report report = new Report(user.id +"_Report", user.name, user.id, this);
             this.AddElementInternal(report);
+            // TOOD: Timeout silently when there is no internet
+            new ReportSyncer().InsertReport(report);
 
 
 

@@ -45,6 +45,17 @@ namespace ALInspectionApp.Windows.CaseFileWindows
             }
         }
 
+        private void Selected(object sender, RoutedEventArgs e)
+        {
+            var item = sender as ListViewItem;
+            if (item != null)
+            {
+                FacilityHolder facility = item.DataContext as FacilityHolder;
+                facilityNameBox.Text = facility.name;
+                facilityIdBox.Text = facility.id.ToString();
+            }
+        }
+
         private void btnCreateAndAssign_Click(object sender, RoutedEventArgs e)
         {
             this.CreateCaseFile();
@@ -70,7 +81,7 @@ namespace ALInspectionApp.Windows.CaseFileWindows
 
         private void CreateCaseFile(FacilityHolder facility)
         {
-            CaseFile caseFile = new CaseFile("Case" + facility.id.ToString(), facility.name, facility.id);
+            CaseFile caseFile = new CaseFileSyncer().CreateCaseFile(facility.name, facility.id);
             UserPrefs.caseFile = caseFile;
             MainWindow.instance.SetCaseFile(caseFile);
 
@@ -78,8 +89,6 @@ namespace ALInspectionApp.Windows.CaseFileWindows
 
         private FacilityHolder CreateNewFacility(string facilityName, int facilityID)
         {
-            new CaseFileSyncer().CreateCaseFile(facilityName, facilityID);
-
             FacilityHolder holder = new FacilityHolder(facilityName, facilityID);
             this.facilities.Add(holder);
 

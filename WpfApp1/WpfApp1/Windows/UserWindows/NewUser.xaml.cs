@@ -32,6 +32,7 @@ namespace ALInspectionApp.Windows.UserWindows
                 string name = this.nameBox.Text;
                 bool isAdmin = (bool)this.isAdminCheck.IsChecked;
                 //if()
+                new UserSyncer().WebCreateUser(userName, password, name, isAdmin);
                 User user = new User(userName, password, name, isAdmin);
                 UserPrefs.AddUser(user);
                 this.Close();

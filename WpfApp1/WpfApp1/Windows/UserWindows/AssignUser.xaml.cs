@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ALInspectionApp.Users;
 using ALInspectionApp.CaseObject;
+using ALInspectionApp.Reports.Syncers;
 
 namespace ALInspectionApp.Windows.UserWindows
 {
@@ -86,7 +87,7 @@ namespace ALInspectionApp.Windows.UserWindows
             {
                 CaseFile caseFile = UserPrefs.caseFile;
 
-                if(caseFile == null)
+                if (caseFile == null)
                 {
                     MessageBox.Show("No active case file, cannot assign users!");
                     this.Close();
@@ -94,19 +95,20 @@ namespace ALInspectionApp.Windows.UserWindows
 
                 string[] alreadyAssignedIds = caseFile.assignedUserIDs.ToArray();
 
-                foreach(User user in this.assignedUsers)
+                foreach (User user in this.assignedUsers)
                 {
                     if (!alreadyAssignedIds.Contains(user.id))
                     {
                         caseFile.AssignUser(user);
-                    }        
+                    }
                 }
 
                 UserPrefs.caseFile = caseFile;
                 MainWindow.instance.SetCaseFile(caseFile);
                 this.Close();
 
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }

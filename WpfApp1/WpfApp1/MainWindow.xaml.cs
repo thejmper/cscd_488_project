@@ -108,12 +108,10 @@ namespace ALInspectionApp
             }
             else
             {
+                //CaseFile.SaveCaseFile(UserPrefs.caseFile, save.FileName);
                 CaseFileSyncer syncer = new CaseFileSyncer();
                 syncer.InsertCaseFile(UserPrefs.caseFile);
                 MessageBox.Show("Synced with database");
-
-                // TODO: I (Anthony) need to follow this.
-                //CaseFile.SaveCaseFile(UserPrefs.caseFile, save.FileName);
             }
         }
 
