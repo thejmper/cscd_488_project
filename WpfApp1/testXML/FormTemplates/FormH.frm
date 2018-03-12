@@ -9,6 +9,7 @@
     <orientation>Vertical</orientation>
     <SelectedDateProperty />
   </ControlDate>
+  <verboseName>Other Contact Interview</verboseName>
   <!--Below is the list of items contained within this group-->
   <elementList>
     <LayoutStackPanel type="ALInspectionApp.FormItems.Layout.LayoutStackPanel">
@@ -280,104 +281,7 @@
               </LayoutGrid>
             </template>
             <!--Below is the list of items contained within this group-->
-            <elementList>
-              <LayoutStackPanel type="ALInspectionApp.FormItems.Layout.LayoutStackPanel">
-                <name>row0</name>
-                <isReadOnly>false</isReadOnly>
-                <orientation>Vertical</orientation>
-                <!--Below is the list of items contained within this group-->
-                <elementList>
-                  <LayoutGrid type="ALInspectionApp.FormItems.Layout.LayoutGrid">
-                    <name>contact</name>
-                    <isReadOnly>false</isReadOnly>
-                    <!--Below is the list of items contained within this group-->
-                    <elementList>
-                      <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                        <name>spacer</name>
-                        <isReadOnly>false</isReadOnly>
-                        <row>0</row>
-                        <col>0</col>
-                        <rowSpan>1</rowSpan>
-                        <colSpan>12</colSpan>
-                        <isBordered>False</isBordered>
-                        <ElementSpacer type="ALInspectionApp.FormItems.Controls.ElementSpacer">
-                          <name>spacer</name>
-                          <isReadOnly>false</isReadOnly>
-                          <height>25</height>
-                        </ElementSpacer>
-                      </GridElement>
-                      <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                        <name>Contact</name>
-                        <isReadOnly>false</isReadOnly>
-                        <row>3</row>
-                        <col>0</col>
-                        <rowSpan>1</rowSpan>
-                        <colSpan>6</colSpan>
-                        <isBordered>True</isBordered>
-                        <ControlText type="ALInspectionApp.FormItems.Controls.ControlText">
-                          <name>Contact</name>
-                          <isReadOnly>false</isReadOnly>
-                          <englishTitle>CONTACT NAME AND NUMBER</englishTitle>
-                          <orientation>Vertical</orientation>
-                          <acceptsNewLine>false</acceptsNewLine>
-                          <text />
-                        </ControlText>
-                      </GridElement>
-                      <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                        <name>date2</name>
-                        <isReadOnly>false</isReadOnly>
-                        <row>3</row>
-                        <col>6</col>
-                        <rowSpan>1</rowSpan>
-                        <colSpan>3</colSpan>
-                        <isBordered>True</isBordered>
-                        <ControlDate type="ALInspectionApp.FormItems.Controls.ControlDate">
-                          <name>date2</name>
-                          <isReadOnly>false</isReadOnly>
-                          <englishTitle>DATE OF INTERVIEW</englishTitle>
-                          <orientation>Vertical</orientation>
-                          <SelectedDateProperty />
-                        </ControlDate>
-                      </GridElement>
-                      <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                        <name>relationship2</name>
-                        <isReadOnly>false</isReadOnly>
-                        <row>3</row>
-                        <col>9</col>
-                        <rowSpan>1</rowSpan>
-                        <colSpan>3</colSpan>
-                        <isBordered>True</isBordered>
-                        <ControlText type="ALInspectionApp.FormItems.Controls.ControlText">
-                          <name>relationship2</name>
-                          <isReadOnly>false</isReadOnly>
-                          <englishTitle>RELATIONSHIP TO RESIDENT</englishTitle>
-                          <orientation>Vertical</orientation>
-                          <acceptsNewLine>false</acceptsNewLine>
-                          <text />
-                        </ControlText>
-                      </GridElement>
-                      <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                        <name>NOTES2</name>
-                        <isReadOnly>false</isReadOnly>
-                        <row>4</row>
-                        <col>0</col>
-                        <rowSpan>1</rowSpan>
-                        <colSpan>12</colSpan>
-                        <isBordered>True</isBordered>
-                        <ControlText type="ALInspectionApp.FormItems.Controls.ControlText">
-                          <name>NOTES2</name>
-                          <isReadOnly>false</isReadOnly>
-                          <englishTitle>NOTES</englishTitle>
-                          <orientation>Vertical</orientation>
-                          <acceptsNewLine>true</acceptsNewLine>
-                          <text />
-                        </ControlText>
-                      </GridElement>
-                    </elementList>
-                  </LayoutGrid>
-                </elementList>
-              </LayoutStackPanel>
-            </elementList>
+            <elementList />
           </LayoutRepeatGrid>
         </GridElement>
         <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">

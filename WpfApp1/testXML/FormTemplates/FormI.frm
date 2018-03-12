@@ -9,6 +9,7 @@
     <orientation>Vertical</orientation>
     <SelectedDateProperty />
   </ControlDate>
+  <verboseName>Enviromental Observations</verboseName>
   <!--Below is the list of items contained within this group-->
   <elementList>
     <LayoutStackPanel type="ALInspectionApp.FormItems.Layout.LayoutStackPanel">
@@ -1008,89 +1009,7 @@
               </LayoutGrid>
             </template>
             <!--Below is the list of items contained within this group-->
-            <elementList>
-              <LayoutStackPanel type="ALInspectionApp.FormItems.Layout.LayoutStackPanel">
-                <name>row0</name>
-                <isReadOnly>false</isReadOnly>
-                <orientation>Vertical</orientation>
-                <!--Below is the list of items contained within this group-->
-                <elementList>
-                  <LayoutGrid type="ALInspectionApp.FormItems.Layout.LayoutGrid">
-                    <name>bathroom</name>
-                    <isReadOnly>false</isReadOnly>
-                    <!--Below is the list of items contained within this group-->
-                    <elementList>
-                      <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                        <name>temp1</name>
-                        <isReadOnly>false</isReadOnly>
-                        <row>0</row>
-                        <col>2</col>
-                        <rowSpan>1</rowSpan>
-                        <colSpan>2</colSpan>
-                        <isBordered>False</isBordered>
-                        <ControlInteger type="ALInspectionApp.FormItems.Controls.ControlInteger">
-                          <name>temp1</name>
-                          <isReadOnly>false</isReadOnly>
-                          <englishTitle>•Water temperature: °F</englishTitle>
-                          <orientation>Vertical</orientation>
-                          <value>0</value>
-                        </ControlInteger>
-                      </GridElement>
-                      <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                        <name>tDate1</name>
-                        <isReadOnly>false</isReadOnly>
-                        <row>0</row>
-                        <col>4</col>
-                        <rowSpan>1</rowSpan>
-                        <colSpan>2</colSpan>
-                        <isBordered>False</isBordered>
-                        <ControlDate type="ALInspectionApp.FormItems.Controls.ControlDate">
-                          <name>tDate1</name>
-                          <isReadOnly>false</isReadOnly>
-                          <englishTitle>date</englishTitle>
-                          <orientation>Vertical</orientation>
-                          <SelectedDateProperty />
-                        </ControlDate>
-                      </GridElement>
-                      <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                        <name>tTime1</name>
-                        <isReadOnly>false</isReadOnly>
-                        <row>0</row>
-                        <col>6</col>
-                        <rowSpan>1</rowSpan>
-                        <colSpan>2</colSpan>
-                        <isBordered>False</isBordered>
-                        <ControlText type="ALInspectionApp.FormItems.Controls.ControlText">
-                          <name>tTime1</name>
-                          <isReadOnly>false</isReadOnly>
-                          <englishTitle>time</englishTitle>
-                          <orientation>Vertical</orientation>
-                          <acceptsNewLine>false</acceptsNewLine>
-                          <text />
-                        </ControlText>
-                      </GridElement>
-                      <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                        <name>tPlace1</name>
-                        <isReadOnly>false</isReadOnly>
-                        <row>0</row>
-                        <col>8</col>
-                        <rowSpan>1</rowSpan>
-                        <colSpan>4</colSpan>
-                        <isBordered>False</isBordered>
-                        <ControlText type="ALInspectionApp.FormItems.Controls.ControlText">
-                          <name>tPlace1</name>
-                          <isReadOnly>false</isReadOnly>
-                          <englishTitle>place</englishTitle>
-                          <orientation>Vertical</orientation>
-                          <acceptsNewLine>false</acceptsNewLine>
-                          <text />
-                        </ControlText>
-                      </GridElement>
-                    </elementList>
-                  </LayoutGrid>
-                </elementList>
-              </LayoutStackPanel>
-            </elementList>
+            <elementList />
           </LayoutRepeatGrid>
         </GridElement>
         <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">

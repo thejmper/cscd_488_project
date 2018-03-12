@@ -9,6 +9,7 @@
     <orientation>Vertical</orientation>
     <SelectedDateProperty />
   </ControlDate>
+  <verboseName>Resident Interview</verboseName>
   <!--Below is the list of items contained within this group-->
   <elementList>
     <LayoutGrid type="ALInspectionApp.FormItems.Layout.LayoutGrid">

@@ -75,7 +75,7 @@ namespace ALInspectionApp.Reports.Syncers
                             foreach (string formLine in result)
                             {
                                 string[] formResult = formLine.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
-                                Form tempForm = new Form("null");
+                                Form tempForm = new Form("null","none");
                                 XmlSerializer ser = new XmlSerializer(tempForm.GetType());
                                 using (TextReader tReader = new StringReader(formResult[2]))
                                 {

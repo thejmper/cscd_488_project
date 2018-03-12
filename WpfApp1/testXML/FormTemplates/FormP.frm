@@ -9,6 +9,7 @@
     <orientation>Vertical</orientation>
     <SelectedDateProperty />
   </ControlDate>
+  <verboseName>Food Service Observations</verboseName>
   <!--Below is the list of items contained within this group-->
   <elementList>
     <LayoutStackPanel type="ALInspectionApp.FormItems.Layout.LayoutStackPanel">

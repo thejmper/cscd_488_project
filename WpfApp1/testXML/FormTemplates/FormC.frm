@@ -9,6 +9,7 @@
     <orientation>Vertical</orientation>
     <SelectedDateProperty />
   </ControlDate>
+  <verboseName>Resident List</verboseName>
   <!--Below is the list of items contained within this group-->
   <elementList>
     <LayoutStackPanel type="ALInspectionApp.FormItems.Layout.LayoutStackPanel">
@@ -186,74 +187,7 @@ Number</labelText>
         </LayoutGrid>
       </template>
       <!--Below is the list of items contained within this group-->
-      <elementList>
-        <LayoutStackPanel type="ALInspectionApp.FormItems.Layout.LayoutStackPanel">
-          <name>row0</name>
-          <isReadOnly>false</isReadOnly>
-          <orientation>Vertical</orientation>
-          <!--Below is the list of items contained within this group-->
-          <elementList>
-            <LayoutGrid type="ALInspectionApp.FormItems.Layout.LayoutGrid">
-              <name>resident</name>
-              <isReadOnly>false</isReadOnly>
-              <!--Below is the list of items contained within this group-->
-              <elementList>
-                <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                  <name>roomnum</name>
-                  <isReadOnly>false</isReadOnly>
-                  <row>1</row>
-                  <col>0</col>
-                  <rowSpan>1</rowSpan>
-                  <colSpan>2</colSpan>
-                  <isBordered>True</isBordered>
-                  <ControlText type="ALInspectionApp.FormItems.Controls.ControlText">
-                    <name>roomnum</name>
-                    <isReadOnly>false</isReadOnly>
-                    <englishTitle />
-                    <orientation>Vertical</orientation>
-                    <acceptsNewLine>false</acceptsNewLine>
-                    <text />
-                  </ControlText>
-                </GridElement>
-                <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                  <name>resname</name>
-                  <isReadOnly>false</isReadOnly>
-                  <row>1</row>
-                  <col>2</col>
-                  <rowSpan>1</rowSpan>
-                  <colSpan>5</colSpan>
-                  <isBordered>True</isBordered>
-                  <ControlText type="ALInspectionApp.FormItems.Controls.ControlText">
-                    <name>resname</name>
-                    <isReadOnly>false</isReadOnly>
-                    <englishTitle />
-                    <orientation>Vertical</orientation>
-                    <acceptsNewLine>false</acceptsNewLine>
-                    <text />
-                  </ControlText>
-                </GridElement>
-                <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                  <name>notes</name>
-                  <isReadOnly>false</isReadOnly>
-                  <row>1</row>
-                  <col>7</col>
-                  <rowSpan>1</rowSpan>
-                  <colSpan>5</colSpan>
-                  <isBordered>True</isBordered>
-                  <ControlText type="ALInspectionApp.FormItems.Controls.ControlText">
-                    <name>notes</name>
-                    <isReadOnly>false</isReadOnly>
-                    <englishTitle />
-                    <orientation>Vertical</orientation>
-                    <acceptsNewLine>true</acceptsNewLine>
-                    <text />
-                  </ControlText>
-                </GridElement>
-              </elementList>
-            </LayoutGrid>
-          </elementList>
-        </LayoutStackPanel>
-      </elementList>
+      <elementList />
     </LayoutRepeatGrid>
   </elementList>
 </Form>

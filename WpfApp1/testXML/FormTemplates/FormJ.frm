@@ -9,6 +9,7 @@
     <orientation>Vertical</orientation>
     <SelectedDateProperty />
   </ControlDate>
+  <verboseName>Resident Record Review</verboseName>
   <!--Below is the list of items contained within this group-->
   <elementList>
     <LayoutStackPanel type="ALInspectionApp.FormItems.Layout.LayoutStackPanel">

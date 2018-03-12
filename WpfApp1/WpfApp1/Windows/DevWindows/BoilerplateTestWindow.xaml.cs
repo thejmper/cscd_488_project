@@ -34,6 +34,7 @@ namespace ALInspectionApp.Windows.DevWindows
 
         private void new_Click(object sender, RoutedEventArgs e)
         {
+            /*
             Form formTemplate = new Form("genericForm");
             formTemplate.AddElement(new ControlText("notes", "Some Notes", true));
 
@@ -51,6 +52,7 @@ namespace ALInspectionApp.Windows.DevWindows
 
             leftView.Content = left.UIelement;
             rightView.Content = right.UIelement;
+            */
         }
 
         private void merge_Click(object sender, RoutedEventArgs e)

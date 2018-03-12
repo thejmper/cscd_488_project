@@ -9,6 +9,7 @@
     <orientation>Vertical</orientation>
     <SelectedDateProperty />
   </ControlDate>
+  <verboseName>Exit Preparation Worksheet</verboseName>
   <!--Below is the list of items contained within this group-->
   <elementList>
     <LayoutStackPanel type="ALInspectionApp.FormItems.Layout.LayoutStackPanel">
@@ -212,90 +213,81 @@
         </LayoutGrid>
       </template>
       <!--Below is the list of items contained within this group-->
-      <elementList>
-        <LayoutStackPanel type="ALInspectionApp.FormItems.Layout.LayoutStackPanel">
-          <name>row0</name>
-          <isReadOnly>false</isReadOnly>
-          <orientation>Vertical</orientation>
-          <!--Below is the list of items contained within this group-->
-          <elementList>
-            <LayoutGrid type="ALInspectionApp.FormItems.Layout.LayoutGrid">
-              <name>body</name>
-              <isReadOnly>false</isReadOnly>
-              <!--Below is the list of items contained within this group-->
-              <elementList>
-                <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                  <name>issuesa</name>
-                  <isReadOnly>false</isReadOnly>
-                  <row>1</row>
-                  <col>0</col>
-                  <rowSpan>1</rowSpan>
-                  <colSpan>3</colSpan>
-                  <isBordered>True</isBordered>
-                  <ControlText type="ALInspectionApp.FormItems.Controls.ControlText">
-                    <name>issuesa</name>
-                    <isReadOnly>false</isReadOnly>
-                    <englishTitle />
-                    <orientation>Vertical</orientation>
-                    <acceptsNewLine>true</acceptsNewLine>
-                    <text />
-                  </ControlText>
-                </GridElement>
-                <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                  <name>resa</name>
-                  <isReadOnly>false</isReadOnly>
-                  <row>1</row>
-                  <col>3</col>
-                  <rowSpan>1</rowSpan>
-                  <colSpan>1</colSpan>
-                  <isBordered>True</isBordered>
-                  <ControlInteger type="ALInspectionApp.FormItems.Controls.ControlInteger">
-                    <name>resa</name>
-                    <isReadOnly>false</isReadOnly>
-                    <englishTitle />
-                    <orientation>Vertical</orientation>
-                    <value>0</value>
-                  </ControlInteger>
-                </GridElement>
-                <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                  <name>scopea</name>
-                  <isReadOnly>false</isReadOnly>
-                  <row>1</row>
-                  <col>4</col>
-                  <rowSpan>1</rowSpan>
-                  <colSpan>5</colSpan>
-                  <isBordered>True</isBordered>
-                  <ControlText type="ALInspectionApp.FormItems.Controls.ControlText">
-                    <name>scopea</name>
-                    <isReadOnly>false</isReadOnly>
-                    <englishTitle />
-                    <orientation>Vertical</orientation>
-                    <acceptsNewLine>true</acceptsNewLine>
-                    <text />
-                  </ControlText>
-                </GridElement>
-                <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                  <name>wac/rcwa</name>
-                  <isReadOnly>false</isReadOnly>
-                  <row>1</row>
-                  <col>9</col>
-                  <rowSpan>1</rowSpan>
-                  <colSpan>3</colSpan>
-                  <isBordered>True</isBordered>
-                  <ControlText type="ALInspectionApp.FormItems.Controls.ControlText">
-                    <name>wac/rcwa</name>
-                    <isReadOnly>false</isReadOnly>
-                    <englishTitle />
-                    <orientation>Vertical</orientation>
-                    <acceptsNewLine>true</acceptsNewLine>
-                    <text />
-                  </ControlText>
-                </GridElement>
-              </elementList>
-            </LayoutGrid>
-          </elementList>
-        </LayoutStackPanel>
-      </elementList>
+      <elementList />
     </LayoutRepeatGrid>
+    <LayoutGrid type="ALInspectionApp.FormItems.Layout.LayoutGrid">
+      <name>body</name>
+      <isReadOnly>false</isReadOnly>
+      <!--Below is the list of items contained within this group-->
+      <elementList>
+        <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
+          <name>issuesa</name>
+          <isReadOnly>false</isReadOnly>
+          <row>1</row>
+          <col>0</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>3</colSpan>
+          <isBordered>True</isBordered>
+          <ControlText type="ALInspectionApp.FormItems.Controls.ControlText">
+            <name>issuesa</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Vertical</orientation>
+            <acceptsNewLine>true</acceptsNewLine>
+            <text />
+          </ControlText>
+        </GridElement>
+        <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
+          <name>resa</name>
+          <isReadOnly>false</isReadOnly>
+          <row>1</row>
+          <col>3</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>1</colSpan>
+          <isBordered>True</isBordered>
+          <ControlInteger type="ALInspectionApp.FormItems.Controls.ControlInteger">
+            <name>resa</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Vertical</orientation>
+            <value>0</value>
+          </ControlInteger>
+        </GridElement>
+        <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
+          <name>scopea</name>
+          <isReadOnly>false</isReadOnly>
+          <row>1</row>
+          <col>4</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>5</colSpan>
+          <isBordered>True</isBordered>
+          <ControlText type="ALInspectionApp.FormItems.Controls.ControlText">
+            <name>scopea</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Vertical</orientation>
+            <acceptsNewLine>true</acceptsNewLine>
+            <text />
+          </ControlText>
+        </GridElement>
+        <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
+          <name>wac/rcwa</name>
+          <isReadOnly>false</isReadOnly>
+          <row>1</row>
+          <col>9</col>
+          <rowSpan>1</rowSpan>
+          <colSpan>3</colSpan>
+          <isBordered>True</isBordered>
+          <ControlText type="ALInspectionApp.FormItems.Controls.ControlText">
+            <name>wac/rcwa</name>
+            <isReadOnly>false</isReadOnly>
+            <englishTitle />
+            <orientation>Vertical</orientation>
+            <acceptsNewLine>true</acceptsNewLine>
+            <text />
+          </ControlText>
+        </GridElement>
+      </elementList>
+    </LayoutGrid>
   </elementList>
 </Form>

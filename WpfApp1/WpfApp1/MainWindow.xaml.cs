@@ -28,6 +28,7 @@ namespace ALInspectionApp
             //formWindow.Show();
             //this.Close();           
             
+            
             UserPrefs.OnLoad();
 
             Login loginWindow = new Login();

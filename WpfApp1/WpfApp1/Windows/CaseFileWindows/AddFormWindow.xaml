@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ALInspectionApp"
         mc:Ignorable="d"
-        Title="AddFormWindow" Height="300" Width="300">
+        Title="AddFormWindow" Height="300" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -17,6 +17,8 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding name}"/>
+                    <GridViewColumn Header="Type"  DisplayMemberBinding="{Binding verboseName}"/>
+
                 </GridView>
             </ListView.View>
             <ListView.ItemContainerStyle>

@@ -9,6 +9,7 @@
     <orientation>Vertical</orientation>
     <SelectedDateProperty />
   </ControlDate>
+  <verboseName>Medication Pass Worksheet</verboseName>
   <!--Below is the list of items contained within this group-->
   <elementList>
     <LayoutStackPanel type="ALInspectionApp.FormItems.Layout.LayoutStackPanel">
@@ -256,107 +257,7 @@ FROM OBSERVATION</labelText>
               </LayoutGrid>
             </template>
             <!--Below is the list of items contained within this group-->
-            <elementList>
-              <LayoutStackPanel type="ALInspectionApp.FormItems.Layout.LayoutStackPanel">
-                <name>row0</name>
-                <isReadOnly>false</isReadOnly>
-                <orientation>Vertical</orientation>
-                <!--Below is the list of items contained within this group-->
-                <elementList>
-                  <LayoutGrid type="ALInspectionApp.FormItems.Layout.LayoutGrid">
-                    <name>medicationPass</name>
-                    <isReadOnly>false</isReadOnly>
-                    <!--Below is the list of items contained within this group-->
-                    <elementList>
-                      <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                        <name>resname</name>
-                        <isReadOnly>false</isReadOnly>
-                        <row>0</row>
-                        <col>0</col>
-                        <rowSpan>1</rowSpan>
-                        <colSpan>3</colSpan>
-                        <isBordered>False</isBordered>
-                        <ControlText type="ALInspectionApp.FormItems.Controls.ControlText">
-                          <name>resname</name>
-                          <isReadOnly>false</isReadOnly>
-                          <englishTitle>RESIDENT NAME</englishTitle>
-                          <orientation>Vertical</orientation>
-                          <acceptsNewLine>false</acceptsNewLine>
-                          <text />
-                        </ControlText>
-                      </GridElement>
-                      <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                        <name>id</name>
-                        <isReadOnly>false</isReadOnly>
-                        <row>1</row>
-                        <col>0</col>
-                        <rowSpan>1</rowSpan>
-                        <colSpan>3</colSpan>
-                        <isBordered>False</isBordered>
-                        <ControlInteger type="ALInspectionApp.FormItems.Controls.ControlInteger">
-                          <name>id</name>
-                          <isReadOnly>false</isReadOnly>
-                          <englishTitle>ID NUMBER</englishTitle>
-                          <orientation>Vertical</orientation>
-                          <value>0</value>
-                        </ControlInteger>
-                      </GridElement>
-                      <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                        <name>drugname</name>
-                        <isReadOnly>false</isReadOnly>
-                        <row>0</row>
-                        <col>3</col>
-                        <rowSpan>1</rowSpan>
-                        <colSpan>3</colSpan>
-                        <isBordered>False</isBordered>
-                        <ControlText type="ALInspectionApp.FormItems.Controls.ControlText">
-                          <name>drugname</name>
-                          <isReadOnly>false</isReadOnly>
-                          <englishTitle />
-                          <orientation>Vertical</orientation>
-                          <acceptsNewLine>false</acceptsNewLine>
-                          <text />
-                        </ControlText>
-                      </GridElement>
-                      <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                        <name>observation</name>
-                        <isReadOnly>false</isReadOnly>
-                        <row>0</row>
-                        <col>6</col>
-                        <rowSpan>1</rowSpan>
-                        <colSpan>3</colSpan>
-                        <isBordered>False</isBordered>
-                        <ControlText type="ALInspectionApp.FormItems.Controls.ControlText">
-                          <name>observation</name>
-                          <isReadOnly>false</isReadOnly>
-                          <englishTitle />
-                          <orientation>Vertical</orientation>
-                          <acceptsNewLine>false</acceptsNewLine>
-                          <text />
-                        </ControlText>
-                      </GridElement>
-                      <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">
-                        <name>drugOrder</name>
-                        <isReadOnly>false</isReadOnly>
-                        <row>0</row>
-                        <col>9</col>
-                        <rowSpan>1</rowSpan>
-                        <colSpan>3</colSpan>
-                        <isBordered>False</isBordered>
-                        <ControlText type="ALInspectionApp.FormItems.Controls.ControlText">
-                          <name>drugOrder</name>
-                          <isReadOnly>false</isReadOnly>
-                          <englishTitle />
-                          <orientation>Vertical</orientation>
-                          <acceptsNewLine>false</acceptsNewLine>
-                          <text />
-                        </ControlText>
-                      </GridElement>
-                    </elementList>
-                  </LayoutGrid>
-                </elementList>
-              </LayoutStackPanel>
-            </elementList>
+            <elementList />
           </LayoutRepeatGrid>
         </GridElement>
         <GridElement type="ALInspectionApp.FormItems.Layout.GridElement">

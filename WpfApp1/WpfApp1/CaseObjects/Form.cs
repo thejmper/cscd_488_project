@@ -21,6 +21,11 @@ namespace ALInspectionApp.CaseObject
         public string formID { get; set; }
 
         /// <summary>
+        /// a more human-readable name describing what this form is and what it does.
+        /// </summary>
+        public string verboseName { get; private set; }
+
+        /// <summary>
         /// get the UIelement used to represent this object!
         /// </summary>
         public override UIElement UIelement { get { return this.stackPanel; } }
@@ -86,8 +91,10 @@ namespace ALInspectionApp.CaseObject
         /// public form constructor.
         /// </summary>
         /// <param name="name"></param>
-        public Form(string name): base(name)
+        public Form(string name, string verboseName): base(name)
         {
+            this.verboseName = verboseName;
+
             this.stackPanel = new StackPanel();
             this.elementList = new List<FormElement>();
 
@@ -116,7 +123,7 @@ namespace ALInspectionApp.CaseObject
             //this.onDataEntered += this.OnDataEnteredHandler();     
         }
 
-        protected Form(): this("unnamedForm")
+        protected Form(): this("unnamedForm", "A form with no set function")
         {
             
         }
@@ -148,7 +155,7 @@ namespace ALInspectionApp.CaseObject
         /// <returns></returns>
         protected override ElementGroup<FormElement> CloneInner()
         {
-            Form clone = new Form(this.name);
+            Form clone = new Form(this.name, this.verboseName);
             return clone;
         }
         /// <summary>
@@ -198,6 +205,7 @@ namespace ALInspectionApp.CaseObject
             writer.WriteStartElement(inspectionDateControl.GetType().Name);
             inspectionDateControl.WriteXml(writer);
             writer.WriteEndElement();
+            writer.WriteElementString("verboseName", this.verboseName);
             base.WriteXMLInner(writer);
         }
         /// <summary>
@@ -214,7 +222,7 @@ namespace ALInspectionApp.CaseObject
             this.inspectionDateControl.SetValue(dummy.GetValue());
 
             reader.MoveToContent();
-
+            this.verboseName = reader.ReadElementContentAsString();
             base.ReadXMLInner(reader);
         }
 
