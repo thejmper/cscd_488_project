@@ -289,3 +289,5 @@ __pycache__/
 
 conn.txt
 conn.php
+
+*.Cache
