@@ -59,18 +59,25 @@ namespace ALInspectionApp.Windows.CaseFileWindows
         /// <param name="e"></param>
         private void btnLoadFromWeb_Click(object sender, RoutedEventArgs e)
         {
-            if (selectedCaseFile != null)
+            try
             {
-                CaseFile temp = selectedCaseFile;
-                List<Report> reports = new ReportSyncer().GetReports(temp);
-                foreach (Report report in reports)
+                if (selectedCaseFile != null)
                 {
-                    temp.AddReport(report);
+                    CaseFile temp = selectedCaseFile;
+                    List<Report> reports = new ReportSyncer().GetReports(temp);
+                    foreach (Report report in reports)
+                    {
+                        temp.AddReport(report);
+                    }
+
+                    UserPrefs.caseFile = temp;
                 }
-                
-                UserPrefs.caseFile = temp;
+                this.Close();
+            } catch(Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.ToString());
             }
-            this.Close();
+            
         }
 
         private void SelectCaseFile(object sender, EventArgs e)

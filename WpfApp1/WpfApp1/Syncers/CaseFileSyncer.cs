@@ -94,7 +94,7 @@ namespace ALInspectionApp.Reports.Syncers
                         else
                         {
                             string[] result = pagesource.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
-                            CaseFile temp = new CaseFile("null", result[0], int.Parse(result[1]));
+                            CaseFile temp = new CaseFile(result[0], result[0], int.Parse(result[1]));   //changed this
                             temp.caseID = caseFileID;
                             if (int.Parse(result[2]) == 1)
                             {
@@ -130,7 +130,7 @@ namespace ALInspectionApp.Reports.Syncers
                         foreach (string caseFileLine in result)
                         {
                             string[] caseFileResult = caseFileLine.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
-                            CaseFile temp = new CaseFile("null", caseFileResult[1], int.Parse(caseFileResult[2]));
+                            CaseFile temp = new CaseFile(caseFileResult[1], caseFileResult[1], int.Parse(caseFileResult[2]));   //changed this
                             temp.caseID = caseFileResult[0];
                             if (int.Parse(caseFileResult[3]) == 1)
                             {

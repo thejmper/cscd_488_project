@@ -80,23 +80,6 @@ namespace ALInspectionApp.Windows.UserWindows
                 }
             }
             
-
-
-
-            /*
-            //TODO: check the network to make sure we've got the right credentials. If there's no network connection
-            //check against a saved file that has hashed passwords or something.
-            if (Username.Text.Equals(testUsername) && Password.Password.Equals(testPassword))
-            {
-                UserPrefs.OnLoad();
-                MainWindow mainWindow = ((MainWindow)Application.Current.MainWindow);
-                UserPrefs.SetUser(new Users.User(Username.Text, Password.Password, Username.Text), false);
-
-                mainWindow.Show();
-                this.Close();
-
-            }
-            */
         }
 
         /// <summary>

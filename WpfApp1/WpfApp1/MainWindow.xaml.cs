@@ -190,16 +190,25 @@ namespace ALInspectionApp
 
         private void MergeFile_Click(object sender, RoutedEventArgs e)
         {
+
             if(UserPrefs.caseFile == null)
             {
                 MessageBox.Show("No open case file, cannot merge!");
                 return;
             }
 
+
             CaseFileSyncer syncer = new CaseFileSyncer();
             CaseFile master = syncer.GetCaseFile(UserPrefs.caseFile.caseID);
-            master.MergeIntoSelf(UserPrefs.caseFile);
 
+            if(master == null)
+            {
+                MessageBox.Show("No server copy matches '" + UserPrefs.caseFile.name);
+            }
+            else
+            {
+                master.MergeIntoSelf(UserPrefs.caseFile);
+            }
         }
 
         private void btnAssignUser_Click(object sender, RoutedEventArgs e)

@@ -58,7 +58,19 @@ namespace ALInspectionApp.Users
         /// <summary>
         /// Whether the application has internet connectivity
         /// </summary>
-        public static bool isOnline { get; set; }
+        public static bool isOnline
+        {
+            get
+            {
+                return _isOnline;
+            }
+            set
+            {
+                _isOnline = value;
+                //doSomething();
+            }
+        }
+        private static bool _isOnline;
 
         /// <summary>
         /// the report we're working on, if we're a field user.

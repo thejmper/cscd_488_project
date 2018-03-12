@@ -139,6 +139,8 @@ namespace ALInspectionApp.CaseObject
         /// <param name="user"></param>
         public Report OpenAsUser(User user)
         {
+            MessageBox.Show("case file assigned users count: " + this.assignedUserIDs.Count);
+
             if (assignedUserIDs.Contains(user.id) && !user.isAdmin) // User is assigned and not an admin
             {
                 Report report = this.elementList.Find(item => item.licensorID.Equals(user.id));
