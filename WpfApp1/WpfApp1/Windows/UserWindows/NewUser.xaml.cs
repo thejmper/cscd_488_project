@@ -31,11 +31,16 @@ namespace ALInspectionApp.Windows.UserWindows
                 string confirm = this.cpasswordBox.Password;
                 string name = this.nameBox.Text;
                 bool isAdmin = (bool)this.isAdminCheck.IsChecked;
-                //if()
-                new UserSyncer().WebCreateUser(userName, password, name, isAdmin);
-                User user = new User(userName, password, name, isAdmin);
-                UserPrefs.AddUser(user);
-                this.Close();
+                if (userName != "" && password != "" && password == confirm && name != "")
+                {
+                    new UserSyncer().WebCreateUser(userName, password, name, isAdmin);
+                    User user = new User(userName, password, name, isAdmin);
+                    UserPrefs.AddUser(user);
+                    this.Close();
+                }
+                else {
+                    MessageBox.Show("Cannot create user with empty fields");
+                }
             } catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString());

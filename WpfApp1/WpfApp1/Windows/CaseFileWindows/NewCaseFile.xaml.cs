@@ -73,10 +73,19 @@ namespace ALInspectionApp.Windows.CaseFileWindows
         private void CreateCaseFile()
         {
             string name = this.facilityNameBox.Text;
-            int id = Int32.Parse(this.facilityIdBox.Text);
+            
+            if (name != "" && this.facilityIdBox.Text != "")
+            {
+                int id = Int32.Parse(this.facilityIdBox.Text);
+                FacilityHolder holder = this.CreateNewFacility(name, id);
+                this.CreateCaseFile(holder);
+            }
+            else
+            {
+                MessageBox.Show("cannot create a facility without name or id");
+            }
 
-            FacilityHolder holder = this.CreateNewFacility(name, id);
-            this.CreateCaseFile(holder);
+            
         }
 
         private void CreateCaseFile(FacilityHolder facility)
