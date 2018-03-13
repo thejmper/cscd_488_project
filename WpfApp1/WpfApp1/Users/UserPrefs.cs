@@ -31,6 +31,21 @@ namespace ALInspectionApp.Users
         /// permissions because he might be hacking around in the code
         /// </summary>
         public static bool userIsAuthenticatedOnline { get; private set; }
+
+        private static MainWindow _mainWindow;
+        public static MainWindow mainWindow
+        {
+            get
+            {
+                return _mainWindow;
+            }
+            set
+            {
+                _mainWindow = value;
+            }
+        }
+
+
         /// <summary>
         /// the casefile we're looking at.
         /// </summary>
@@ -45,7 +60,25 @@ namespace ALInspectionApp.Users
                 _caseFile = value;
                 report = _caseFile.OpenAsUser(user);
                 _caseFile.onDataChanged += CaseFileNewDataWatcher;
+                toggleCaseFileButtons(_caseFile != null);
             }
+        }
+
+        private static void toggleCaseFileButtons(bool enable)
+        {
+            _mainWindow.SaveFile.IsEnabled = enable;
+            if(isOnline)
+            {
+                _mainWindow.SyncFile.IsEnabled = enable;
+                _mainWindow.MergeFile.IsEnabled = enable;
+                _mainWindow.btnAssignUser.IsEnabled = enable;
+                _mainWindow.btnCloseFile.IsEnabled = enable;
+            }
+            
+            if(caseFile.assignedUserIDs.Contains(user.id) && enable)
+                _mainWindow.addForm.IsEnabled = enable;
+            
+
         }
 
         private static void CaseFileNewDataWatcher()
@@ -67,9 +100,16 @@ namespace ALInspectionApp.Users
             set
             {
                 _isOnline = value;
-                //doSomething();
+                toggleOnlineOptions(_isOnline);
             }
         }
+
+        private static void toggleOnlineOptions(bool isOnline)
+        {
+            if(mainWindow != null)
+                mainWindow.admin.IsEnabled = isOnline;
+        }
+
         private static bool _isOnline;
 
         /// <summary>

@@ -30,6 +30,7 @@ namespace ALInspectionApp
             
             
             UserPrefs.OnLoad();
+            UserPrefs.mainWindow = this;
 
             Login loginWindow = new Login();
             loginWindow.ShowDialog();

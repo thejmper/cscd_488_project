@@ -23,7 +23,8 @@ namespace ALInspectionApp.Windows.CaseFileWindows
         public LoadOpenCaseFile()
         {
             InitializeComponent();
-
+            if (!UserPrefs.isOnline)
+                this.btnLoadFromWeb.IsEnabled = false;
             CaseFileSyncer syncer = new CaseFileSyncer();
             ObservableCollection<CaseFile> caseFiles = new ObservableCollection<CaseFile>(syncer.GetAllCaseFiles());
 
