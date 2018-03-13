@@ -16,17 +16,17 @@
         <Menu>
             <MenuItem Header="File">
                 <MenuItem Header="Load" Click="loadCaseFile_Click" Name="LoadFile"/>
-                <MenuItem Header="Save" Click="saveCaseFile_Click" Name="SaveFile"/>
-                <MenuItem Header="Sync" Click="syncCaseFile_Click" Name="SyncFile"/>
-                <MenuItem Header="Merge" Name="MergeFile" Click="MergeFile_Click"/>
+                <MenuItem Header="Save" Click="saveCaseFile_Click" Name="SaveFile" IsEnabled="False"/>
+                <MenuItem Header="Sync" Click="syncCaseFile_Click" Name="SyncFile" IsEnabled="False"/>
+                <MenuItem Header="Merge" Name="MergeFile" Click="MergeFile_Click" IsEnabled="False"/>
                 <MenuItem Header="Print" Name="PrintFile" Click="PrintFile_Click"/>
             </MenuItem>
-            <MenuItem Header="AddForm" Name="addForm" Click="addForm_Click"/>
-            <MenuItem Header="Admin">
+            <MenuItem Header="AddForm" Name="addForm" Click="addForm_Click" IsEnabled="False"/>
+            <MenuItem Header="Admin" Name="admin">
                 <MenuItem Header="Create User" Name="btnCreateUser" Click="btnNewUser_Click"/>
                 <MenuItem Header="New Case File" Click="newCaseFile_Click" Name="NewFile"/>
-                <MenuItem Header="Assign User" Name="btnAssignUser" Click="btnAssignUser_Click"/>
-                <MenuItem Header="Close Case File" Name="btnCloseFile" Click="btnCloseFile_Click"/>
+                <MenuItem Header="Assign User" Name="btnAssignUser" Click="btnAssignUser_Click" IsEnabled="False"/>
+                <MenuItem Header="Close Case File" Name="btnCloseFile" Click="btnCloseFile_Click" IsEnabled="False"/>
             </MenuItem>
             <MenuItem Header="Login">
                 <MenuItem Header="Login" Click="Login_Click"/>
