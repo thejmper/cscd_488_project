@@ -106,7 +106,7 @@ function userExists($conn, $username)
 
 function createUser($conn, $username, $password, $name, $admin)
 {
-	if (!userExists($conn, $username))
+	if (!empty($username) && !empty($password) && !empty($name) && !userExists($conn, $username))
 	{
 		$passwordHashed = password_hash($password, PASSWORD_DEFAULT);
 		$sql = "INSERT INTO users (username, password, name, admin) VALUES (?,?,?,?)";
