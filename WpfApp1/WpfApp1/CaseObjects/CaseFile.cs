@@ -218,6 +218,11 @@ namespace ALInspectionApp.CaseObject
             return report;
         }
 
+        public void AssignUser(string username)
+        {
+            assignedUserIDs.Add(username);
+        }
+
         //--list manipulation--//
         /// <summary>
         /// manages logic to add a report to this casefile. Not publically accessible.

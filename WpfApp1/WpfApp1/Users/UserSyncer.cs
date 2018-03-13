@@ -120,7 +120,7 @@ namespace ALInspectionApp.Users
                     foreach (string parameter in result)
                     {
                         string[] userString = parameter.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries); // Parse into individual components of a user
-                        users.Add(new User(userString[0], "null", userString[1], Convert.ToBoolean(Convert.ToInt32(userString[2]))));
+                        users.Add(new User(userString[0], "null", userString[1], Convert.ToBoolean(Convert.ToInt32(userString[2])))); // We make sure not to get the password for security reasons
                     }
                 }
             } catch (WebException e)

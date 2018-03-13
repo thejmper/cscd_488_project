@@ -15,10 +15,12 @@ namespace ALInspectionApp.Reports.Syncers
     public class CaseFileSyncer
     {
         string caseSyncAddress;
+        string usersAssignedAddress;
 
         public CaseFileSyncer()
         {
-            caseSyncAddress = "http://anthonyreinecker.com/seniorproject/casesync.php";
+            caseSyncAddress = "http://anthonyreinecker.com/seniorproject/casefile/casesync.php";
+            usersAssignedAddress = "http://anthonyreinecker.com/seniorproject/casefile/users/users.php";
         }
 
         public Boolean AssignUser(string userID, string caseFileID)
@@ -100,6 +102,11 @@ namespace ALInspectionApp.Reports.Syncers
                             {
                                 temp.CloseCase();
                             }
+                            foreach (string username in AssignedUsers(caseFileID))
+                            {
+                                temp.AssignUser(username);
+                            }
+
                             return temp;
                         }
                     }
@@ -135,6 +142,10 @@ namespace ALInspectionApp.Reports.Syncers
                             if (int.Parse(caseFileResult[3]) == 1)
                             {
                                 temp.CloseCase();
+                            }
+                            foreach (string username in AssignedUsers(temp.caseID))
+                            {
+                                temp.AssignUser(username);
                             }
                             caseFiles.Add(temp);
                         }
@@ -211,6 +222,36 @@ namespace ALInspectionApp.Reports.Syncers
             {
                 reportSyncer.InsertReport(report);
             }
+        }
+
+        private List<String> AssignedUsers(string caseFileID)
+        {
+            List<String> users = new List<String>();
+
+            try
+            {
+                WebRequest request = WebRequest.Create(usersAssignedAddress + "?case_id=" + caseFileID);
+                request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
+                request.Method = "GET";
+                using (WebResponse response = request.GetResponse())
+                {
+                    using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+                    {
+                        string pagesource = stream.ReadToEnd();
+                        string[] result = pagesource.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                        foreach (string userLine in result)
+                        {
+                            users.Add(userLine);
+                        }
+                    }
+                }
+            } catch (WebException e)
+            {
+                Console.WriteLine(e.Message);
+                UserPrefs.isOnline = false;
+            }
+
+            return users;
         }
 
         private void UpdateCaseFile(CaseFile file)
