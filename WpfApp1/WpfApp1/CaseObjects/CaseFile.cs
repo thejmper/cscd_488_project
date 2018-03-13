@@ -127,6 +127,10 @@ namespace ALInspectionApp.CaseObject
                 if (this.onCaseFileChanged != null)
                     this.onCaseFileChanged.Invoke();
             this.hasUnsavedData = true;
+            foreach (Report report in reports)
+            {
+                report.lastModified = DateTime.Now;
+            }
         }
 
         //--opening--//
@@ -184,7 +188,7 @@ namespace ALInspectionApp.CaseObject
                 Report localCopy = this.elementList.Find(x => x.name.Equals(report.name));
                 if (localCopy == null)
                     this.AddElementInternal(report);
-                else if(report.lastModified > localCopy.lastModified)
+                else if (report.lastModified > localCopy.lastModified)
                 {
                     this.RemoveElementInternal(localCopy);
                     this.AddElementInternal(report);
@@ -326,6 +330,7 @@ namespace ALInspectionApp.CaseObject
         /// <param name="writer"></param>
         protected override void WriteXMLInner(XmlWriter writer)
         {
+            writer.WriteElementString("caseID", this.caseID);
             writer.WriteElementString("facilityName", this.facilityName);
             writer.WriteElementString("facilityLicenseNumber", this.facilitylicenseNumber.ToString());
 
@@ -342,6 +347,7 @@ namespace ALInspectionApp.CaseObject
         /// <param name="reader"></param>
         protected override void ReadXMLInner(XmlReader reader)
         {
+            this.caseID = reader.ReadElementContentAsString();
             this.facilityName = reader.ReadElementContentAsString();
             this.facilitylicenseNumber = Int32.Parse(reader.ReadElementContentAsString());
 

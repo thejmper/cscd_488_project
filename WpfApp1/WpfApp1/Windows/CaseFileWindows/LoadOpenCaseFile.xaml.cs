@@ -64,14 +64,7 @@ namespace ALInspectionApp.Windows.CaseFileWindows
             {
                 if (selectedCaseFile != null)
                 {
-                    CaseFile temp = selectedCaseFile;
-                    List<Report> reports = new ReportSyncer().GetReports(temp);
-                    foreach (Report report in reports)
-                    {
-                        temp.AddReport(report);
-                    }
-
-                    UserPrefs.caseFile = temp;
+                    UserPrefs.caseFile = new CaseFileSyncer().GetCaseFile(selectedCaseFile.caseID);
                 }
                 this.Close();
             } catch(Exception ex)

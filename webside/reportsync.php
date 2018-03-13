@@ -20,6 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	{
 		createReport($conn, $_POST["case_id"], $_POST["author_id"]);
 	}
+	else if (isset($_POST["report_id"]))
+	{
+		updateReport($conn, $report_id);
+	}
 }
 else if ($_SERVER['REQUEST_METHOD'] === 'GET')
 {
@@ -54,6 +58,15 @@ function createReport($conn, $caseID, $authorID)
 		echo $reportID;
 	}
 
+	$statement->close();
+}
+
+function updateReport($conn, $reportID)
+{
+	$sql = "UPDATE reports SET last_modified=UTC_TIMESTAMP() WHERE report_id=?";
+	$statement = $conn->prepare($sql);
+	$statement->bind_param("i", $reportID);
+	$statement->execute();
 	$statement->close();
 }
 

@@ -202,6 +202,7 @@ namespace ALInspectionApp.CaseObject
         /// <param name="writer"></param>
         protected override void WriteXMLInner(XmlWriter writer)
         {
+            writer.WriteElementString("formID", formID);
             writer.WriteStartElement(inspectionDateControl.GetType().Name);
             inspectionDateControl.WriteXml(writer);
             writer.WriteEndElement();
@@ -214,6 +215,8 @@ namespace ALInspectionApp.CaseObject
         /// <param name="reader"></param>
         protected override void ReadXMLInner(XmlReader reader)
         {
+            this.formID = reader.ReadElementContentAsString();
+
             Type type = typeof(ControlDate);
             XmlSerializer ser = new XmlSerializer(type);
             ControlDate dummy = (ControlDate)ser.Deserialize(reader);

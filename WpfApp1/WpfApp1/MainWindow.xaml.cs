@@ -105,22 +105,6 @@ namespace ALInspectionApp
             }
         }
 
-        // Syncs the casefile to the database.
-        private void syncCaseFile_Click(object sender, RoutedEventArgs e)
-        {
-            if (UserPrefs.caseFile == null)
-            {
-                MessageBox.Show("Nothing to sync");
-            }
-            else
-            {
-                //CaseFile.SaveCaseFile(UserPrefs.caseFile, save.FileName);
-                CaseFileSyncer syncer = new CaseFileSyncer();
-                syncer.InsertCaseFile(UserPrefs.caseFile);
-                MessageBox.Show("Synced with database");
-            }
-        }
-
         private void newCaseFile_Click(object sender, RoutedEventArgs e)
         {
             NewCaseFile n = new NewCaseFile();
@@ -210,6 +194,8 @@ namespace ALInspectionApp
             else
             {
                 master.MergeIntoSelf(UserPrefs.caseFile);
+                new CaseFileSyncer().InsertCaseFile(master);
+                MessageBox.Show("Synced with database");
             }
         }
 

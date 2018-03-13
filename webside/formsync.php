@@ -15,7 +15,11 @@ if ($conn->connect_error)
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
-	if (isset($_POST["report_id"]) && isset($_POST["fields_xml"]))
+	if (isset($_POST["form_id"]) && isset($_POST["fields_xml"]))
+	{
+		updateForm($conn, $_POST["form_id"], $_POST["fields_xml"]);
+	}
+	else if (isset($_POST["report_id"]) && isset($_POST["fields_xml"]))
 	{
 		createForm($conn, $_POST["report_id"], $_POST["fields_xml"]);
 	}
@@ -25,6 +29,10 @@ else if ($_SERVER['REQUEST_METHOD'] === 'GET')
 	if (isset($_GET["report_id"]))
 	{
 		getFormsByReport($conn, $_GET["report_id"]);
+	}
+	else if (isset($_GET["form_id"]))
+	{
+		formExists($conn, $_GET["form_id"]);
 	}
 }
 
@@ -51,6 +59,15 @@ function createForm($conn, $reportID, $fieldsXML)
 	$statement->close();
 }
 
+function updateForm($conn, $formID, $fieldsXML)
+{
+	$sql = "UPDATE forms SET fields_XML=?, last_modified=UTC_TIMESTAMP() WHERE form_id=?";
+	$statement = $conn->prepare($sql);
+	$statement->bind_param("si", $fieldsXML, $formID);
+	$statement->execute();
+	$statement->close();
+}
+
 function getFormsByReport($conn, $reportID)
 {
 	$sql = "SELECT * FROM forms WHERE report_id=?";
@@ -65,6 +82,31 @@ function getFormsByReport($conn, $reportID)
 	}
 
 	$statement->close();
+}
+
+function formExists($conn, $formID)
+{
+	$sql = "SELECT EXISTS (SELECT * FROM forms WHERE form_id=?) as doesExist";
+	$statement = $conn->prepare($sql);
+	$statement->bind_param("i", $formID);
+	$statement->execute();
+	$statement->bind_result($doesExist);
+
+	while ($statement->fetch())
+	{
+		$result = array("doesExist"=>$doesExist);
+	}
+	$statement->close();
+	if ($doesExist === 1)
+	{
+		echo "true";
+		return true;
+	}
+	else
+	{
+		echo "false";
+		return false;
+	}
 }
 
 ?>

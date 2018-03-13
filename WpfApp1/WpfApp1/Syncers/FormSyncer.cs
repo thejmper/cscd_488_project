@@ -22,7 +22,6 @@ namespace ALInspectionApp.Reports.Syncers
             formSyncAddress = "http://anthonyreinecker.com/seniorproject/formsync.php";
         }
 
-        // TODO: Handle duplicate forms
         public void InsertForm(Form form)
         {
             string formXML;
@@ -33,22 +32,44 @@ namespace ALInspectionApp.Reports.Syncers
                 formXML = writer.ToString();
             }
 
-            try
+            if (!FormExists(form.formID))
             {
-                using (WebClient client = new WebClient())
+                try
                 {
-                    NameValueCollection postData = new NameValueCollection()
+                    using (WebClient client = new WebClient())
+                    {
+                        NameValueCollection postData = new NameValueCollection()
+                        {
+                            {"report_id", form.report.reportID },
+                            {"fields_xml",  formXML }
+                        };
+                        string pagesource = Encoding.UTF8.GetString(client.UploadValues(formSyncAddress, postData));
+                        form.formID = pagesource;
+                    }
+                } catch (WebException e)
                 {
-                    {"report_id", form.report.reportID },
-                    {"fields_xml",  formXML }
-                };
-                    string pagesource = Encoding.UTF8.GetString(client.UploadValues(formSyncAddress, postData));
-                    form.formID = pagesource;
+                    Console.WriteLine(e.Message);
+                    UserPrefs.isOnline = false;
                 }
-            } catch (WebException e)
+            }
+            else // Update the form's entry in the database
             {
-                Console.WriteLine(e.Message);
-                UserPrefs.isOnline = false;
+                try
+                {
+                    using (WebClient client = new WebClient())
+                    {
+                        NameValueCollection postData = new NameValueCollection()
+                        {
+                            {"form_id", form.formID },
+                            {"fields_xml",  formXML }
+                        };
+                        string pagesource = Encoding.UTF8.GetString(client.UploadValues(formSyncAddress, postData));
+                    }
+                } catch (WebException e)
+                {
+                    Console.WriteLine(e.Message);
+                    UserPrefs.isOnline = false;
+                }
             }
         }
 
@@ -81,6 +102,7 @@ namespace ALInspectionApp.Reports.Syncers
                                 {
                                     tempForm = (Form)ser.Deserialize(tReader);
                                 }
+                                tempForm.formID = formResult[0];
                                 forms.Add(tempForm);
                             }
 
@@ -93,6 +115,33 @@ namespace ALInspectionApp.Reports.Syncers
                 Console.WriteLine(e.Message);
                 UserPrefs.isOnline = false;
                 return forms;
+            }
+        }
+
+        public Boolean FormExists(string formID)
+        {
+            try
+            {
+                WebRequest request = WebRequest.Create(formSyncAddress + "?form_id=" + formID);
+                request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
+                request.Method = "GET";
+                using (WebResponse response = request.GetResponse())
+                {
+                    using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+                    {
+                        string pagesource = stream.ReadToEnd();
+                        if (pagesource == "true")
+                        {
+                            return true;
+                        }
+                        return false;
+                    }
+                }
+            } catch (WebException e)
+            {
+                Console.WriteLine(e);
+                UserPrefs.isOnline = false;
+                return true;
             }
         }
     }

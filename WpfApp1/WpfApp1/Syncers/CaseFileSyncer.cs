@@ -76,6 +76,50 @@ namespace ALInspectionApp.Reports.Syncers
             }
         }
 
+        public CaseFile GetCaseInfo(string caseFileID)
+        {
+            try
+            {
+                WebRequest request = WebRequest.Create(caseSyncAddress + "?case_id=" + caseFileID);
+                request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
+                request.Method = "GET";
+                using (WebResponse response = request.GetResponse())
+                {
+                    using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+                    {
+                        string pagesource = stream.ReadToEnd();
+                        Console.WriteLine(pagesource);
+                        if (pagesource == "invalid")
+                        {
+                            return null;
+                        }
+                        else
+                        {
+                            string[] result = pagesource.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                            CaseFile temp = new CaseFile(result[0], result[0], int.Parse(result[1]));   //changed this
+                            temp.caseID = caseFileID;
+                            if (int.Parse(result[2]) == 1)
+                            {
+                                temp.CloseCase();
+                            }
+                            foreach (string username in AssignedUsers(caseFileID))
+                            {
+                                temp.AssignUser(username);
+                            }
+
+                            return temp;
+                        }
+                    }
+                }
+            }
+            catch (WebException e)
+            {
+                Console.WriteLine(e.Message);
+                UserPrefs.isOnline = false;
+                return null;
+            }
+        }
+
         public CaseFile GetCaseFile(string caseFileID)
         {
             try
@@ -105,6 +149,11 @@ namespace ALInspectionApp.Reports.Syncers
                             foreach (string username in AssignedUsers(caseFileID))
                             {
                                 temp.AssignUser(username);
+                            }
+                            List<Report> reports = new ReportSyncer().GetReports(temp);
+                            foreach (Report report in reports)
+                            {
+                                temp.AddReport(report);
                             }
 
                             return temp;
@@ -192,7 +241,7 @@ namespace ALInspectionApp.Reports.Syncers
 
         public void InsertCaseFile(CaseFile file)
         {
-            if (GetCaseFile(file.caseID) == null)
+            if (GetCaseInfo(file.caseID) == null)
             {
                 try
                 {

@@ -2,6 +2,7 @@
 <Form type="ALInspectionApp.CaseObject.Form">
   <name>FormM</name>
   <isReadOnly>false</isReadOnly>
+  <formID></formID>
   <ControlDate type="ALInspectionApp.FormItems.Controls.ControlDate">
     <name>inspectionDate</name>
     <isReadOnly>false</isReadOnly>

@@ -69,7 +69,6 @@ namespace ALInspectionApp.Users
             _mainWindow.SaveFile.IsEnabled = enable;
             if(isOnline)
             {
-                _mainWindow.SyncFile.IsEnabled = enable;
                 _mainWindow.MergeFile.IsEnabled = enable;
                 _mainWindow.btnAssignUser.IsEnabled = enable;
                 _mainWindow.btnCloseFile.IsEnabled = enable;

@@ -112,6 +112,7 @@ namespace ALInspectionApp.CaseObject
 
             Form newForm = (Form)formTemplate.Clone(name + suffix.ToString());
             this.AddElementInternal(newForm);
+            newForm.formID = formTemplate.formID;
             newForm.report = this;
 
             return newForm;
@@ -137,6 +138,7 @@ namespace ALInspectionApp.CaseObject
         //--save/load--//
         protected override void WriteXMLInner(XmlWriter writer)
         {
+            writer.WriteElementString("reportID", reportID);
             writer.WriteElementString("licensorName", this.licensorName);
             writer.WriteElementString("licensorID", this.licensorID);
             writer.WriteElementString("lastModified", DateTime.Now.ToString());
@@ -144,6 +146,7 @@ namespace ALInspectionApp.CaseObject
         }
         protected override void ReadXMLInner(XmlReader reader)
         {
+            this.reportID = reader.ReadElementContentAsString();
             this.licensorName = reader.ReadElementContentAsString();
             this.licensorID = reader.ReadElementContentAsString();
             this.lastModified = DateTime.Parse(reader.ReadElementContentAsString());
