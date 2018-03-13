@@ -33,7 +33,10 @@ namespace ALInspectionApp.Users
                         return null;
                     }
                     string[] result = pagesource.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
-
+                    if (result.Length == 1)
+                    {
+                        return null;
+                    }
                     return new User(username, password, result[0], Convert.ToBoolean(Convert.ToInt32(result[1])));
                 }
             } catch (WebException e)

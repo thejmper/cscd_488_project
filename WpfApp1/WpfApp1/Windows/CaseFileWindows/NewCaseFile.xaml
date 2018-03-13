@@ -16,8 +16,8 @@
         <ListView Name="ExistingCaseFiles" Grid.Row="0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding name}"/>
-                    <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding id}"/>
+                    <GridViewColumn Header="Facility Name"  DisplayMemberBinding="{Binding name}"/>
+                    <GridViewColumn Header="Facility ID" Width="120" DisplayMemberBinding="{Binding id}"/>
                 </GridView>
             </ListView.View>
             <ListView.ItemContainerStyle>
