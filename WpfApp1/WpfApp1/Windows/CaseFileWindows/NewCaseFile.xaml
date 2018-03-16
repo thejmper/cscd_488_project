@@ -17,7 +17,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Facility Name"  DisplayMemberBinding="{Binding name}"/>
-                    <GridViewColumn Header="Facility ID" Width="120" DisplayMemberBinding="{Binding id}"/>
+                    <GridViewColumn Header="Facility Licence Number" Width="120" DisplayMemberBinding="{Binding id}"/>
                 </GridView>
             </ListView.View>
             <ListView.ItemContainerStyle>
