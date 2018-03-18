@@ -30,10 +30,10 @@ namespace ALInspectionApp.Reports.Syncers
                 using (WebClient client = new WebClient())
                 {
                     NameValueCollection postData = new NameValueCollection()
-                {
-                    {"username", userID },
-                    {"caseID", caseFileID }
-                };
+                    {
+                        {"username", userID },
+                        {"caseID", caseFileID }
+                    };
                     string pagesource = Encoding.UTF8.GetString(client.UploadValues(caseSyncAddress, postData));
                     return true;
                     // TODO: Check if user is already added
@@ -117,6 +117,26 @@ namespace ALInspectionApp.Reports.Syncers
                 Console.WriteLine(e.Message);
                 UserPrefs.isOnline = false;
                 return null;
+            }
+        }
+
+        public void CloseCaseFile(string caseFileID)
+        {
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    NameValueCollection postData = new NameValueCollection()
+                    {
+                        {"caseID", caseFileID },
+                        {"close", "true" }
+                    };
+                    string pagesource = Encoding.UTF8.GetString(client.UploadValues(caseSyncAddress, postData));
+                }
+            } catch (WebException e)
+            {
+                Console.WriteLine(e);
+                UserPrefs.isOnline = false;
             }
         }
 

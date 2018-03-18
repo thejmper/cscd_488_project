@@ -45,6 +45,14 @@ namespace ALInspectionApp.CaseObject
         /// Is this casefile open for editing.
         /// </summary>
         public bool isOpen { get; private set; }
+        // Added closed variable to get proper value for LoadOpenCaseFile window
+        public bool closed
+        {
+            get
+            {
+                return !isOpen;
+            }
+        }
 
         public string caseID { get; set; }
 
@@ -465,6 +473,7 @@ namespace ALInspectionApp.CaseObject
         {
             isOpen = false;
             this.SetReadOnly(true);
+            new CaseFileSyncer().CloseCaseFile(this.caseID);
         }
     }
 }

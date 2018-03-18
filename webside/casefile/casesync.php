@@ -23,6 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	{
 		assignUser($conn, $_POST["caseID"], $_POST["username"]);
 	}
+	else if (isset($_POST["close"]) && isset($_POST["caseID"]))
+	{
+		closeCase($conn, $_POST["caseID"]);
+	}
 }
 else if ($_SERVER['REQUEST_METHOD'] === 'GET')
 {
@@ -89,6 +93,15 @@ function getCase($conn, $caseID)
 		echo "invalid";
 	}
 
+	$statement->close();
+}
+
+function closeCase($conn, $caseID)
+{
+	$sql = "UPDATE case_files SET closed=1 WHERE case_id=?";
+	$statement = $conn->prepare($sql);
+	$statement->bind_param("i", $caseID);
+	$statement->execute();
 	$statement->close();
 }
 
