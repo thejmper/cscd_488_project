@@ -143,6 +143,13 @@ namespace ALInspectionApp.CaseObject
         /// <param name="user"></param>
         public Report OpenAsUser(User user)
         {
+            //casefile is closed. Can't make it read only at all.
+            if (!this.isOpen)
+            {
+                this.SetReadOnly(true);
+                return null;
+            }
+
             if (assignedUserIDs.Contains(user.id) && !user.isAdmin) // User is assigned and not an admin
             {
                 Report report = this.elementList.Find(item => item.licensorID.Equals(user.id));
@@ -338,6 +345,12 @@ namespace ALInspectionApp.CaseObject
             foreach (string id in assignedUserIDs)
                 writer.WriteElementString("id", id);
 
+            if (this.isOpen)
+                writer.WriteElementString("isOpen", "true");
+            else
+                writer.WriteElementString("isOpen", "false");
+
+
 
             base.WriteXMLInner(writer);
         }
@@ -354,6 +367,12 @@ namespace ALInspectionApp.CaseObject
             int idCount = Int32.Parse(reader.ReadElementContentAsString());
             for (int i = 0; i < idCount; i++)
                 this.assignedUserIDs.Add(reader.ReadElementContentAsString());
+
+            if (reader.ReadElementContentAsString().Equals("true"))
+                this.isOpen = true;
+            else
+                this.isOpen = false;
+
             base.ReadXMLInner(reader);
         }
         /// <summary>
@@ -444,7 +463,8 @@ namespace ALInspectionApp.CaseObject
         /// </summary>
         public void CloseCase()
         {
-            isOpen = true;
+            isOpen = false;
+            this.SetReadOnly(true);
         }
     }
 }

@@ -208,6 +208,27 @@ namespace ALInspectionApp
 
         private void btnCloseFile_Click(object sender, RoutedEventArgs e)
         {
+            CaseFile caseFile = UserPrefs.caseFile;
+            if(caseFile == null)
+            {
+                MessageBox.Show("No open case file to close!");
+                return;
+            }
+
+            string message = "Closing the casefile will disable editing and is not reversible. Continue?";
+            MessageBoxResult result = MessageBox.Show(message, "Close Case File", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    caseFile.CloseCase();
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
 
 
