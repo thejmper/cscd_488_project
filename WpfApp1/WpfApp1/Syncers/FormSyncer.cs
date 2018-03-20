@@ -13,6 +13,10 @@ using System.Xml.Serialization;
 
 namespace ALInspectionApp.Reports.Syncers
 {
+    /// <summary>
+    /// Handles syncing of forms to the database.
+    /// Use a CaseFileSyncer to handle the full sync process.
+    /// </summary>
     public class FormSyncer
     {
         string formSyncAddress;
@@ -22,6 +26,10 @@ namespace ALInspectionApp.Reports.Syncers
             formSyncAddress = "http://anthonyreinecker.com/seniorproject/formsync.php";
         }
 
+        /// <summary>
+        /// Creates/Updates a form.
+        /// </summary>
+        /// <param name="form"></param>
         public void InsertForm(Form form)
         {
             string formXML;
@@ -73,6 +81,11 @@ namespace ALInspectionApp.Reports.Syncers
             }
         }
 
+        /// <summary>
+        /// Gets all forms under a report.
+        /// </summary>
+        /// <param name="report"></param>
+        /// <returns></returns>
         public List<Form> GetForms(Report report)
         {
             List<Form> forms = new List<Form>();
@@ -118,6 +131,11 @@ namespace ALInspectionApp.Reports.Syncers
             }
         }
 
+        /// <summary>
+        /// Returns whether a form exists under that formID.
+        /// </summary>
+        /// <param name="formID"></param>
+        /// <returns></returns>
         public Boolean FormExists(string formID)
         {
             try

@@ -19,7 +19,7 @@ namespace ALInspectionApp.Users
                 throw new ArgumentException("Error: username '" + id + "' invalid! It cannot have spaces!");
 
             this.id = id.Trim();
-            this.password = PasswordHash.Hash(password); // TODO: hash the password
+            this.password = PasswordHash.Hash(password);
             this.name = name.Trim();
             this.isAdmin = isAdmin;
         }

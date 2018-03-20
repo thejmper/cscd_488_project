@@ -226,12 +226,10 @@ namespace ALInspectionApp.CaseObject
                 throw new ArgumentException("ERROR: User'" + user.ToString() + "' already assigned to this case file!");
 
             assignedUserIDs.Add(user.id);
-            // TODO: Timeout silently when there is no internet
             new CaseFileSyncer().AssignUser(user.id, this.caseID);
 
             Report report = new Report(user.id +"_Report", user.name, user.id, this);
             this.AddElementInternal(report);
-            // TOOD: Timeout silently when there is no internet
             new ReportSyncer().InsertReport(report);
 
             return report;

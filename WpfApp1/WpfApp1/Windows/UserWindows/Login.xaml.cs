@@ -21,11 +21,6 @@ namespace ALInspectionApp.Windows.UserWindows
     /// </summary>
     public partial class Login : Window
     {
-        //placeholders. 
-        //todo: remove!
-        //String testUsername = "Username";
-        //string testPassword = "password";
-
         //--member fields--//
         private Dictionary<string, string> userPasswordHashes;
 
@@ -36,47 +31,30 @@ namespace ALInspectionApp.Windows.UserWindows
             InitializeComponent();
 
             this.LoadPasswordHashes();
-            //TODO: get rid of this, it's only for testing!
-            this.AddPasswordHash("Username", PasswordHash.Hash("password"));
-
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: write code to pseudocode structure
-            //if(isOnline){
-            //  string hashedPassword = getHashedPasswordFromServer();
-            //  
-            //  string enteredPasswordHash = PasswordHash.Hash(Password.password);
-            //  if(enteredPasswordHash.equals(hashedPassword){
-            //      login and set user
-            //      this.AddPasswordHash(username, hashedPassword);
-            //  }
-            //}
             User tempUser = new UserSyncer().WebLogin(Username.Text, Password.Password);
             if (tempUser != null)
             {
                 UserPrefs.SetUser(tempUser, true);
+                this.AddPasswordHash(Username.Text, PasswordHash.Hash(Password.Password));
                 MainWindow mainWindow = ((MainWindow)Application.Current.MainWindow);
                 this.Close();
             }
             else
             {
-                //if(!isOnline)
+                if (this.CheckPasswordLocal(Username.Text, Password.Password))
                 {
-                    string passwordHash = PasswordHash.Hash(Password.Password);
-                    if (this.CheckPasswordLocal(Username.Text, passwordHash))
-                    {
-                        UserPrefs.SetUser(new Users.User(Username.Text, Password.Password, Username.Text), false);  //this could be better. TODO: Anthony, do we actually need this?
+                    UserPrefs.SetUser(new Users.User(Username.Text, Password.Password, Username.Text), false);
 
-                        MainWindow mainWindow = ((MainWindow)Application.Current.MainWindow);
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Wrong username or password");
-                    }
+                    MainWindow mainWindow = ((MainWindow)Application.Current.MainWindow);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Wrong username or password");
                 }
             }
             

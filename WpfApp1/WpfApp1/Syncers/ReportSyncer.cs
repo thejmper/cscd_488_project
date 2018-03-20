@@ -12,6 +12,10 @@ using System.Threading.Tasks;
 
 namespace ALInspectionApp.Reports.Syncers
 {
+    /// <summary>
+    /// Handles syncing of reports with the database.
+    /// Use a CaseFileSyncer to handle the full sync process.
+    /// </summary>
     class ReportSyncer
     {
         string reportSyncAddress;
@@ -21,6 +25,10 @@ namespace ALInspectionApp.Reports.Syncers
             reportSyncAddress = "http://anthonyreinecker.com/seniorproject/reportsync.php";
         }
 
+        /// <summary>
+        /// Creates/Updates a report.
+        /// </summary>
+        /// <param name="report"></param>
         public void InsertReport(Report report)
         {
             if (GetReport(report.reportID) == null)
@@ -55,6 +63,10 @@ namespace ALInspectionApp.Reports.Syncers
             }
         }
 
+        /// <summary>
+        /// Updates the report
+        /// </summary>
+        /// <param name="report"></param>
         private void UpdateReport(Report report)
         {
             try
@@ -75,6 +87,11 @@ namespace ALInspectionApp.Reports.Syncers
             }
         }
 
+        /// <summary>
+        /// Gets a report from the database
+        /// </summary>
+        /// <param name="reportID"></param>
+        /// <returns></returns>
         public Report GetReport(string reportID)
         {
             try
@@ -116,7 +133,11 @@ namespace ALInspectionApp.Reports.Syncers
             }
         }
 
-        // TODO: Handle case when user has no forms
+        /// <summary>
+        /// Gets all reports under a casefile.
+        /// </summary>
+        /// <param name="caseFile"></param>
+        /// <returns></returns>
         public List<Report> GetReports(CaseFile caseFile)
         {
             List<Report> reports = new List<Report>();

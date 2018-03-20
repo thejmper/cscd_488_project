@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 
 namespace ALInspectionApp.Reports.Syncers
 {
+    /// <summary>
+    /// Handles syncing of of case files to the database.
+    /// </summary>
     public class CaseFileSyncer
     {
         string caseSyncAddress;
@@ -23,6 +26,12 @@ namespace ALInspectionApp.Reports.Syncers
             usersAssignedAddress = "http://anthonyreinecker.com/seniorproject/casefile/users/users.php";
         }
 
+        /// <summary>
+        /// Assigns a user to a casefile.
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="caseFileID"></param>
+        /// <returns></returns>
         public Boolean AssignUser(string userID, string caseFileID)
         {
             try
@@ -46,6 +55,12 @@ namespace ALInspectionApp.Reports.Syncers
             }
         }
 
+        /// <summary>
+        /// Returns whether the user is assigned to the casefile.
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="caseFileID"></param>
+        /// <returns></returns>
         public Boolean IsUserAssigned(string userID, string caseFileID)
         {
             try
@@ -76,6 +91,12 @@ namespace ALInspectionApp.Reports.Syncers
             }
         }
 
+        /// <summary>
+        /// Get just the casefile without any of it's reports.
+        /// For when you just need basic info about the casefile.
+        /// </summary>
+        /// <param name="caseFileID"></param>
+        /// <returns></returns>
         public CaseFile GetCaseInfo(string caseFileID)
         {
             try
@@ -96,7 +117,7 @@ namespace ALInspectionApp.Reports.Syncers
                         else
                         {
                             string[] result = pagesource.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
-                            CaseFile temp = new CaseFile(result[0], result[0], int.Parse(result[1]));   //changed this
+                            CaseFile temp = new CaseFile(result[0], result[0], int.Parse(result[1]));
                             temp.caseID = caseFileID;
                             if (int.Parse(result[2]) == 1)
                             {
@@ -120,6 +141,10 @@ namespace ALInspectionApp.Reports.Syncers
             }
         }
 
+        /// <summary>
+        /// Informs the database that the casefile is closed.
+        /// </summary>
+        /// <param name="caseFileID"></param>
         public void CloseCaseFile(string caseFileID)
         {
             try
@@ -140,6 +165,11 @@ namespace ALInspectionApp.Reports.Syncers
             }
         }
 
+        /// <summary>
+        /// Get a casefile. Also gets all the reports and forms included with it.
+        /// </summary>
+        /// <param name="caseFileID"></param>
+        /// <returns></returns>
         public CaseFile GetCaseFile(string caseFileID)
         {
             try
@@ -188,6 +218,10 @@ namespace ALInspectionApp.Reports.Syncers
             }
         }
 
+        /// <summary>
+        /// Gets all the casefiles.
+        /// </summary>
+        /// <returns></returns>
         public List<CaseFile> GetAllCaseFiles()
         {
             List<CaseFile> caseFiles = new List<CaseFile>();
@@ -229,6 +263,12 @@ namespace ALInspectionApp.Reports.Syncers
             return caseFiles;
         }
 
+        /// <summary>
+        /// Creates a blank casefile on the database.
+        /// </summary>
+        /// <param name="facilityName"></param>
+        /// <param name="facilityLicenseNumber"></param>
+        /// <returns></returns>
         public CaseFile CreateCaseFile(string facilityName, int facilityLicenseNumber)
         {
             try
@@ -259,6 +299,10 @@ namespace ALInspectionApp.Reports.Syncers
             
         }
 
+        /// <summary>
+        /// Creates/Updates a casefile on the database and also adds the reports/forms.
+        /// </summary>
+        /// <param name="file"></param>
         public void InsertCaseFile(CaseFile file)
         {
             if (GetCaseInfo(file.caseID) == null)
@@ -293,6 +337,11 @@ namespace ALInspectionApp.Reports.Syncers
             }
         }
 
+        /// <summary>
+        /// Gets a list of assigned users to that casefile.
+        /// </summary>
+        /// <param name="caseFileID"></param>
+        /// <returns></returns>
         private List<String> AssignedUsers(string caseFileID)
         {
             List<String> users = new List<String>();
@@ -325,7 +374,7 @@ namespace ALInspectionApp.Reports.Syncers
 
         private void UpdateCaseFile(CaseFile file)
         {
-
+            // TODO: Implement handling of changing casefile info
         }
     }
 }
