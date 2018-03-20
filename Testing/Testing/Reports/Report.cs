@@ -1,12 +1,13 @@
-﻿using Testing.Reports.Fields;
+﻿using WpfApp1.Reports.Fields;
 
 using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.Xml;
 using System.Xml.Schema;
+using WpfApp1.Reports.Syncers;
 
-namespace Testing.Reports
+namespace WpfApp1.Reports
 {
     /// <summary>
     /// A report filled out by ONE person for ONE facility. 
@@ -26,12 +27,15 @@ namespace Testing.Reports
         /// To avoid conflics, append a username or something on the front to make sure
         /// we never have any overlap within a case file.
         /// </summary>
-        public string reportID { get; private set; }
+        public string reportID { get; set; }
         /// <summary>
         /// name of the person doing the report
         /// </summary>
         public string licensorName { get; private set; }
-
+        /// <summary>
+        /// last time the report was modified
+        /// </summary>
+        public DateTime lastModified { get; set; }
 
         //stuff we get from the case file
         /// <summary>
@@ -43,8 +47,9 @@ namespace Testing.Reports
         /// </summary>
         public int facilityLicenseNo { get { return this.caseFile.facilityLicenseNo; } }
 
+
         //stuff that lives in the report
-        private List<Form> forms;
+        public List<Form> forms { get; }
 
         /// <summary>
         /// creates a report. Internal only Should be called *only* from the case-file level, that way

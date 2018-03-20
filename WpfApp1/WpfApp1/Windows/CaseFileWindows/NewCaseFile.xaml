@@ -1,0 +1,48 @@
+﻿<Window x:Class="ALInspectionApp.Windows.CaseFileWindows.NewCaseFile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ALInspectionApp"
+        mc:Ignorable="d"
+        Title="NewCaseFile" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        
+        <ListView Name="ExistingCaseFiles" Grid.Row="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Facility Name"  DisplayMemberBinding="{Binding name}"/>
+                    <GridViewColumn Header="Facility Licence Number" Width="120" DisplayMemberBinding="{Binding id}"/>
+                </GridView>
+            </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="MouseDoubleClick" Handler="ExistingDoubleClick"/>
+                    <EventSetter Event="Selected" Handler="Selected"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+        <StackPanel Grid.Row="1">
+            <Label>Create New Facility</Label>
+            <StackPanel Orientation="Horizontal">
+                <Label>Facility name:</Label>
+                <TextBox Name="facilityNameBox" Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Facility License Number</Label>
+                <TextBox Name="facilityIdBox" Width="100" PreviewTextInput="NumberValidationTextBox"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2">
+            <Button Name="btnCreate" Margin="5" Click="btnCreate_Click">Create Casefile</Button>
+            <Button Name="btnCreateAndAssign" Margin="5" Click="btnCreateAndAssign_Click">Create and Assign Users</Button>
+        </StackPanel>
+    </Grid>
+</Window>

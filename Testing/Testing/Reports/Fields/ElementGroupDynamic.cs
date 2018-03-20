@@ -5,9 +5,9 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
-using Testing.Reports.Fields;
+using WpfApp1.Reports.Fields;
 
-namespace Testing.Reports
+namespace WpfApp1.Reports
 {
     /// <summary>
     /// group or more than one element

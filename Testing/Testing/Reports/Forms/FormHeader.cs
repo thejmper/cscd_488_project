@@ -1,6 +1,6 @@
-﻿using Testing.Reports.Fields;
+﻿using WpfApp1.Reports.Fields;
 
-namespace Testing.Reports.Forms
+namespace WpfApp1.Reports.Forms
 {
     /// <summary>
     /// class for the generic header that goes at the top of every form!

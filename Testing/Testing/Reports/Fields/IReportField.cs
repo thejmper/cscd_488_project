@@ -1,7 +1,7 @@
 ﻿using System.Xml;
 using System.Xml.Serialization;
 
-namespace Testing.Reports.Fields
+namespace WpfApp1.Reports.Fields
 {
     /// <summary>
     /// delegate called when a field changes its data!

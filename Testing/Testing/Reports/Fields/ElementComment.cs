@@ -3,7 +3,7 @@ using System;
 using System.Xml;
 using System.Xml.Schema;
 
-namespace Testing.Reports.Fields
+namespace WpfApp1.Reports.Fields
 {
     /// <summary>
     /// Represents a read-only comment in the form, with no interaction possible

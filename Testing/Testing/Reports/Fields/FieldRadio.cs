@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Xml;
 
-namespace Testing.Reports.Fields
+namespace WpfApp1.Reports.Fields
 {
     public class FieldRadio: ElementGroup, IReportField
     {

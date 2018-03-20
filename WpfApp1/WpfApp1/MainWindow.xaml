@@ -1,0 +1,50 @@
+﻿<Window x:Class="ALInspectionApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ALInspectionApp"
+        mc:Ignorable="d"
+        Closing="Window_Closing"
+        Title="MainWindow" Height="600" Width="800">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem Header="Load" Click="loadCaseFile_Click" Name="LoadFile"/>
+                <MenuItem Header="Save" Click="saveCaseFile_Click" Name="SaveFile" IsEnabled="False"/>
+                <MenuItem Header="Merge" Name="MergeFile" Click="MergeFile_Click" IsEnabled="False"/>
+                <MenuItem Header="Print" Name="PrintFile" Click="PrintFile_Click"/>
+            </MenuItem>
+            <MenuItem Header="AddForm" Name="addForm" Click="addForm_Click" IsEnabled="False"/>
+            <MenuItem Header="Admin" Name="admin">
+                <MenuItem Header="Create User" Name="btnCreateUser" Click="btnNewUser_Click"/>
+                <MenuItem Header="New Case File" Click="newCaseFile_Click" Name="NewFile"/>
+                <MenuItem Header="Assign User" Name="btnAssignUser" Click="btnAssignUser_Click" IsEnabled="False"/>
+                <MenuItem Header="Close Case File" Name="btnCloseFile" Click="btnCloseFile_Click" IsEnabled="False"/>
+            </MenuItem>
+            <MenuItem Header="Login">
+                <MenuItem Header="Login" Click="Login_Click"/>
+            </MenuItem>
+        </Menu>
+
+
+        <Grid Grid.Row="1">
+            <ScrollViewer Name="scrollView" HorizontalScrollBarVisibility="Visible"  VerticalScrollBarVisibility="Visible"  Grid.Row="1">
+
+            </ScrollViewer>
+        </Grid>
+
+        
+        <!--
+        <FlowDocumentScrollViewer Name="flowScroll" Grid.Row="1">
+            
+        </FlowDocumentScrollViewer>
+        -->
+        
+    </Grid>
+</Window>

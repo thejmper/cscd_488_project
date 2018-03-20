@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Xml;
 
-using Testing.Reports.Fields;
-using Testing.Reports.Forms;
+using WpfApp1.Reports.Fields;
+using WpfApp1.Reports.Forms;
+using WpfApp1.Reports.Syncers;
 
-namespace Testing.Reports
+namespace WpfApp1.Reports
 {
     /// <summary>
     /// represents ONE form that a user might fill out as part of his report.
@@ -21,6 +22,8 @@ namespace Testing.Reports
         /// last time this report was modified.
         /// </summary>
         public DateTime inspectionDate { get { return this.header.lastModified; } }
+
+        public string formID { get; set; }
 
         //stuff we get from the report!
         /// <summary>
@@ -102,6 +105,11 @@ namespace Testing.Reports
         {
             this.report = report;
             this.header.Update(this);
+        }
+
+        public string getReportID()
+        {
+            return report.reportID;
         }
 
         //--save/load--//

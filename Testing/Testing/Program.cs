@@ -1,8 +1,13 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.IO;
+using System.Net;
+using System.Text;
 using System.Xml.Serialization;
-using Testing.Reports;
-using Testing.Reports.Fields;
+using WpfApp1.Reports;
+using WpfApp1.Reports.Fields;
+using WpfApp1.Reports.Syncers;
+using WpfApp1.Users;
 
 namespace Testing
 {
@@ -10,18 +15,62 @@ namespace Testing
     {
         static void Main(string[] args)
         {
-            TestGroup();
+            string urlAddress = "http://anthonyreinecker.com/test.php";
+            using (WebClient client = new WebClient())
+            {
+                NameValueCollection postData = new NameValueCollection()
+                {
+
+                };
+
+                string pagesource = Encoding.UTF8.GetString(client.UploadValues(urlAddress, postData));
+                Console.WriteLine(pagesource);
+                Console.WriteLine("Press enter to close...");
+                Console.ReadLine();
+            }
+            //TestGroup();
+            //TestForm();
         }
         private static void TestForm()
         {
             CaseFile caseFile = new CaseFile("case00001", "Steve's assisted living", 00004);
             Report report = caseFile.AddReport("kenny00001", "kenny");
             Form form = report.AddForm(new Form("formA"));
+            User testUser;
 
 
             Console.WriteLine(caseFile);
 
-           
+            Console.WriteLine("Testing users");
+            UserSyncer userSyncer = new UserSyncer();
+            userSyncer.CreateUser("tester", "tpassword", "Bob", false);
+            Console.WriteLine("Testing valid login info");
+            testUser = userSyncer.Login("tester", "tpassword");
+            Console.WriteLine("Testing invalid login info");
+            userSyncer.Login("tester", "asd");
+            Console.WriteLine("Testing colliding usernames user creation");
+            userSyncer.CreateUser("tester", "tPassword", "Bill", true);
+
+            CaseFileSyncer syncer = new CaseFileSyncer();
+            Console.WriteLine("Testing inserting case file into database");
+            //syncer.SyncCaseFile(caseFile, testUser);
+            caseFile.Sync(testUser);
+            Console.WriteLine("Testing updating case file already in database");
+            CaseFile caseFile2 = new CaseFile("case00001", "Bob's assisted living", 00004);
+            //syncer.SyncCaseFile(caseFile2, testUser);
+            caseFile2.Sync(testUser);
+            CaseFile caseFile3 = new CaseFile(caseFile2.caseID, "Bob's existing living", 00004);
+            syncer.UpdateCaseFile(caseFile3);
+
+            CaseFile databaseCaseFile = new CaseFile("14", "invalid", -1);
+            //databaseCaseFile = syncer.SyncCaseFile(databaseCaseFile, testUser);
+            databaseCaseFile.Sync(testUser);
+            Console.WriteLine(databaseCaseFile);
+
+
+
+
+
             string dir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "testXML");
             
             XmlSerializer ser = new XmlSerializer(caseFile.GetType());

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+using WpfApp1.Reports.Syncers;
+using WpfApp1.Users;
 
-namespace Testing.Reports
+namespace WpfApp1.Reports
 {
     /// <summary>
     /// class that contains all the reports from MULTIPLE people assigned to ONE location
@@ -27,9 +29,13 @@ namespace Testing.Reports
         /// id number of the facility
         /// </summary>
         public int facilityLicenseNo { get; private set; }
+        /// <summary>
+        /// last time the case file data specifically (not reports within the case file) was modified
+        /// </summary>
+        public DateTime lastModified { get; set; }
 
         //--sub-reports--//
-        private List<Report> reports;
+        public List<Report> reports { get; private set; }
 
         //--creation--//
         public CaseFile(string caseID, string facilityName, int facilityLicenseNo)
@@ -37,6 +43,7 @@ namespace Testing.Reports
             this.caseID = caseID;
             this.facilityName = facilityName;
             this.facilityLicenseNo = facilityLicenseNo;
+            lastModified = DateTime.Now;
 
             this.reports = new List<Report>();
         }
@@ -45,6 +52,7 @@ namespace Testing.Reports
             this.caseID = "NONE_ASSIGNED";
             this.facilityName = "NONE_ASSIGNED";
             this.facilityLicenseNo = -1;
+            lastModified = DateTime.Now;
 
             this.reports = new List<Report>();
         }
@@ -87,6 +95,43 @@ namespace Testing.Reports
             this.reports.Add(report);
 
             return report;
+        }
+
+        public Report UpdateReport(string reportID, DateTime lastModified)
+        {
+            foreach (Report report in this.reports)
+            {
+                if (report.reportID == reportID)
+                {
+                    report.lastModified = lastModified;
+                    return report;
+                }
+            }
+            throw new System.ArgumentException("Report id: " + reportID + " does not exist in this case file!");
+        }
+
+        public Report GetReport(string reportID)
+        {
+            foreach (Report report in this.reports)
+            {
+                if (report.reportID == reportID)
+                {
+                    return report;
+                }
+            }
+            throw new System.ArgumentException("Report id: " + reportID + " does not exist in this case file!");
+        }
+
+        public Boolean HasReport(string reportID)
+        {
+            foreach (Report report in this.reports)
+            {
+                if (report.reportID == reportID)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         //--save/load--//
@@ -155,6 +200,22 @@ namespace Testing.Reports
             }
 
             return sb.ToString();
+        }
+
+        public void Sync(User user)
+        {
+            CaseFileSyncer syncer = new CaseFileSyncer();
+            CaseFile tempCaseFile = syncer.SyncCaseFile(this, user);
+            caseID = tempCaseFile.caseID;
+            facilityName = tempCaseFile.facilityName;
+            facilityLicenseNo = tempCaseFile.facilityLicenseNo;
+            reports = tempCaseFile.reports;
+        }
+
+        public void AssignUser(User user)
+        {
+            CaseFileSyncer syncer = new CaseFileSyncer();
+            syncer.AssignUser(user, this);
         }
     }
 }

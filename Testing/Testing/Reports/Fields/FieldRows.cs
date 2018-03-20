@@ -2,7 +2,7 @@
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace Testing.Reports.Fields
+namespace WpfApp1.Reports.Fields
 {
     /// <summary>
     /// class for a field that contains several rows of the same groupped commands.

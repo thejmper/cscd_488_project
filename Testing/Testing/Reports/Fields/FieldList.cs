@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Schema;
 
-namespace Testing.Reports.Fields
+namespace WpfApp1.Reports.Fields
 {
     public class FieldList: FieldGeneric
     {

@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace Testing.Reports.Fields
+namespace WpfApp1.Reports.Fields
 {
     public interface IReportElement: IXmlSerializable
     {
