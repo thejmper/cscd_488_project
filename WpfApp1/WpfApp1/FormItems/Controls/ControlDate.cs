@@ -60,6 +60,9 @@ namespace ALInspectionApp.FormItems.Controls
             dataHolder.date = value;
             ((DatePicker)control).SelectedDate = value;
 
+            if(value == DateTime.MinValue)
+                ((DatePicker)control).SelectedDate = null;
+
             //make sure we don't accidently call this when the user didn't enter anything new
             control.SelectedDateChanged += this.Control_SelectedDateChanged;
         }

@@ -118,7 +118,16 @@ namespace ALInspectionApp
             if (UserPrefs.caseFile != null)
             {
                 this.SetCaseFile();
+                if (UserPrefs.caseFile.assignedUserIDs.Contains(UserPrefs.user.id))
+                {
+                    this.addForm.IsEnabled = true;
+                }
+                else
+                {
+                    this.addForm.IsEnabled = false;
+                }
             }
+            
 
             /*
             XmlSerializer ser = new XmlSerializer(typeof(CaseFile));
