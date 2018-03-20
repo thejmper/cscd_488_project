@@ -6,6 +6,9 @@ using System.Text;
 
 namespace ALInspectionApp.Users
 {
+    /// <summary>
+    /// Handles interaction of users with the database.
+    /// </summary>
     public class UserSyncer
     {
         string loginAddress;
@@ -15,6 +18,12 @@ namespace ALInspectionApp.Users
             loginAddress = "http://anthonyreinecker.com/seniorproject/login.php";
         }
 
+        /// <summary>
+        /// If login credentials are correct, returns a user built with info from the database.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public User WebLogin(string username, string password)
         {
             try
@@ -47,6 +56,11 @@ namespace ALInspectionApp.Users
             }
         }
 
+        /// <summary>
+        /// Returns whether that username is in use.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public Boolean WebUserExists(string username)
         {
             try
@@ -76,6 +90,14 @@ namespace ALInspectionApp.Users
             }
         }
 
+        /// <summary>
+        /// Creates a user on the database.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="name"></param>
+        /// <param name="admin"></param>
+        /// <returns></returns>
         public User WebCreateUser(string username, string password, string name, Boolean admin)
         {
             try
@@ -105,6 +127,10 @@ namespace ALInspectionApp.Users
             
         }
 
+        /// <summary>
+        /// Get a list of all users.
+        /// </summary>
+        /// <returns></returns>
         public List<User> WebGetListOfUsers()
         {
             List<User> users = new List<User>();
